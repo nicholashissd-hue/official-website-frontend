@@ -16,10 +16,12 @@ import buttonBg from "@/assets/svg/button-bg.svg";
 
 interface CalendlyCTAProp {
   shouldRenderOnMobile: boolean;
+  className?: string;
 }
 
 const CalendlyCTA: React.FC<CalendlyCTAProp> = ({
   shouldRenderOnMobile = false,
+  className = "",
 }) => {
   const [open, setOpen] = useState(false);
   //   const [mounted, setMounted] = useState(false);
@@ -120,7 +122,7 @@ const CalendlyCTA: React.FC<CalendlyCTAProp> = ({
       <button
         // variant="button"
         onClick={handleOpenModal}
-        className={`relative cursor-pointer font-medium  px-6 h-10 rounded-full overflow-hidden text-white  hover:-translate-y-1 border  transition-transform duration-200  w-69.5 sm:w-fit  ${shouldRenderOnMobile ? "md:hidden inline-block mb-2 w-69.5 sm:w-fit text-white! h-14  " : "hidden md:inline-block"} ${!isScrolled && isHomePage ? "border-primary bg-primary btn-glass-effect text-white" : "border-primary  bg-white!   btn-glass-effect"} `}
+        className={`relative cursor-pointer font-medium  px-6 h-10 rounded-full overflow-hidden text-white  hover:-translate-y-1 border  transition-transform duration-200  w-69.5 sm:w-fit ${shouldRenderOnMobile ? "md:hidden inline-block mb-2 w-69.5 sm:w-fit text-white! h-14  " : "hidden md:inline-block"} ${!isScrolled && isHomePage ? "border-primary bg-primary btn-glass-effect text-white" : "border-primary  bg-white!   btn-glass-effect"} ${className}`}
       >
         <span className="relative z-10"> Book a Consultation</span>
         <img

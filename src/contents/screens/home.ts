@@ -172,7 +172,7 @@ export const comparisonData = {
         "Premium retainers",
         "High markups, opaque pricing",
         "Cost-effective but quality-inconsistent",
-        "Transparent pricing. Premium talent at sustainable rates.",
+        "Transparent pricing with premium talent at sustainable rates",
       ],
     },
     {
@@ -181,7 +181,7 @@ export const comparisonData = {
         "Strong frameworks, bundled into overhead",
         "Minimal transactional by design",
         "Variable. Rarely enterprise-grade",
-        "Enterprise governance embedded in every engagement.",
+        "Enterprise governance embedded in every engagement",
       ],
     },
     {
@@ -190,7 +190,7 @@ export const comparisonData = {
         "Strong but not exclusively technical",
         "Volume-driven, inconsistent vetting",
         "Mixed, dependent on vendor management",
-        "<4% acceptance rate. Every engineer technically assessed.",
+        "<4% acceptance rate with every engineer technically assessed",
       ],
     },
     {
@@ -199,7 +199,7 @@ export const comparisonData = {
         "Project-level, consultative",
         "Limited post-placement",
         "Diffused. Hard to attribute",
-        "Named account partner. SLA enforcement. Performance metrics.",
+        "Named account partner, SLA enforcement, and performance metrics",
       ],
     },
   ],

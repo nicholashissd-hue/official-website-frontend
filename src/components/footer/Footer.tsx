@@ -31,48 +31,48 @@ const Footer = () => {
           </div>
         )}
 
-        <div className="bg-white p-10 rounded-3xl shadow-[0px_4px_50px_0px_#02361B1A]">
+        <div className="rounded-[24px] bg-white p-6 shadow-[0px_4px_50px_0px_#02361B1A] sm:rounded-3xl sm:p-10">
           <img
             src={footerLogo}
             alt="elder ops logo"
-            className="mb-12 mx-auto"
+            className="mx-auto mb-10 sm:mb-12"
           />
 
-          <div className="flex flex-col items-center justify-between mb-10">
+          <div className="mb-8 flex flex-col items-center justify-between sm:mb-10">
             <Navbar
-              className="text-[#5B5B5B] font-medium grid sm:flex text-center sm:text-start"
+              className="grid gap-2 text-center font-medium text-[#5B5B5B] sm:flex sm:justify-center sm:!gap-8 sm:text-start lg:!gap-12"
               isFooter
             />
           </div>
 
-          <div className="border-t border-t-[#EAEAEA] pt-4 text-xs font-medium">
+          <div className="border-t border-t-[#EAEAEA] pt-5 text-xs font-medium">
             <div className="flex flex-col items-center justify-between gap-5 w-full xl:flex-row">
-              <div className="flex items-center flex-wrap justify-center gap-4 text-xs text-[#8BA396] font-bold lg:justify-start sm:gap-12 lg:gap-16">
-                <a href="mailto:contact@elderops.net">
+              <div className="flex w-full flex-col items-center gap-3 text-center text-xs font-bold text-[#8BA396] sm:flex-row sm:flex-wrap sm:justify-center sm:gap-8 sm:text-left lg:justify-start lg:gap-16">
+                <a href="mailto:contact@elderops.net" className="break-all sm:break-normal">
                   Email:{" "}
                   <span className="text-accent-one">contact@elderops.net</span>
                 </a>
 
-                <a href="mailto:contact@elderops.net">
+                <a href="mailto:contact@elderops.net" className="break-all sm:break-normal">
                   Contact enquiries:{" "}
                   <span className="text-accent-one">contact@elderops.net</span>
                 </a>
-                <a href="tel:+16285550147">
+                <a href="tel:+16285550147" className="break-all sm:break-normal">
                   Phone:{" "}
                   <span className="text-accent-one">+1 (628) 555-0147</span>
                 </a>
               </div>
 
-              <div className="text-[#767676] flex items-center gap-4">
-                <p>© {currentYear} ElderOps</p>
+              <div className="flex shrink-0 flex-nowrap items-center justify-center gap-3 whitespace-nowrap text-[#767676] sm:gap-4 xl:justify-end">
+                <p className="whitespace-nowrap">© {currentYear} ElderOps</p>
 
-                <div className="bg-[#767676] size-1 rounded-full" />
+                <div className="hidden size-1 rounded-full bg-[#767676] sm:block" />
 
-                <a href="/">Terms</a>
+                <a href="/" className="whitespace-nowrap">Terms</a>
 
-                <div className="bg-[#767676] size-1 rounded-full" />
+                <div className="hidden size-1 rounded-full bg-[#767676] sm:block" />
 
-                <a href="/">Privacy</a>
+                <a href="/" className="whitespace-nowrap">Privacy</a>
               </div>
             </div>
           </div>

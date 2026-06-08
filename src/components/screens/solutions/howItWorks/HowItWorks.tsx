@@ -8,20 +8,22 @@ import MatchingApproachCard from "./MatchingApproachCard";
 
 const HowItWorks = () => {
   return (
-    <section className="relative container section-space-top pb-0 sm:pb-20">
+    <section className="relative container py-16 md:py-24 lg:flex lg:min-h-svh lg:flex-col lg:justify-center">
       <img
         src={dotParticle}
         alt="Decorative pattern"
         aria-hidden="true"
-        className="absolute right-0 top-0 hidden sm:block"
+        className="absolute right-0 top-0 hidden max-h-52 sm:block"
       />
 
       <div className="z-10 pb-0">
-        <Animated variant="slideUp" className="mb-12 md:mb-16">
-          <SectionTitle>{howItWorksText.title}</SectionTitle>
+        <Animated variant="slideUp" className="mb-10 md:mb-18">
+          <SectionTitle className="md:!text-[clamp(3rem,4vw,3.85rem)] md:!leading-[1.05]">
+            {howItWorksText.title}
+          </SectionTitle>
         </Animated>
 
-        <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="relative grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4 xl:gap-7">
           {/* Line connecting card 2 to card 3 (top) */}
           <img
             src={connectingLineTop}

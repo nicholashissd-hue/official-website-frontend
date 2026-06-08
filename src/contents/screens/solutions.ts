@@ -7,6 +7,7 @@ import shipFaster from "@/assets/svg/ship-faster.svg";
 import improveReadability from "@/assets/svg/improve-readability.svg";
 import reduceCost from "@/assets/svg/reduce-cost.svg";
 import reliability from "@/assets/svg/improve-readabil.svg";
+import dataTrustworthy from "@/assets/svg/data-trustworthy.svg";
 
 import pos from "@/assets/svg/pos.svg";
 import woman from "@/assets/svg/woman.svg";
@@ -41,12 +42,17 @@ import retailsFive from "@/assets/svg/media-five.svg";
 
 export const serviceCategoriesText = {
   title: "High-Quality Matching. Zero Guesswork.",
+  description:
+    "Explore the service lanes we align to your roadmap, with clearly defined delivery strengths across infrastructure, data, AI, and product execution.",
 };
 
 export const serviceCategoriesData = [
   {
     id: 1,
     title: "Cloud, DevOps & Reliability",
+    description:
+      "Strengthen release velocity and platform resilience with delivery systems built for uptime, observability, and clean operational ownership.",
+    imageBackground: "#EAF3EE",
     image: cloudImg,
     list: [
       "CI/CD modernization",
@@ -58,6 +64,9 @@ export const serviceCategoriesData = [
   {
     id: 2,
     title: "Data Platforms & Engineering",
+    description:
+      "Build dependable data foundations that make reporting, analytics, and downstream product decisions easier to trust and scale.",
+    imageBackground: "#F4F6DD",
     list: [
       "Scalable pipelines",
       "Warehouse and lakehouse builds",
@@ -69,6 +78,9 @@ export const serviceCategoriesData = [
   {
     id: 3,
     title: "Analytics & Business Intelligence",
+    description:
+      "Turn fragmented reporting into decision-ready insight with cleaner metrics, sharper dashboards, and stronger governance.",
+    imageBackground: "#EFF3EA",
     list: [
       "KPI frameworks",
       "Executive dashboards",
@@ -80,6 +92,9 @@ export const serviceCategoriesData = [
   {
     id: 4,
     title: "AI/ML Enablement",
+    description:
+      "Move machine learning from experimentation into production with the tooling, monitoring, and performance discipline teams actually need.",
+    imageBackground: "#E8F1EC",
     list: [
       "Model deployment support",
       "MLOps foundations",
@@ -91,6 +106,9 @@ export const serviceCategoriesData = [
   {
     id: 5,
     title: "Product Engineering",
+    description:
+      "Accelerate customer-facing delivery with product-minded engineers who can move across features, APIs, and platform services without losing quality.",
+    imageBackground: "#F1F4E7",
 
     list: [
       "Feature development",
@@ -105,7 +123,7 @@ export const serviceCategoriesData = [
 export const solutionsCTAText = {
   title: "Not sure where you fit?",
   description:
-    "Tell us what you're building we'll recommend the best solution approach.",
+    "Tell us what you're building, and we’ll recommend the best approach for you.",
   buttonText: "Let's Talk",
   buttonLink: "/contact-us",
 };
@@ -122,8 +140,9 @@ export const howWeDeliverData = [
     id: 2,
     number: "02",
     image: improveReadability,
-    title: "Improve Reliability",
-    description: "Strong delivery cadence, clean handoffs, clear ownership",
+    title: "Improve Readability",
+    description:
+      "Clearer metrics, sharper reporting, and cleaner documentation for faster decisions",
   },
   {
     id: 3,
@@ -143,7 +162,7 @@ export const howWeDeliverData = [
   {
     id: 5,
     number: "05",
-    image: shipFaster,
+    image: dataTrustworthy,
     title: "Make Data Trustworthy",
     description: "Quality checks, modeling discipline, metric consistency",
   },

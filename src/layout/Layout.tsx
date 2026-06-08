@@ -1,6 +1,7 @@
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import ScrollToTop from "@/components/ScrollToTop";
+import ChatWidget from "@/components/chatbot/ChatWidget";
 import CTASection from "@/components/ui/cta-section";
 import { useLocation } from "react-router";
 import { Outlet } from "react-router";
@@ -19,6 +20,7 @@ const Layout = () => {
         {!isHomePage && <CTASection />}
         <Footer />
       </main>
+      <ChatWidget />
     </div>
   );
 };

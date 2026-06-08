@@ -10,27 +10,27 @@ const MatchingApproachCard = ({
   description,
 }: MatchingApproachCardProps) => {
   return (
-    <div className="bg-bg-cream max-sm:p-10 rounded-3xl border border-border-light h-full flex flex-col sm:pt-10 sm:pb-13 sm:px-6">
+    <div className="flex h-full min-h-[18.75rem] flex-col rounded-3xl border border-border-light bg-bg-cream p-6 sm:min-h-[22.5rem] sm:px-7 sm:pt-11 sm:pb-14 lg:min-h-[24.5rem]">
       <div>
         <p
-          className="text-[#557866] font-medium mb-5"
+          className="mb-4 font-medium text-[#557866] sm:mb-5"
           aria-label={`Step ${step}`}
         >
           Step
         </p>
         <p
-          className="text-[140px] font-urbanist font-semibold text-bg-light leading-19"
+          className="font-urbanist text-[112px] font-semibold leading-none text-bg-light sm:text-[140px] sm:leading-19 lg:text-[152px]"
           aria-hidden="true"
         >
           {step}
         </p>
       </div>
 
-      <div className="mt-10 md:mt-8">
-        <h3 className="text-primary text-2xl leading-8 font-urbanist font-semibold mb-1.5">
+      <div className="mt-8 md:mt-8">
+        <h3 className="mb-2 font-urbanist text-[1.55rem] font-semibold leading-tight text-primary sm:text-[1.9rem]">
           {title}
         </h3>
-        <p className="text-accent-one leading-6">{description}</p>
+        <p className="text-[0.97rem] leading-6 text-accent-one sm:text-base sm:leading-7">{description}</p>
       </div>
     </div>
   );

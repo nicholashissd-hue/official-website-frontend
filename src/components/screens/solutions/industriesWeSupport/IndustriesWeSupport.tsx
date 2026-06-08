@@ -20,18 +20,20 @@ const IndustriesWeSupport = () => {
   const selectedIndustry = industriesData.find((ind) => ind.id === openCardId);
 
   return (
-    <section className="relative container py-22 md:pt-18 md:pb-25">
+    <section className="relative container py-16 md:py-24 lg:flex lg:min-h-svh lg:flex-col lg:justify-center">
       {/* <img
         src={dotParticle}
         alt="Decorative pattern"
         className="absolute left-4 top-0 hidden lg:block lg:left-16"
         aria-hidden="true"
       /> */}
-      <Animated variant="slideUp" className="text-center mb-12 md:mb-16">
-        <SectionTitle>{industriesText.title}</SectionTitle>
+      <Animated variant="slideUp" className="mb-10 text-center md:mb-18 lg:mb-20">
+        <SectionTitle className="md:!text-[clamp(3rem,4vw,3.85rem)] md:!leading-[1.05]">
+          {industriesText.title}
+        </SectionTitle>
       </Animated>
 
-      <Stagger className="grid grid-cols-1 space-y-4 sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:grid-cols-3 items-stretch">
+      <Stagger className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3 lg:gap-8 xl:gap-9">
         {industriesData.map((industry) => (
           <StaggerItem key={industry.id} variant="slideUp">
             <IndustriesCard

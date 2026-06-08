@@ -1,90 +1,50 @@
-import { useScroll } from "framer-motion";
-import { Animated, Stagger, StaggerItem } from "@/components/ui/animated";
+import { Animated } from "@/components/ui/animated";
 import maskedDots from "@/assets/svg/service-category-bg.svg";
 import {
   serviceCategoriesData,
   serviceCategoriesText,
 } from "@/contents/screens/solutions";
 import SectionTitle from "@/components/ui/section-title";
-import ScrollCard from "./ScrollCard";
-import SimpleServiceCard from "./SimpleServiceCard";
-import { useEffect, useRef } from "react";
-import { useInView } from "framer-motion";
-import { useGlobalStore } from "@/store/useGlobalStore";
+import ServiceCard from "./ServiceCard";
 
 const ServiceCategories = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const sectionContainerRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionContainerRef, {
-    margin: "-20% 0px -20% 0px",
-  });
-  const setNavbarRevealBlocked = useGlobalStore(
-    (state) => state.setNavbarRevealBlocked,
-  );
-
-  useEffect(() => {
-    setNavbarRevealBlocked(isInView);
-
-    return () => {
-      setNavbarRevealBlocked(false);
-    };
-  }, [isInView, setNavbarRevealBlocked]);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
-  });
-
   return (
     <section
-      ref={sectionContainerRef}
-      className="relative w-full h-auto bg-cover md:bg-fixed"
-      style={{ backgroundImage: `url(${maskedDots})` }}
+      className="relative isolate bg-[#FAFBF6]"
     >
-      {/* Desktop: Scroll-driven card area*/}
       <div
-        ref={sectionRef}
-        className="relative hidden container py-22 md:pt-25 md:pb-16 md:block"
-        style={{ height: `${serviceCategoriesData.length * 115}vh` }}
-      >
-        <Animated variant="slideUp" className="md:mb-16 mx-auto">
-          <SectionTitle className="text-white text-center">
+        className="absolute inset-0 opacity-[0.08]"
+        style={{ backgroundImage: `url(${maskedDots})`, backgroundSize: "cover" }}
+      />
+      <div className="absolute left-1/2 top-12 h-44 w-44 -translate-x-1/2 rounded-full bg-[#DDE392]/25 blur-3xl md:top-20 md:h-72 md:w-72" />
+
+      <div className="container relative pt-18 pb-14 md:pt-32 md:pb-24">
+        <Animated
+          variant="slideUp"
+          className="mx-auto mb-10 max-w-5xl text-center md:mb-20"
+        >
+          <SectionTitle className="text-primary md:!text-[clamp(3rem,4vw,3.85rem)] md:!leading-[1.05]">
             {serviceCategoriesText.title}
           </SectionTitle>
+          <p className="mx-auto mt-3 max-w-3xl text-[0.98rem] leading-7 text-accent-one sm:text-base md:mt-4 md:text-xl md:leading-9">
+            {serviceCategoriesText.description}
+          </p>
         </Animated>
 
-        <div className="sticky top-0 h-dvh flex flex-col justify-center items-center">
-          <div className="relative w-full max-w-280 h-full mx-auto overflow-hidden">
-            {serviceCategoriesData.map((card, i) => (
-              <ScrollCard
-                key={i}
-                card={card}
-                index={i}
-                total={serviceCategoriesData.length}
-                scrollYProgress={scrollYProgress}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile: simple stacked cards */}
-      <div className="container section-space-block md:hidden">
-        <Animated variant="slideUp" className="mb-10">
-          <div className="max-w-5xl mx-auto text-center">
-            <SectionTitle className="text-white">
-              {serviceCategoriesText.title}
-            </SectionTitle>
-          </div>
-        </Animated>
-
-        <Stagger className="space-y-8">
-          {serviceCategoriesData.map((service) => (
-            <StaggerItem key={service.id} variant="slideUp">
-              <SimpleServiceCard {...service} />
-            </StaggerItem>
+        <div className="relative flex flex-col gap-8 pb-4 md:gap-[30vh] md:pb-12 lg:gap-[34vh]">
+          {serviceCategoriesData.map((service, index) => (
+            <ServiceCard
+              key={service.id}
+              title={service.title}
+              description={service.description}
+              list={service.list}
+              image={service.image}
+              imageBackground={service.imageBackground}
+              className="w-full md:sticky md:top-[15vh] md:self-start"
+              style={{ zIndex: index + 1 }}
+            />
           ))}
-        </Stagger>
+        </div>
       </div>
     </section>
   );

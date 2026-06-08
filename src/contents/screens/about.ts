@@ -15,7 +15,7 @@ export const ourApproachData = [
     title: "Staffing / Offshore",
     description:
       "Low oversight leads to variable quality and significant management burden on internal teams.",
-    points: ["Prohibitive cost structures", "Communication silos"],
+    points: ["Variable delivery quality", "Communication silos"],
   },
   {
     id: 3,

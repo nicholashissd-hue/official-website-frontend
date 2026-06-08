@@ -69,6 +69,7 @@ const Navbar = ({ isHomePage, className, isFooter }: NavbarProps) => {
             cn(
               "py-2 px-3 -mx-3 flex flex-col items-center justify-center transition-colors hover:text-success active:text-success touch-manipulation",
               isActive && "font-semibold text-success",
+              isFooter && "px-0 mx-0",
               isFooter && isMobileMenuOpen && "!bg-red-[500] h-[70vh] ",
               !isFooter &&
                 "max-md:w-full max-md:py-4 max-md:px-0 max-md:mx-0  max-md:active:bg-bg-light",

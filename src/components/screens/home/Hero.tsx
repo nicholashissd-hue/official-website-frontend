@@ -1,6 +1,7 @@
 import heroVideo from "@/assets/video/home-hero-video.mp4";
 import Button from "@/components/ui/button";
 import { Animated } from "@/components/ui/animated";
+import CalendlyCTA from "@/components/contactUs/react-calendly";
 import { heroText } from "@/contents/screens/home";
 import { useEffect, useRef } from "react";
 
@@ -47,13 +48,14 @@ const Hero = () => {
 
         <Animated variant="slideUp" type="animate" delay={0.4}>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button
-              variant="glass-link"
-              to="/talent"
+            <CalendlyCTA
+              shouldRenderOnMobile={false}
               className="w-69.5 sm:w-fit"
-            >
-              Our hiring process
-            </Button>
+            />
+            <CalendlyCTA
+              shouldRenderOnMobile
+              className="mb-0! w-69.5 sm:w-fit"
+            />
 
             <Button
               variant="link"

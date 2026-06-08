@@ -1,4 +1,3 @@
-import EnterpriseReady from "@/components/screens/talents/EnterpriseReady";
 import ExtensionOfYourTeam from "@/components/screens/talents/ExtensionOfYourTeam";
 import Hero from "@/components/screens/talents/Hero";
 import SeniorityLevels from "@/components/screens/talents/levels/SeniorityLevels";
@@ -9,7 +8,6 @@ const Talents = () => {
       <Hero />
       <SeniorityLevels />
       <ExtensionOfYourTeam />
-      <EnterpriseReady />
     </>
   );
 };
