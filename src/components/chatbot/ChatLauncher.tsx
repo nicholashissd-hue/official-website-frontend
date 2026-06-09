@@ -16,7 +16,7 @@ const ChatLauncher = ({ onClick }: ChatLauncherProps) => {
       >
         EO
       </span>
-      <span className="hidden sm:inline">Ask ElderOps</span>
+      <span className="hidden sm:inline">Find an Engineer</span>
     </button>
   );
 };

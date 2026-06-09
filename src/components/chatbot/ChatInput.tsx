@@ -35,7 +35,7 @@ const ChatInput = ({ disabled, onSubmit }: ChatInputProps) => {
           }
         }}
         rows={1}
-        placeholder="Ask about ElderOps..."
+        placeholder="Describe your project or paste a JD..."
         className="max-h-24 min-h-11 flex-1 resize-none rounded-xl border border-[#DCE6D7] bg-[#FAFBF7] px-3 py-3 text-sm text-primary outline-none transition-colors placeholder:text-[#9A9A9A] focus:border-primary"
       />
 
@@ -44,7 +44,7 @@ const ChatInput = ({ disabled, onSubmit }: ChatInputProps) => {
         disabled={disabled || !message.trim()}
         className="btn-glass-effect h-11 rounded-full border border-primary px-4 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60"
       >
-        Send
+        Find
       </button>
     </form>
   );

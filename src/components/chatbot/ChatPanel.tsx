@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
 import { chatbotSuggestedQuestions } from "@/contents/chatbotKnowledge";
 import {
   createAssistantMessage,
   createUserMessage,
   getLocalChatReply,
   sendChatMessage,
+  submitChatLead,
 } from "@/lib/chatbot/chatbotApi";
 import type { ChatLead, ChatMessage } from "@/lib/chatbot/types";
 import ChatInput from "./ChatInput";
@@ -19,10 +21,12 @@ interface ChatPanelProps {
 const ChatPanel = ({ lead, onClose, onResetLead }: ChatPanelProps) => {
   const [messages, setMessages] = useState<ChatMessage[]>([
     createAssistantMessage(
-      `Hi ${lead.name}. Ask me about ElderOps, our services, engagement models, or the kind of engineers we provide.`,
+      `Hi ${lead.name}. Describe what you need built, paste a JD, or explain a technical problem, and I will recommend the best engineer to hire.`,
     ),
   ]);
   const [isSending, setIsSending] = useState(false);
+  const [sharingMessageId, setSharingMessageId] = useState<string | null>(null);
+  const [sharedMessageIds, setSharedMessageIds] = useState<string[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -47,7 +51,10 @@ const ChatPanel = ({ lead, onClose, onResetLead }: ChatPanelProps) => {
 
       setMessages((currentMessages) => [
         ...currentMessages,
-        createAssistantMessage(response.reply),
+        createAssistantMessage(response.reply, {
+          recommendation: response.recommendation,
+          originalInput: response.originalInput ?? content,
+        }),
       ]);
     } catch (error) {
       console.warn("Chat API unavailable, using local fallback:", error);
@@ -55,10 +62,42 @@ const ChatPanel = ({ lead, onClose, onResetLead }: ChatPanelProps) => {
 
       setMessages((currentMessages) => [
         ...currentMessages,
-        createAssistantMessage(fallbackResponse.reply),
+        createAssistantMessage(fallbackResponse.reply, {
+          recommendation: fallbackResponse.recommendation,
+          originalInput: fallbackResponse.originalInput ?? content,
+        }),
       ]);
     } finally {
       setIsSending(false);
+    }
+  };
+
+  const shareRecommendation = async (message: ChatMessage) => {
+    if (!message.recommendation || sharingMessageId) return;
+
+    setSharingMessageId(message.id);
+
+    try {
+      await submitChatLead({
+        ...lead,
+        projectDescriptionOrJD: message.originalInput,
+        recommendedRole: message.recommendation.primaryRole,
+        confidence: message.recommendation.confidence,
+        alternativeRoles: message.recommendation.alternativeRoles.map(
+          (alternative) => alternative.role,
+        ),
+        suggestedSeniority: message.recommendation.suggestedSeniority,
+        notes: "Visitor shared a Hiring Advisor recommendation.",
+        source: "hiring-advisor-bot",
+      });
+
+      setSharedMessageIds((currentIds) => [...currentIds, message.id]);
+      toast.success("Thanks. ElderOps received your hiring request.");
+    } catch (error) {
+      console.warn("Hiring advisor lead submission failed:", error);
+      toast.error("We could not send that yet. Please try again.");
+    } finally {
+      setSharingMessageId(null);
     }
   };
 
@@ -67,10 +106,10 @@ const ChatPanel = ({ lead, onClose, onResetLead }: ChatPanelProps) => {
       <div className="flex items-start justify-between gap-4 border-b border-[#E2E8DA] p-4">
         <div>
           <p className="font-urbanist text-xl font-semibold text-primary">
-            ElderOps Assistant
+            ElderOps Hiring Advisor
           </p>
           <p className="mt-1 text-xs font-medium text-[#748477]">
-            Answers are based on ElderOps site content.
+            Role recommendations are generated from ElderOps service logic.
           </p>
         </div>
 
@@ -98,11 +137,23 @@ const ChatPanel = ({ lead, onClose, onResetLead }: ChatPanelProps) => {
       </div>
 
       <div className="min-h-0 flex-1 overflow-y-auto px-4 py-4">
-        <ChatMessages messages={messages} />
+        <ChatMessages
+          messages={messages}
+          sharingMessageId={sharingMessageId}
+          sharedMessageIds={sharedMessageIds}
+          onShareRecommendation={(message) => void shareRecommendation(message)}
+        />
 
         {isSending && (
           <p className="mt-3 text-sm font-medium text-[#748477]">
             ElderOps is typing...
+          </p>
+        )}
+
+        {messages.length === 1 && (
+          <p className="mt-4 rounded-2xl border border-[#E6EDD9] bg-[#FAFBF7] px-3 py-2 text-xs leading-5 text-[#6D786F]">
+            Privacy note: do not paste passwords, private keys, confidential
+            customer data, or sensitive internal credentials.
           </p>
         )}
 

@@ -62,7 +62,10 @@ export const chatbotKnowledge = {
 } as const;
 
 export const chatbotSuggestedQuestions = [
-  "What services does ElderOps offer?",
-  "How do engagement models work?",
-  "What kind of engineers can you provide?",
+  "I need someone to build my mobile app.",
+  "I need someone to set up cloud infrastructure.",
+  "I need someone to design my database.",
+  "I want to build an AI chatbot.",
+  "I need someone to test my product before launch.",
+  "I need someone to secure my platform.",
 ] as const;

@@ -1,6 +1,11 @@
 import { chatbotKnowledge, chatbotSuggestedQuestions } from "@/contents/chatbotKnowledge";
+import {
+  buildRecommendationReply,
+  isLikelyHiringAdvisorRequest,
+  recommendEngineerRole,
+} from "./recommendationEngine";
 import type {
-  ChatLead,
+  ChatLeadSubmission,
   ChatLeadResponse,
   ChatMessage,
   ChatRequestPayload,
@@ -10,12 +15,28 @@ import type {
 const createFallbackReply = (message: string) => {
   const normalizedMessage = message.toLowerCase();
 
+  if (isLikelyHiringAdvisorRequest(message)) {
+    const recommendation = recommendEngineerRole(message);
+
+    return {
+      reply: buildRecommendationReply(recommendation),
+      mode: "advisor" as const,
+      recommendation,
+      originalInput: message,
+      suggestions: [...chatbotSuggestedQuestions],
+    };
+  }
+
   if (normalizedMessage.includes("service")) {
     const services = chatbotKnowledge.services
       .map((service) => service.title)
       .join(", ");
 
-    return `ElderOps supports ${services}. We usually start by understanding your roadmap and then recommend the right team shape or delivery model.`;
+    return {
+      reply: `ElderOps supports ${services}. We usually start by understanding your roadmap and then recommend the right team shape or delivery model.`,
+      mode: "mock" as const,
+      suggestions: [...chatbotSuggestedQuestions],
+    };
   }
 
   if (
@@ -27,7 +48,11 @@ const createFallbackReply = (message: string) => {
       .map((model) => model.title)
       .join(", ");
 
-    return `ElderOps offers ${models}. The right fit depends on whether you need one specialist, a coordinated pod, or outcome-based delivery.`;
+    return {
+      reply: `ElderOps offers ${models}. The right fit depends on whether you need one specialist, a coordinated pod, or outcome-based delivery.`,
+      mode: "mock" as const,
+      suggestions: [...chatbotSuggestedQuestions],
+    };
   }
 
   if (
@@ -35,14 +60,22 @@ const createFallbackReply = (message: string) => {
     normalizedMessage.includes("engineer") ||
     normalizedMessage.includes("developer")
   ) {
-    return chatbotKnowledge.talent;
+    return {
+      reply: chatbotKnowledge.talent,
+      mode: "mock" as const,
+      suggestions: [...chatbotSuggestedQuestions],
+    };
   }
 
-  return `${chatbotKnowledge.company} ${chatbotKnowledge.callToAction}`;
+  return {
+    reply: `${chatbotKnowledge.company} ${chatbotKnowledge.callToAction}`,
+    mode: "mock" as const,
+    suggestions: [...chatbotSuggestedQuestions],
+  };
 };
 
 export const submitChatLead = async (
-  lead: ChatLead,
+  lead: ChatLeadSubmission,
 ): Promise<ChatLeadResponse> => {
   const response = await fetch("/api/chat-lead", {
     method: "POST",
@@ -79,16 +112,16 @@ export const sendChatMessage = async (
 
 export const getLocalChatReply = (
   message: string,
-): ChatResponsePayload => ({
-  reply: createFallbackReply(message),
-  mode: "mock",
-  suggestions: [...chatbotSuggestedQuestions],
-});
+): ChatResponsePayload => createFallbackReply(message);
 
-export const createAssistantMessage = (content: string): ChatMessage => ({
+export const createAssistantMessage = (
+  content: string,
+  metadata?: Pick<ChatMessage, "recommendation" | "originalInput">,
+): ChatMessage => ({
   id: crypto.randomUUID(),
   role: "assistant",
   content,
+  ...metadata,
 });
 
 export const createUserMessage = (content: string): ChatMessage => ({

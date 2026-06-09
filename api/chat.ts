@@ -1,4 +1,9 @@
 import { chatbotKnowledge, chatbotSuggestedQuestions } from "../src/contents/chatbotKnowledge.js";
+import {
+  buildRecommendationReply,
+  isLikelyHiringAdvisorRequest,
+  recommendEngineerRole,
+} from "../src/lib/chatbot/recommendationEngine.js";
 
 type ApiRequest = {
   method?: string;
@@ -35,12 +40,26 @@ const parseBody = (body: unknown): ChatRequestBody => {
 const buildReply = (message: string) => {
   const normalizedMessage = message.toLowerCase();
 
+  if (isLikelyHiringAdvisorRequest(message)) {
+    const recommendation = recommendEngineerRole(message);
+
+    return {
+      reply: buildRecommendationReply(recommendation),
+      mode: "advisor" as const,
+      recommendation,
+      originalInput: message,
+    };
+  }
+
   if (normalizedMessage.includes("service")) {
     const services = chatbotKnowledge.services
       .map((service) => `${service.title}: ${service.description}`)
       .join(" ");
 
-    return `ElderOps supports several engineering service lanes. ${services}`;
+    return {
+      reply: `ElderOps supports several engineering service lanes. ${services}`,
+      mode: "mock" as const,
+    };
   }
 
   if (
@@ -52,7 +71,10 @@ const buildReply = (message: string) => {
       .map((model) => `${model.title}: ${model.description}`)
       .join(" ");
 
-    return `ElderOps can work through flexible engagement models. ${models}`;
+    return {
+      reply: `ElderOps can work through flexible engagement models. ${models}`,
+      mode: "mock" as const,
+    };
   }
 
   if (
@@ -60,17 +82,26 @@ const buildReply = (message: string) => {
     normalizedMessage.includes("engineer") ||
     normalizedMessage.includes("developer")
   ) {
-    return chatbotKnowledge.talent;
+    return {
+      reply: chatbotKnowledge.talent,
+      mode: "mock" as const,
+    };
   }
 
   if (
     normalizedMessage.includes("industry") ||
     normalizedMessage.includes("industries")
   ) {
-    return `ElderOps supports ${chatbotKnowledge.industries.join(", ")}.`;
+    return {
+      reply: `ElderOps supports ${chatbotKnowledge.industries.join(", ")}.`,
+      mode: "mock" as const,
+    };
   }
 
-  return `${chatbotKnowledge.company} ${chatbotKnowledge.positioning} ${chatbotKnowledge.callToAction}`;
+  return {
+    reply: `${chatbotKnowledge.company} ${chatbotKnowledge.positioning} ${chatbotKnowledge.callToAction}`,
+    mode: "mock" as const,
+  };
 };
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
@@ -86,9 +117,10 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
     return res.status(400).json({ error: "Message is required" });
   }
 
+  const response = buildReply(message);
+
   return res.status(200).json({
-    reply: buildReply(message),
-    mode: "mock",
+    ...response,
     suggestions: [...chatbotSuggestedQuestions],
   });
 }

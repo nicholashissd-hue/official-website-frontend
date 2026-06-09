@@ -15,13 +15,16 @@ const ChatWidget = () => {
     setIsSubmittingLead(true);
 
     try {
-      await submitChatLead(nextLead);
+      await submitChatLead({
+        ...nextLead,
+        source: "chat-intake",
+      });
     } catch (error) {
       console.warn("Chat lead API unavailable:", error);
     } finally {
       setLead(nextLead);
       setIsSubmittingLead(false);
-      toast.success("Thanks. You can start chatting with ElderOps now.");
+      toast.success("Thanks. You can start the Hiring Advisor now.");
     }
   };
 
@@ -32,18 +35,19 @@ const ChatWidget = () => {
       {isOpen && (
         <aside
           aria-label="ElderOps chat assistant"
-          className="fixed inset-x-4 bottom-4 z-[70] flex max-h-[calc(100dvh-2rem)] min-h-[30rem] flex-col overflow-hidden rounded-[1.35rem] border border-[#DDE8D5] bg-white shadow-[0_30px_80px_rgba(2,54,27,0.22)] sm:inset-auto sm:bottom-6 sm:right-6 sm:h-[38rem] sm:w-[25rem]"
+          className="fixed inset-x-4 bottom-4 z-[70] flex max-h-[calc(100dvh-2rem)] min-h-[30rem] flex-col overflow-hidden rounded-[1.35rem] border border-[#DDE8D5] bg-white shadow-[0_30px_80px_rgba(2,54,27,0.22)] sm:inset-auto sm:bottom-6 sm:right-6 sm:h-[42rem] sm:w-[28rem]"
         >
           {!lead ? (
             <>
               <div className="flex items-start justify-between gap-4 border-b border-[#E2E8DA] bg-[#FAFBF7] p-5">
                 <div>
                   <p className="font-urbanist text-2xl font-semibold leading-tight text-primary">
-                    Talk with ElderOps
+                    Find the right engineer
                   </p>
                   <p className="mt-2 text-sm leading-6 text-[#5C675F]">
-                    Share your details and we will route your questions to the
-                    right place.
+                    Share your details, then describe what you need built or
+                    paste a JD. ElderOps will recommend the best technical role
+                    to hire.
                   </p>
                 </div>
 

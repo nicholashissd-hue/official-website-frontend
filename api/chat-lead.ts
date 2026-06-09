@@ -13,9 +13,25 @@ type ApiResponse = {
 type LeadRequestBody = {
   name?: string;
   email?: string;
+  company?: string;
+  projectDescriptionOrJD?: string;
+  recommendedRole?: string;
+  confidence?: string;
+  alternativeRoles?: string[];
+  suggestedSeniority?: string;
+  timeline?: string;
+  budget?: string;
+  notes?: string;
+  source?: string;
 };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const cleanText = (value: unknown, maxLength = 2000) => {
+  if (typeof value !== "string") return "";
+
+  return value.trim().slice(0, maxLength);
+};
 
 const parseBody = (body: unknown): LeadRequestBody => {
   if (typeof body === "string") {
@@ -42,12 +58,34 @@ const getEmailJsConfig = () => ({
     process.env.EMAILJS_PUBLIC_KEY ?? process.env.VITE_EMAILJS_PUBLIC_KEY,
 });
 
-const sendLeadEmail = async (lead: Required<LeadRequestBody>) => {
+const sendLeadEmail = async (lead: Required<Pick<LeadRequestBody, "name" | "email">> & LeadRequestBody) => {
   const { serviceId, templateId, publicKey } = getEmailJsConfig();
 
   if (!serviceId || !templateId || !publicKey) {
     return "not_configured" as const;
   }
+
+  const recommendationDetails = [
+    `Name: ${lead.name}`,
+    `Email: ${lead.email}`,
+    lead.company ? `Company: ${lead.company}` : "",
+    lead.recommendedRole ? `Recommended role: ${lead.recommendedRole}` : "",
+    lead.confidence ? `Confidence: ${lead.confidence}` : "",
+    lead.suggestedSeniority
+      ? `Suggested seniority: ${lead.suggestedSeniority}`
+      : "",
+    lead.alternativeRoles?.length
+      ? `Alternative roles: ${lead.alternativeRoles.join(", ")}`
+      : "",
+    lead.timeline ? `Timeline: ${lead.timeline}` : "",
+    lead.budget ? `Budget: ${lead.budget}` : "",
+    lead.projectDescriptionOrJD
+      ? `Project description / JD: ${lead.projectDescriptionOrJD}`
+      : "",
+    lead.notes ? `Notes: ${lead.notes}` : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
 
   const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
     method: "POST",
@@ -63,8 +101,15 @@ const sendLeadEmail = async (lead: Required<LeadRequestBody>) => {
         lastName: "",
         name: lead.name,
         email: lead.email,
-        message: `New chatbot lead from ElderOps website: ${lead.name} (${lead.email})`,
-        source: "Website chatbot",
+        company: lead.company ?? "",
+        recommendedRole: lead.recommendedRole ?? "",
+        confidence: lead.confidence ?? "",
+        suggestedSeniority: lead.suggestedSeniority ?? "",
+        projectDescriptionOrJD: lead.projectDescriptionOrJD ?? "",
+        message:
+          recommendationDetails ||
+          `New chatbot lead from ElderOps website: ${lead.name} (${lead.email})`,
+        source: lead.source ?? "Website chatbot",
         submittedAt: new Date().toISOString(),
       },
     }),
@@ -80,8 +125,8 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   }
 
   const body = parseBody(req.body);
-  const name = body.name?.trim();
-  const email = body.email?.trim();
+  const name = cleanText(body.name, 120);
+  const email = cleanText(body.email, 180);
 
   if (!name || name.length < 2 || !email || !emailPattern.test(email)) {
     return res.status(400).json({
@@ -92,7 +137,24 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   }
 
   try {
-    const delivery = await sendLeadEmail({ name, email });
+    const delivery = await sendLeadEmail({
+      name,
+      email,
+      company: cleanText(body.company, 160),
+      projectDescriptionOrJD: cleanText(body.projectDescriptionOrJD, 8000),
+      recommendedRole: cleanText(body.recommendedRole, 120),
+      confidence: cleanText(body.confidence, 20),
+      alternativeRoles: Array.isArray(body.alternativeRoles)
+        ? body.alternativeRoles
+            .map((role) => cleanText(role, 120))
+            .filter(Boolean)
+        : [],
+      suggestedSeniority: cleanText(body.suggestedSeniority, 120),
+      timeline: cleanText(body.timeline, 120),
+      budget: cleanText(body.budget, 120),
+      notes: cleanText(body.notes, 1000),
+      source: cleanText(body.source, 120) || "Website chatbot",
+    });
 
     return res.status(delivery === "failed" ? 502 : 202).json({
       ok: delivery !== "failed",
