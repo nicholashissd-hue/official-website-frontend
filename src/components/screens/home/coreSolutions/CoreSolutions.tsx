@@ -45,7 +45,7 @@ const CoreSolutions = () => {
           ))}
         </div>
         {/* Desktop: Expandable cards */}
-        <div className="hidden lg:flex gap-4">
+        <div className="hidden lg:flex justify-center gap-4">
           {coreSolutionsData.map((solution, index) => (
             <ExpandableCard
               key={solution.id}

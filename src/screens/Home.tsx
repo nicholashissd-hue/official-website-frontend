@@ -1,3 +1,4 @@
+import BusinessOutcomes from "@/components/screens/home/BusinessOutcomes";
 import CoreSolutions from "@/components/screens/home/coreSolutions/CoreSolutions";
 import Hero from "@/components/screens/home/Hero";
 import HowItWorks from "@/components/screens/home/howItWorks/HowItWorks";
@@ -16,6 +17,7 @@ const Home = () => {
       <CoreSolutions />
       <WhyWeStandApart />
       <HowItWorks />
+      <BusinessOutcomes />
     </>
   );
 };

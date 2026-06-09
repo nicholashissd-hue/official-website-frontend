@@ -14,14 +14,12 @@ import notchHr from "@/assets/svg/trustedcompanies/notchHr-logo-default.svg";
 
 import cloud from "@/assets/png/cloud.png";
 import data from "@/assets/png/data-platform.png";
-import analytics from "@/assets/png/analytics.png";
-import aiML from "@/assets/png/ai-ml.png";
 import product from "@/assets/png/product.png";
 
 export const heroText = {
-  title: "Enterprise-Grade Global Engineering Talent",
+  title: "Your Company Deserves Senior Engineering Leadership",
   subtext:
-    "We connect U.S. organizations with rigorously vetted remote technical professionals delivering senior-level expertise with structured governance and accountability.",
+    "Get experienced engineers, technical oversight, and managed delivery that helps your business scale with confidence, without the cost and commitment of a full-time senior hire.",
 };
 
 export const trustedCompaniesText = {
@@ -84,39 +82,39 @@ export const trustedCompaniesLogo = [
 ];
 
 export const servicesText = {
-  title: "What We Do",
+  title: "How ElderOps Delivers Results",
   subtext:
-    "Our process ensures both technical excellence and organizational fit. Our screening ensures quality. Your interview ensures alignment. Together, we prevent mismatches.",
+    "Organizations need more than engineering talent. They need experienced technical execution, strategic oversight, and a delivery model that keeps critical initiatives moving forward. ElderOps helps businesses strengthen technical foundations, reduce operational risk, and scale with confidence.",
 };
 
 export const servicesData = [
   {
     id: 1,
     number: "1",
-    title: "Access Elite Global Engineers",
+    title: "Senior Engineering Execution",
     description:
-      "Hire experienced professionals across DevOps, cloud infrastructure, data engineering, AI/ML, analytics, and software development.",
+      "Our engineers deliver meaningful outcomes across cloud infrastructure, DevOps, software delivery, automation, platform engineering, AI initiatives, and technical modernization efforts.",
   },
   {
     id: 2,
     number: "2",
-    title: "Maintain Enterprise-Grade Governance",
+    title: "Technical Oversight and Accountability",
     description:
-      "We operate as a U.S.-based partner with defined processes, structured onboarding, and continuous oversight.",
+      "Every engagement includes structured delivery, documentation, planning, and oversight so organizations can make informed technical decisions and maintain visibility into progress.",
   },
   {
     id: 3,
     number: "3",
-    title: "Scale With Confidence",
+    title: "Flexible Engagements That Scale With Your Needs",
     description:
-      "Start with a single engineer, deploy a cross-functional pod, or launch a fully managed team aligned to measurable outcomes. As your roadmap evolves, your team can scale with it—without long-term hiring risk.",
+      "Whether you need targeted expertise, ongoing engineering support, or a dedicated delivery partner, ElderOps adapts to your goals without the complexity and overhead of traditional hiring.",
   },
 ];
 
 export const coreSolutionsText = {
-  title: "Core Solution Areas",
+  title: "Engineering Expertise Across Your Most Critical Initiatives",
   subtext:
-    "Our screening ensures quality. Your interview ensures alignment. Together, we prevent mismatches.",
+    "Whether you're modernizing infrastructure, building data platforms, deploying AI solutions, or accelerating product delivery, ElderOps provides experienced engineering leadership and execution to help move your business forward with confidence.",
 };
 
 export const coreSolutionsData = [
@@ -125,43 +123,52 @@ export const coreSolutionsData = [
     image: cloud,
     title: "Cloud, DevOps & Reliability",
     description:
-      "CI/CD modernization, infrastructure automation, observability, and reliability practices that reduce incidents and accelerate release cycles.",
+      "Build resilient infrastructure, automate delivery pipelines, improve operational stability, and create scalable cloud environments that support long-term growth.",
   },
   {
     id: 2,
     image: data,
-    title: "Data Platforms & Engineering",
+    title: "Data, Analytics & AI Foundations",
     description:
-      "Scalable pipelines, warehouse and lakehouse builds, and governance foundations that make data trustworthy and accessible.",
+      "Transform fragmented data into reliable business assets and establish the workflows, architecture, and operational foundations required to support analytics and AI initiatives.",
   },
   {
     id: 3,
-    image: analytics,
-    title: "Analytics & Business Intelligence",
-    description:
-      "KPI frameworks, dashboards, and self-serve analytics systems that create clarity across teams.",
-  },
-  {
-    id: 4,
-    image: aiML,
-    title: "AI / ML Enablement",
-    description:
-      "From model deployment to monitoring and MLOps foundations—move from experimentation to production with confidence.",
-  },
-  {
-    id: 5,
     image: product,
-    title: "Product Engineering",
+    title: "Product Engineering & Modernization",
     description:
-      "Feature development, platform services, and scalable architecture that support roadmap execution.",
+      "Design, build, and enhance software platforms that support business objectives, improve customer experiences, and accelerate product roadmaps.",
   },
 ];
 
 export const whyWeStandApartText = {
-  title: "Why ElderOps Stands Apart",
+  title: "Why Organizations Choose ElderOps",
   subtext:
-    "The market offers three alternatives: overpriced consultancies, high-volume staffing agencies, or ungoverned offshore. ElderOps was designed to be the fourth option.",
+    "Most organizations need more than technical talent. They need experienced execution, technical leadership, and accountability. ElderOps combines senior engineering expertise with structured delivery to help organizations move faster while reducing risk.",
 };
+
+export const whyOrganizationsChooseData = [
+  {
+    title: "Senior Expertise",
+    description:
+      "Access experienced engineers with proven backgrounds across cloud infrastructure, DevOps, software delivery, data platforms, and emerging technologies.",
+  },
+  {
+    title: "Managed Accountability",
+    description:
+      "Every engagement includes planning, documentation, oversight, and clear communication so work is delivered consistently and aligned to business objectives.",
+  },
+  {
+    title: "Flexible Engagement Models",
+    description:
+      "Whether you need a targeted initiative completed, ongoing engineering support, or a dedicated technical partner, ElderOps aligns the engagement to your needs.",
+  },
+  {
+    title: "Built for Long-Term Growth",
+    description:
+      "Our approach helps organizations establish scalable technical foundations, improve operational maturity, and support future growth without building a large internal team.",
+  },
+];
 
 export const comparisonData = {
   headers: ["Big consulting", "Staffing agency", "Offshore Vendor", "Elderops"],
@@ -206,34 +213,59 @@ export const comparisonData = {
 };
 
 export const howItWorksText = {
-  title: "How It Works",
-  subtext: "High-Quality Matching. Zero Guesswork.",
+  title: "How Engagements Begin",
+  subtext:
+    "Every successful engagement starts with understanding where you are today and where you need to go. Our process uncovers technical risks, establishes clear priorities, and delivers measurable progress.",
 };
 
 export const howItWorksStepsData = [
   {
     number: "1",
-    title: "Define the Role and Outcomes",
+    title: "Discovery & Assessment",
     description:
-      "We align on technical requirements, delivery goals, and team expectations.",
+      "We learn about your business objectives, technical environment, and operational challenges.",
   },
   {
     number: "2",
-    title: "Curated Shortlist",
+    title: "Engineering Systems Audit",
     description:
-      "We present high-signal, vetted candidates matched to your stack and objectives.",
+      "We identify bottlenecks, risks, technical debt, and opportunities for improvement.",
   },
   {
     number: "3",
-    title: "Client Interviews for Final Fit",
+    title: "Execution Roadmap",
     description:
-      "You validate technical capability and cultural alignment before committing.",
+      "We develop a practical plan focused on business impact, scalability, and risk reduction.",
   },
   {
     number: "4",
-    title: "Onboard and Deliver",
+    title: "Delivery & Continuous Improvement",
     description:
-      "Structured onboarding ensures engineers integrate quickly and contribute immediately.",
+      "Our team executes, documents, measures progress, and helps your organization scale with confidence.",
+  },
+];
+
+export const businessOutcomesText = {
+  title: "Real Business Challenges. Real Engineering Outcomes.",
+  subtext:
+    "A few examples of the outcomes ElderOps is built to support across infrastructure, data, and engineering operations.",
+};
+
+export const businessOutcomesData = [
+  {
+    title: "Cloud Modernization",
+    description:
+      "Improve deployment reliability, standardize environments, and establish repeatable release processes.",
+  },
+  {
+    title: "Data Platform Transformation",
+    description:
+      "Create scalable data pipelines and governance frameworks that improve reporting accuracy and accessibility.",
+  },
+  {
+    title: "Engineering Process Improvement",
+    description:
+      "Implement delivery workflows and technical standards that increase visibility and reduce operational risk.",
   },
 ];
 

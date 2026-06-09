@@ -1,95 +1,59 @@
-import React from "react";
 import dotParticle from "@/assets/svg/dots-three.svg";
 import SectionTitle from "@/components/ui/section-title";
 import { Animated } from "@/components/ui/animated";
-import { comparisonData, whyWeStandApartText } from "@/contents/screens/home";
+import {
+  whyOrganizationsChooseData,
+  whyWeStandApartText,
+} from "@/contents/screens/home";
 
 const WhyWeStandApart = () => {
   return (
-    <section className="py-22 md:py-25 hidden md:block">
+    <section className="relative overflow-hidden bg-white py-22 md:py-25">
       <div className="container relative">
         <img
           src={dotParticle}
           alt="Decorative pattern"
           aria-hidden="true"
-          className="absolute right-16 top-0"
+          className="pointer-events-none absolute -right-14 top-0 hidden opacity-80 md:block lg:right-16"
         />
 
-        <Animated variant="slideUp" className="max-w-177.5">
+        <Animated
+          variant="slideUp"
+          className="relative z-10 mx-auto max-w-193 text-center"
+        >
           <SectionTitle className="mb-2.5 text-secondary">
             {whyWeStandApartText.title}
           </SectionTitle>
-          <p className="text-accent-one mb-16">{whyWeStandApartText.subtext}</p>
+          <p className="mx-auto max-w-177.5 text-sm leading-6 text-accent-one md:text-base">
+            {whyWeStandApartText.subtext}
+          </p>
         </Animated>
 
-        <Animated variant="slideUp" delay={0.2}>
-          <table className="w-full text-accent-four">
-            <caption className="sr-only">
-              {whyWeStandApartText.title}: {whyWeStandApartText.subtext}
-            </caption>
-            <thead>
-              <tr>
-                <th className="py-7 px-6">
-                  <span className="sr-only">Comparison criteria</span>
-                </th>
-                {comparisonData.headers.map((header, index) => (
-                  <th
-                    key={header + index}
-                    className={`pl-8 pr-4 py-7 uppercase text-sm text-left ${
-                      index === 3 ? "font-bold text-primary" : "font-normal"
-                    }`}
-                  >
-                    {index === 3 && (
-                      <div className="flex items-center gap-2.5">
-                        <div className="size-2.5 rounded-full bg-[#FF9900]"></div>
-                        {header}
-                      </div>
-                    )}
-                    {index !== 3 && header}
-                  </th>
-                ))}
-              </tr>
-              <tr>
-                <td colSpan={5} className="border-b border-border-light"></td>
-              </tr>
-            </thead>
-            <tbody>
-              {comparisonData.rows.map((row, rowIndex) => (
-                <React.Fragment key={row.label}>
-                  <tr>
-                    <th
-                      scope="row"
-                      className="text-[#01170B] py-13 px-6 font-bold text-left"
-                    >
-                      {row.label}
-                    </th>
-                    {row.values.map((value, index) => (
-                      <td
-                        key={index}
-                        className={`py-13 pl-8 pr-4 ${
-                          index === 3
-                            ? "font-medium text-primary"
-                            : index > 0
-                              ? "font-medium"
-                              : ""
-                        }`}
-                      >
-                        {value}
-                      </td>
-                    ))}
-                  </tr>
-                  {rowIndex < comparisonData.rows.length && (
-                    <tr>
-                      <td
-                        colSpan={5}
-                        className="border-b border-border-light"
-                      ></td>
-                    </tr>
-                  )}
-                </React.Fragment>
-              ))}
-            </tbody>
-          </table>
+        <Animated
+          variant="slideUp"
+          delay={0.2}
+          className="relative z-10 mt-12 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4"
+        >
+          {whyOrganizationsChooseData.map((item, index) => (
+            <article
+              key={item.title}
+              className="group flex min-h-80 flex-col justify-between rounded-[24px] border border-[#E2E8DA] bg-[#FAFBF7] p-6 shadow-[0_24px_70px_rgba(2,54,27,0.06)] transition-all duration-300 hover:-translate-y-1 hover:border-[#BFCFAD] hover:shadow-[0_34px_90px_rgba(2,54,27,0.12)]"
+            >
+              <div>
+                <span className="grid size-12 place-items-center rounded-full border border-[#8BA396] font-urbanist text-xl font-semibold text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
+                  {index + 1}
+                </span>
+
+                <h3 className="mt-8 font-urbanist text-2xl font-semibold leading-8 text-primary">
+                  {item.title}
+                </h3>
+              </div>
+
+              <p className="mt-6 text-sm leading-6 text-[#5B665F]">
+                {item.description}
+              </p>
+            </article>
+          ))}
         </Animated>
       </div>
     </section>
