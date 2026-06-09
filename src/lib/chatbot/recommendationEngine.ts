@@ -127,23 +127,23 @@ const buildAlternativeRoles = (
   primary: RoleTaxonomyEntry,
   scoredRoles: RoleScore[],
 ) => {
+  const configuredAlternatives = primary.alternatives;
   const scoredAlternatives = scoredRoles
     .filter((roleScore) => roleScore.entry.role !== primary.role)
     .filter((roleScore) => roleScore.score > 0)
+    .filter(
+      (roleScore) =>
+        !configuredAlternatives.some(
+          (alternative) => alternative.role === roleScore.entry.role,
+        ),
+    )
     .slice(0, 3)
     .map<AlternativeRole>((roleScore) => ({
       role: roleScore.entry.role,
       reason: `Consider this if the scope includes ${roleScore.entry.whenToRecommend}.`,
     }));
 
-  const configuredAlternatives = primary.alternatives.filter(
-    (alternative) =>
-      !scoredAlternatives.some(
-        (scoredAlternative) => scoredAlternative.role === alternative.role,
-      ),
-  );
-
-  return [...scoredAlternatives, ...configuredAlternatives].slice(0, 3);
+  return [...configuredAlternatives, ...scoredAlternatives].slice(0, 3);
 };
 
 const buildSummary = (
