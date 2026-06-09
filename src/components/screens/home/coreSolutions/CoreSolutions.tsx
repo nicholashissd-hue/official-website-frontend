@@ -24,7 +24,7 @@ const CoreSolutions = () => {
           variant="slideUp"
           className="flex flex-col items-center gap-6 mb-12 md:flex-row md:flex-wrap md:items-center md:justify-between md:mb-16"
         >
-          <div className="text-secondary text-center md:max-w-122.5 md:text-left">
+          <div className="text-secondary text-center md:max-w-[820px] md:text-left">
             <SectionTitle className="mb-2">
               {coreSolutionsText.title}
             </SectionTitle>
