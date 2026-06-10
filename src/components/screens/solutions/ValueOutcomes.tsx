@@ -5,14 +5,9 @@ import Reveal, { Lift } from "@/components/ui/reveal";
 /** "How We Drive Value" — five lifted cards on the lime block. */
 const ValueOutcomes = () => {
   return (
-    <section className="grain relative overflow-hidden bg-pine">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_100%_at_100%_100%,#02361b_0%,transparent_60%)]"
-      />
-      <div className="container section-space-block relative">
+    <section className="bg-bg-light">
+      <div className="container section-space-block">
         <SectionHeading
-          dark
           index="03"
           eyebrow="Business Value"
           title={valueText.title}
@@ -22,7 +17,7 @@ const ValueOutcomes = () => {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {valueData.map((value, index) => (
             <Reveal key={value.title} delay={index * 0.08}>
-              <Lift className="rounded-3xl bg-bg-cream p-6 hover:shadow-[0_24px_50px_rgba(2,54,27,0.1)] md:p-7">
+              <Lift className="rounded-3xl bg-white p-6 ring-1 ring-primary/10 hover:shadow-[0_24px_50px_rgba(2,54,27,0.1)] md:p-7">
                 <span className="grid size-10 place-items-center rounded-full bg-success/10 font-display text-base font-semibold text-success">
                   {index + 1}
                 </span>

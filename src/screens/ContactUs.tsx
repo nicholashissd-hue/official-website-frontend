@@ -49,18 +49,14 @@ const NotSureBand = () => {
   const { setChatOpen } = useGlobalStore();
 
   return (
-    <section className="grain relative overflow-hidden bg-pine">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(85%_120%_at_50%_-20%,#02361b_0%,transparent_60%)]"
-      />
-      <div className="container section-space-block relative">
+    <section className="bg-bg-light">
+      <div className="container section-space-block">
         <Reveal className="flex flex-col items-center text-center">
-          <Eyebrow dark>No Pressure</Eyebrow>
-          <h2 className="mt-6 max-w-2xl text-balance font-display text-[clamp(1.9rem,3.8vw,2.9rem)] font-semibold leading-[1.1] tracking-[-0.015em] text-bg-cream">
+          <Eyebrow>No Pressure</Eyebrow>
+          <h2 className="mt-6 max-w-2xl text-balance font-display text-[clamp(1.9rem,3.8vw,2.9rem)] font-semibold leading-[1.1] tracking-[-0.015em] text-primary">
             Not Sure What You Need Yet?
           </h2>
-          <p className="mt-5 max-w-xl text-[15px] leading-[1.8] text-accent-four">
+          <p className="mt-5 max-w-xl text-[15px] leading-[1.8] text-accent-one">
             That's exactly why the conversation exists. We'll help you determine
             whether a single engineer, a dedicated team, or a structured
             delivery engagement is the best fit.
@@ -69,7 +65,7 @@ const NotSureBand = () => {
             <Button variant="primary" withArrow onClick={() => setChatOpen(true)}>
               Ask the Hiring Advisor
             </Button>
-            <CalendlyCTA variant="outline-light" />
+            <CalendlyCTA variant="outline" />
           </div>
         </Reveal>
       </div>

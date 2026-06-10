@@ -23,6 +23,9 @@ not a magazine). Brand palette only — used boldly.
   `border-light` (#0fb45e) accent text-on-dark and chips,
   `bg-yellow` (#0a8043) pressed/hover states (token names are legacy)
 - Card decks may deepen across members (white → sage → pine)
+- **NEVER two consecutive dark full-bleed sections** (owner rule 2026-06-09):
+  after every `bg-primary`/`bg-pine` section comes a cream or sage one.
+  Dark CARDS on light sections don't count against this.
 - REJECTED by owner (2026-06-09): yellow-green/lime, pastel mint, and bright
   green as large surfaces. Big areas = dark greens, full stop.
 - Never separate sections with hairline borders; contrast comes from the blocks.
