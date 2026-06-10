@@ -1,6 +1,4 @@
-import { motion } from "framer-motion";
-import type { CSSProperties } from "react";
-import { heroText, heroTickerItems } from "@/contents/screens/home";
+import { heroText } from "@/contents/screens/home";
 import Button from "@/components/ui/button";
 import NetworkCanvas from "@/components/ui/network-canvas";
 import Reveal from "@/components/ui/reveal";
@@ -81,36 +79,6 @@ const Hero = () => {
           <MatchingEngine />
         </Reveal>
       </div>
-
-      {/* Capability ticker along the hero's base */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 1 }}
-        className="relative z-10 border-t border-bg-cream/10"
-      >
-        <div className="overflow-hidden py-5">
-          <div
-            className="animate-marquee flex items-center gap-10"
-            style={{ "--marquee-duration": "44s" } as CSSProperties}
-          >
-            {[...heroTickerItems, ...heroTickerItems].map((item, index) => (
-              <span
-                key={`${item}-${index}`}
-                className="flex shrink-0 items-center gap-10"
-              >
-                <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent-four">
-                  {item}
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="size-1.5 rounded-full bg-success/70"
-                />
-              </span>
-            ))}
-          </div>
-        </div>
-      </motion.div>
     </section>
   );
 };
