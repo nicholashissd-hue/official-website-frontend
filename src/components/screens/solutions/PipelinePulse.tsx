@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useInView, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/util";
 
 const STAGES = [
@@ -24,11 +24,28 @@ const stageAtMs = (index: number) => (LOOP_MS * TRAVEL_FRACTION * index) / 4;
  * Code-built artifact in the Delivery-Console family: a horizontal
  * pipeline whose bright pulse ships PLAN → OPERATE on a loop, lighting
  * each station as it arrives and rolling the status chip per stage.
+ * The pulse moves on the compositor (transform, not `left`) and the
+ * whole machine pauses while off-screen.
  */
 const PipelinePulse = () => {
   const reduceMotion = useReducedMotion();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(containerRef, { amount: 0.2 });
+  const [trackWidth, setTrackWidth] = useState(0);
   // Index of the latest station the pulse has reached this cycle.
   const [stage, setStage] = useState(reduceMotion ? 3 : 0);
+
+  // Measure the track so the pulse can travel via transform only.
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const measure = () => setTrackWidth(track.offsetWidth);
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(track);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (reduceMotion) {
@@ -36,6 +53,7 @@ const PipelinePulse = () => {
       const timer = window.setTimeout(() => setStage(3), 0);
       return () => window.clearTimeout(timer);
     }
+    if (!inView) return;
 
     let timers: number[] = [];
 
@@ -53,10 +71,15 @@ const PipelinePulse = () => {
       window.clearInterval(interval);
       timers.forEach((timer) => window.clearTimeout(timer));
     };
-  }, [reduceMotion]);
+  }, [reduceMotion, inView]);
+
+  const animating = !reduceMotion && inView && trackWidth > 0;
 
   return (
-    <div className="rounded-2xl bg-deep/70 p-5 ring-1 ring-bg-cream/15">
+    <div
+      ref={containerRef}
+      className="rounded-2xl bg-deep/70 p-5 ring-1 ring-bg-cream/15"
+    >
       {/* Console header — the chip pill keeps fixed bounds so nothing reflows */}
       <div className="flex min-h-7 items-center justify-between gap-4">
         <p className="flex items-center gap-2.5 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.22em] text-accent-four">
@@ -85,52 +108,50 @@ const PipelinePulse = () => {
 
       {/* Pipeline */}
       <div className="relative mt-6">
-        {/* Connecting line (node centers sit at 10% / 30% / 50% / 70% / 90%) */}
+        {/* Track spans the node centers (10% → 90%) */}
         <div
+          ref={trackRef}
           aria-hidden="true"
-          className="absolute left-[10%] right-[10%] top-[5px] h-0.5 rounded-full bg-bg-cream/15"
-        />
+          className="absolute left-[10%] right-[10%] top-0 h-3"
+        >
+          <div className="absolute inset-x-0 top-[5px] h-0.5 rounded-full bg-bg-cream/15" />
 
-        {reduceMotion ? (
-          <>
-            <div
-              aria-hidden="true"
-              className="absolute left-[10%] top-[5px] h-0.5 w-[60%] rounded-full bg-success/50"
-            />
-            <div
-              aria-hidden="true"
-              className="absolute left-[70%] top-[6px] z-20 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-success shadow-[0_0_12px_rgba(6,156,78,0.9)]"
-            />
-          </>
-        ) : (
-          <>
-            {/* Lit trail behind the pulse (scaleX keeps it compositor-only) */}
-            <motion.div
-              aria-hidden="true"
-              className="absolute left-[10%] top-[5px] h-0.5 w-[80%] origin-left rounded-full bg-success/50"
-              animate={{ scaleX: [0, 1, 1] }}
-              transition={{
-                duration: LOOP_SECONDS,
-                times: [0, TRAVEL_FRACTION, 1],
-                repeat: Infinity,
-                ease: "linear",
-              }}
-            />
-            {/* The travelling pulse — holds at OPERATE before looping */}
-            <motion.div
-              aria-hidden="true"
-              className="absolute top-[6px] z-20 size-3 rounded-full bg-success shadow-[0_0_12px_rgba(6,156,78,0.9)]"
-              style={{ x: "-50%", y: "-50%" }}
-              animate={{ left: ["10%", "90%", "90%"] }}
-              transition={{
-                duration: LOOP_SECONDS,
-                times: [0, TRAVEL_FRACTION, 1],
-                repeat: Infinity,
-                ease: "linear",
-              }}
-            />
-          </>
-        )}
+          {reduceMotion ? (
+            <>
+              <div className="absolute left-0 top-[5px] h-0.5 w-3/4 rounded-full bg-success/50" />
+              <div className="absolute left-3/4 top-[6px] z-20 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-success shadow-[0_0_12px_rgba(6,156,78,0.9)]" />
+            </>
+          ) : (
+            animating && (
+              <>
+                {/* Lit trail behind the pulse (compositor-only scaleX) */}
+                <motion.div
+                  className="absolute inset-x-0 top-[5px] h-0.5 origin-left rounded-full bg-success/50"
+                  animate={{ scaleX: [0, 1, 1] }}
+                  transition={{
+                    duration: LOOP_SECONDS,
+                    times: [0, TRAVEL_FRACTION, 1],
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                />
+                {/* The travelling pulse — transform only, holds at OPERATE */}
+                <motion.div
+                  className="absolute left-0 top-0 z-20 size-3 rounded-full bg-success shadow-[0_0_12px_rgba(6,156,78,0.9)]"
+                  animate={{
+                    x: [-6, trackWidth - 6, trackWidth - 6],
+                  }}
+                  transition={{
+                    duration: LOOP_SECONDS,
+                    times: [0, TRAVEL_FRACTION, 1],
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                />
+              </>
+            )
+          )}
+        </div>
 
         <div className="relative z-10 grid grid-cols-5">
           {STAGES.map((station, index) => {

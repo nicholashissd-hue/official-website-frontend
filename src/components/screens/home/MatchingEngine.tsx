@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useInView, useReducedMotion } from "framer-motion";
 import { EASE } from "@/components/ui/reveal";
 import { cn } from "@/lib/util";
 import talentOne from "@/assets/png/talent-one.png";
@@ -56,6 +56,9 @@ const Label = ({ children }: { children: string }) => (
  */
 const MatchingEngine = () => {
   const reduceMotion = useReducedMotion();
+  const containerRef = useRef<HTMLDivElement>(null);
+  // Pause the whole machine while off-screen — no idle re-renders.
+  const inView = useInView(containerRef, { amount: 0.25 });
   const [index, setIndex] = useState(0);
   const [phase, setPhase] = useState<Phase>("typing");
   const [typed, setTyped] = useState("");
@@ -68,6 +71,7 @@ const MatchingEngine = () => {
       setPhase("match");
       return;
     }
+    if (!inView) return;
 
     setTyped("");
     setPhase("typing");
@@ -82,10 +86,11 @@ const MatchingEngine = () => {
     }, 24);
 
     return () => clearInterval(timer);
-  }, [index, scenario.requirement, reduceMotion]);
+  }, [index, scenario.requirement, reduceMotion, inView]);
 
   // Advance signals → match → next scenario.
   useEffect(() => {
+    if (!inView && !reduceMotion) return;
     if (phase === "signals") {
       const timer = setTimeout(() => setPhase("match"), 1200);
       return () => clearTimeout(timer);
@@ -97,10 +102,13 @@ const MatchingEngine = () => {
       );
       return () => clearTimeout(timer);
     }
-  }, [phase, reduceMotion]);
+  }, [phase, reduceMotion, inView]);
 
   return (
-    <div className="relative overflow-hidden rounded-3xl bg-deep/80 shadow-[0_40px_90px_rgba(1,20,10,0.45)] ring-1 ring-bg-cream/15 backdrop-blur-sm">
+    <div
+      ref={containerRef}
+      className="relative overflow-hidden rounded-3xl bg-deep/80 shadow-[0_40px_90px_rgba(1,20,10,0.45)] ring-1 ring-bg-cream/15"
+    >
       {/* Title bar */}
       <div className="flex items-center justify-between border-b border-bg-cream/10 px-6 py-4">
         <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-accent-four">

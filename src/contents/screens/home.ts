@@ -1,16 +1,16 @@
-import infinion from "@/assets/svg/trustedcompanies/infinion-logo-default.svg";
-import atbTech from "@/assets/svg/trustedcompanies/atbtech-logo-default.svg";
-import choiceCloud from "@/assets/svg/trustedcompanies/choiceCloud-logo-default.svg";
-import hubint from "@/assets/svg/trustedcompanies/hubinit-logo-default.svg";
-import initTs from "@/assets/svg/trustedcompanies/inits-logo-default.svg";
-import moniepoint from "@/assets/svg/trustedcompanies/moniepoint-logo-default.svg";
-import newGlobe from "@/assets/svg/trustedcompanies/newglobe-logo-default.svg";
-import plugLink from "@/assets/svg/trustedcompanies/plug-link-logo-default.svg";
-import quickRemit from "@/assets/svg/trustedcompanies/quickremit-logo-default.svg";
-import shell from "@/assets/svg/trustedcompanies/shell-logo-default.svg";
-import syscomptech from "@/assets/svg/trustedcompanies/syscomptech-logo-default.svg";
-import tandatech from "@/assets/svg/trustedcompanies/tanda-logo-default.svg";
-import notchHr from "@/assets/svg/trustedcompanies/notchHr-logo-default.svg";
+import infinion from "@/assets/png/logos/infinion.png";
+import atbTech from "@/assets/png/logos/atbtech.png";
+import choiceCloud from "@/assets/png/logos/choiceCloud.png";
+import hubint from "@/assets/png/logos/hubinit.png";
+import initTs from "@/assets/png/logos/inits.png";
+import moniepoint from "@/assets/png/logos/moniepoint.png";
+import newGlobe from "@/assets/png/logos/newglobe.png";
+import plugLink from "@/assets/png/logos/plug-link.png";
+import quickRemit from "@/assets/png/logos/quickremit.png";
+import shell from "@/assets/png/logos/shell.png";
+import syscomptech from "@/assets/png/logos/syscomptech.png";
+import tandatech from "@/assets/png/logos/tanda.png";
+import notchHr from "@/assets/png/logos/notchHr.png";
 
 export const heroText = {
   title: "Your Company Deserves Senior Engineering Leadership",

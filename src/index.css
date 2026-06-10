@@ -35,10 +35,6 @@
 }
 
 /* ── Base ─────────────────────────────────────────────────────── */
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   overscroll-behavior: none;
   -webkit-font-smoothing: antialiased;
@@ -199,9 +195,6 @@ body {
   .animate-pulse-dot,
   .animate-float {
     animation: none;
-  }
-  html {
-    scroll-behavior: auto;
   }
 }
 

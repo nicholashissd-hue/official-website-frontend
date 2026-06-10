@@ -26,10 +26,10 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+        "fixed inset-x-0 top-0 z-50 transition-[transform,background-color,border-color] duration-500",
         shouldShowHeader ? "translate-y-0" : "-translate-y-full",
         isScrolled && !isMobileMenuOpen
-          ? "border-b border-primary/10 bg-bg-cream/90 backdrop-blur-md"
+          ? "border-b border-primary/10 bg-bg-cream/95 backdrop-blur-sm"
           : "border-b border-transparent",
       )}
     >
