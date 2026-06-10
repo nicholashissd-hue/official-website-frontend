@@ -275,6 +275,14 @@ export const capabilitiesData = [
   },
 ];
 
+export const bespokeText = {
+  eyebrow: "Bespoke",
+  title: "Something more specific?",
+  description:
+    "Every roadmap is different. Tell us what you're building and we'll shape a bespoke engagement around it — the capability mix, team structure, and delivery model that fit your goals.",
+  buttonText: "Make an Inquiry",
+};
+
 export const valueText = {
   title: "How We Drive Value",
   subtext: "The right engineering talent creates measurable business outcomes.",
