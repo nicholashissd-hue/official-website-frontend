@@ -19,14 +19,15 @@
   --color-accent-three: #7c7c7c;
   --color-accent-four: #8ba396;
   --color-success: #069c4e;
-  /* Saturated green range (pastel mint + yellow-green both rejected,
-     2026-06-09). Token names kept so existing utility classes restyle
-     site-wide: border-light = bright spring green (accents on dark +
-     vivid blocks), bg-yellow = kelly green surfaces. */
-  --color-border-light: #2dbf6e;
+  /* British-racing-green direction (2026-06-09): large surfaces use the
+     deep greens (primary/pine); brights live only in small accents.
+     Legacy token names kept so utilities restyle site-wide:
+     border-light = bright accent green (text-on-dark, chips, badges),
+     bg-yellow = pressed/deep accent (e.g. light-button hover). */
+  --color-border-light: #0fb45e;
   --color-bg-light: #e9f3ec;
   --color-bg-cream: #fcfcf4;
-  --color-bg-yellow: #069c4e;
+  --color-bg-yellow: #0a8043;
 
   /* Tonal steps of the brand green, for layered dark surfaces */
   --color-deep: #012112;

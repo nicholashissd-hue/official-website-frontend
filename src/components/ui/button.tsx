@@ -19,7 +19,7 @@ type ButtonProps = {
 
 const VARIANTS: Record<ButtonVariant, string> = {
   primary: "bg-success text-deep hover:bg-primary hover:text-bg-cream",
-  light: "bg-border-light text-primary hover:bg-bg-yellow",
+  light: "bg-border-light text-deep hover:bg-bg-yellow hover:text-bg-cream",
   outline:
     "ring-1 ring-inset ring-primary/25 text-primary hover:bg-primary hover:text-bg-cream hover:ring-primary",
   "outline-light":

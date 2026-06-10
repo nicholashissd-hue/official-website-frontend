@@ -10,14 +10,18 @@ import ladyInOffice from "@/assets/jpg/lady-in-office.jpg";
 /** "Why Organizations Choose ElderOps" — lime color block with photo collage. */
 const WhyElderOps = () => {
   return (
-    <section className="bg-border-light">
-      <div className="container section-space-block">
+    <section className="grain relative overflow-hidden bg-pine">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_100%_at_0%_100%,#02361b_0%,transparent_60%)]"
+      />
+      <div className="container section-space-block relative">
         <SectionHeading
+          dark
           index="03"
           eyebrow="Why ElderOps"
           title={whyWeStandApartText.title}
           lede={whyWeStandApartText.subtext}
-          ledeClassName="text-primary/80"
         />
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">

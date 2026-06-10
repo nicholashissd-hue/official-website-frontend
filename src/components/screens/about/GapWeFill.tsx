@@ -9,11 +9,13 @@ import Reveal, { Lift } from "@/components/ui/reveal";
 import Underlined from "@/components/ui/underline";
 import { cn } from "@/lib/util";
 
-/** Pillar cards rotate through the light brand deck: white, sage, kelly. */
+/** Pillar cards deepen across the deck: white → sage → racing green. */
 const PILLAR_TONES = [
   {
     card: "bg-white ring-1 ring-primary/10",
     badge: "bg-success/10 text-success",
+    title: "text-primary",
+    lead: "text-success",
     body: "text-accent-one",
     label: "text-accent-three",
     item: "text-accent-one",
@@ -21,16 +23,20 @@ const PILLAR_TONES = [
   {
     card: "bg-bg-light",
     badge: "bg-success/10 text-success",
+    title: "text-primary",
+    lead: "text-success",
     body: "text-accent-one",
     label: "text-accent-three",
     item: "text-accent-one",
   },
   {
-    card: "bg-bg-yellow",
-    badge: "bg-primary/15 text-primary",
-    body: "text-primary/90",
-    label: "text-primary/70",
-    item: "text-primary/90",
+    card: "grain relative bg-pine",
+    badge: "bg-bg-cream/10 text-border-light",
+    title: "text-bg-cream",
+    lead: "text-border-light",
+    body: "text-accent-four",
+    label: "text-accent-four",
+    item: "text-bg-light/85",
   },
 ];
 
@@ -83,10 +89,20 @@ const GapWeFill = () => {
                 >
                   {index + 1}
                 </span>
-                <h3 className="mt-5 font-display text-2xl font-semibold leading-snug tracking-[-0.01em] text-primary">
+                <h3
+                  className={cn(
+                    "mt-5 font-display text-2xl font-semibold leading-snug tracking-[-0.01em]",
+                    tone.title,
+                  )}
+                >
                   {pillar.title}
                 </h3>
-                <p className="mt-4 font-display text-[1.02rem] font-medium leading-[1.55] text-success">
+                <p
+                  className={cn(
+                    "mt-4 font-display text-[1.02rem] font-medium leading-[1.55]",
+                    tone.lead,
+                  )}
+                >
                   {pillar.lead}
                 </p>
                 <p className={cn("mt-4 flex-1 text-sm leading-[1.8]", tone.body)}>

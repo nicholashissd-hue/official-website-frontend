@@ -5,14 +5,18 @@ import Reveal, { Lift } from "@/components/ui/reveal";
 /** "How We Drive Value" — five lifted cards on the lime block. */
 const ValueOutcomes = () => {
   return (
-    <section className="bg-border-light">
-      <div className="container section-space-block">
+    <section className="grain relative overflow-hidden bg-pine">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_100%_at_100%_100%,#02361b_0%,transparent_60%)]"
+      />
+      <div className="container section-space-block relative">
         <SectionHeading
+          dark
           index="03"
           eyebrow="Business Value"
           title={valueText.title}
           lede={valueText.subtext}
-          ledeClassName="text-primary/80"
         />
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">

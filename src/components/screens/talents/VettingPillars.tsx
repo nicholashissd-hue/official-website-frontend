@@ -11,14 +11,18 @@ import Reveal, { Lift } from "@/components/ui/reveal";
 /** "Why Teams Trust ElderOps Engineers" — vetting pillars + critical-initiatives card. */
 const VettingPillars = () => {
   return (
-    <section className="bg-border-light">
-      <div className="container section-space-block">
+    <section className="grain relative overflow-hidden bg-pine">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_100%_at_0%_0%,#02361b_0%,transparent_60%)]"
+      />
+      <div className="container section-space-block relative">
         <SectionHeading
+          dark
           index="03"
           eyebrow="Vetting"
           title={vettingText.title}
           lede={vettingText.subtext}
-          ledeClassName="text-primary/80"
         />
 
         <div className="grid gap-5 sm:grid-cols-2">
@@ -40,7 +44,7 @@ const VettingPillars = () => {
         </div>
 
         <Reveal delay={0.15}>
-          <div className="grain relative mt-5 grid items-center gap-8 overflow-hidden rounded-[2rem] bg-primary p-9 md:grid-cols-[1fr_auto] md:p-12">
+          <div className="grain relative mt-5 grid items-center gap-8 overflow-hidden rounded-[2rem] bg-primary p-9 ring-1 ring-bg-cream/15 md:grid-cols-[1fr_auto] md:p-12">
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_120%_at_100%_0%,#074527_0%,transparent_60%)]"

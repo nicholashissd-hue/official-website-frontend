@@ -34,19 +34,25 @@ const Hero = () => {
         </Reveal>
 
         <Reveal immediate delay={0.4} y={24}>
-          <blockquote className="mt-14 max-w-4xl rounded-[2rem] bg-bg-yellow p-8 md:mt-20 md:p-12">
-            <span
+          <blockquote className="grain relative mt-14 max-w-4xl overflow-hidden rounded-[2rem] bg-pine p-8 md:mt-20 md:p-12">
+            <div
               aria-hidden="true"
-              className="block font-display text-6xl font-semibold leading-none text-primary md:text-7xl"
-            >
-              “
-            </span>
-            <p className="mt-4 font-display text-[clamp(1.3rem,2.6vw,1.9rem)] font-medium leading-[1.4] tracking-[-0.01em] text-primary">
-              {heroText.quote}
-            </p>
-            <footer className="mt-7">
-              <Eyebrow>The ElderOps Philosophy</Eyebrow>
-            </footer>
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_120%_at_100%_0%,#02361b_0%,transparent_60%)]"
+            />
+            <div className="relative">
+              <span
+                aria-hidden="true"
+                className="block font-display text-6xl font-semibold leading-none text-border-light md:text-7xl"
+              >
+                “
+              </span>
+              <p className="mt-4 font-display text-[clamp(1.3rem,2.6vw,1.9rem)] font-medium leading-[1.4] tracking-[-0.01em] text-bg-cream">
+                {heroText.quote}
+              </p>
+              <footer className="mt-7">
+                <Eyebrow dark>The ElderOps Philosophy</Eyebrow>
+              </footer>
+            </div>
           </blockquote>
         </Reveal>
 

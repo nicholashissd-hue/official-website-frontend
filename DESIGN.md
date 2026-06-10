@@ -16,13 +16,15 @@ not a magazine). Brand palette only — used boldly.
 - Cream canvas: `bg-bg-cream`
 - Deep green: `bg-primary` + `grain relative` + a radial glow div
   (`bg-[radial-gradient(...,#074527,transparent)]`)
-- **Vivid green block**: `bg-border-light` (#2dbf6e spring green) — at least one
-  per page; body text on it uses text-primary/80+ (never grays)
-- Kelly surface: `bg-bg-yellow` (#069c4e) for accent cards (token name is legacy)
+- **British racing green** is the direction: large color blocks are DEEP —
+  `bg-primary` (#02361b) or `bg-pine` (#074527, + grain + glow) — never bright
 - Soft sage: `bg-bg-light` (#e9f3ec) for quiet panels/cards
-- Bright green `bg-success` for primary CTAs, accent cards, number badges
-- NO yellow-green/lime AND NO pastel mint tones (owner rejected both 2026-06-09);
-  greens are either deep, vivid, or near-white — never pastel
+- Bright greens appear ONLY in small doses: `bg-success` (#069c4e) CTAs/badges,
+  `border-light` (#0fb45e) accent text-on-dark and chips,
+  `bg-yellow` (#0a8043) pressed/hover states (token names are legacy)
+- Card decks may deepen across members (white → sage → pine)
+- REJECTED by owner (2026-06-09): yellow-green/lime, pastel mint, and bright
+  green as large surfaces. Big areas = dark greens, full stop.
 - Never separate sections with hairline borders; contrast comes from the blocks.
 - Never stack two full-width horizontal strips back-to-back (ticker + logos,
   logos + uniform stat row = "double banner"); break strips with asymmetric

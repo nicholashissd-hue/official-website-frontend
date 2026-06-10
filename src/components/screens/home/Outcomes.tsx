@@ -17,10 +17,10 @@ const CARD_TONES = [
     body: "text-accent-one",
   },
   {
-    card: "bg-bg-yellow",
-    tag: "bg-primary/15 text-primary",
-    title: "text-primary",
-    body: "text-primary/90",
+    card: "grain relative bg-pine",
+    tag: "bg-bg-cream/10 text-border-light ring-1 ring-inset ring-bg-cream/15",
+    title: "text-bg-cream",
+    body: "text-accent-four",
   },
 ];
 
