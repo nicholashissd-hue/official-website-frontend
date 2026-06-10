@@ -1,11 +1,8 @@
 import Form from "@/components/contactUs/Form";
-import CalendlyCTA from "@/components/contactUs/react-calendly";
-import Button from "@/components/ui/button";
 import Eyebrow from "@/components/ui/eyebrow";
 import PhotoCard from "@/components/ui/photo-card";
 import Reveal from "@/components/ui/reveal";
 import Underlined from "@/components/ui/underline";
-import { useGlobalStore } from "@/store/useGlobalStore";
 import cooperateLady from "@/assets/jpg/cooperate-lady.jpg";
 
 const NEXT_STEPS = [
@@ -44,34 +41,6 @@ const WhatHappensNext = () => (
     </div>
   </div>
 );
-
-const NotSureBand = () => {
-  const { setChatOpen } = useGlobalStore();
-
-  return (
-    <section className="bg-bg-light">
-      <div className="container section-space-block">
-        <Reveal className="flex flex-col items-center text-center">
-          <Eyebrow>No Pressure</Eyebrow>
-          <h2 className="mt-6 max-w-2xl text-balance font-display text-[clamp(1.9rem,3.8vw,2.9rem)] font-semibold leading-[1.1] tracking-[-0.015em] text-primary">
-            Not Sure What You Need Yet?
-          </h2>
-          <p className="mt-5 max-w-xl text-[15px] leading-[1.8] text-accent-one">
-            That's exactly why the conversation exists. We'll help you determine
-            whether a single engineer, a dedicated team, or a structured
-            delivery engagement is the best fit.
-          </p>
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <Button variant="primary" withArrow onClick={() => setChatOpen(true)}>
-              Ask the Hiring Advisor
-            </Button>
-            <CalendlyCTA variant="outline" />
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-};
 
 const ContactUs = () => {
   return (
@@ -124,8 +93,6 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
-
-      <NotSureBand />
     </>
   );
 };
