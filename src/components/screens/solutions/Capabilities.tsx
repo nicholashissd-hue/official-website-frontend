@@ -71,30 +71,26 @@ const Capabilities = () => {
             </Reveal>
           ))}
 
-          {/* Bespoke engagement — solid brand green, deep text, dark pill */}
+          {/* Bespoke engagement — same card as its siblings; the pill is the accent */}
           <Reveal delay={capabilitiesData.length * 0.06}>
-            <Lift className="flex flex-col rounded-3xl bg-success p-9 hover:shadow-[0_32px_70px_rgba(1,20,10,0.4)] md:p-11">
-              <p className="eyebrow text-deep/80">
+            <Lift className="flex flex-col rounded-3xl bg-bg-cream/[0.04] p-9 ring-1 ring-bg-cream/10 hover:bg-bg-cream/[0.07] md:p-11">
+              <p className="eyebrow text-border-light">
                 <span
                   aria-hidden="true"
-                  className="size-1.5 shrink-0 rounded-full bg-deep"
+                  className="size-1.5 shrink-0 rounded-full bg-success"
                 />
                 {bespokeText.eyebrow}
               </p>
 
-              <h3 className="mt-6 font-display text-[1.6rem] font-semibold leading-snug tracking-[-0.01em] text-deep md:text-3xl">
+              <h3 className="mt-6 font-display text-[1.6rem] font-semibold leading-snug tracking-[-0.01em] text-bg-cream md:text-3xl">
                 {bespokeText.title}
               </h3>
-              <p className="mt-4 max-w-lg flex-1 text-[15px] font-medium leading-[1.85] text-deep/85">
+              <p className="mt-4 max-w-lg flex-1 text-[15px] leading-[1.85] text-accent-four">
                 {bespokeText.description}
               </p>
 
               <div className="mt-9">
-                <Button
-                  to="/contact-us"
-                  withArrow
-                  className="bg-primary text-bg-cream hover:bg-deep"
-                >
+                <Button to="/contact-us" variant="primary" withArrow>
                   {bespokeText.buttonText}
                 </Button>
               </div>
