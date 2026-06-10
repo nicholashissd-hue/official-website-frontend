@@ -7,16 +7,16 @@ const ChatLauncher = ({ onClick }: ChatLauncherProps) => {
     <button
       type="button"
       onClick={onClick}
-      aria-label="Open ElderOps chat"
-      className="group fixed bottom-4 right-4 z-[70] flex h-14 items-center gap-3 rounded-full border border-[#5D7B69] bg-primary bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.18),transparent_46%),linear-gradient(135deg,#02361B,#0B5A31)] px-4 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(2,54,27,0.24)] transition-transform duration-200 hover:-translate-y-1 sm:bottom-6 sm:right-6 sm:h-15 sm:px-5"
+      aria-label="Open the ElderOps Hiring Advisor"
+      className="group fixed bottom-5 right-5 z-[70] flex h-12 cursor-pointer items-center gap-3 rounded-[2px] border border-success/50 bg-primary px-5 shadow-[0_18px_45px_rgba(2,54,27,0.35)] transition-all duration-300 hover:-translate-y-1 hover:border-success sm:bottom-6 sm:right-6"
     >
       <span
         aria-hidden="true"
-        className="grid size-9 place-items-center rounded-full bg-white/15 text-base"
-      >
-        EO
+        className="animate-pulse-dot size-1.5 rounded-full bg-success"
+      />
+      <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-bg-cream">
+        Hiring Advisor
       </span>
-      <span className="hidden sm:inline">Find an Engineer</span>
     </button>
   );
 };

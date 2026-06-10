@@ -9,14 +9,32 @@ export const useSendContactEmail = () => {
 
   const sendContactEmail = async (data: ContactFormData) => {
     setIsSubmitting(true);
+
+    // Keep legacy template variables (firstName/lastName/email/message)
+    // working while also passing the richer qualification fields.
+    const [firstName, ...restOfName] = data.fullName.trim().split(/\s+/);
+    const templateParams = {
+      ...data,
+      firstName,
+      lastName: restOfName.join(" ") || "—",
+      message: [
+        `Company: ${data.company}`,
+        `Looking for: ${data.lookingFor}`,
+        `Technical focus area: ${data.focusArea}`,
+        "",
+        data.message,
+      ].join("\n"),
+      initiative: data.message,
+    };
+
     try {
       await emailjs.send(
         EMAILJS_CONFIG.serviceId,
         EMAILJS_CONFIG.templateId,
-        data,
+        templateParams,
         EMAILJS_CONFIG.publicKey,
       );
-      toast.success("Message sent successfully! We'll get back to you soon.");
+      toast.success("Message sent. We'll get back to you within one business day.");
     } catch (error) {
       console.error("EmailJS error:", error);
       toast.error("Failed to send message. Please try again.");

@@ -1,45 +1,56 @@
-import heroBg from "@/assets/svg/talent-hero-bg.svg";
-import HeroTitle from "@/components/ui/hero-title";
-import { Animated } from "@/components/ui/animated";
-import Highlight from "@/components/ui/highlight";
-import heroImg from "@/assets/svg/talent-hero-image.svg";
-import heroImgMobile from "@/assets/svg/talent-hero-img.svg";
+import { heroText } from "@/contents/screens/talents";
+import Button from "@/components/ui/button";
+import Eyebrow from "@/components/ui/eyebrow";
+import Reveal from "@/components/ui/reveal";
+import CalendlyCTA from "@/components/contactUs/react-calendly";
+import CommandCenter from "./CommandCenter";
 
 const Hero = () => {
   return (
-    <section
-      className="bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center pt-22.5"
-      style={{ backgroundImage: `url(${heroBg})` }}
-    >
-      <div className="container pt-10 md:py-20">
-        <Animated variant="slideUp" type="animate" className="text-center">
-          <HeroTitle className="lg:max-w-167 mx-auto">
-            Thoroughly Vetted{" "}
-            <span className="lg:block">
-              <Highlight>Global Engineering </Highlight>Talent
-            </span>
-          </HeroTitle>
+    <section className="grain relative overflow-hidden bg-primary">
+      {/* Engineering-paper grid + tonal depth */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(252,252,244,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(252,252,244,0.035)_1px,transparent_1px)] bg-[size:56px_56px]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(85%_90%_at_15%_20%,rgba(1,33,18,0.9)_0%,transparent_70%)]"
+      />
 
-          <p className="text-[#7C7C7C] text-sm  mt-2 sm:mt-4 lg:max-w-119.5 mx-auto max-sm:leading-5.5 sm:text-base">
-            Senior-level expertise in DevOps, Data, and AI. We provide elite
-            engineers who integrate seamlessly into enterprise environments.
-          </p>
-        </Animated>
-        <Animated
-          variant="scale"
-          className="size-full h-70 sm:min-h-139 sm:max-h-139 overflow-hidden rounded-2xl mt-10"
-        >
-          <img
-            src={heroImgMobile}
-            alt="hiring specialist interviewing a candidate"
-            className="sm:hidden size-full object-cover"
-          />
-          <img
-            src={heroImg}
-            alt="hiring specialist interviewing a candidate"
-            className="hidden sm:block size-full object-cover"
-          />
-        </Animated>
+      <div className="container relative grid items-center gap-14 pb-20 pt-36 md:pt-44 lg:grid-cols-[1.05fr_1fr] lg:gap-20 lg:pb-28">
+        <div>
+          <Reveal immediate y={20}>
+            <Eyebrow dark>The Network</Eyebrow>
+          </Reveal>
+
+          <Reveal immediate delay={0.12} y={26}>
+            <h1 className="mt-8 font-display text-[clamp(2.5rem,5.2vw,4.2rem)] leading-[1.06] tracking-[-0.02em] text-bg-cream">
+              {heroText.titleLineOne}
+              <br />
+              <em className="italic text-border-light">{heroText.titleLineTwo}</em>
+            </h1>
+          </Reveal>
+
+          <Reveal immediate delay={0.26} y={22}>
+            <p className="mt-8 max-w-xl text-[15px] leading-[1.85] text-accent-four md:text-base">
+              {heroText.subtext}
+            </p>
+          </Reveal>
+
+          <Reveal immediate delay={0.38} y={20}>
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <Button to="/contact-us" variant="light" withArrow>
+                Request a Shortlist
+              </Button>
+              <CalendlyCTA variant="outline-light" />
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal immediate delay={0.45} y={32}>
+          <CommandCenter />
+        </Reveal>
       </div>
     </section>
   );

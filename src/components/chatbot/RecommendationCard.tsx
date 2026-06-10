@@ -7,6 +7,12 @@ interface RecommendationCardProps {
   onShare: () => void;
 }
 
+const SectionLabel = ({ children }: { children: string }) => (
+  <p className="mb-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-accent-three">
+    {children}
+  </p>
+);
+
 const RecommendationCard = ({
   recommendation,
   isSharing,
@@ -15,48 +21,49 @@ const RecommendationCard = ({
 }: RecommendationCardProps) => {
   const confidenceClass =
     recommendation.confidence === "High"
-      ? "bg-[#E9F7EC] text-[#0B6F34]"
+      ? "border-success/50 text-success"
       : recommendation.confidence === "Medium"
-        ? "bg-[#F4F6DD] text-primary"
-        : "bg-[#FFF4DC] text-[#9B5B00]";
+        ? "border-primary/25 text-primary"
+        : "border-[#9b5b00]/40 text-[#9b5b00]";
 
   return (
-    <article className="mt-3 overflow-hidden rounded-2xl border border-[#DDE8D5] bg-white shadow-[0_18px_45px_rgba(2,54,27,0.10)]">
-      <div className="bg-[#FAFBF7] p-4">
+    <article className="mt-3 w-full overflow-hidden rounded-[3px] border border-primary/15 bg-white shadow-[0_18px_45px_rgba(2,54,27,0.1)]">
+      <div className="border-b border-primary/10 bg-bg-light/50 p-4">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#748477]">
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent-three">
               Recommended role
             </p>
-            <h3 className="mt-1 font-urbanist text-2xl font-semibold leading-tight text-primary">
+            <h3 className="mt-1.5 font-display text-[1.4rem] leading-tight tracking-[-0.01em] text-primary">
               {recommendation.primaryRole}
             </h3>
           </div>
 
           <span
-            className={`rounded-full px-3 py-1 text-xs font-bold ${confidenceClass}`}
+            className={`border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] ${confidenceClass}`}
           >
             {recommendation.confidence} confidence
           </span>
         </div>
 
-        <p className="mt-3 text-sm leading-6 text-[#4D5A52]">
+        <p className="mt-3 text-sm leading-[1.7] text-accent-one">
           {recommendation.summary}
         </p>
       </div>
 
-      <div className="space-y-4 p-4">
+      <div className="space-y-5 p-4">
         <section>
-          <p className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-primary">
-            Why this fits
-          </p>
+          <SectionLabel>Why this fits</SectionLabel>
           <ul className="space-y-2">
             {recommendation.whyThisRole.map((reason) => (
               <li
                 key={reason}
-                className="flex gap-2 text-sm leading-6 text-[#4D5A52]"
+                className="flex gap-2.5 text-sm leading-[1.7] text-accent-one"
               >
-                <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-success" />
+                <span
+                  aria-hidden="true"
+                  className="mt-[0.55em] size-1 shrink-0 rotate-45 bg-success"
+                />
                 <span>{reason}</span>
               </li>
             ))}
@@ -64,14 +71,12 @@ const RecommendationCard = ({
         </section>
 
         <section>
-          <p className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-primary">
-            Key skills
-          </p>
+          <SectionLabel>Key skills</SectionLabel>
           <div className="flex flex-wrap gap-2">
             {recommendation.keySkills.map((skill) => (
               <span
                 key={skill}
-                className="rounded-full border border-[#DDE8D5] bg-[#FAFBF7] px-3 py-1.5 text-xs font-semibold text-primary"
+                className="border border-primary/15 bg-bg-cream px-2.5 py-1.5 text-xs font-medium text-primary"
               >
                 {skill}
               </span>
@@ -79,29 +84,25 @@ const RecommendationCard = ({
           </div>
         </section>
 
-        <section className="rounded-2xl bg-[#F8FAF4] p-3">
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">
-            Suggested seniority
-          </p>
-          <p className="mt-1 text-sm font-semibold text-[#4D5A52]">
+        <section className="border border-primary/10 bg-bg-light/40 p-3">
+          <SectionLabel>Suggested seniority</SectionLabel>
+          <p className="text-sm font-medium text-primary">
             {recommendation.suggestedSeniority}
           </p>
         </section>
 
         <section>
-          <p className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-primary">
-            Alternatives
-          </p>
+          <SectionLabel>Alternatives</SectionLabel>
           <div className="space-y-2">
             {recommendation.alternativeRoles.map((alternative) => (
               <div
                 key={alternative.role}
-                className="rounded-2xl border border-[#E5ECDD] p-3"
+                className="border border-primary/10 p-3"
               >
-                <p className="text-sm font-bold text-primary">
+                <p className="text-sm font-semibold text-primary">
                   {alternative.role}
                 </p>
-                <p className="mt-1 text-xs leading-5 text-[#5C675F]">
+                <p className="mt-1 text-xs leading-[1.6] text-accent-one">
                   {alternative.reason}
                 </p>
               </div>
@@ -110,23 +111,19 @@ const RecommendationCard = ({
         </section>
 
         <section>
-          <p className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-primary">
-            Interview focus
-          </p>
-          <p className="text-sm leading-6 text-[#4D5A52]">
+          <SectionLabel>Interview focus</SectionLabel>
+          <p className="text-sm leading-[1.7] text-accent-one">
             {recommendation.interviewFocusAreas.join(", ")}
           </p>
         </section>
 
         <section>
-          <p className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-primary">
-            Follow-up questions
-          </p>
+          <SectionLabel>Follow-up questions</SectionLabel>
           <ul className="space-y-2">
             {recommendation.followUpQuestions.map((question) => (
               <li
                 key={question}
-                className="rounded-xl bg-[#FAFBF7] px-3 py-2 text-sm leading-5 text-[#4D5A52]"
+                className="border-l-2 border-success/50 bg-bg-light/40 px-3 py-2 text-sm leading-[1.6] text-accent-one"
               >
                 {question}
               </li>
@@ -138,12 +135,12 @@ const RecommendationCard = ({
           type="button"
           disabled={isSharing || hasShared}
           onClick={onShare}
-          className="btn-glass-effect w-full rounded-full border border-primary px-4 py-3 text-sm font-bold text-white disabled:cursor-not-allowed disabled:opacity-70"
+          className="h-12 w-full cursor-pointer rounded-[2px] bg-primary px-4 text-sm font-medium tracking-wide text-bg-cream transition-colors duration-300 hover:bg-deep disabled:cursor-not-allowed disabled:opacity-60"
         >
           {hasShared
-            ? "Shared with ElderOps"
+            ? "Shared with ElderOps ✓"
             : isSharing
-              ? "Sharing..."
+              ? "Sharing…"
               : "Find this engineer with ElderOps"}
         </button>
       </div>

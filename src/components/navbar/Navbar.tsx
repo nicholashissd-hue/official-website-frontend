@@ -1,100 +1,113 @@
-import { cn } from "@/lib/util";
-import type { NavbarProps, NavLinks } from "@/types";
+import { useEffect } from "react";
 import { NavLink } from "react-router";
+import { cn } from "@/lib/util";
 import { useGlobalStore } from "@/store/useGlobalStore";
-// import Button from "@/components/ui/button";
+import { NAV_LINKS } from "@/contents/nav";
 import CalendlyCTA from "../contactUs/react-calendly";
-import elderOpsLogoGreen from "@/assets/svg/elderOps-green-logo.svg";
 
-const Navbar = ({ isHomePage, className, isFooter }: NavbarProps) => {
+interface NavbarProps {
+  /** True when the header sits over a dark surface (dark hero or open menu). */
+  dark?: boolean;
+}
+
+const Navbar = ({ dark = false }: NavbarProps) => {
   const { isMobileMenuOpen, closeMobileMenu } = useGlobalStore();
 
-  const navLinks: NavLinks[] = [
-    {
-      label: "Home",
-      path: "/",
-    },
-    {
-      label: "Solutions",
-      path: "/solutions",
-    },
-    {
-      label: "Talent",
-      path: "/talent",
-    },
-    {
-      label: "About",
-      path: "/about",
-    },
-    {
-      label: "Contact Us",
-      path: "/contact-us",
-    },
-
-    // isFooter && {
-    //   label: "Contact",
-    //   path: "/contact-us",
-    // },
-  ].filter(Boolean) as NavLinks[];
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   return (
-    <nav
-      className={cn(
-        "relative flex items-center gap-10 text-sm",
-        isHomePage && !isFooter ? "text-white" : " md:text-primary",
-        !isFooter &&
-          "max-md:fixed max-md:inset-0 max-md:h-dvh max-md:bg-white max-md:z-40 max-md:flex-col max-md:items-start max-md:justify-start max-md:p-6 max-md:pt-24 max-md:pb-6 max-md:gap-0 max-md:text-2xl max-md:transition-transform max-md:duration-300 max-md:text-[#909090] max-md:overflow-y-auto",
-        !isFooter && !isMobileMenuOpen && "max-md:translate-x-full",
-        className,
-      )}
-      style={
-        !isFooter && isMobileMenuOpen
-          ? { backgroundColor: "#ffffff" }
-          : undefined
-      }
-    >
-      {!isFooter && (
-        <img
-          src={elderOpsLogoGreen}
-          alt="elderOps logo"
-          className="absolute left-6 top-7.5 w-10 md:hidden"
-        />
-      )}
-      {navLinks.map((link, index) => (
-        <NavLink
-          key={link.path + index}
-          to={link.path}
-          onClick={isFooter ? undefined : closeMobileMenu}
-          className={({ isActive }) =>
-            cn(
-              "py-2 px-3 -mx-3 flex flex-col items-center justify-center transition-colors hover:text-success active:text-success touch-manipulation",
-              isActive && "font-semibold text-success",
-              isFooter && "px-0 mx-0",
-              isFooter && isMobileMenuOpen && "!bg-red-[500] h-[70vh] ",
-              !isFooter &&
-                "max-md:w-full max-md:py-4 max-md:px-0 max-md:mx-0  max-md:active:bg-bg-light",
-              !isFooter && isActive && "text-success",
-            )
-          }
-        >
-          {link.label}
-        </NavLink>
-      ))}
-
-      {!isFooter && (
-        <div className="md:hidden mt-auto w-full flex items-center justify-center">
-          <CalendlyCTA shouldRenderOnMobile />
-          {/* <Button
-            variant="button"
-            // to="/contact-us"
-            onClick={closeMobileMenu}
-            className="w-full font-bold text-center bg-white! border-none! text-primary! "
+    <>
+      {/* Desktop */}
+      <nav
+        aria-label="Main"
+        className="hidden items-center gap-9 justify-self-center md:flex"
+      >
+        {NAV_LINKS.map((link) => (
+          <NavLink
+            key={link.path}
+            to={link.path}
+            className={({ isActive }) =>
+              cn(
+                "u-line pb-1 text-[13px] font-medium tracking-[0.04em] transition-colors duration-300",
+                dark
+                  ? "text-bg-cream/75 hover:text-bg-cream"
+                  : "text-primary/70 hover:text-primary",
+                isActive && (dark ? "is-active text-bg-cream" : "is-active text-primary"),
+              )
+            }
           >
-            Contact Us
-          </Button> */}
+            {link.label}
+          </NavLink>
+        ))}
+      </nav>
+
+      {/* Mobile — full-screen editorial menu */}
+      <nav
+        aria-label="Mobile"
+        aria-hidden={!isMobileMenuOpen}
+        className={cn(
+          "grain fixed inset-0 z-40 flex h-dvh flex-col overflow-y-auto bg-primary px-6 pb-10 pt-28 transition-all duration-500 md:hidden",
+          isMobileMenuOpen
+            ? "visible opacity-100"
+            : "pointer-events-none invisible opacity-0",
+        )}
+      >
+        <div>
+          {NAV_LINKS.map((link, index) => (
+            <NavLink
+              key={link.path}
+              to={link.path}
+              onClick={closeMobileMenu}
+              style={{
+                transitionDelay: isMobileMenuOpen ? `${index * 55 + 120}ms` : "0ms",
+              }}
+              className={cn(
+                "flex items-baseline gap-5 border-b border-bg-cream/10 py-5 transition-all duration-500",
+                isMobileMenuOpen
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-5 opacity-0",
+              )}
+            >
+              {({ isActive }) => (
+                <>
+                  <span className="font-mono text-[11px] tracking-[0.2em] text-border-light/70">
+                    0{index + 1}
+                  </span>
+                  <span
+                    className={cn(
+                      "font-display text-[2rem] leading-tight",
+                      isActive ? "italic text-border-light" : "text-bg-cream",
+                    )}
+                  >
+                    {link.label}
+                  </span>
+                </>
+              )}
+            </NavLink>
+          ))}
         </div>
-      )}
-    </nav>
+
+        <div
+          className={cn(
+            "mt-auto space-y-7 pt-12 transition-all delay-300 duration-500",
+            isMobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0",
+          )}
+        >
+          <CalendlyCTA variant="light" className="w-full" />
+          <a
+            href="mailto:contact@elderops.net"
+            className="block text-center font-mono text-[11px] uppercase tracking-[0.2em] text-accent-four"
+          >
+            contact@elderops.net
+          </a>
+        </div>
+      </nav>
+    </>
   );
 };
 

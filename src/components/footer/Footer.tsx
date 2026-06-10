@@ -1,80 +1,104 @@
-import { Link, useLocation } from "react-router";
-import footerLogo from "@/assets/svg/elderOps-footer-logo.svg";
-import SectionTitle from "../ui/section-title";
-import Navbar from "../navbar/Navbar";
-import { footerText } from "@/contents/footer";
+import { Link } from "react-router";
+import elderOpsLogo from "@/assets/svg/elderOps-white-logo.svg";
+import { NAV_LINKS } from "@/contents/nav";
+import Button from "../ui/button";
+import Eyebrow from "../ui/eyebrow";
+import Reveal from "../ui/reveal";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const { pathname } = useLocation();
-
-  const isHomePage = pathname === "/";
 
   return (
-    <footer className="bg-linear-to-b from-[#EFF2CD00] to-[#EFF2CD]">
+    <footer className="grain relative overflow-hidden bg-primary text-bg-cream">
+      {/* Tonal depth at the base of the page */}
       <div
-        className={`container ${isHomePage ? "section-space-block" : "section-space-bottom"} `}
-      >
-        {isHomePage && (
-          <div className="max-w-242.5 mx-auto text-center">
-            <SectionTitle className="font-semibold mb-4">
-              {footerText.title}
-            </SectionTitle>
-            <p className="text-[#979797] mb-10">{footerText.subtext}</p>
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_120%,#01220f_0%,transparent_60%)]"
+      />
 
-            <Link
-              to="/contact-us"
-              className="btn-glass-effect font-medium py-3 px-6 rounded-[36px] text-white inline-block mb-16"
-            >
-              Get started
-            </Link>
-          </div>
-        )}
-
-        <div className="rounded-[24px] bg-white p-6 shadow-[0px_4px_50px_0px_#02361B1A] sm:rounded-3xl sm:p-10">
-          <img
-            src={footerLogo}
-            alt="elder ops logo"
-            className="mx-auto mb-10 sm:mb-12"
-          />
-
-          <div className="mb-8 flex flex-col items-center justify-between sm:mb-10">
-            <Navbar
-              className="grid gap-2 text-center font-medium text-[#5B5B5B] sm:flex sm:justify-center sm:!gap-8 sm:text-start lg:!gap-12"
-              isFooter
-            />
+      <div className="container relative">
+        <Reveal className="flex flex-col gap-10 border-b border-bg-cream/10 py-16 md:py-24 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <Eyebrow dark>ElderOps</Eyebrow>
+            <p className="mt-6 max-w-2xl font-display text-[clamp(1.9rem,3.6vw,3rem)] leading-[1.12] tracking-[-0.01em]">
+              Senior engineering expertise.{" "}
+              <em className="italic text-border-light">Accountable</em>{" "}
+              delivery.
+            </p>
           </div>
 
-          <div className="border-t border-t-[#EAEAEA] pt-5 text-xs font-medium">
-            <div className="flex flex-col items-center justify-between gap-5 w-full xl:flex-row">
-              <div className="flex w-full flex-col items-center gap-3 text-center text-xs font-bold text-[#8BA396] sm:flex-row sm:flex-wrap sm:justify-center sm:gap-8 sm:text-left lg:justify-start lg:gap-16">
-                <a href="mailto:contact@elderops.net" className="break-all sm:break-normal">
-                  Email:{" "}
-                  <span className="text-accent-one">contact@elderops.net</span>
+          <Button to="/contact-us" variant="light" withArrow className="shrink-0">
+            Start the Conversation
+          </Button>
+        </Reveal>
+
+        <div className="grid gap-12 py-14 md:grid-cols-[1.5fr_1fr_1fr] md:py-16">
+          <div>
+            <img src={elderOpsLogo} alt="ElderOps" className="w-12" />
+            <p className="mt-6 max-w-xs text-sm leading-[1.8] text-accent-four">
+              Strategy, execution, and accountability in a single engineering
+              model — senior expertise that integrates directly into your team
+              and owns outcomes.
+            </p>
+          </div>
+
+          <nav aria-label="Footer">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent-four">
+              Menu
+            </p>
+            <ul className="mt-6 space-y-3.5">
+              {NAV_LINKS.map((link) => (
+                <li key={link.path}>
+                  <Link
+                    to={link.path}
+                    className="u-line pb-0.5 text-sm text-bg-cream/85 transition-colors hover:text-bg-cream"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent-four">
+              Contact
+            </p>
+            <ul className="mt-6 space-y-3.5 text-sm">
+              <li>
+                <a
+                  href="mailto:contact@elderops.net"
+                  className="u-line pb-0.5 text-bg-cream/85 transition-colors hover:text-bg-cream"
+                >
+                  contact@elderops.net
                 </a>
-
-                <a href="mailto:contact@elderops.net" className="break-all sm:break-normal">
-                  Contact enquiries:{" "}
-                  <span className="text-accent-one">contact@elderops.net</span>
+              </li>
+              <li>
+                <a
+                  href="tel:+16285550147"
+                  className="u-line pb-0.5 text-bg-cream/85 transition-colors hover:text-bg-cream"
+                >
+                  +1 (628) 555-0147
                 </a>
-                <a href="tel:+16285550147" className="break-all sm:break-normal">
-                  Phone:{" "}
-                  <span className="text-accent-one">+1 (628) 555-0147</span>
-                </a>
-              </div>
+              </li>
+            </ul>
+            <p className="mt-8 font-mono text-[11px] uppercase leading-relaxed tracking-[0.18em] text-accent-four">
+              Typical response
+              <br />
+              <span className="text-border-light">within one business day</span>
+            </p>
+          </div>
+        </div>
 
-              <div className="flex shrink-0 flex-nowrap items-center justify-center gap-3 whitespace-nowrap text-[#767676] sm:gap-4 xl:justify-end">
-                <p className="whitespace-nowrap">© {currentYear} ElderOps</p>
-
-                <div className="hidden size-1 rounded-full bg-[#767676] sm:block" />
-
-                <a href="/" className="whitespace-nowrap">Terms</a>
-
-                <div className="hidden size-1 rounded-full bg-[#767676] sm:block" />
-
-                <a href="/" className="whitespace-nowrap">Privacy</a>
-              </div>
-            </div>
+        <div className="flex flex-col gap-4 border-t border-bg-cream/10 py-8 font-mono text-[11px] uppercase tracking-[0.16em] text-accent-four sm:flex-row sm:items-center sm:justify-between">
+          <p>© {currentYear} ElderOps — Senior Engineering Partners</p>
+          <div className="flex gap-8">
+            <a href="/" className="u-line pb-0.5 transition-colors hover:text-bg-cream">
+              Terms
+            </a>
+            <a href="/" className="u-line pb-0.5 transition-colors hover:text-bg-cream">
+              Privacy
+            </a>
           </div>
         </div>
       </div>

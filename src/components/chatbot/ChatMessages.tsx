@@ -15,7 +15,7 @@ const ChatMessages = ({
   onShareRecommendation,
 }: ChatMessagesProps) => {
   return (
-    <div className="space-y-3">
+    <div className="space-y-3.5">
       {messages.map((message) => {
         const isUser = message.role === "user";
 
@@ -30,10 +30,10 @@ const ChatMessages = ({
               }`}
             >
               <div
-                className={`max-w-[84%] rounded-2xl px-4 py-3 text-sm leading-6 ${
+                className={`max-w-[86%] px-4 py-3 text-sm leading-[1.7] ${
                   isUser
-                    ? "bg-primary text-white"
-                    : "border border-[#E1EBDD] bg-[#F8FAF4] text-[#404040]"
+                    ? "rounded-[10px_10px_2px_10px] bg-primary text-bg-cream"
+                    : "rounded-[10px_10px_10px_2px] border border-primary/10 bg-white text-secondary"
                 }`}
               >
                 {message.content}

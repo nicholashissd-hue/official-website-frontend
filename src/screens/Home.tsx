@@ -1,11 +1,11 @@
-import BusinessOutcomes from "@/components/screens/home/BusinessOutcomes";
-import CoreSolutions from "@/components/screens/home/coreSolutions/CoreSolutions";
 import Hero from "@/components/screens/home/Hero";
-import HowItWorks from "@/components/screens/home/howItWorks/HowItWorks";
-import Services from "@/components/screens/home/Services";
-import Stats from "@/components/screens/home/stats/Stats";
 import TrustedCompanies from "@/components/screens/home/TrustedCompanies";
-import WhyWeStandApart from "@/components/screens/home/WhyWeStandApart";
+import Stats from "@/components/screens/home/Stats";
+import DeliveryModel from "@/components/screens/home/DeliveryModel";
+import ExpertiseIndex from "@/components/screens/home/ExpertiseIndex";
+import WhyElderOps from "@/components/screens/home/WhyElderOps";
+import EngagementSteps from "@/components/screens/home/EngagementSteps";
+import Outcomes from "@/components/screens/home/Outcomes";
 
 const Home = () => {
   return (
@@ -13,11 +13,11 @@ const Home = () => {
       <Hero />
       <TrustedCompanies />
       <Stats />
-      <Services />
-      <CoreSolutions />
-      <WhyWeStandApart />
-      <HowItWorks />
-      <BusinessOutcomes />
+      <DeliveryModel />
+      <ExpertiseIndex />
+      <WhyElderOps />
+      <EngagementSteps />
+      <Outcomes />
     </>
   );
 };

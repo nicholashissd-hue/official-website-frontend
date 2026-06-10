@@ -1,15 +1,15 @@
-import CorePillars from "@/components/screens/about/CorePillars";
 import Hero from "@/components/screens/about/Hero";
-import MissionVision from "@/components/screens/about/missionVision/MissionVision";
-import OurApproach from "@/components/screens/approach/OurApproach";
+import Beliefs from "@/components/screens/about/Beliefs";
+import GapWeFill from "@/components/screens/about/GapWeFill";
+import Transformation from "@/components/screens/about/Transformation";
 
 const About = () => {
   return (
     <>
       <Hero />
-      <MissionVision />
-      <OurApproach />
-      <CorePillars />
+      <Beliefs />
+      <GapWeFill />
+      <Transformation />
     </>
   );
 };

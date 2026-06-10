@@ -3,21 +3,17 @@ import Header from "@/components/header/Header";
 import ScrollToTop from "@/components/ScrollToTop";
 import ChatWidget from "@/components/chatbot/ChatWidget";
 import CTASection from "@/components/ui/cta-section";
-import { useLocation } from "react-router";
 import { Outlet } from "react-router";
 
 const Layout = () => {
-  const { pathname } = useLocation();
-  const isHomePage = pathname === "/";
-
   return (
-    <div className="min-h-dvh font-lato flex flex-col bg-white selection:bg-success selection:text-white">
+    <div className="flex min-h-dvh flex-col bg-bg-cream font-sans text-secondary">
       <ScrollToTop />
       <Header />
       <main className="flex-1">
         <Outlet />
-
-        {!isHomePage && <CTASection />}
+        {/* Renders only on routes with mapped copy (contact page opts out) */}
+        <CTASection />
         <Footer />
       </main>
       <ChatWidget />

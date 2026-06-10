@@ -10,8 +10,8 @@ const About = lazy(() => import("@/screens/About"));
 const Contact = lazy(() => import("@/screens/ContactUs"));
 
 const LoadingFallback = () => (
-  <div className="fixed top-0 left-0 right-0 h-0.5 bg-transparent z-50">
-    <div className="h-full bg-success animate-[loading_1s_ease-in-out_infinite]" />
+  <div className="fixed left-0 right-0 top-0 z-50 h-0.5 overflow-hidden bg-transparent">
+    <div className="h-full w-2/5 animate-[loading_1.2s_ease-in-out_infinite] bg-success" />
   </div>
 );
 

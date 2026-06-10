@@ -1,19 +1,19 @@
-import EngagementModel from "@/components/screens/solutions/engagementModel/EngagementModel";
 import Hero from "@/components/screens/solutions/Hero";
-import HowItWorks from "@/components/screens/solutions/howItWorks/HowItWorks";
-import HowWeDeliver from "@/components/screens/solutions/howWeDeliver/HowWeDeliver";
-import IndustriesWeSupport from "@/components/screens/solutions/industriesWeSupport/IndustriesWeSupport";
-import ServiceCategories from "@/components/screens/solutions/servicesCategories/ServiceCategories";
+import Industries from "@/components/screens/solutions/Industries";
+import Capabilities from "@/components/screens/solutions/Capabilities";
+import ValueOutcomes from "@/components/screens/solutions/ValueOutcomes";
+import EngagementModels from "@/components/screens/solutions/EngagementModels";
+import GettingStarted from "@/components/screens/solutions/GettingStarted";
 
 const Solutions = () => {
   return (
     <>
       <Hero />
-      <IndustriesWeSupport />
-      <ServiceCategories />
-      <HowWeDeliver />
-      <EngagementModel />
-      <HowItWorks />
+      <Industries />
+      <Capabilities />
+      <ValueOutcomes />
+      <EngagementModels />
+      <GettingStarted />
     </>
   );
 };

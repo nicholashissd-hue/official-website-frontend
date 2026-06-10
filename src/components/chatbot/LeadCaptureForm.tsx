@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { ChatLead } from "@/lib/chatbot/types";
+import Button from "@/components/ui/button";
 
 interface LeadCaptureFormProps {
   isSubmitting: boolean;
@@ -7,6 +8,12 @@ interface LeadCaptureFormProps {
 }
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const inputClasses =
+  "h-12 w-full rounded-[2px] border border-primary/15 bg-white px-4 text-sm text-primary outline-none transition-colors duration-300 placeholder:text-accent-three/70 focus:border-success";
+
+const labelClasses =
+  "mb-2.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-accent-one";
 
 const LeadCaptureForm = ({ isSubmitting, onSubmit }: LeadCaptureFormProps) => {
   const [lead, setLead] = useState<ChatLead>({
@@ -41,12 +48,9 @@ const LeadCaptureForm = ({ isSubmitting, onSubmit }: LeadCaptureFormProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <label
-          htmlFor="chatbot-name"
-          className="mb-2 block text-sm font-semibold text-primary"
-        >
+        <label htmlFor="chatbot-name" className={labelClasses}>
           Name
         </label>
         <input
@@ -59,16 +63,13 @@ const LeadCaptureForm = ({ isSubmitting, onSubmit }: LeadCaptureFormProps) => {
               name: event.target.value,
             }))
           }
-          placeholder="Enter your name"
-          className="w-full rounded-xl border border-[#DCE6D7] bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-[#9A9A9A] focus:border-primary"
+          placeholder="Your name"
+          className={inputClasses}
         />
       </div>
 
       <div>
-        <label
-          htmlFor="chatbot-email"
-          className="mb-2 block text-sm font-semibold text-primary"
-        >
+        <label htmlFor="chatbot-email" className={labelClasses}>
           Email
         </label>
         <input
@@ -81,17 +82,14 @@ const LeadCaptureForm = ({ isSubmitting, onSubmit }: LeadCaptureFormProps) => {
               email: event.target.value,
             }))
           }
-          placeholder="Enter your email"
-          className="w-full rounded-xl border border-[#DCE6D7] bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-[#9A9A9A] focus:border-primary"
+          placeholder="you@company.com"
+          className={inputClasses}
         />
       </div>
 
       <div>
-        <label
-          htmlFor="chatbot-company"
-          className="mb-2 block text-sm font-semibold text-primary"
-        >
-          Company <span className="font-medium text-[#748477]">(optional)</span>
+        <label htmlFor="chatbot-company" className={labelClasses}>
+          Company <span className="normal-case text-accent-three">(optional)</span>
         </label>
         <input
           id="chatbot-company"
@@ -103,20 +101,30 @@ const LeadCaptureForm = ({ isSubmitting, onSubmit }: LeadCaptureFormProps) => {
               company: event.target.value,
             }))
           }
-          placeholder="Enter your company"
-          className="w-full rounded-xl border border-[#DCE6D7] bg-white px-4 py-3 text-sm text-primary outline-none transition-colors placeholder:text-[#9A9A9A] focus:border-primary"
+          placeholder="Company, Inc."
+          className={inputClasses}
         />
       </div>
 
-      {error && <p className="text-sm font-medium text-red-600">{error}</p>}
+      {error && (
+        <p role="alert" className="text-xs text-red-600">
+          {error}
+        </p>
+      )}
 
-      <button
+      <Button
         type="submit"
+        variant="primary"
+        withArrow
         disabled={isSubmitting}
-        className="btn-glass-effect w-full rounded-full border border-primary px-5 py-3 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-70"
+        className="w-full"
       >
-        {isSubmitting ? "Starting advisor..." : "Start Hiring Advisor"}
-      </button>
+        {isSubmitting ? "Starting advisor…" : "Start the Hiring Advisor"}
+      </Button>
+
+      <p className="font-mono text-[9px] uppercase leading-relaxed tracking-[0.16em] text-accent-three">
+        Used only to follow up on your hiring question
+      </p>
     </form>
   );
 };

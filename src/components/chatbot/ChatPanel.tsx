@@ -103,40 +103,40 @@ const ChatPanel = ({ lead, onClose, onResetLead }: ChatPanelProps) => {
 
   return (
     <>
-      <div className="flex items-start justify-between gap-4 border-b border-[#E2E8DA] p-4">
-        <div>
-          <p className="font-urbanist text-xl font-semibold text-primary">
-            ElderOps Hiring Advisor
+      <div className="grain relative flex items-start justify-between gap-4 bg-primary p-5">
+        <div className="relative">
+          <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-border-light">
+            ElderOps — Hiring Advisor
           </p>
-          <p className="mt-1 text-xs font-medium text-[#748477]">
-            Role recommendations are generated from ElderOps service logic.
+          <p className="mt-1.5 text-[11px] leading-relaxed text-accent-four">
+            Recommendations are generated from ElderOps service logic.
           </p>
         </div>
 
         <button
           type="button"
           onClick={onClose}
-          aria-label="Close ElderOps chat"
-          className="grid size-9 shrink-0 place-items-center rounded-full border border-[#DCE6D7] text-lg leading-none text-primary transition-colors hover:bg-[#F4F6DD]"
+          aria-label="Close the Hiring Advisor"
+          className="relative grid size-9 shrink-0 cursor-pointer place-items-center border border-bg-cream/30 text-lg leading-none text-bg-cream transition-colors duration-300 hover:bg-bg-cream hover:text-primary"
         >
           ×
         </button>
       </div>
 
-      <div className="flex items-center justify-between gap-3 border-b border-[#E2E8DA] bg-[#FAFBF7] px-4 py-3">
-        <p className="truncate text-xs font-semibold text-[#5F6F65]">
+      <div className="flex items-center justify-between gap-3 border-b border-primary/10 bg-bg-light/50 px-5 py-2.5">
+        <p className="truncate font-mono text-[10px] uppercase tracking-[0.16em] text-accent-one">
           Chatting as {lead.name}
         </p>
         <button
           type="button"
           onClick={onResetLead}
-          className="shrink-0 text-xs font-bold text-primary underline-offset-4 hover:underline"
+          className="u-line shrink-0 cursor-pointer pb-0.5 font-mono text-[10px] uppercase tracking-[0.16em] text-primary"
         >
           Change
         </button>
       </div>
 
-      <div className="min-h-0 flex-1 overflow-y-auto px-4 py-4">
+      <div className="min-h-0 flex-1 overflow-y-auto px-5 py-5">
         <ChatMessages
           messages={messages}
           sharingMessageId={sharingMessageId}
@@ -145,13 +145,14 @@ const ChatPanel = ({ lead, onClose, onResetLead }: ChatPanelProps) => {
         />
 
         {isSending && (
-          <p className="mt-3 text-sm font-medium text-[#748477]">
-            ElderOps is typing...
+          <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-accent-three">
+            Advisor is typing
+            <span className="animate-blink ml-1 inline-block h-2.5 w-[5px] translate-y-[2px] bg-success/80" />
           </p>
         )}
 
         {messages.length === 1 && (
-          <p className="mt-4 rounded-2xl border border-[#E6EDD9] bg-[#FAFBF7] px-3 py-2 text-xs leading-5 text-[#6D786F]">
+          <p className="mt-5 border border-primary/10 bg-white px-3.5 py-2.5 text-[11px] leading-[1.7] text-accent-one">
             Privacy note: do not paste passwords, private keys, confidential
             customer data, or sensitive internal credentials.
           </p>
@@ -165,7 +166,7 @@ const ChatPanel = ({ lead, onClose, onResetLead }: ChatPanelProps) => {
                 type="button"
                 disabled={isSending}
                 onClick={() => void submitMessage(question)}
-                className="rounded-full border border-[#DCE6D7] bg-white px-3 py-2 text-left text-xs font-semibold text-primary transition-colors hover:bg-[#F4F6DD] disabled:cursor-not-allowed disabled:opacity-60"
+                className="cursor-pointer rounded-[2px] border border-primary/15 bg-white px-3 py-2 text-left text-xs font-medium text-primary transition-colors duration-300 hover:border-success hover:text-success disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {question}
               </button>

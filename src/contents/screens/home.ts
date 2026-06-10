@@ -12,15 +12,21 @@ import syscomptech from "@/assets/svg/trustedcompanies/syscomptech-logo-default.
 import tandatech from "@/assets/svg/trustedcompanies/tanda-logo-default.svg";
 import notchHr from "@/assets/svg/trustedcompanies/notchHr-logo-default.svg";
 
-import cloud from "@/assets/png/cloud.png";
-import data from "@/assets/png/data-platform.png";
-import product from "@/assets/png/product.png";
-
 export const heroText = {
   title: "Your Company Deserves Senior Engineering Leadership",
   subtext:
     "Get experienced engineers, technical oversight, and managed delivery that helps your business scale with confidence, without the cost and commitment of a full-time senior hire.",
 };
+
+export const heroTickerItems = [
+  "Cloud & DevOps",
+  "Data Platforms",
+  "Analytics & BI",
+  "AI / ML Enablement",
+  "Product Engineering",
+  "Platform Reliability",
+  "Technical Leadership",
+];
 
 export const trustedCompaniesText = {
   title: "Our Engineers have experience working here",
@@ -120,21 +126,18 @@ export const coreSolutionsText = {
 export const coreSolutionsData = [
   {
     id: 1,
-    image: cloud,
     title: "Cloud, DevOps & Reliability",
     description:
       "Build resilient infrastructure, automate delivery pipelines, improve operational stability, and create scalable cloud environments that support long-term growth.",
   },
   {
     id: 2,
-    image: data,
     title: "Data, Analytics & AI Foundations",
     description:
       "Transform fragmented data into reliable business assets and establish the workflows, architecture, and operational foundations required to support analytics and AI initiatives.",
   },
   {
     id: 3,
-    image: product,
     title: "Product Engineering & Modernization",
     description:
       "Design, build, and enhance software platforms that support business objectives, improve customer experiences, and accelerate product roadmaps.",
@@ -169,48 +172,6 @@ export const whyOrganizationsChooseData = [
       "Our approach helps organizations establish scalable technical foundations, improve operational maturity, and support future growth without building a large internal team.",
   },
 ];
-
-export const comparisonData = {
-  headers: ["Big consulting", "Staffing agency", "Offshore Vendor", "Elderops"],
-  rows: [
-    {
-      label: "Cost",
-      values: [
-        "Premium retainers",
-        "High markups, opaque pricing",
-        "Cost-effective but quality-inconsistent",
-        "Transparent pricing with premium talent at sustainable rates",
-      ],
-    },
-    {
-      label: "Governance",
-      values: [
-        "Strong frameworks, bundled into overhead",
-        "Minimal transactional by design",
-        "Variable. Rarely enterprise-grade",
-        "Enterprise governance embedded in every engagement",
-      ],
-    },
-    {
-      label: "Talent Quality",
-      values: [
-        "Strong but not exclusively technical",
-        "Volume-driven, inconsistent vetting",
-        "Mixed, dependent on vendor management",
-        "<4% acceptance rate with every engineer technically assessed",
-      ],
-    },
-    {
-      label: "Accountability",
-      values: [
-        "Project-level, consultative",
-        "Limited post-placement",
-        "Diffused. Hard to attribute",
-        "Named account partner, SLA enforcement, and performance metrics",
-      ],
-    },
-  ],
-};
 
 export const howItWorksText = {
   title: "How Engagements Begin",
@@ -253,16 +214,19 @@ export const businessOutcomesText = {
 
 export const businessOutcomesData = [
   {
+    tag: "Infrastructure",
     title: "Cloud Modernization",
     description:
       "Improve deployment reliability, standardize environments, and establish repeatable release processes.",
   },
   {
+    tag: "Data",
     title: "Data Platform Transformation",
     description:
       "Create scalable data pipelines and governance frameworks that improve reporting accuracy and accessibility.",
   },
   {
+    tag: "Operations",
     title: "Engineering Process Improvement",
     description:
       "Implement delivery workflows and technical standards that increase visibility and reduce operational risk.",
@@ -272,22 +236,30 @@ export const businessOutcomesData = [
 export const statsData = [
   {
     id: 1,
-    value: "250+",
+    prefix: "",
+    value: 250,
+    suffix: "+",
     label: "Engineers in our global network",
   },
   {
     id: 2,
-    value: "94%",
-    label: "Successful placements",
+    prefix: "<",
+    value: 4,
+    suffix: "%",
+    label: "Network acceptance rate",
   },
   {
     id: 3,
-    value: "48 hours",
+    prefix: "",
+    value: 48,
+    suffix: "h",
     label: "To first qualified candidate",
   },
   {
     id: 4,
-    value: "7+ years",
+    prefix: "",
+    value: 7,
+    suffix: "+ yrs",
     label: "Average engineer experience",
   },
 ];

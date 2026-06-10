@@ -1,22 +1,43 @@
-import { Link } from "react-router";
+import Button from "@/components/ui/button";
+import Reveal from "@/components/ui/reveal";
 
 const NotFound = () => {
   return (
-    <div className="container hero-space-block flex flex-col items-center justify-center min-h-screen text-center px-page">
-      <h1 className="text-[120px] font-bold text-primary font-urbanist">404</h1>
-      <h2 className="text-4xl font-medium text-secondary mb-4">
-        Page Not Found
-      </h2>
-      <p className="text-accent-one mb-8 max-w-md">
-        The page you're looking for doesn't exist or has been moved.
-      </p>
-      <Link
-        to="/"
-        className="btn-glass-effect font-medium py-3 px-6 rounded-[36px] inline-block text-white"
-      >
-        Back to Home
-      </Link>
-    </div>
+    <section className="grain relative flex min-h-svh flex-col overflow-hidden bg-primary">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_80%_at_50%_100%,#01220f_0%,transparent_65%)]"
+      />
+
+      <div className="container relative z-10 flex flex-1 flex-col items-center justify-center py-40 text-center">
+        <Reveal immediate y={20}>
+          <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-border-light">
+            Error — 404
+          </p>
+        </Reveal>
+
+        <Reveal immediate delay={0.12} y={26}>
+          <h1 className="mt-8 font-display text-[clamp(3.5rem,12vw,8rem)] leading-none tracking-[-0.02em] text-bg-cream">
+            4<em className="italic text-border-light">0</em>4
+          </h1>
+        </Reveal>
+
+        <Reveal immediate delay={0.24} y={22}>
+          <p className="mt-7 max-w-md text-[15px] leading-[1.8] text-accent-four">
+            This page doesn't exist — or it was decommissioned with proper
+            documentation and a clean rollback plan.
+          </p>
+        </Reveal>
+
+        <Reveal immediate delay={0.36} y={20}>
+          <div className="mt-10">
+            <Button to="/" variant="light" withArrow>
+              Return Home
+            </Button>
+          </div>
+        </Reveal>
+      </div>
+    </section>
   );
 };
 

@@ -1,13 +1,15 @@
-import ExtensionOfYourTeam from "@/components/screens/talents/ExtensionOfYourTeam";
 import Hero from "@/components/screens/talents/Hero";
-import SeniorityLevels from "@/components/screens/talents/levels/SeniorityLevels";
+import RoleMatrix from "@/components/screens/talents/RoleMatrix";
+import Testimony from "@/components/screens/talents/Testimony";
+import VettingPillars from "@/components/screens/talents/VettingPillars";
 
 const Talents = () => {
   return (
     <>
       <Hero />
-      <SeniorityLevels />
-      <ExtensionOfYourTeam />
+      <RoleMatrix />
+      <Testimony />
+      <VettingPillars />
     </>
   );
 };

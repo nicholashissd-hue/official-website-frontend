@@ -1,73 +1,100 @@
-import heroVideo from "@/assets/video/home-hero-video.mp4";
+import { motion } from "framer-motion";
+import type { CSSProperties, ReactNode } from "react";
+import { heroText, heroTickerItems } from "@/contents/screens/home";
 import Button from "@/components/ui/button";
-import { Animated } from "@/components/ui/animated";
-import CalendlyCTA from "@/components/contactUs/react-calendly";
-import { heroText } from "@/contents/screens/home";
-import { useEffect, useRef } from "react";
+import Eyebrow from "@/components/ui/eyebrow";
+import NetworkCanvas from "@/components/ui/network-canvas";
+import Reveal, { EASE } from "@/components/ui/reveal";
+
+/** One masked line of the display headline, rising into view. */
+const HeroLine = ({ children, delay }: { children: ReactNode; delay: number }) => (
+  <span className="-mb-[0.08em] block overflow-hidden pb-[0.08em]">
+    <motion.span
+      className="block"
+      initial={{ y: "112%" }}
+      animate={{ y: 0 }}
+      transition={{ duration: 1.05, ease: EASE, delay }}
+    >
+      {children}
+    </motion.span>
+  </span>
+);
 
 const Hero = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-
-    if (!video) return;
-
-    video.defaultMuted = true;
-    video.muted = true;
-
-    void video.play().catch(() => {});
-  }, []);
-
   return (
-    <div className="relative h-dvh flex flex-col items-center justify-center bg-primary">
-      <video
-        ref={videoRef}
-        src={heroVideo}
-        autoPlay
-        muted
-        loop
-        playsInline
-        controls={false}
-        preload="auto"
-        poster="/images/hero-fallback.jpg"
-        disablePictureInPicture
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover transition-opacity duration-300"
+    <section className="grain relative flex min-h-svh flex-col overflow-hidden bg-primary">
+      {/* Layered depth: base gradient, living lattice, focus vignette */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,#02361b_0%,#012112_100%)]"
+      />
+      <NetworkCanvas />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(72%_64%_at_30%_44%,rgba(1,33,18,0.86)_0%,transparent_72%)]"
       />
 
-      <section className="container hero-space-block relative z-10 w-full text-white text-center md:px-0! md:max-w-189">
-        <Animated variant="slideUp" type="animate">
-          <h1 className="font-medium font-urbanist text-[38px] leading-11.5 mb-4 md:leading-19 md:text-[68px]">
-            {heroText.title}
-          </h1>
-        </Animated>
+      <div className="container relative z-10 flex flex-1 flex-col justify-center pb-20 pt-36 md:pt-40">
+        <Reveal immediate delay={0.1} y={16}>
+          <Eyebrow dark>Senior Engineering Partners</Eyebrow>
+        </Reveal>
 
-        <Animated variant="slideUp" type="animate" delay={0.2}>
-          <p className="mb-10">{heroText.subtext}</p>
-        </Animated>
+        <h1 className="mt-8 max-w-5xl font-display text-[clamp(2.7rem,7vw,5.4rem)] leading-[1.04] tracking-[-0.02em] text-bg-cream">
+          <HeroLine delay={0.2}>Your Company Deserves</HeroLine>
+          <HeroLine delay={0.32}>
+            <em className="italic text-border-light">Senior Engineering</em>
+          </HeroLine>
+          <HeroLine delay={0.44}>Leadership.</HeroLine>
+        </h1>
 
-        <Animated variant="slideUp" type="animate" delay={0.4}>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <CalendlyCTA
-              shouldRenderOnMobile={false}
-              className="w-69.5 sm:w-fit"
-            />
-            <CalendlyCTA
-              shouldRenderOnMobile
-              className="mb-0! w-69.5 sm:w-fit"
-            />
+        <Reveal immediate delay={0.62} y={20}>
+          <p className="mt-9 max-w-xl text-[15px] leading-[1.85] text-accent-four md:text-[17px]">
+            {heroText.subtext}
+          </p>
+        </Reveal>
 
-            <Button
-              variant="link"
-              to="/solutions"
-              className="bg-white text-primary font-medium py-3 px-6 transition-transform duration-200 hover:-translate-y-1 w-69.5 sm:w-fit"
-            >
+        <Reveal immediate delay={0.78} y={20}>
+          <div className="mt-11 flex flex-wrap items-center gap-4">
+            <Button to="/contact-us" variant="light" withArrow>
+              Start With Clarity
+            </Button>
+            <Button to="/solutions" variant="outline-light">
               Explore Solutions
             </Button>
           </div>
-        </Animated>
-      </section>
-    </div>
+        </Reveal>
+      </div>
+
+      {/* Capability ticker along the hero's base */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, delay: 1.1 }}
+        className="relative z-10 border-t border-bg-cream/10"
+      >
+        <div className="overflow-hidden py-5">
+          <div
+            className="animate-marquee flex items-center gap-10"
+            style={{ "--marquee-duration": "44s" } as CSSProperties}
+          >
+            {[...heroTickerItems, ...heroTickerItems].map((item, index) => (
+              <span
+                key={`${item}-${index}`}
+                className="flex shrink-0 items-center gap-10"
+              >
+                <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent-four">
+                  {item}
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="size-1 rotate-45 bg-success/70"
+                />
+              </span>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    </section>
   );
 };
 

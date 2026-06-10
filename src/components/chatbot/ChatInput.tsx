@@ -23,7 +23,7 @@ const ChatInput = ({ disabled, onSubmit }: ChatInputProps) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex items-end gap-2 border-t border-[#E2E8DA] bg-white p-3"
+      className="flex items-end gap-2.5 border-t border-primary/10 bg-bg-cream p-3.5"
     >
       <textarea
         value={message}
@@ -35,16 +35,16 @@ const ChatInput = ({ disabled, onSubmit }: ChatInputProps) => {
           }
         }}
         rows={1}
-        placeholder="Describe your project or paste a JD..."
-        className="max-h-24 min-h-11 flex-1 resize-none rounded-xl border border-[#DCE6D7] bg-[#FAFBF7] px-3 py-3 text-sm text-primary outline-none transition-colors placeholder:text-[#9A9A9A] focus:border-primary"
+        placeholder="Describe your project or paste a JD…"
+        className="max-h-24 min-h-11 flex-1 resize-none rounded-[2px] border border-primary/15 bg-white px-3.5 py-3 text-sm text-primary outline-none transition-colors duration-300 placeholder:text-accent-three/70 focus:border-success"
       />
 
       <button
         type="submit"
         disabled={disabled || !message.trim()}
-        className="btn-glass-effect h-11 rounded-full border border-primary px-4 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60"
+        className="h-11 cursor-pointer rounded-[2px] bg-primary px-5 font-mono text-[11px] uppercase tracking-[0.14em] text-bg-cream transition-colors duration-300 hover:bg-deep disabled:cursor-not-allowed disabled:opacity-50"
       >
-        Find
+        Send
       </button>
     </form>
   );

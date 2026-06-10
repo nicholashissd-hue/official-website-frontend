@@ -1,311 +1,384 @@
-import cloudImg from "@/assets/png/cloud.png";
-import dataImg from "@/assets/png/data-platform.png";
-import analyticsImg from "@/assets/png/analytics.png";
-import aiMLImg from "@/assets/png/ai-ml.png";
-import productImg from "@/assets/png/product.png";
-import shipFaster from "@/assets/svg/ship-faster.svg";
-import improveReadability from "@/assets/svg/improve-readability.svg";
-import reduceCost from "@/assets/svg/reduce-cost.svg";
-import reliability from "@/assets/svg/improve-readabil.svg";
-import dataTrustworthy from "@/assets/svg/data-trustworthy.svg";
-
-import pos from "@/assets/svg/pos.svg";
-import woman from "@/assets/svg/woman.svg";
-import swipeCardOne from "@/assets/svg/swipe-card.svg";
-import swipeCardTwo from "@/assets/svg/swipe-card-two.svg";
-import swipeCardThree from "@/assets/svg/swipe-card-three.svg";
-import healthOne from "@/assets/svg/health-one.svg";
-import healthTwo from "@/assets/svg/health-two.svg";
-import healthThree from "@/assets/svg/health-three.svg";
-import healthFour from "@/assets/svg/health-four.svg";
-import healthFive from "@/assets/svg/health-five.svg";
-import eCommerceOne from "@/assets/svg/e-commerce-one.svg";
-import eCommerceTwo from "@/assets/svg/e-commerce-two.svg";
-import eCommerceThree from "@/assets/svg/e-commerce-three.svg";
-import eCommerceFour from "@/assets/svg/e-commerce-four.svg";
-import eCommerceFive from "@/assets/svg/e-commerce-five.svg";
-import sassOne from "@/assets/svg/sass-one.svg";
-import sassTwo from "@/assets/svg/sass-two.svg";
-import sassThree from "@/assets/svg/sass-three.svg";
-import sassFour from "@/assets/svg/sass-four.svg";
-import sassFive from "@/assets/svg/sass-five.svg";
-import logisticsOne from "@/assets/svg/logistics-one.svg";
-import logisticsTwo from "@/assets/svg/logistics-two.svg";
-import logisticsThree from "@/assets/svg/logistics-three.svg";
-import logisticsFour from "@/assets/svg/logistics-four.svg";
-import logisticsFive from "@/assets/svg/logistics-five.svg";
-import retailsOne from "@/assets/svg/media-one.svg";
-import retailsTwo from "@/assets/svg/media-two.svg";
-import retailsThree from "@/assets/svg/media-three.svg";
-import retailsFour from "@/assets/svg/media-four.svg";
-import retailsFive from "@/assets/svg/media-five.svg";
-
-export const serviceCategoriesText = {
-  title: "High-Quality Matching. Zero Guesswork.",
-  description:
-    "Explore the service lanes we align to your roadmap, with clearly defined delivery strengths across infrastructure, data, AI, and product execution.",
-};
-
-export const serviceCategoriesData = [
-  {
-    id: 1,
-    title: "Cloud, DevOps & Reliability",
-    description:
-      "Strengthen release velocity and platform resilience with delivery systems built for uptime, observability, and clean operational ownership.",
-    imageBackground: "#EAF3EE",
-    image: cloudImg,
-    list: [
-      "CI/CD modernization",
-      "Infrastructure automation",
-      "Observability implementation",
-      "Reliability practices that reduce operational risk",
-    ],
-  },
-  {
-    id: 2,
-    title: "Data Platforms & Engineering",
-    description:
-      "Build dependable data foundations that make reporting, analytics, and downstream product decisions easier to trust and scale.",
-    imageBackground: "#F4F6DD",
-    list: [
-      "Scalable pipelines",
-      "Warehouse and lakehouse builds",
-      "Data modeling frameworks, and",
-      "Governance foundations",
-    ],
-    image: dataImg,
-  },
-  {
-    id: 3,
-    title: "Analytics & Business Intelligence",
-    description:
-      "Turn fragmented reporting into decision-ready insight with cleaner metrics, sharper dashboards, and stronger governance.",
-    imageBackground: "#EFF3EA",
-    list: [
-      "KPI frameworks",
-      "Executive dashboards",
-      "Metric governance, and",
-      "Self-serve analytics enablement",
-    ],
-    image: analyticsImg,
-  },
-  {
-    id: 4,
-    title: "AI/ML Enablement",
-    description:
-      "Move machine learning from experimentation into production with the tooling, monitoring, and performance discipline teams actually need.",
-    imageBackground: "#E8F1EC",
-    list: [
-      "Model deployment support",
-      "MLOps foundations",
-      "Monitoring systems",
-      "Inference performance optimization",
-    ],
-    image: aiMLImg,
-  },
-  {
-    id: 5,
-    title: "Product Engineering",
-    description:
-      "Accelerate customer-facing delivery with product-minded engineers who can move across features, APIs, and platform services without losing quality.",
-    imageBackground: "#F1F4E7",
-
-    list: [
-      "Feature development",
-      "Platform services",
-      "API design and development",
-      "Front-end delivery support",
-    ],
-    image: productImg,
-  },
-];
-
-export const solutionsCTAText = {
-  title: "Not sure where you fit?",
-  description:
-    "Tell us what you're building, and we’ll recommend the best approach for you.",
-  buttonText: "Let's Talk",
-  buttonLink: "/contact-us",
-};
-
-export const howWeDeliverData = [
-  {
-    id: 1,
-    number: "01",
-    image: shipFaster,
-    title: "Ship Faster",
-    description: "Strong delivery cadence, clean handoffs, clear ownership",
-  },
-  {
-    id: 2,
-    number: "02",
-    image: improveReadability,
-    title: "Improve Readability",
-    description:
-      "Clearer metrics, sharper reporting, and cleaner documentation for faster decisions",
-  },
-  {
-    id: 3,
-    number: "03",
-    image: reduceCost,
-    title: "Reduce Total Cost",
-    description:
-      "Eliminate rework, optimize cloud usage, right-size engineering effort",
-  },
-  {
-    id: 4,
-    number: "04",
-    image: reliability,
-    title: "Improve Reliability",
-    description: "Observability practices, automation, incident readiness",
-  },
-  {
-    id: 5,
-    number: "05",
-    image: dataTrustworthy,
-    title: "Make Data Trustworthy",
-    description: "Quality checks, modeling discipline, metric consistency",
-  },
-];
-
-export const howWeDeliverText = {
-  title: "How We Drive Value",
-  description:
-    "ElderOps transforms engineering from reactive execution into a structured, scalable advantage.",
+export const heroText = {
+  title: "Engineering Expertise That Drives Business Outcomes",
+  subtext:
+    "ElderOps helps organizations build, scale, modernize, and optimize technology through senior engineering execution, technical leadership, and accountable delivery. Whether you're strengthening infrastructure, improving data systems, enabling AI initiatives, or accelerating product development, our team provides the expertise needed to move forward with confidence.",
 };
 
 export const industriesText = {
   title: "Industries We Support",
+  subtext:
+    "Sector fluency backed by engineering rigor. Expand an industry to see how a representative engagement runs — the challenges, the ElderOps approach, and the outcomes it is built to produce.",
 };
 
-export const industriesData = [
+export interface IndustryCaseStudy {
+  headline: string;
+  summary: string;
+  challenges: string[];
+  approach: string[];
+  outcomes: string[];
+}
+
+export interface Industry {
+  id: number;
+  number: string;
+  title: string;
+  caseStudy: IndustryCaseStudy;
+}
+
+export const industriesData: Industry[] = [
   {
     id: 1,
     number: "01",
     title: "FinTech & Payments",
-    description:
-      "FinTech and payments platforms operate in environments where uptime, transaction integrity, and security are critical. Infrastructure must support innovation while maintaining compliance and operational resilience. ElderOps supports FinTech organizations with secure cloud architecture, CI/CD modernization, observability implementation, and scalable data systems. We help teams accelerate delivery, reduce operational risk, and maintain the trust customers and regulators expect.",
-    images: [pos, woman, swipeCardOne, swipeCardTwo, swipeCardThree],
+    caseStudy: {
+      headline: "Modernizing Payment Infrastructure for Scalability",
+      summary:
+        "A rapidly growing financial services organization was experiencing deployment bottlenecks, inconsistent environments, and growing operational risk as transaction volume increased.",
+      challenges: [
+        "Manual deployment processes",
+        "Infrastructure drift across environments",
+        "Limited monitoring and observability",
+        "Scaling concerns during peak transaction periods",
+      ],
+      approach: [
+        "Implemented Infrastructure as Code",
+        "Automated deployment pipelines",
+        "Established monitoring and alerting standards",
+        "Improved environment consistency across development, staging, and production",
+      ],
+      outcomes: [
+        "Faster release cycles",
+        "Reduced deployment risk",
+        "Improved platform reliability",
+        "Increased operational visibility",
+      ],
+    },
   },
   {
     id: 2,
     number: "02",
     title: "Healthcare & HealthTech",
-    description:
-      "Healthcare systems require stable, secure, and well-governed infrastructure to protect sensitive data while enabling innovation. Reliability and compliance must coexist with product velocity. ElderOps helps HealthTech teams modernize cloud environments, strengthen data governance, improve system reliability, and automate operational workflows. Our structured delivery model supports regulatory alignment while enabling scalable, future-ready platforms.",
-    images: [healthOne, healthTwo, healthThree, healthFour, healthFive],
+    caseStudy: {
+      headline: "Improving Reliability for a Patient-Facing Platform",
+      summary:
+        "A healthcare technology provider needed stronger operational controls and infrastructure reliability to support growing user demand and evolving compliance requirements.",
+      challenges: [
+        "Inconsistent deployment processes",
+        "Limited disaster recovery planning",
+        "Growing infrastructure complexity",
+        "Increased uptime expectations",
+      ],
+      approach: [
+        "Standardized cloud infrastructure",
+        "Enhanced backup and recovery processes",
+        "Improved monitoring and incident visibility",
+        "Established repeatable deployment workflows",
+      ],
+      outcomes: [
+        "Increased system reliability",
+        "Reduced operational risk",
+        "Improved recovery preparedness",
+        "Greater engineering efficiency",
+      ],
+    },
   },
   {
     id: 3,
     number: "03",
-    title: "E-commerce & Retail",
-    description:
-      "E-commerce platforms must scale rapidly while maintaining performance during peak demand and seasonal fluctuations. Reliability and cost efficiency are essential to sustainable growth. ElderOps supports retail and commerce teams through infrastructure automation, performance optimization, scalable data pipelines, and improved deployment practices. We help organizations deliver features faster while maintaining stable, high-performing customer experiences.",
-    images: [
-      eCommerceOne,
-      eCommerceTwo,
-      eCommerceThree,
-      eCommerceFour,
-      eCommerceFive,
-    ],
+    title: "E-Commerce & Retail",
+    caseStudy: {
+      headline: "Preparing an Online Platform for Seasonal Growth",
+      summary:
+        "An e-commerce business needed to ensure its platform could handle increased traffic and transaction volume during peak sales periods.",
+      challenges: [
+        "Performance concerns under load",
+        "Manual infrastructure management",
+        "Limited operational visibility",
+        "Scaling uncertainty",
+      ],
+      approach: [
+        "Optimized cloud architecture",
+        "Implemented infrastructure automation",
+        "Added monitoring and performance metrics",
+        "Improved deployment and rollback processes",
+      ],
+      outcomes: [
+        "Improved scalability",
+        "Better customer experience",
+        "Reduced downtime risk",
+        "Faster operational response",
+      ],
+    },
   },
   {
     id: 4,
     number: "04",
     title: "SaaS & B2B Software",
-    description:
-      "SaaS companies must continuously evolve their platforms without compromising stability or architecture integrity. Growth depends on reliable infrastructure and disciplined engineering practices. ElderOps partners with SaaS teams to strengthen observability, modernize infrastructure, scale backend systems, and operationalize data and AI initiatives. We help organizations increase delivery confidence while preserving long-term architectural clarity.",
-    images: [sassOne, sassTwo, sassThree, sassFour, sassFive],
+    caseStudy: {
+      headline: "Building a Foundation for Product Growth",
+      summary:
+        "A software company was preparing for rapid customer growth but lacked mature engineering processes and operational standards.",
+      challenges: [
+        "Technical debt accumulation",
+        "Slow deployment cycles",
+        "Limited observability",
+        "Inconsistent engineering workflows",
+      ],
+      approach: [
+        "Implemented CI/CD pipelines",
+        "Established monitoring and logging standards",
+        "Improved development workflows",
+        "Created documentation and operational processes",
+      ],
+      outcomes: [
+        "Faster product delivery",
+        "Improved engineering productivity",
+        "Greater platform stability",
+        "Increased organizational scalability",
+      ],
+    },
   },
   {
     id: 5,
     number: "05",
     title: "Logistics & Supply Chain",
-    description:
-      "Logistics platforms operate across distributed systems where real-time accuracy and uptime directly impact operations. Integration complexity and data consistency are constant challenges. ElderOps supports supply chain organizations by modernizing infrastructure, strengthening integration pipelines, improving data reliability, and automating operational processes. We design resilient systems capable of handling operational complexity at scale.",
-    images: [
-      logisticsOne,
-      logisticsTwo,
-      logisticsThree,
-      logisticsFour,
-      logisticsFive,
-    ],
+    caseStudy: {
+      headline: "Increasing Visibility Across Operational Systems",
+      summary:
+        "A logistics organization relied on multiple disconnected systems that limited operational visibility and reporting capabilities.",
+      challenges: [
+        "Fragmented data sources",
+        "Delayed reporting",
+        "Manual processes",
+        "Limited operational insights",
+      ],
+      approach: [
+        "Built centralized data pipelines",
+        "Implemented reporting infrastructure",
+        "Improved data accessibility",
+        "Established governance and monitoring standards",
+      ],
+      outcomes: [
+        "Faster decision making",
+        "Improved operational visibility",
+        "Reduced manual effort",
+        "More reliable reporting",
+      ],
+    },
   },
   {
     id: 6,
     number: "06",
     title: "Media & Entertainment",
-    description:
-      "Media platforms must handle dynamic traffic, high-performance delivery, and data-intensive workflows. Stability and scalability are essential for consistent audience experiences. ElderOps helps media organizations optimize cloud architecture, strengthen CI/CD pipelines, scale analytics systems, and improve infrastructure performance. We enable engineering teams to deliver content reliably while maintaining operational efficiency.",
-    images: [retailsOne, retailsTwo, retailsThree, retailsFour, retailsFive],
+    caseStudy: {
+      headline: "Scaling Content Delivery Infrastructure",
+      summary:
+        "A digital media organization required improved infrastructure and operational processes to support audience growth and increasing content demands.",
+      challenges: [
+        "Growing traffic volumes",
+        "Infrastructure scalability concerns",
+        "Limited monitoring capabilities",
+        "Increasing operational complexity",
+      ],
+      approach: [
+        "Modernized cloud infrastructure",
+        "Improved monitoring and alerting",
+        "Automated deployment workflows",
+        "Enhanced operational documentation",
+      ],
+      outcomes: [
+        "Improved platform performance",
+        "Better scalability",
+        "Reduced operational risk",
+        "Faster issue resolution",
+      ],
+    },
   },
 ];
+
+export const capabilitiesText = {
+  title: "Technical Capability Across Your Entire Roadmap",
+  subtext:
+    "Build, modernize, optimize, and scale with experienced engineering teams.",
+};
+
+export const capabilitiesData = [
+  {
+    id: 1,
+    title: "Cloud, DevOps & Reliability",
+    value:
+      "Build resilient cloud platforms that support growth, reliability, and faster delivery.",
+    description:
+      "Whether you're modernizing infrastructure, improving deployment velocity, or reducing operational risk, we provide engineers who help keep critical systems running and teams moving forward.",
+    capabilities: [
+      "Cloud architecture and modernization",
+      "DevOps and platform engineering",
+      "Infrastructure automation",
+      "Reliability and observability",
+    ],
+  },
+  {
+    id: 2,
+    title: "Data Platforms & Engineering",
+    value:
+      "Create trusted data foundations that support reporting, analytics, automation, and product innovation.",
+    description:
+      "From scalable pipelines to governed data platforms, we help organizations transform fragmented information into a strategic asset.",
+    capabilities: [
+      "Data platform architecture",
+      "Data pipelines and integration",
+      "Warehousing and lakehouse solutions",
+      "Data governance and quality",
+    ],
+  },
+  {
+    id: 3,
+    title: "Analytics & Business Intelligence",
+    value:
+      "Transform data into actionable insight that drives better decisions across the business.",
+    description:
+      "We help organizations establish meaningful metrics, executive visibility, and self-service analytics that improve performance and alignment.",
+    capabilities: [
+      "Executive dashboards",
+      "KPI development",
+      "Reporting modernization",
+      "Analytics governance",
+    ],
+  },
+  {
+    id: 4,
+    title: "AI / ML Enablement",
+    value:
+      "Operationalize AI initiatives with the engineering foundations required for long-term success.",
+    description:
+      "Whether you're launching your first AI-driven product or scaling existing models, we provide the infrastructure and expertise needed to move from proof-of-concept to production.",
+    capabilities: [
+      "AI platform engineering",
+      "MLOps implementation",
+      "Model deployment",
+      "Performance monitoring",
+    ],
+  },
+  {
+    id: 5,
+    title: "Product Engineering",
+    value:
+      "Deliver software products faster without sacrificing scalability, reliability, or user experience.",
+    description:
+      "Our engineers support the full product lifecycle, helping teams accelerate delivery while maintaining technical excellence.",
+    capabilities: [
+      "Application development",
+      "API and backend engineering",
+      "Platform services",
+      "Front-end delivery",
+    ],
+  },
+];
+
+export const valueText = {
+  title: "How We Drive Value",
+  subtext: "The right engineering talent creates measurable business outcomes.",
+};
+
+export const valueData = [
+  {
+    title: "Ship Faster",
+    description: "Strong delivery cadence, clean handoffs, clear ownership.",
+  },
+  {
+    title: "Improve Reliability",
+    description: "Observability practices, automation, incident readiness.",
+  },
+  {
+    title: "Increase Engineering Efficiency",
+    description:
+      "Get more value from every engineering dollar through automation, improved processes, and senior-level execution.",
+  },
+  {
+    title: "Make Better Decisions",
+    description:
+      "Create trusted reporting, meaningful metrics, and accessible insights that help teams act with confidence.",
+  },
+  {
+    title: "Scale With Confidence",
+    description:
+      "Build systems, processes, and engineering foundations that support growth without creating operational chaos.",
+  },
+];
+
+export const engagementText = {
+  title: "Engineering Support That Fits Your Organization",
+  subtext:
+    "Whether you need a single specialist, a managed team, or delivery ownership for a strategic initiative, ElderOps adapts to your roadmap and goals.",
+  footerText: "Start small. Scale when ready. The model adapts as your roadmap evolves.",
+};
 
 export const engagementModelsData = [
   {
     id: 1,
+    scale: "Individual Engineer",
     title: "Team Extension",
     description:
-      "Seamless integration into your existing workflows. We provide specialized talent that operates as a direct extension of your internal team.",
-    bestFor:
-      "Scaling existing teams quickly without long-term hiring commitments.",
+      "Add experienced engineers directly into your existing team to accelerate delivery, fill skill gaps, and increase capacity without expanding permanent headcount.",
+    bestFor: "Growing teams that need additional engineering expertise quickly.",
   },
   {
     id: 2,
-    title: "Dedicated Pods",
+    scale: "Dedicated Team",
+    title: "Dedicated Engineering Teams",
     description:
-      "Fully managed cross-functional teams for specific outcomes. We handle the management, you focus on the vision.",
-    bestFor: "Focused initiatives requiring coordination and accountability.",
+      "Cross-functional engineering teams managed through structured delivery, accountability, and performance oversight.",
+    bestFor:
+      "Organizations building new products, modernizing platforms, or scaling multiple initiatives simultaneously.",
   },
   {
     id: 3,
-    title: "Project Delivery",
+    scale: "Managed Delivery",
+    title: "Outcome-Based Delivery",
     description:
-      "Outcome-based delivery with defined scope, milestones, and structured oversight from architecture planning through implementation.",
+      "We take ownership of defined engineering initiatives from planning through execution, delivering against agreed objectives and milestones.",
     bestFor:
-      "Clearly defined initiatives that require structured execution and delivery ownership.",
+      "Strategic initiatives that require clear accountability and execution ownership.",
   },
 ];
 
-export const engagementModelsText = {
-  title: "Flexible Engagement Models",
-  description:
-    "We adapt to your roadmap, offering the expertise you need at the scale you require. Our models are designed for agility, transparency, and high-impact delivery.",
-  footerText:
-    "Start lean, scale as needed. We'll adjust the team as your roadmap evolves.",
+export const gettingStartedText = {
+  title: "Getting Started Is Simple",
+  subtext:
+    "A focused path from first conversation to engineers contributing on your roadmap.",
 };
 
-export const howItWorksData = [
+export const gettingStartedData = [
   {
-    id: 1,
     step: "01",
-    title: "Define the role",
-    description: "We align on stack, scope, timeline, and measurable goals.",
+    title: "Define Your Objectives",
+    description:
+      "We align on technical requirements, business goals, team structure, and desired outcomes.",
   },
   {
-    id: 2,
     step: "02",
-    title: "Curate vetted shortlist",
+    title: "Review a Curated Shortlist",
     description:
-      "Only high-signal candidates who meet our technical and communication standards.",
+      "Receive a focused selection of engineers matched to your technical and organizational needs.",
   },
   {
-    id: 3,
     step: "03",
-    title: "Interview candidates",
+    title: "Validate the Fit",
     description:
-      "You validate technical capability and team alignment before engagement begins.",
+      "Interview candidates and confirm technical capability, communication style, and team alignment.",
   },
   {
-    id: 4,
     step: "04",
-    title: "Onboard and deliver",
+    title: "Launch with Confidence",
     description:
-      "Structured onboarding, clear expectations, and delivery cadence from day one.",
+      "Structured onboarding and clear expectations ensure engineers contribute quickly and effectively.",
   },
 ];
 
-export const howItWorksText = {
-  title: "How It Works",
-  ctaText: "Ready to move faster with confidence?",
+export const ctaText = {
+  eyebrow: "Engagement Design",
+  title: "Let's Design the Right Engagement",
+  description:
+    "Tell us what you're building, and we'll recommend the team structure, delivery model, and expertise that best fits your goals.",
+  buttonText: "Tell Us What You're Building",
 };

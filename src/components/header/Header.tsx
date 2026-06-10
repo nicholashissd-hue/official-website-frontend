@@ -1,79 +1,83 @@
 import { Link, useLocation } from "react-router";
 import elderOpsLogo from "@/assets/svg/elderOps-white-logo.svg";
 import elderOpsLogoGreen from "@/assets/svg/elderOps-green-logo.svg";
-import menuIcon from "@/assets/svg/menu.svg";
-import closeIcon from "@/assets/svg/cancel-icon.svg";
 import { useScrollDetection } from "@/hooks/useScrollDetection";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import { useGlobalStore } from "@/store/useGlobalStore";
-// import Button from "../ui/button";
+import { cn } from "@/lib/util";
 import Navbar from "../navbar/Navbar";
 import CalendlyCTA from "../contactUs/react-calendly";
 
+/** Routes whose hero is the deep-green surface (header starts light-on-dark). */
+const DARK_HERO_ROUTES = new Set(["/", "/talent"]);
+
 const Header = () => {
   const { pathname } = useLocation();
-  const isHomePage = pathname === "/";
-  const isScrolled = useScrollDetection(50);
+  const isScrolled = useScrollDetection(40);
   const isVisible = useScrollDirection();
   const { isMobileMenuOpen, isNavbarRevealBlocked, toggleMobileMenu } =
     useGlobalStore();
 
-  const showWhiteBg = isScrolled;
-  const showDarkContent = !isHomePage && !isScrolled;
-  const shouldShowHeader = !isNavbarRevealBlocked && isVisible;
+  const overDarkHero = DARK_HERO_ROUTES.has(pathname) && !isScrolled;
+  const darkContext = overDarkHero || isMobileMenuOpen;
+  const shouldShowHeader =
+    !isNavbarRevealBlocked && (isVisible || isMobileMenuOpen);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 py-7.5 transition-all duration-300 ${showWhiteBg ? "bg-white" : ""} ${shouldShowHeader ? "translate-y-0" : "-translate-y-full"}`}
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+        shouldShowHeader ? "translate-y-0" : "-translate-y-full",
+        isScrolled && !isMobileMenuOpen
+          ? "border-b border-primary/10 bg-bg-cream/90 backdrop-blur-md"
+          : "border-b border-transparent",
+      )}
     >
-      <div className="container grid grid-cols-[1fr_auto] gap-2 md:grid-cols-[1fr_auto_1fr] items-center">
-        <Link to="/">
-          {showWhiteBg || showDarkContent ? (
-            <img
-              src={elderOpsLogoGreen}
-              alt="elderOps logo"
-              className="w-10 md:w-13.5"
-            />
-          ) : (
-            <img
-              src={elderOpsLogo}
-              alt="elderOps logo"
-              className="w-10 md:w-13.5"
-            />
-          )}
+      <div className="container grid h-18 grid-cols-[1fr_auto] items-center gap-6 md:h-20 md:grid-cols-[1fr_auto_1fr]">
+        <Link
+          to="/"
+          aria-label="ElderOps home"
+          className="relative z-50 justify-self-start"
+        >
+          <img
+            src={darkContext ? elderOpsLogo : elderOpsLogoGreen}
+            alt="ElderOps"
+            className="w-10 transition-opacity duration-300 md:w-12"
+          />
         </Link>
 
-        <div className="flex md:hidden items-center justify-center">
+        <Navbar dark={darkContext} />
+
+        <div className="flex items-center justify-self-end">
+          <div className="hidden md:block">
+            <CalendlyCTA
+              variant={overDarkHero ? "outline-light" : "outline"}
+              className="h-10 px-5 text-[13px]"
+            />
+          </div>
+
           <button
+            type="button"
             onClick={toggleMobileMenu}
-            className="md:hidden z-50 relative"
-            aria-label="Toggle menu"
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMobileMenuOpen}
+            className="relative z-50 -mr-2 flex size-10 flex-col items-end justify-center gap-[7px] md:hidden"
           >
-            <img
-              src={isMobileMenuOpen ? closeIcon : menuIcon}
-              alt=""
-              className={`size-6 ${showWhiteBg || showDarkContent || isMobileMenuOpen ? "invert" : ""}`}
+            <span
+              className={cn(
+                "h-px w-6 transition-all duration-300",
+                darkContext ? "bg-bg-cream" : "bg-primary",
+                isMobileMenuOpen && "translate-y-[4px] rotate-45",
+              )}
+            />
+            <span
+              className={cn(
+                "h-px transition-all duration-300",
+                darkContext ? "bg-bg-cream" : "bg-primary",
+                isMobileMenuOpen ? "w-6 -translate-y-[4px] -rotate-45" : "w-4",
+              )}
             />
           </button>
-        </div>
-
-        <Navbar isHomePage={!showWhiteBg && !showDarkContent} />
-        <div className="md:flex hidden items-center justify-end gap-4 text-nowrap">
-          {/* {isHomePage ? (
-            <Button
-              variant={showWhiteBg ? "glass-link" : "link"}
-              to="/contact-us"
-              className={` hover:-translate-y-1 border  transition-transform duration-200  h-10! ${showWhiteBg ? "" : "bg-white text-primary"}`}
-            >
-              Contact Us
-            </Button>
-          ) : (
-            <Button variant="glass-link" to="/contact-us">
-              Contact Us
-            </Button>
-          )} */}
-
-          <CalendlyCTA shouldRenderOnMobile={false} />
         </div>
       </div>
     </header>
