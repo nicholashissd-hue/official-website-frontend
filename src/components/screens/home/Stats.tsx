@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { animate, useInView } from "framer-motion";
 import { statsData } from "@/contents/screens/home";
 import Reveal, { EASE, Lift } from "@/components/ui/reveal";
-import { cn } from "@/lib/util";
+import talentOne from "@/assets/png/talent-one.png";
+import talentTwo from "@/assets/png/talent-two.png";
+import talentThree from "@/assets/png/talent-three.png";
 
 interface CounterProps {
   prefix: string;
@@ -36,52 +38,100 @@ const Counter = ({ prefix, value, suffix, delay }: CounterProps) => {
   );
 };
 
-/** Color rotation for the stat blocks — Andela-style card deck. */
-const TONES = [
-  { card: "grain relative bg-primary", number: "text-bg-cream", label: "text-accent-four" },
-  { card: "bg-border-light", number: "text-primary", label: "text-primary/60" },
-  { card: "bg-success", number: "text-deep", label: "text-deep/70" },
-  { card: "bg-white ring-1 ring-primary/10", number: "text-primary", label: "text-accent-three" },
-];
+const AVATARS = [talentOne, talentTwo, talentThree];
 
+/**
+ * Asymmetric stat composition (not a banner row): one tall feature card
+ * for the network, a varied grid for the rest.
+ */
 const Stats = () => {
+  const [lead, second, third, fourth] = statsData;
+
   return (
     <section className="bg-bg-cream">
-      <div className="container pb-4 pt-14 md:pb-8 md:pt-20">
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
-          {statsData.map((stat, index) => {
-            const tone = TONES[index % TONES.length];
-
-            return (
-              <Reveal key={stat.id} delay={index * 0.08}>
-                <Lift
-                  className={cn("overflow-hidden rounded-3xl p-6 md:p-8", tone.card)}
-                >
-                <p
-                  className={cn(
-                    "font-display text-[clamp(2.1rem,4vw,3.3rem)] font-semibold leading-none tracking-[-0.02em]",
-                    tone.number,
-                  )}
-                >
-                  <Counter
-                    prefix={stat.prefix}
-                    value={stat.value}
-                    suffix={stat.suffix}
-                    delay={index * 0.12}
+      <div className="container grid gap-5 pb-6 pt-10 md:pb-10 md:pt-14 lg:grid-cols-[1.05fr_1fr]">
+        {/* Feature: the network */}
+        <Reveal>
+          <Lift className="grain relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-3xl bg-primary p-8 md:p-10">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(75%_110%_at_100%_0%,#074527_0%,transparent_60%)]"
+            />
+            <p className="relative font-display text-[clamp(3.4rem,6vw,5.2rem)] font-semibold leading-none tracking-[-0.02em] text-bg-cream">
+              <Counter
+                prefix={lead.prefix}
+                value={lead.value}
+                suffix={lead.suffix}
+                delay={0}
+              />
+            </p>
+            <div className="relative mt-8 flex items-center justify-between gap-6">
+              <p className="font-mono text-[10px] uppercase leading-relaxed tracking-[0.16em] text-accent-four">
+                {lead.label}
+              </p>
+              <div className="flex shrink-0 -space-x-2.5">
+                {AVATARS.map((avatar, index) => (
+                  <img
+                    key={index}
+                    src={avatar}
+                    alt=""
+                    className="size-9 rounded-full border-2 border-primary object-cover"
                   />
-                </p>
-                <p
-                  className={cn(
-                    "mt-3.5 font-mono text-[10px] uppercase leading-relaxed tracking-[0.16em]",
-                    tone.label,
-                  )}
-                >
-                  {stat.label}
-                </p>
-                </Lift>
-              </Reveal>
-            );
-          })}
+                ))}
+              </div>
+            </div>
+          </Lift>
+        </Reveal>
+
+        {/* Supporting stats — varied sizes */}
+        <div className="grid gap-5 sm:grid-cols-2">
+          <Reveal delay={0.08}>
+            <Lift className="rounded-3xl bg-border-light p-7">
+              <p className="font-display text-[clamp(2rem,3.2vw,2.8rem)] font-semibold leading-none tracking-[-0.02em] text-primary">
+                <Counter
+                  prefix={second.prefix}
+                  value={second.value}
+                  suffix={second.suffix}
+                  delay={0.12}
+                />
+              </p>
+              <p className="mt-3 font-mono text-[10px] uppercase leading-relaxed tracking-[0.16em] text-primary/60">
+                {second.label}
+              </p>
+            </Lift>
+          </Reveal>
+
+          <Reveal delay={0.14}>
+            <Lift className="rounded-3xl bg-success p-7">
+              <p className="font-display text-[clamp(2rem,3.2vw,2.8rem)] font-semibold leading-none tracking-[-0.02em] text-deep">
+                <Counter
+                  prefix={third.prefix}
+                  value={third.value}
+                  suffix={third.suffix}
+                  delay={0.2}
+                />
+              </p>
+              <p className="mt-3 font-mono text-[10px] uppercase leading-relaxed tracking-[0.16em] text-deep/70">
+                {third.label}
+              </p>
+            </Lift>
+          </Reveal>
+
+          <Reveal delay={0.2} className="sm:col-span-2">
+            <Lift className="flex flex-wrap items-center justify-between gap-4 rounded-3xl bg-white px-7 py-6 ring-1 ring-primary/10">
+              <p className="font-display text-[clamp(2rem,3.2vw,2.8rem)] font-semibold leading-none tracking-[-0.02em] text-primary">
+                <Counter
+                  prefix={fourth.prefix}
+                  value={fourth.value}
+                  suffix={fourth.suffix}
+                  delay={0.26}
+                />
+              </p>
+              <p className="font-mono text-[10px] uppercase leading-relaxed tracking-[0.16em] text-accent-three">
+                {fourth.label}
+              </p>
+            </Lift>
+          </Reveal>
         </div>
       </div>
     </section>

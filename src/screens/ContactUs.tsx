@@ -16,15 +16,15 @@ const NEXT_STEPS = [
 ];
 
 const WhatHappensNext = () => (
-  <div className="grain relative overflow-hidden rounded-[2rem] bg-primary p-7 md:p-9">
+  <div className="grain relative h-full overflow-hidden rounded-[2rem] bg-primary p-7 md:p-9">
     <div
       aria-hidden="true"
       className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_120%_at_100%_0%,#074527_0%,transparent_60%)]"
     />
-    <div className="relative">
+    <div className="relative flex h-full flex-col">
       <Eyebrow dark>What Happens Next?</Eyebrow>
 
-      <ol className="mt-7 space-y-2">
+      <ol className="mt-7 flex flex-1 flex-col justify-center gap-3">
         {NEXT_STEPS.map((step, index) => (
           <li
             key={step}
@@ -38,7 +38,7 @@ const WhatHappensNext = () => (
         ))}
       </ol>
 
-      <p className="mt-7 inline-flex items-center gap-2 rounded-full bg-success/15 px-3.5 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-success">
+      <p className="mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-success/15 px-3.5 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-success">
         Typical turnaround — 48 hours
       </p>
     </div>
@@ -102,12 +102,13 @@ const ContactUs = () => {
       </section>
 
       <section className="bg-bg-cream">
-        <div className="container grid gap-8 py-14 md:py-20 lg:grid-cols-[1.35fr_1fr] lg:gap-12">
+        <div className="container grid items-stretch gap-8 py-14 md:py-20 lg:grid-cols-[1.35fr_1fr] lg:gap-12">
           <Reveal>
             <Form />
           </Reveal>
 
-          <div className="space-y-6 lg:sticky lg:top-28 lg:self-start">
+          {/* Sidebar stretches to match the form so the section stays balanced */}
+          <div className="flex flex-col gap-6">
             <Reveal delay={0.08}>
               <PhotoCard
                 src={cooperateLady}
@@ -117,22 +118,8 @@ const ContactUs = () => {
               />
             </Reveal>
 
-            <Reveal delay={0.12}>
+            <Reveal delay={0.12} className="flex-1">
               <WhatHappensNext />
-            </Reveal>
-
-            <Reveal delay={0.2}>
-              <div className="rounded-3xl bg-white p-7 ring-1 ring-primary/10 transition-[transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-[0_24px_50px_rgba(2,54,27,0.1)] md:p-8">
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent-three">
-                  Prefer to talk it through?
-                </p>
-                <p className="mt-3.5 font-display text-lg font-semibold leading-snug text-primary">
-                  Put time directly on our calendar.
-                </p>
-                <div className="mt-5">
-                  <CalendlyCTA variant="outline" withArrow />
-                </div>
-              </div>
             </Reveal>
           </div>
         </div>

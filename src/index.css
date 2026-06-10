@@ -11,7 +11,7 @@
   --font-urbanist: "Satoshi", system-ui, sans-serif;
   --font-lato: "Satoshi", system-ui, sans-serif;
 
-  /* ── Brand palette (unchanged) ──────────────────────────────── */
+  /* ── Brand palette ──────────────────────────────────────────── */
   --color-primary: #02361b;
   --color-secondary: #313131;
   --color-accent-one: #515151;
@@ -19,10 +19,12 @@
   --color-accent-three: #7c7c7c;
   --color-accent-four: #8ba396;
   --color-success: #069c4e;
-  --color-border-light: #dde392;
-  --color-bg-light: #f4f6dd;
+  /* Mint range (replaced the yellow-green lime/citrus tones, 2026-06-09).
+     Token names kept so existing utility classes restyle site-wide. */
+  --color-border-light: #b5e3c6;
+  --color-bg-light: #e9f3ec;
   --color-bg-cream: #fcfcf4;
-  --color-bg-yellow: #e4e9a8;
+  --color-bg-yellow: #d9eee0;
 
   /* Tonal steps of the brand green, for layered dark surfaces */
   --color-deep: #012112;

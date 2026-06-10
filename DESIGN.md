@@ -16,10 +16,14 @@ not a magazine). Brand palette only — used boldly.
 - Cream canvas: `bg-bg-cream`
 - Deep green: `bg-primary` + `grain relative` + a radial glow div
   (`bg-[radial-gradient(...,#074527,transparent)]`)
-- **Lime block**: `bg-border-light` (#dde392) — at least one per page
-- Citrus: `bg-bg-yellow` (#e4e9a8) for accent cards
+- **Mint block**: `bg-border-light` (#b5e3c6) — at least one per page
+- Pale mint: `bg-bg-yellow` (#d9eee0) for accent cards (token name is legacy)
 - Bright green `bg-success` for primary CTAs, accent cards, number badges
+- NO yellow-green/lime tones anywhere (owner rejected them 2026-06-09)
 - Never separate sections with hairline borders; contrast comes from the blocks.
+- Never stack two full-width horizontal strips back-to-back (ticker + logos,
+  logos + uniform stat row = "double banner"); break strips with asymmetric
+  compositions (see the home stats bento).
 
 ## Shape
 - Interactive elements (buttons, chips, tabs): `rounded-full` pills
