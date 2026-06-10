@@ -10,15 +10,13 @@ interface EyebrowProps {
   className?: string;
 }
 
-/** Pill label chip with a status dot: `(• 01 LABEL)` */
+/** Plain mono section label with a status dot: `• 01 LABEL` (no pill). */
 const Eyebrow = ({ children, index, dark = false, className }: EyebrowProps) => {
   return (
     <p
       className={cn(
         "eyebrow",
-        dark
-          ? "bg-bg-cream/10 text-border-light ring-1 ring-inset ring-bg-cream/15"
-          : "bg-primary/[0.07] text-primary ring-1 ring-inset ring-primary/10",
+        dark ? "text-border-light" : "text-success",
         className,
       )}
     >

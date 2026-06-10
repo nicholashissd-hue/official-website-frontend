@@ -2,7 +2,6 @@ import { Link } from "react-router";
 import elderOpsLogo from "@/assets/svg/elderOps-white-logo.svg";
 import { NAV_LINKS } from "@/contents/nav";
 import Button from "../ui/button";
-import Eyebrow from "../ui/eyebrow";
 import Reveal from "../ui/reveal";
 
 const Footer = () => {
@@ -19,8 +18,7 @@ const Footer = () => {
       <div className="container relative">
         <Reveal className="flex flex-col gap-10 border-b border-bg-cream/10 py-16 md:py-24 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <Eyebrow dark>ElderOps</Eyebrow>
-            <p className="mt-6 max-w-2xl font-display text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.08] tracking-[-0.02em]">
+            <p className="max-w-2xl font-display text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.08] tracking-[-0.02em]">
               Senior engineering expertise.{" "}
               <span className="text-border-light">Accountable delivery.</span>
             </p>

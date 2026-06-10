@@ -82,7 +82,7 @@ body {
   padding-block: clamp(72px, 9vw, 120px);
 }
 
-/* ── Label chip (replaces the old hairline eyebrow) ───────────── */
+/* ── Section label (plain mono + dot — pill treatment removed) ── */
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -92,8 +92,6 @@ body {
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  padding: 0.5rem 0.95rem;
-  border-radius: 999px;
 }
 
 /* Underline that grows from the left on hover */
