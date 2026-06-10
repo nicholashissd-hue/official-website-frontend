@@ -13,6 +13,8 @@ interface SectionHeadingProps {
   className?: string;
   /** Max width utility for the lede paragraph. */
   ledeWidth?: string;
+  /** Override lede text color (e.g. on vivid green sections). */
+  ledeClassName?: string;
 }
 
 /**
@@ -28,6 +30,7 @@ const SectionHeading = ({
   align = "left",
   className,
   ledeWidth = "max-w-2xl",
+  ledeClassName,
 }: SectionHeadingProps) => {
   const centered = align === "center";
 
@@ -59,6 +62,7 @@ const SectionHeading = ({
             "mt-5 text-[15px] leading-[1.75] md:text-[17px]",
             dark ? "text-accent-four" : "text-accent-one",
             ledeWidth,
+            ledeClassName,
           )}
         >
           {lede}

@@ -17,12 +17,12 @@ const TONES = [
   },
   {
     card: "bg-border-light",
-    numeral: "text-primary/15",
+    numeral: "text-primary/20",
     title: "text-primary",
-    summary: "text-primary/70",
-    body: "text-primary/70",
-    label: "text-primary/60",
-    item: "text-primary/70",
+    summary: "text-primary/85",
+    body: "text-primary/85",
+    label: "text-primary/75",
+    item: "text-primary/85",
   },
   {
     card: "bg-bg-cream/[0.06] ring-1 ring-bg-cream/15",

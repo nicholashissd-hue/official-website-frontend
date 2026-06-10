@@ -18,12 +18,12 @@ const STAGE_TONES = [
   },
   {
     panel: "bg-border-light",
-    tag: "bg-primary/10 text-primary",
+    tag: "bg-primary/15 text-primary",
     title: "text-primary",
-    body: "text-primary/70",
-    label: "text-primary/60",
-    item: "text-primary/70",
-    bullet: "bg-success",
+    body: "text-primary/85",
+    label: "text-primary/75",
+    item: "text-primary/85",
+    bullet: "bg-primary",
     grain: false,
   },
   {

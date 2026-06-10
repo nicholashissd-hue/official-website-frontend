@@ -46,12 +46,12 @@ const CARD_TONES = [
   },
   {
     card: "bg-border-light hover:shadow-[0_24px_50px_rgba(2,54,27,0.1)]",
-    chip: "bg-primary/10 text-primary",
+    chip: "bg-primary/15 text-primary",
     title: "text-primary",
-    body: "text-primary/75",
-    panel: "bg-primary/[0.04]",
-    panelLabel: "text-primary/60",
-    panelBody: "text-primary/85",
+    body: "text-primary/90",
+    panel: "bg-primary/[0.08]",
+    panelLabel: "text-primary/75",
+    panelBody: "text-primary/90",
   },
   {
     card: "grain relative bg-primary",

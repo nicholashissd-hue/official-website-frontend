@@ -98,7 +98,7 @@ const Form = () => {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="rounded-[2rem] bg-white p-6 ring-1 ring-primary/10 sm:p-8 md:p-10"
+      className="flex h-full flex-col rounded-[2rem] bg-white p-6 ring-1 ring-primary/10 sm:p-8 md:p-10"
     >
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
@@ -215,7 +215,7 @@ const Form = () => {
         </div>
       </div>
 
-      <div className="mt-6">
+      <div className="mt-6 flex flex-1 flex-col">
         <FieldLabel htmlFor="message">Tell Us About Your Initiative</FieldLabel>
         <textarea
           id="message"
@@ -227,7 +227,7 @@ const Form = () => {
           aria-describedby={errors.message ? "message-error" : undefined}
           className={cn(
             inputClasses(!!errors.message),
-            "h-44 resize-none py-3.5 leading-[1.7]",
+            "min-h-44 flex-1 resize-none py-3.5 leading-[1.7]",
           )}
         />
         <FieldError id="message-error" error={errors.message} />

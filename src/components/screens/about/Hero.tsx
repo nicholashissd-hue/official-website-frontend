@@ -37,7 +37,7 @@ const Hero = () => {
           <blockquote className="mt-14 max-w-4xl rounded-[2rem] bg-bg-yellow p-8 md:mt-20 md:p-12">
             <span
               aria-hidden="true"
-              className="block font-display text-6xl font-semibold leading-none text-success md:text-7xl"
+              className="block font-display text-6xl font-semibold leading-none text-primary md:text-7xl"
             >
               “
             </span>

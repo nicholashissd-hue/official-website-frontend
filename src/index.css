@@ -19,12 +19,14 @@
   --color-accent-three: #7c7c7c;
   --color-accent-four: #8ba396;
   --color-success: #069c4e;
-  /* Mint range (replaced the yellow-green lime/citrus tones, 2026-06-09).
-     Token names kept so existing utility classes restyle site-wide. */
-  --color-border-light: #b5e3c6;
+  /* Saturated green range (pastel mint + yellow-green both rejected,
+     2026-06-09). Token names kept so existing utility classes restyle
+     site-wide: border-light = bright spring green (accents on dark +
+     vivid blocks), bg-yellow = kelly green surfaces. */
+  --color-border-light: #2dbf6e;
   --color-bg-light: #e9f3ec;
   --color-bg-cream: #fcfcf4;
-  --color-bg-yellow: #d9eee0;
+  --color-bg-yellow: #069c4e;
 
   /* Tonal steps of the brand green, for layered dark surfaces */
   --color-deep: #012112;

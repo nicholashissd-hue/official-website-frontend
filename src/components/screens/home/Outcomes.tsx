@@ -18,9 +18,9 @@ const CARD_TONES = [
   },
   {
     card: "bg-bg-yellow",
-    tag: "bg-primary/10 text-primary",
+    tag: "bg-primary/15 text-primary",
     title: "text-primary",
-    body: "text-primary/70",
+    body: "text-primary/90",
   },
 ];
 

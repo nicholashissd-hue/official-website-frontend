@@ -9,7 +9,7 @@ import Reveal, { Lift } from "@/components/ui/reveal";
 import Underlined from "@/components/ui/underline";
 import { cn } from "@/lib/util";
 
-/** Pillar cards rotate through the light brand deck: white, lime, citrus. */
+/** Pillar cards rotate through the light brand deck: white, sage, kelly. */
 const PILLAR_TONES = [
   {
     card: "bg-white ring-1 ring-primary/10",
@@ -19,18 +19,18 @@ const PILLAR_TONES = [
     item: "text-accent-one",
   },
   {
-    card: "bg-border-light",
-    badge: "bg-primary/10 text-primary",
-    body: "text-primary/70",
-    label: "text-primary/60",
-    item: "text-primary/70",
+    card: "bg-bg-light",
+    badge: "bg-success/10 text-success",
+    body: "text-accent-one",
+    label: "text-accent-three",
+    item: "text-accent-one",
   },
   {
     card: "bg-bg-yellow",
-    badge: "bg-primary/10 text-primary",
-    body: "text-primary/70",
-    label: "text-primary/60",
-    item: "text-primary/70",
+    badge: "bg-primary/15 text-primary",
+    body: "text-primary/90",
+    label: "text-primary/70",
+    item: "text-primary/90",
   },
 ];
 

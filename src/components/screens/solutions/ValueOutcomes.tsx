@@ -12,6 +12,7 @@ const ValueOutcomes = () => {
           eyebrow="Business Value"
           title={valueText.title}
           lede={valueText.subtext}
+          ledeClassName="text-primary/80"
         />
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">

@@ -56,7 +56,7 @@ const NotSureBand = () => {
           <h2 className="mt-6 max-w-2xl text-balance font-display text-[clamp(1.9rem,3.8vw,2.9rem)] font-semibold leading-[1.1] tracking-[-0.015em] text-primary">
             Not Sure What You Need Yet?
           </h2>
-          <p className="mt-5 max-w-xl text-[15px] leading-[1.8] text-accent-one">
+          <p className="mt-5 max-w-xl text-[15px] leading-[1.8] text-primary/80">
             That's exactly why the conversation exists. We'll help you determine
             whether a single engineer, a dedicated team, or a structured
             delivery engagement is the best fit.
@@ -103,7 +103,7 @@ const ContactUs = () => {
 
       <section className="bg-bg-cream">
         <div className="container grid items-stretch gap-8 py-14 md:py-20 lg:grid-cols-[1.35fr_1fr] lg:gap-12">
-          <Reveal>
+          <Reveal className="h-full">
             <Form />
           </Reveal>
 

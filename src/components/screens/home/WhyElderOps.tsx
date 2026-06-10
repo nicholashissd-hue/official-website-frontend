@@ -17,6 +17,7 @@ const WhyElderOps = () => {
           eyebrow="Why ElderOps"
           title={whyWeStandApartText.title}
           lede={whyWeStandApartText.subtext}
+          ledeClassName="text-primary/80"
         />
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">

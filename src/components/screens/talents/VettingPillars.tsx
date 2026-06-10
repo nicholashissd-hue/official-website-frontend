@@ -18,6 +18,7 @@ const VettingPillars = () => {
           eyebrow="Vetting"
           title={vettingText.title}
           lede={vettingText.subtext}
+          ledeClassName="text-primary/80"
         />
 
         <div className="grid gap-5 sm:grid-cols-2">

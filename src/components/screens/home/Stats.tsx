@@ -86,7 +86,7 @@ const Stats = () => {
         {/* Supporting stats — varied sizes */}
         <div className="grid gap-5 sm:grid-cols-2">
           <Reveal delay={0.08}>
-            <Lift className="rounded-3xl bg-border-light p-7">
+            <Lift className="rounded-3xl bg-bg-light p-7">
               <p className="font-display text-[clamp(2rem,3.2vw,2.8rem)] font-semibold leading-none tracking-[-0.02em] text-primary">
                 <Counter
                   prefix={second.prefix}
