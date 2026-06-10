@@ -4,12 +4,20 @@ import { rolesData, rolesText } from "@/contents/screens/talents";
 import SectionHeading from "@/components/ui/section-heading";
 import Reveal, { EASE } from "@/components/ui/reveal";
 import { cn } from "@/lib/util";
+import talentOne from "@/assets/png/talent-one.png";
+import talentTwo from "@/assets/png/talent-two.png";
+import talentThree from "@/assets/png/talent-three.png";
+
+/** Portraits by role order: Senior, Staff, Principal. */
+const ROLE_PORTRAITS = [talentOne, talentTwo, talentThree];
 
 const FlipHint = ({ label, dark = false }: { label: string; dark?: boolean }) => (
   <span
     className={cn(
-      "inline-flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.2em] transition-colors duration-300",
-      dark ? "text-accent-four" : "text-accent-three group-hover:text-success",
+      "inline-flex w-fit items-center gap-2.5 rounded-full px-3.5 py-2 font-mono text-[10px] uppercase tracking-[0.2em] transition-colors duration-300",
+      dark
+        ? "bg-bg-cream/10 text-accent-four"
+        : "bg-primary/[0.06] text-accent-three group-hover:text-success",
     )}
   >
     <svg viewBox="0 0 14 14" fill="none" aria-hidden="true" className="size-3">
@@ -36,7 +44,10 @@ const RoleList = ({ label, items }: { label: string; items: string[] }) => (
           key={item}
           className="flex gap-2.5 text-[13px] leading-[1.6] text-bg-light/85"
         >
-          <span aria-hidden="true" className="mt-[0.5em] size-1 shrink-0 rotate-45 bg-success" />
+          <span
+            aria-hidden="true"
+            className="mt-[0.45em] size-1.5 shrink-0 rounded-full bg-success"
+          />
           {item}
         </li>
       ))}
@@ -49,7 +60,7 @@ const RoleMatrix = () => {
   const [flipped, setFlipped] = useState<number | null>(null);
 
   return (
-    <section className="border-b border-primary/10 bg-bg-cream">
+    <section className="bg-bg-cream">
       <div className="container section-space-block">
         <SectionHeading
           index="01"
@@ -80,15 +91,22 @@ const RoleMatrix = () => {
                     {/* Front */}
                     <div
                       style={{ backfaceVisibility: "hidden" }}
-                      className="absolute inset-0 flex flex-col border border-primary/10 bg-white p-8 transition-colors duration-500 group-hover:border-primary/30 md:p-9"
+                      className="absolute inset-0 flex flex-col rounded-3xl bg-white p-8 ring-1 ring-primary/10 transition-all duration-500 group-hover:shadow-[0_24px_50px_rgba(2,54,27,0.1)] group-hover:ring-primary/25 md:p-9"
                     >
-                      <span className="font-mono text-xs tracking-[0.2em] text-success">
-                        0{index + 1}
+                      <span className="flex items-center gap-3">
+                        <img
+                          src={ROLE_PORTRAITS[index % ROLE_PORTRAITS.length]}
+                          alt=""
+                          className="size-14 rounded-full object-cover ring-2 ring-success/50"
+                        />
+                        <span className="rounded-full bg-success/10 px-3 py-1.5 font-mono text-[10px] tracking-[0.2em] text-success">
+                          0{index + 1}
+                        </span>
                       </span>
-                      <h3 className="mt-6 font-display text-[1.55rem] leading-tight tracking-[-0.01em] text-primary">
+                      <h3 className="mt-6 font-display text-[1.55rem] font-semibold leading-tight tracking-[-0.01em] text-primary">
                         {role.title}
                       </h3>
-                      <p className="mt-4 font-display text-[1.02rem] italic leading-[1.55] text-success">
+                      <p className="mt-4 text-[15px] font-medium leading-[1.6] text-success">
                         {role.tagline}
                       </p>
                       <p className="mt-5 flex-1 text-sm leading-[1.85] text-accent-one">
@@ -103,9 +121,9 @@ const RoleMatrix = () => {
                         backfaceVisibility: "hidden",
                         transform: "rotateY(180deg)",
                       }}
-                      className="grain absolute inset-0 flex flex-col overflow-hidden bg-primary p-8 md:p-9"
+                      className="grain absolute inset-0 flex flex-col overflow-hidden rounded-3xl bg-primary p-8 md:p-9"
                     >
-                      <p className="font-display text-lg leading-tight text-bg-cream">
+                      <p className="font-display text-lg font-semibold leading-tight text-bg-cream">
                         {role.title}
                       </p>
                       <div className="scrollbar-hide mt-6 flex-1 space-y-7 overflow-y-auto">

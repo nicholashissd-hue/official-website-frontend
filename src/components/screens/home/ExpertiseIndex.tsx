@@ -31,8 +31,8 @@ const ExpertiseIndex = () => {
           lede={coreSolutionsText.subtext}
         />
 
-        <div className="grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
-          <Reveal className="flex flex-col border-t border-bg-cream/10">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+          <Reveal className="flex flex-col gap-3">
             {coreSolutionsData.map((item, index) => (
               <button
                 key={item.id}
@@ -42,15 +42,24 @@ const ExpertiseIndex = () => {
                 onClick={() => setActive(index)}
                 aria-pressed={active === index}
                 className={cn(
-                  "group flex cursor-pointer items-center justify-between gap-6 border-b border-bg-cream/10 py-8 text-left transition-opacity duration-400 md:py-10",
-                  active === index ? "opacity-100" : "opacity-45 hover:opacity-75",
+                  "group flex cursor-pointer items-center justify-between gap-6 rounded-2xl px-6 py-7 text-left transition-all duration-400 md:px-8",
+                  active === index
+                    ? "bg-bg-cream/[0.08] ring-1 ring-bg-cream/20"
+                    : "opacity-55 hover:bg-bg-cream/[0.04] hover:opacity-85",
                 )}
               >
-                <span className="flex items-baseline gap-5">
-                  <span className="font-mono text-[11px] tracking-[0.2em] text-border-light">
+                <span className="flex items-center gap-5">
+                  <span
+                    className={cn(
+                      "grid size-9 shrink-0 place-items-center rounded-full font-mono text-[11px] transition-colors duration-400",
+                      active === index
+                        ? "bg-success text-deep"
+                        : "bg-bg-cream/10 text-border-light",
+                    )}
+                  >
                     0{index + 1}
                   </span>
-                  <span className="font-display text-[clamp(1.45rem,2.6vw,2.15rem)] leading-tight tracking-[-0.01em] text-bg-cream">
+                  <span className="font-display text-[clamp(1.3rem,2.3vw,1.85rem)] font-semibold leading-tight tracking-[-0.01em] text-bg-cream">
                     {item.title}
                   </span>
                 </span>
@@ -60,7 +69,7 @@ const ExpertiseIndex = () => {
                   fill="none"
                   aria-hidden="true"
                   className={cn(
-                    "size-4 shrink-0 text-border-light transition-all duration-400",
+                    "size-4 shrink-0 text-success transition-all duration-400",
                     active === index
                       ? "translate-x-0 opacity-100"
                       : "-translate-x-2 opacity-0",
@@ -69,8 +78,9 @@ const ExpertiseIndex = () => {
                   <path
                     d="M1.5 8h12.5m0 0L9.2 3.2M14 8l-4.8 4.8"
                     stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="square"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </button>
@@ -85,13 +95,13 @@ const ExpertiseIndex = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.45, ease: EASE }}
-                className="border border-bg-cream/15 bg-bg-cream/[0.04] p-8 md:p-11"
+                className="h-full rounded-3xl bg-bg-cream/[0.06] p-8 ring-1 ring-bg-cream/15 md:p-10"
               >
                 <Eyebrow dark>Focus Area</Eyebrow>
-                <p className="mt-7 text-[15px] leading-[1.9] text-bg-light/85 md:text-base">
+                <p className="mt-6 text-[15px] leading-[1.85] text-bg-light/85 md:text-[17px]">
                   {coreSolutionsData[active].description}
                 </p>
-                <ArrowLink dark to="/solutions" className="mt-9">
+                <ArrowLink dark to="/solutions" className="mt-8">
                   Explore this capability
                 </ArrowLink>
               </motion.div>

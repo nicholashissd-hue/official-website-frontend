@@ -10,7 +10,7 @@ interface LeadCaptureFormProps {
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const inputClasses =
-  "h-12 w-full rounded-[2px] border border-primary/15 bg-white px-4 text-sm text-primary outline-none transition-colors duration-300 placeholder:text-accent-three/70 focus:border-success";
+  "h-12 w-full rounded-2xl border border-primary/15 bg-white px-4 text-sm text-primary outline-none transition-colors duration-300 placeholder:text-accent-three/70 focus:border-success";
 
 const labelClasses =
   "mb-2.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-accent-one";

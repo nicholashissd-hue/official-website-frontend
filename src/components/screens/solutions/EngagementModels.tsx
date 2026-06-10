@@ -33,10 +33,41 @@ const ScaleArrow = () => (
   </svg>
 );
 
+/** Color deck tones: white → lime → deep green grain. */
+const CARD_TONES = [
+  {
+    card: "bg-white ring-1 ring-primary/10 hover:shadow-[0_24px_50px_rgba(2,54,27,0.1)]",
+    chip: "bg-success/10 text-success",
+    title: "text-primary",
+    body: "text-accent-one",
+    panel: "bg-primary/[0.04]",
+    panelLabel: "text-accent-three",
+    panelBody: "text-secondary",
+  },
+  {
+    card: "bg-border-light hover:shadow-[0_24px_50px_rgba(2,54,27,0.1)]",
+    chip: "bg-primary/10 text-primary",
+    title: "text-primary",
+    body: "text-primary/75",
+    panel: "bg-primary/[0.04]",
+    panelLabel: "text-primary/60",
+    panelBody: "text-primary/85",
+  },
+  {
+    card: "grain relative bg-primary",
+    chip: "bg-bg-cream/10 text-border-light",
+    title: "text-bg-cream",
+    body: "text-accent-four",
+    panel: "bg-bg-cream/[0.07]",
+    panelLabel: "text-accent-four",
+    panelBody: "text-bg-light/85",
+  },
+];
+
 /** "Engineering Support That Fits Your Organization" + start-small scale rail. */
 const EngagementModels = () => {
   return (
-    <section className="border-t border-primary/10 bg-bg-light/50">
+    <section className="bg-bg-cream">
       <div className="container section-space-block">
         <SectionHeading
           index="04"
@@ -46,7 +77,7 @@ const EngagementModels = () => {
         />
 
         {/* Scale rail — answers "Can I start small?" at a glance */}
-        <Reveal className="mb-16 border border-primary/10 bg-bg-cream px-6 py-7 md:px-10">
+        <Reveal className="mb-16 rounded-3xl bg-white px-6 py-7 ring-1 ring-primary/10 md:px-10">
           <div className="flex flex-col items-start justify-between gap-7 lg:flex-row lg:items-center">
             <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent-three">
               Start small —<span className="text-success"> scale when ready</span>
@@ -71,35 +102,60 @@ const EngagementModels = () => {
           </div>
         </Reveal>
 
-        <div className="grid gap-px border border-primary/10 bg-primary/10 lg:grid-cols-3">
-          {engagementModelsData.map((model, index) => (
-            <Reveal
-              key={model.id}
-              delay={index * 0.08}
-              className="group flex flex-col bg-bg-cream p-8 transition-colors duration-500 hover:bg-white md:p-10"
-            >
-              <span className="inline-flex w-fit items-center gap-2.5 border border-primary/15 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent-one transition-colors duration-500 group-hover:border-success/40 group-hover:text-success">
-                <span aria-hidden="true" className="size-1 rotate-45 bg-success" />
-                {model.scale}
-              </span>
+        <div className="grid gap-5 lg:grid-cols-3">
+          {engagementModelsData.map((model, index) => {
+            const tone = CARD_TONES[index % CARD_TONES.length];
 
-              <h3 className="mt-7 font-display text-xl leading-snug tracking-[-0.01em] text-primary md:text-2xl">
-                {model.title}
-              </h3>
-              <p className="mt-4 flex-1 text-[15px] leading-[1.8] text-accent-one">
-                {model.description}
-              </p>
+            return (
+              <Reveal
+                key={model.id}
+                delay={index * 0.08}
+                className={cn(
+                  "flex flex-col overflow-hidden rounded-3xl p-8 transition-all duration-500 hover:-translate-y-1 md:p-10",
+                  tone.card,
+                )}
+              >
+                <span
+                  className={cn(
+                    "inline-flex w-fit items-center gap-2 rounded-full px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em]",
+                    tone.chip,
+                  )}
+                >
+                  <span
+                    aria-hidden="true"
+                    className="size-1.5 rounded-full bg-success"
+                  />
+                  {model.scale}
+                </span>
 
-              <div className="mt-8 border-t border-primary/10 pt-5">
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent-three">
-                  Best For
+                <h3
+                  className={cn(
+                    "mt-7 font-display text-xl font-semibold leading-snug tracking-[-0.01em] md:text-2xl",
+                    tone.title,
+                  )}
+                >
+                  {model.title}
+                </h3>
+                <p className={cn("mt-4 flex-1 text-[15px] leading-[1.8]", tone.body)}>
+                  {model.description}
                 </p>
-                <p className="mt-2.5 text-sm leading-[1.7] text-secondary">
-                  {model.bestFor}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+
+                <div className={cn("mt-8 rounded-2xl p-4", tone.panel)}>
+                  <p
+                    className={cn(
+                      "font-mono text-[10px] uppercase tracking-[0.22em]",
+                      tone.panelLabel,
+                    )}
+                  >
+                    Best For
+                  </p>
+                  <p className={cn("mt-2 text-sm leading-[1.7]", tone.panelBody)}>
+                    {model.bestFor}
+                  </p>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
 
         <Reveal delay={0.2}>

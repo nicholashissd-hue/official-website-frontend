@@ -15,7 +15,7 @@ const CaseStudyColumn = ({
   accent?: boolean;
 }) => (
   <div>
-    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent-three">
+    <p className="inline-block rounded-full bg-primary/[0.06] px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-accent-three">
       {label}
     </p>
     <ul className="mt-4 space-y-2.5">
@@ -24,7 +24,7 @@ const CaseStudyColumn = ({
           <span
             aria-hidden="true"
             className={cn(
-              "mt-[0.55em] size-1 shrink-0 rotate-45",
+              "mt-[0.5em] size-1.5 shrink-0 rounded-full",
               accent ? "bg-success" : "bg-primary/30",
             )}
           />
@@ -35,7 +35,7 @@ const CaseStudyColumn = ({
   </div>
 );
 
-/** "Industries We Support" — hairline accordion with embedded case studies. */
+/** "Industries We Support" — rounded card accordion with embedded case studies. */
 const Industries = () => {
   const [open, setOpen] = useState<number | null>(0);
 
@@ -49,24 +49,30 @@ const Industries = () => {
           lede={industriesText.subtext}
         />
 
-        <Reveal className="border-t border-primary/10">
+        <Reveal className="space-y-4">
           {industriesData.map((industry, index) => {
             const isOpen = open === index;
 
             return (
-              <div key={industry.id} className="border-b border-primary/10">
+              <div
+                key={industry.id}
+                className={cn(
+                  "overflow-hidden rounded-3xl bg-white ring-1 transition-all duration-500",
+                  isOpen ? "ring-success/40" : "ring-primary/10",
+                )}
+              >
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? null : index)}
                   aria-expanded={isOpen}
-                  className="group flex w-full cursor-pointer items-center gap-5 py-7 text-left md:gap-8 md:py-8"
+                  className="group flex w-full cursor-pointer items-center gap-5 px-6 py-6 text-left md:gap-6 md:px-8 md:py-7"
                 >
-                  <span className="w-8 font-mono text-xs tracking-[0.2em] text-success">
+                  <span className="grid size-10 shrink-0 place-items-center rounded-full bg-success/10 font-display text-base font-semibold text-success">
                     {industry.number}
                   </span>
                   <span
                     className={cn(
-                      "flex-1 font-display text-[1.35rem] leading-snug tracking-[-0.01em] transition-all duration-400 md:text-[1.6rem]",
+                      "flex-1 font-display text-[1.35rem] font-semibold leading-snug tracking-[-0.01em] transition-all duration-400 md:text-[1.6rem]",
                       isOpen
                         ? "text-primary"
                         : "text-primary/75 group-hover:translate-x-1 group-hover:text-primary",
@@ -75,15 +81,20 @@ const Industries = () => {
                     {industry.title}
                   </span>
 
-                  {/* Plus → minus */}
-                  <span className="relative size-4 shrink-0" aria-hidden="true">
-                    <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-primary/60" />
-                    <span
-                      className={cn(
-                        "absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-primary/60 transition-transform duration-400",
-                        isOpen && "scale-y-0",
-                      )}
-                    />
+                  {/* Plus → minus inside a circled chip */}
+                  <span
+                    className="grid size-9 shrink-0 place-items-center rounded-full ring-1 ring-primary/15"
+                    aria-hidden="true"
+                  >
+                    <span className="relative size-3.5">
+                      <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-primary/60" />
+                      <span
+                        className={cn(
+                          "absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-primary/60 transition-transform duration-400",
+                          isOpen && "scale-y-0",
+                        )}
+                      />
+                    </span>
                   </span>
                 </button>
 
@@ -97,12 +108,12 @@ const Industries = () => {
                       transition={{ duration: 0.5, ease: EASE }}
                       className="overflow-hidden"
                     >
-                      <div className="pb-10 md:pb-14 md:pl-16">
-                        <div className="border-l-2 border-success/60 py-1 pl-6 md:pl-10">
-                          <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-accent-three">
+                      <div className="px-6 pb-6 md:px-8 md:pb-8">
+                        <div className="rounded-2xl bg-bg-light/60 p-6 md:p-8">
+                          <p className="inline-block rounded-full bg-primary/[0.06] px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-accent-three">
                             Engagement Snapshot
                           </p>
-                          <h4 className="mt-3 max-w-2xl font-display text-xl leading-snug tracking-[-0.01em] text-primary md:text-2xl">
+                          <h4 className="mt-4 max-w-2xl font-display text-xl font-semibold leading-snug tracking-[-0.01em] text-primary md:text-2xl">
                             {industry.caseStudy.headline}
                           </h4>
                           <p className="mt-4 max-w-3xl text-[15px] leading-[1.8] text-accent-one">

@@ -4,8 +4,14 @@ import { integrationText, testimonyData } from "@/contents/screens/talents";
 import SectionHeading from "@/components/ui/section-heading";
 import Reveal, { EASE } from "@/components/ui/reveal";
 import { cn } from "@/lib/util";
+import talentOne from "@/assets/png/talent-one.png";
+import talentTwo from "@/assets/png/talent-two.png";
+import talentThree from "@/assets/png/talent-three.png";
 
 const ROLES = Object.keys(testimonyData);
+
+/** Portraits by role order: Senior, Staff, Principal. */
+const ROLE_PORTRAITS = [talentOne, talentTwo, talentThree];
 
 /**
  * "Engineers Who Feel Like They've Been on Your Team for Years" —
@@ -32,20 +38,25 @@ const Testimony = () => {
         />
 
         {/* Role selector */}
-        <Reveal className="inline-flex w-fit max-w-full flex-wrap gap-px overflow-hidden border border-bg-cream/20 bg-bg-cream/20">
-          {ROLES.map((role) => (
+        <Reveal className="inline-flex w-fit max-w-full flex-wrap gap-1 rounded-full bg-bg-cream/10 p-1.5 ring-1 ring-bg-cream/15">
+          {ROLES.map((role, roleIndex) => (
             <button
               key={role}
               type="button"
               onClick={() => setActiveRole(role)}
               aria-pressed={activeRole === role}
               className={cn(
-                "h-11 cursor-pointer px-5 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors duration-300",
+                "flex h-10 cursor-pointer items-center gap-2.5 rounded-full px-4 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors duration-300",
                 activeRole === role
                   ? "bg-bg-cream text-primary"
-                  : "bg-primary text-bg-cream/65 hover:text-bg-cream",
+                  : "text-bg-cream/65 hover:text-bg-cream",
               )}
             >
+              <img
+                src={ROLE_PORTRAITS[roleIndex % ROLE_PORTRAITS.length]}
+                alt=""
+                className="size-6 rounded-full object-cover"
+              />
               {role}
             </button>
           ))}
@@ -61,12 +72,12 @@ const Testimony = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.5, ease: EASE, delay: index * 0.07 }}
-                className="flex flex-col border border-bg-cream/15 bg-bg-cream/[0.04] p-7"
+                className="flex flex-col rounded-2xl bg-bg-cream/[0.05] p-7 ring-1 ring-bg-cream/15"
               >
-                <figcaption className="font-mono text-[10px] uppercase tracking-[0.22em] text-border-light">
+                <figcaption className="w-fit rounded-full bg-bg-cream/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-border-light">
                   {entry.pillar}
                 </figcaption>
-                <blockquote className="mt-4 flex-1 font-display text-[1.1rem] italic leading-[1.55] text-bg-cream">
+                <blockquote className="mt-4 flex-1 font-sans text-[16px] font-medium leading-[1.6] text-bg-cream">
                   “{entry.quote}”
                 </blockquote>
                 <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.16em] text-accent-four">

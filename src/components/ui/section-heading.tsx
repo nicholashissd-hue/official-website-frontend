@@ -16,7 +16,7 @@ interface SectionHeadingProps {
 }
 
 /**
- * Standard editorial section opener: eyebrow, serif display title,
+ * Standard section opener: chip label, Clash Display headline,
  * optional supporting paragraph. Keeps rhythm consistent site-wide.
  */
 const SectionHeading = ({
@@ -34,7 +34,7 @@ const SectionHeading = ({
   return (
     <Reveal
       className={cn(
-        "mb-14 md:mb-20",
+        "mb-12 md:mb-16",
         centered && "flex flex-col items-center text-center",
         className,
       )}
@@ -45,7 +45,7 @@ const SectionHeading = ({
 
       <h2
         className={cn(
-          "mt-6 font-display text-[clamp(2.1rem,4.2vw,3.4rem)] leading-[1.06] tracking-[-0.015em] text-balance",
+          "mt-6 font-display text-[clamp(2rem,4.2vw,3.3rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-balance",
           dark ? "text-bg-cream" : "text-primary",
           centered ? "max-w-4xl" : "max-w-3xl",
         )}
@@ -56,7 +56,7 @@ const SectionHeading = ({
       {lede && (
         <p
           className={cn(
-            "mt-6 text-[15px] leading-[1.8] md:text-base",
+            "mt-5 text-[15px] leading-[1.75] md:text-[17px]",
             dark ? "text-accent-four" : "text-accent-one",
             ledeWidth,
           )}

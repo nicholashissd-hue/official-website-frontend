@@ -10,22 +10,23 @@ interface EyebrowProps {
   className?: string;
 }
 
-/** Mono, letter-spaced kicker with a leading hairline: `── 01 / LABEL` */
+/** Pill label chip with a status dot: `(• 01 LABEL)` */
 const Eyebrow = ({ children, index, dark = false, className }: EyebrowProps) => {
   return (
     <p
       className={cn(
         "eyebrow",
-        dark ? "text-border-light" : "text-success",
+        dark
+          ? "bg-bg-cream/10 text-border-light ring-1 ring-inset ring-bg-cream/15"
+          : "bg-primary/[0.07] text-primary ring-1 ring-inset ring-primary/10",
         className,
       )}
     >
-      {index && (
-        <span className="opacity-70">
-          {index}
-          <span className="mx-2 opacity-60">/</span>
-        </span>
-      )}
+      <span
+        aria-hidden="true"
+        className="size-1.5 shrink-0 rounded-full bg-success"
+      />
+      {index && <span className="opacity-60">{index}</span>}
       {children}
     </p>
   );

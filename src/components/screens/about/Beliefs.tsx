@@ -4,6 +4,37 @@ import SectionHeading from "@/components/ui/section-heading";
 import Reveal from "@/components/ui/reveal";
 import { cn } from "@/lib/util";
 
+/** Card surfaces rotate through the brand deck: cream, lime, dark glass. */
+const TONES = [
+  {
+    card: "bg-bg-cream",
+    numeral: "text-primary/15",
+    title: "text-primary",
+    summary: "text-success",
+    body: "text-accent-one",
+    label: "text-accent-three",
+    item: "text-accent-one",
+  },
+  {
+    card: "bg-border-light",
+    numeral: "text-primary/15",
+    title: "text-primary",
+    summary: "text-primary/70",
+    body: "text-primary/70",
+    label: "text-primary/60",
+    item: "text-primary/70",
+  },
+  {
+    card: "bg-bg-cream/[0.06] ring-1 ring-bg-cream/15",
+    numeral: "text-border-light/25",
+    title: "text-bg-cream",
+    summary: "text-border-light",
+    body: "text-accent-four",
+    label: "text-accent-four",
+    item: "text-bg-light/80",
+  },
+];
+
 const CarouselArrow = ({
   direction,
   onClick,
@@ -19,10 +50,10 @@ const CarouselArrow = ({
     disabled={disabled}
     aria-label={direction === "prev" ? "Previous belief" : "Next belief"}
     className={cn(
-      "grid size-11 cursor-pointer place-items-center border border-bg-cream/25 text-bg-cream transition-all duration-300",
+      "grid size-11 cursor-pointer place-items-center rounded-full text-bg-cream ring-1 ring-inset ring-bg-cream/25 transition-all duration-300",
       disabled
         ? "pointer-events-none opacity-30"
-        : "hover:border-bg-cream hover:bg-bg-cream hover:text-primary",
+        : "hover:bg-bg-cream hover:text-primary hover:ring-bg-cream",
     )}
   >
     <svg
@@ -34,8 +65,9 @@ const CarouselArrow = ({
       <path
         d="M1.5 8h12.5m0 0L9.2 3.2M14 8l-4.8 4.8"
         stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="square"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   </button>
@@ -110,56 +142,84 @@ const Beliefs = () => {
             onScroll={handleScroll}
             className="scrollbar-hide -mx-5 mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-5 sm:mx-0 sm:px-0 md:mt-16"
           >
-            {beliefsData.map((belief, beliefIndex) => (
-              <article
-                key={belief.id}
-                className="flex w-[86%] shrink-0 snap-start flex-col border border-bg-cream/15 bg-bg-cream/[0.04] p-8 transition-colors duration-500 hover:bg-bg-cream/[0.07] sm:w-[420px] md:p-10"
-              >
-                <span
-                  aria-hidden="true"
-                  className="font-display text-[3.2rem] leading-none text-border-light/25"
-                >
-                  0{beliefIndex + 1}
-                </span>
-                <h3 className="mt-6 font-display text-[1.45rem] leading-snug tracking-[-0.01em] text-bg-cream">
-                  {belief.title}
-                </h3>
-                <p className="mt-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-border-light">
-                  {belief.summary}
-                </p>
-                <p className="mt-5 flex-1 text-sm leading-[1.85] text-accent-four">
-                  {belief.description}
-                </p>
+            {beliefsData.map((belief, beliefIndex) => {
+              const tone = TONES[beliefIndex % TONES.length];
 
-                <div className="mt-8 border-t border-bg-cream/10 pt-5">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent-four">
-                    Principles
+              return (
+                <article
+                  key={belief.id}
+                  className={cn(
+                    "flex w-[86%] shrink-0 snap-start flex-col rounded-3xl p-8 transition-all duration-500 hover:-translate-y-1 sm:w-[420px] md:p-10",
+                    tone.card,
+                  )}
+                >
+                  <span
+                    aria-hidden="true"
+                    className={cn(
+                      "font-display text-[3.2rem] font-semibold leading-none",
+                      tone.numeral,
+                    )}
+                  >
+                    0{beliefIndex + 1}
+                  </span>
+                  <h3
+                    className={cn(
+                      "mt-6 font-display text-[1.45rem] font-semibold leading-snug tracking-[-0.01em]",
+                      tone.title,
+                    )}
+                  >
+                    {belief.title}
+                  </h3>
+                  <p
+                    className={cn(
+                      "mt-2.5 font-mono text-[10px] uppercase tracking-[0.2em]",
+                      tone.summary,
+                    )}
+                  >
+                    {belief.summary}
                   </p>
-                  <ul className="mt-3.5 space-y-2">
-                    {belief.principles.map((principle) => (
-                      <li
-                        key={principle}
-                        className="flex gap-2.5 text-[13px] leading-[1.6] text-bg-light/80"
-                      >
-                        <span
-                          aria-hidden="true"
-                          className="mt-[0.5em] size-1 shrink-0 rotate-45 bg-success"
-                        />
-                        {principle}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
+                  <p className={cn("mt-5 flex-1 text-sm leading-[1.85]", tone.body)}>
+                    {belief.description}
+                  </p>
+
+                  <div className="mt-8">
+                    <p
+                      className={cn(
+                        "font-mono text-[10px] uppercase tracking-[0.22em]",
+                        tone.label,
+                      )}
+                    >
+                      Principles
+                    </p>
+                    <ul className="mt-3.5 space-y-2">
+                      {belief.principles.map((principle) => (
+                        <li
+                          key={principle}
+                          className={cn(
+                            "flex gap-2.5 text-[13px] leading-[1.6]",
+                            tone.item,
+                          )}
+                        >
+                          <span
+                            aria-hidden="true"
+                            className="mt-[0.45em] size-1.5 shrink-0 rounded-full bg-success"
+                          />
+                          {principle}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </Reveal>
 
         {/* Progress rail */}
         <div className="mt-10 flex items-center gap-6">
-          <div className="relative h-px flex-1 bg-bg-cream/15">
+          <div className="relative h-1 flex-1 overflow-hidden rounded-full bg-bg-cream/15">
             <span
-              className="absolute inset-y-0 left-0 bg-success transition-all duration-500"
+              className="absolute inset-y-0 left-0 rounded-full bg-success transition-all duration-500"
               style={{ width: `${((index + 1) / beliefsData.length) * 100}%` }}
             />
           </div>

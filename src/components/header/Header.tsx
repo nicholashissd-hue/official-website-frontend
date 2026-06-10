@@ -51,7 +51,7 @@ const Header = () => {
         <div className="flex items-center justify-self-end">
           <div className="hidden md:block">
             <CalendlyCTA
-              variant={overDarkHero ? "outline-light" : "outline"}
+              variant={overDarkHero ? "outline-light" : "primary"}
               className="h-10 px-5 text-[13px]"
             />
           </div>

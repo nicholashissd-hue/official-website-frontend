@@ -32,8 +32,8 @@ const ChatMessages = ({
               <div
                 className={`max-w-[86%] px-4 py-3 text-sm leading-[1.7] ${
                   isUser
-                    ? "rounded-[10px_10px_2px_10px] bg-primary text-bg-cream"
-                    : "rounded-[10px_10px_10px_2px] border border-primary/10 bg-white text-secondary"
+                    ? "rounded-2xl rounded-br-md bg-primary text-bg-cream"
+                    : "rounded-2xl rounded-bl-md bg-white text-secondary ring-1 ring-primary/10"
                 }`}
               >
                 {message.content}

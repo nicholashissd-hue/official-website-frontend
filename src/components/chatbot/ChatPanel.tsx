@@ -117,13 +117,13 @@ const ChatPanel = ({ lead, onClose, onResetLead }: ChatPanelProps) => {
           type="button"
           onClick={onClose}
           aria-label="Close the Hiring Advisor"
-          className="relative grid size-9 shrink-0 cursor-pointer place-items-center border border-bg-cream/30 text-lg leading-none text-bg-cream transition-colors duration-300 hover:bg-bg-cream hover:text-primary"
+          className="relative grid size-9 shrink-0 cursor-pointer place-items-center rounded-full border border-bg-cream/30 text-lg leading-none text-bg-cream transition-colors duration-300 hover:bg-bg-cream hover:text-primary"
         >
           ×
         </button>
       </div>
 
-      <div className="flex items-center justify-between gap-3 border-b border-primary/10 bg-bg-light/50 px-5 py-2.5">
+      <div className="flex items-center justify-between gap-3 bg-bg-light/50 px-5 py-2.5 shadow-sm">
         <p className="truncate font-mono text-[10px] uppercase tracking-[0.16em] text-accent-one">
           Chatting as {lead.name}
         </p>
@@ -152,7 +152,7 @@ const ChatPanel = ({ lead, onClose, onResetLead }: ChatPanelProps) => {
         )}
 
         {messages.length === 1 && (
-          <p className="mt-5 border border-primary/10 bg-white px-3.5 py-2.5 text-[11px] leading-[1.7] text-accent-one">
+          <p className="mt-5 rounded-xl bg-white px-3.5 py-2.5 text-[11px] leading-[1.7] text-accent-one ring-1 ring-primary/10">
             Privacy note: do not paste passwords, private keys, confidential
             customer data, or sensitive internal credentials.
           </p>
@@ -166,7 +166,7 @@ const ChatPanel = ({ lead, onClose, onResetLead }: ChatPanelProps) => {
                 type="button"
                 disabled={isSending}
                 onClick={() => void submitMessage(question)}
-                className="cursor-pointer rounded-[2px] border border-primary/15 bg-white px-3 py-2 text-left text-xs font-medium text-primary transition-colors duration-300 hover:border-success hover:text-success disabled:cursor-not-allowed disabled:opacity-60"
+                className="cursor-pointer rounded-full border border-primary/15 bg-white px-3.5 py-2 text-left text-xs font-medium text-primary transition-colors duration-300 hover:border-success hover:text-success disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {question}
               </button>

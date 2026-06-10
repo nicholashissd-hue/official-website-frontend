@@ -18,12 +18,12 @@ type ButtonProps = {
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onClick">;
 
 const VARIANTS: Record<ButtonVariant, string> = {
-  primary: "bg-primary text-bg-cream hover:bg-deep",
-  light: "bg-bg-cream text-primary hover:bg-border-light",
+  primary: "bg-success text-deep hover:bg-primary hover:text-bg-cream",
+  light: "bg-border-light text-primary hover:bg-bg-yellow",
   outline:
-    "border border-primary/30 text-primary hover:border-primary hover:bg-primary hover:text-bg-cream",
+    "ring-1 ring-inset ring-primary/25 text-primary hover:bg-primary hover:text-bg-cream hover:ring-primary",
   "outline-light":
-    "border border-bg-cream/35 text-bg-cream hover:border-bg-cream hover:bg-bg-cream hover:text-primary",
+    "ring-1 ring-inset ring-bg-cream/35 text-bg-cream hover:bg-bg-cream hover:text-primary",
 };
 
 export const ButtonArrow = ({ className }: { className?: string }) => (
@@ -39,13 +39,14 @@ export const ButtonArrow = ({ className }: { className?: string }) => (
     <path
       d="M1.5 8h12.5m0 0L9.2 3.2M14 8l-4.8 4.8"
       stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="square"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
 
-/** Rectangular, consulting-grade button. Quiet at rest, decisive on hover. */
+/** Pill button — bright, confident, decisive hover inversion. */
 const Button = ({
   children,
   variant = "primary",
@@ -57,7 +58,7 @@ const Button = ({
   ...rest
 }: ButtonProps) => {
   const classes = cn(
-    "group/btn inline-flex h-12 cursor-pointer touch-manipulation items-center justify-center gap-3 whitespace-nowrap rounded-[2px] px-7 font-sans text-sm font-medium tracking-wide transition-all duration-300",
+    "group/btn inline-flex h-12 cursor-pointer touch-manipulation items-center justify-center gap-2.5 whitespace-nowrap rounded-full px-7 font-sans text-[15px] font-bold transition-all duration-300 hover:-translate-y-0.5",
     VARIANTS[variant],
     rest.disabled && "pointer-events-none opacity-50",
     className,

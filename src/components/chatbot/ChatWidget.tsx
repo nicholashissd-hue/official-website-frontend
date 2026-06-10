@@ -38,7 +38,7 @@ const ChatWidget = () => {
       {isChatOpen && (
         <aside
           aria-label="ElderOps Hiring Advisor"
-          className="fixed inset-x-4 bottom-4 z-[70] flex max-h-[calc(100dvh-2rem)] min-h-[30rem] flex-col overflow-hidden rounded-[4px] border border-primary/20 bg-bg-cream shadow-[0_36px_90px_rgba(2,54,27,0.3)] sm:inset-auto sm:bottom-6 sm:right-6 sm:h-[42rem] sm:w-[28rem]"
+          className="fixed inset-x-4 bottom-4 z-[70] flex max-h-[calc(100dvh-2rem)] min-h-[30rem] flex-col overflow-hidden rounded-[1.75rem] border border-primary/20 bg-bg-cream shadow-[0_36px_90px_rgba(2,54,27,0.3)] sm:inset-auto sm:bottom-6 sm:right-6 sm:h-[42rem] sm:w-[28rem]"
         >
           {!lead ? (
             <>
@@ -47,7 +47,7 @@ const ChatWidget = () => {
                   <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-border-light">
                     ElderOps — Hiring Advisor
                   </p>
-                  <p className="mt-3 font-display text-2xl leading-tight text-bg-cream">
+                  <p className="mt-3 font-display text-2xl font-semibold leading-tight text-bg-cream">
                     Find the right engineer
                   </p>
                   <p className="mt-3 text-[13px] leading-[1.7] text-accent-four">
@@ -61,7 +61,7 @@ const ChatWidget = () => {
                   type="button"
                   onClick={() => setChatOpen(false)}
                   aria-label="Close the Hiring Advisor"
-                  className="relative grid size-9 shrink-0 cursor-pointer place-items-center border border-bg-cream/30 text-lg leading-none text-bg-cream transition-colors duration-300 hover:bg-bg-cream hover:text-primary"
+                  className="relative grid size-9 shrink-0 cursor-pointer place-items-center rounded-full border border-bg-cream/30 text-lg leading-none text-bg-cream transition-colors duration-300 hover:bg-bg-cream hover:text-primary"
                 >
                   ×
                 </button>

@@ -2,8 +2,14 @@ import { heroText } from "@/contents/screens/talents";
 import Button from "@/components/ui/button";
 import Eyebrow from "@/components/ui/eyebrow";
 import Reveal from "@/components/ui/reveal";
+import Underlined from "@/components/ui/underline";
 import CalendlyCTA from "@/components/contactUs/react-calendly";
 import CommandCenter from "./CommandCenter";
+
+// Split the second title line so the swash lands on its final word only.
+const lineTwoWords = heroText.titleLineTwo.split(" ");
+const lineTwoLast = lineTwoWords[lineTwoWords.length - 1];
+const lineTwoLead = lineTwoWords.slice(0, -1).join(" ");
 
 const Hero = () => {
   return (
@@ -25,10 +31,13 @@ const Hero = () => {
           </Reveal>
 
           <Reveal immediate delay={0.12} y={26}>
-            <h1 className="mt-8 font-display text-[clamp(2.5rem,5.2vw,4.2rem)] leading-[1.06] tracking-[-0.02em] text-bg-cream">
+            <h1 className="mt-8 font-display text-[clamp(2.5rem,5.2vw,4.2rem)] font-semibold leading-[1.06] tracking-[-0.02em] text-bg-cream">
               {heroText.titleLineOne}
               <br />
-              <em className="italic text-border-light">{heroText.titleLineTwo}</em>
+              <span className="text-border-light">
+                {lineTwoLead}{" "}
+                <Underlined delay={1.1}>{lineTwoLast}</Underlined>
+              </span>
             </h1>
           </Reveal>
 

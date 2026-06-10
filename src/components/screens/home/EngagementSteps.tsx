@@ -1,11 +1,20 @@
 import { howItWorksStepsData, howItWorksText } from "@/contents/screens/home";
 import SectionHeading from "@/components/ui/section-heading";
 import Reveal from "@/components/ui/reveal";
+import { cn } from "@/lib/util";
 
-/** "How Engagements Begin" — four steps along a hairline track. */
+/** Badge colors rotate through the brand deck. */
+const BADGES = [
+  "bg-primary text-bg-cream",
+  "bg-success text-deep",
+  "bg-border-light text-primary",
+  "bg-white text-primary ring-1 ring-primary/15",
+];
+
+/** "How Engagements Begin" — four steps along a dashed connector. */
 const EngagementSteps = () => {
   return (
-    <section className="border-t border-primary/10 bg-bg-light/50">
+    <section className="bg-bg-cream">
       <div className="container section-space-block">
         <SectionHeading
           index="04"
@@ -14,24 +23,27 @@ const EngagementSteps = () => {
           lede={howItWorksText.subtext}
         />
 
-        <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="relative grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Dashed connector behind the badges (desktop) */}
+          <div
+            aria-hidden="true"
+            className="absolute left-[6%] right-[6%] top-6 hidden border-t-2 border-dashed border-primary/15 lg:block"
+          />
+
           {howItWorksStepsData.map((step, index) => (
-            <Reveal
-              key={step.number}
-              delay={index * 0.1}
-              className="relative border-t border-primary/15 pt-8"
-            >
+            <Reveal key={step.number} delay={index * 0.1} className="relative">
               <span
-                aria-hidden="true"
-                className="absolute -top-px left-0 h-px w-12 bg-success"
-              />
-              <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent-three">
-                Step 0{index + 1}
+                className={cn(
+                  "relative grid size-12 place-items-center rounded-full font-display text-lg font-semibold shadow-[0_8px_20px_rgba(2,54,27,0.12)]",
+                  BADGES[index % BADGES.length],
+                )}
+              >
+                {index + 1}
               </span>
-              <h3 className="mt-5 font-display text-xl leading-snug tracking-[-0.01em] text-primary">
+              <h3 className="mt-5 font-display text-xl font-semibold leading-snug tracking-[-0.01em] text-primary">
                 {step.title}
               </h3>
-              <p className="mt-3 text-sm leading-[1.8] text-accent-one">
+              <p className="mt-2.5 text-[15px] leading-[1.75] text-accent-one">
                 {step.description}
               </p>
             </Reveal>

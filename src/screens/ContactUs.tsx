@@ -2,8 +2,11 @@ import Form from "@/components/contactUs/Form";
 import CalendlyCTA from "@/components/contactUs/react-calendly";
 import Button from "@/components/ui/button";
 import Eyebrow from "@/components/ui/eyebrow";
+import PhotoCard from "@/components/ui/photo-card";
 import Reveal from "@/components/ui/reveal";
+import Underlined from "@/components/ui/underline";
 import { useGlobalStore } from "@/store/useGlobalStore";
+import cooperateLady from "@/assets/jpg/cooperate-lady.jpg";
 
 const NEXT_STEPS = [
   "Introductory conversation",
@@ -13,31 +16,30 @@ const NEXT_STEPS = [
 ];
 
 const WhatHappensNext = () => (
-  <div className="grain relative overflow-hidden bg-primary p-7 md:p-9">
+  <div className="grain relative overflow-hidden rounded-[2rem] bg-primary p-7 md:p-9">
     <div
       aria-hidden="true"
       className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_120%_at_100%_0%,#074527_0%,transparent_60%)]"
     />
     <div className="relative">
-      <p className="eyebrow text-border-light">What Happens Next?</p>
+      <Eyebrow dark>What Happens Next?</Eyebrow>
 
-      <ol className="mt-7">
+      <ol className="mt-7 space-y-2">
         {NEXT_STEPS.map((step, index) => (
           <li
             key={step}
-            className="flex items-baseline gap-4 border-b border-bg-cream/10 py-4 last:border-b-0"
+            className="flex items-center gap-4 rounded-xl bg-bg-cream/[0.04] px-4 py-3.5"
           >
-            <span className="font-mono text-[11px] tracking-[0.2em] text-border-light/80">
-              0{index + 1}
+            <span className="grid size-9 shrink-0 place-items-center rounded-full bg-bg-cream/10 font-display text-sm font-semibold text-border-light">
+              {index + 1}
             </span>
             <span className="text-[15px] text-bg-light/90">{step}</span>
           </li>
         ))}
       </ol>
 
-      <p className="mt-7 font-mono text-[10px] uppercase tracking-[0.2em] text-accent-four">
-        Typical turnaround —{" "}
-        <span className="text-success">48 hours</span>
+      <p className="mt-7 inline-flex items-center gap-2 rounded-full bg-success/15 px-3.5 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-success">
+        Typical turnaround — 48 hours
       </p>
     </div>
   </div>
@@ -47,11 +49,11 @@ const NotSureBand = () => {
   const { setChatOpen } = useGlobalStore();
 
   return (
-    <section className="border-t border-primary/10 bg-bg-light/60">
+    <section className="bg-border-light">
       <div className="container section-space-block">
         <Reveal className="flex flex-col items-center text-center">
           <Eyebrow>No Pressure</Eyebrow>
-          <h2 className="mt-6 max-w-2xl text-balance font-display text-[clamp(1.9rem,3.8vw,2.9rem)] leading-[1.1] tracking-[-0.015em] text-primary">
+          <h2 className="mt-6 max-w-2xl text-balance font-display text-[clamp(1.9rem,3.8vw,2.9rem)] font-semibold leading-[1.1] tracking-[-0.015em] text-primary">
             Not Sure What You Need Yet?
           </h2>
           <p className="mt-5 max-w-xl text-[15px] leading-[1.8] text-accent-one">
@@ -74,16 +76,18 @@ const NotSureBand = () => {
 const ContactUs = () => {
   return (
     <>
-      <section className="border-b border-primary/10 bg-bg-cream">
+      <section className="bg-bg-cream">
         <div className="container pb-12 pt-36 md:pb-16 md:pt-44">
           <Reveal immediate y={20}>
             <Eyebrow>Start the Conversation</Eyebrow>
           </Reveal>
 
           <Reveal immediate delay={0.12} y={26}>
-            <h1 className="mt-8 max-w-4xl font-display text-[clamp(2.4rem,5.2vw,4.1rem)] leading-[1.06] tracking-[-0.02em] text-primary">
+            <h1 className="mt-8 max-w-4xl font-display text-[clamp(2.4rem,5.2vw,4.1rem)] font-semibold leading-[1.06] tracking-[-0.02em] text-primary">
               Let's Talk About{" "}
-              <em className="italic text-success">What You're Building</em>
+              <span className="text-success">
+                What You're <Underlined>Building</Underlined>
+              </span>
             </h1>
           </Reveal>
 
@@ -108,16 +112,25 @@ const ContactUs = () => {
           </Reveal>
 
           <div className="space-y-6 lg:sticky lg:top-28 lg:self-start">
+            <Reveal delay={0.08}>
+              <PhotoCard
+                src={cooperateLady}
+                alt="An ElderOps team member personally answering an inbound conversation"
+                caption="Real humans. Fast answers."
+                className="h-48"
+              />
+            </Reveal>
+
             <Reveal delay={0.12}>
               <WhatHappensNext />
             </Reveal>
 
             <Reveal delay={0.2}>
-              <div className="border border-primary/10 bg-white p-7 md:p-8">
+              <div className="rounded-3xl bg-white p-7 ring-1 ring-primary/10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_50px_rgba(2,54,27,0.1)] md:p-8">
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent-three">
                   Prefer to talk it through?
                 </p>
-                <p className="mt-3.5 font-display text-lg leading-snug text-primary">
+                <p className="mt-3.5 font-display text-lg font-semibold leading-snug text-primary">
                   Put time directly on our calendar.
                 </p>
                 <div className="mt-5">

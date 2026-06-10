@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { animate, useInView } from "framer-motion";
 import { statsData } from "@/contents/screens/home";
 import Reveal, { EASE } from "@/components/ui/reveal";
+import { cn } from "@/lib/util";
 
 interface CounterProps {
   prefix: string;
@@ -35,30 +36,55 @@ const Counter = ({ prefix, value, suffix, delay }: CounterProps) => {
   );
 };
 
+/** Color rotation for the stat blocks — Andela-style card deck. */
+const TONES = [
+  { card: "grain relative bg-primary", number: "text-bg-cream", label: "text-accent-four" },
+  { card: "bg-border-light", number: "text-primary", label: "text-primary/60" },
+  { card: "bg-success", number: "text-deep", label: "text-deep/70" },
+  { card: "bg-white ring-1 ring-primary/10", number: "text-primary", label: "text-accent-three" },
+];
+
 const Stats = () => {
   return (
-    <section className="border-b border-primary/10 bg-bg-cream">
-      <div className="container">
-        <div className="grid grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-primary/10">
-          {statsData.map((stat, index) => (
-            <Reveal
-              key={stat.id}
-              delay={index * 0.08}
-              className="px-2 py-10 max-lg:[&:nth-child(even)]:border-l max-lg:[&:nth-child(even)]:border-primary/10 max-lg:[&:nth-child(n+3)]:border-t max-lg:[&:nth-child(n+3)]:border-t-primary/10 sm:px-6 lg:px-10 lg:py-16"
-            >
-              <p className="font-display text-[clamp(2.6rem,4.6vw,4rem)] leading-none tracking-[-0.02em] text-primary">
-                <Counter
-                  prefix={stat.prefix}
-                  value={stat.value}
-                  suffix={stat.suffix}
-                  delay={index * 0.12}
-                />
-              </p>
-              <p className="mt-4 font-mono text-[11px] uppercase leading-relaxed tracking-[0.18em] text-accent-three">
-                {stat.label}
-              </p>
-            </Reveal>
-          ))}
+    <section className="bg-bg-cream">
+      <div className="container pb-4 pt-14 md:pb-8 md:pt-20">
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
+          {statsData.map((stat, index) => {
+            const tone = TONES[index % TONES.length];
+
+            return (
+              <Reveal
+                key={stat.id}
+                delay={index * 0.08}
+                className={cn(
+                  "overflow-hidden rounded-3xl p-6 transition-transform duration-500 hover:-translate-y-1 md:p-8",
+                  tone.card,
+                )}
+              >
+                <p
+                  className={cn(
+                    "font-display text-[clamp(2.1rem,4vw,3.3rem)] font-semibold leading-none tracking-[-0.02em]",
+                    tone.number,
+                  )}
+                >
+                  <Counter
+                    prefix={stat.prefix}
+                    value={stat.value}
+                    suffix={stat.suffix}
+                    delay={index * 0.12}
+                  />
+                </p>
+                <p
+                  className={cn(
+                    "mt-3.5 font-mono text-[10px] uppercase leading-relaxed tracking-[0.16em]",
+                    tone.label,
+                  )}
+                >
+                  {stat.label}
+                </p>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

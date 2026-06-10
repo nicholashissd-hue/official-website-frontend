@@ -20,14 +20,13 @@ const Footer = () => {
         <Reveal className="flex flex-col gap-10 border-b border-bg-cream/10 py-16 md:py-24 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <Eyebrow dark>ElderOps</Eyebrow>
-            <p className="mt-6 max-w-2xl font-display text-[clamp(1.9rem,3.6vw,3rem)] leading-[1.12] tracking-[-0.01em]">
+            <p className="mt-6 max-w-2xl font-display text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.08] tracking-[-0.02em]">
               Senior engineering expertise.{" "}
-              <em className="italic text-border-light">Accountable</em>{" "}
-              delivery.
+              <span className="text-border-light">Accountable delivery.</span>
             </p>
           </div>
 
-          <Button to="/contact-us" variant="light" withArrow className="shrink-0">
+          <Button to="/contact-us" variant="primary" withArrow className="shrink-0">
             Start the Conversation
           </Button>
         </Reveal>

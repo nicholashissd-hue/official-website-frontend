@@ -27,20 +27,20 @@ const RecommendationCard = ({
         : "border-[#9b5b00]/40 text-[#9b5b00]";
 
   return (
-    <article className="mt-3 w-full overflow-hidden rounded-[3px] border border-primary/15 bg-white shadow-[0_18px_45px_rgba(2,54,27,0.1)]">
-      <div className="border-b border-primary/10 bg-bg-light/50 p-4">
+    <article className="mt-3 w-full overflow-hidden rounded-2xl bg-white shadow-[0_18px_45px_rgba(2,54,27,0.1)] ring-1 ring-primary/15">
+      <div className="bg-bg-light/50 p-4">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent-three">
               Recommended role
             </p>
-            <h3 className="mt-1.5 font-display text-[1.4rem] leading-tight tracking-[-0.01em] text-primary">
+            <h3 className="mt-1.5 font-display text-[1.4rem] font-semibold leading-tight tracking-[-0.01em] text-primary">
               {recommendation.primaryRole}
             </h3>
           </div>
 
           <span
-            className={`border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] ${confidenceClass}`}
+            className={`rounded-full border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] ${confidenceClass}`}
           >
             {recommendation.confidence} confidence
           </span>
@@ -62,7 +62,7 @@ const RecommendationCard = ({
               >
                 <span
                   aria-hidden="true"
-                  className="mt-[0.55em] size-1 shrink-0 rotate-45 bg-success"
+                  className="mt-[0.5em] size-1.5 shrink-0 rounded-full bg-success"
                 />
                 <span>{reason}</span>
               </li>
@@ -76,7 +76,7 @@ const RecommendationCard = ({
             {recommendation.keySkills.map((skill) => (
               <span
                 key={skill}
-                className="border border-primary/15 bg-bg-cream px-2.5 py-1.5 text-xs font-medium text-primary"
+                className="rounded-full bg-success/10 px-3 py-1.5 text-xs font-medium text-success"
               >
                 {skill}
               </span>
@@ -84,7 +84,7 @@ const RecommendationCard = ({
           </div>
         </section>
 
-        <section className="border border-primary/10 bg-bg-light/40 p-3">
+        <section className="rounded-xl bg-bg-light/50 px-3 py-2.5">
           <SectionLabel>Suggested seniority</SectionLabel>
           <p className="text-sm font-medium text-primary">
             {recommendation.suggestedSeniority}
@@ -97,7 +97,7 @@ const RecommendationCard = ({
             {recommendation.alternativeRoles.map((alternative) => (
               <div
                 key={alternative.role}
-                className="border border-primary/10 p-3"
+                className="rounded-xl p-3 ring-1 ring-primary/10"
               >
                 <p className="text-sm font-semibold text-primary">
                   {alternative.role}
@@ -123,7 +123,7 @@ const RecommendationCard = ({
             {recommendation.followUpQuestions.map((question) => (
               <li
                 key={question}
-                className="border-l-2 border-success/50 bg-bg-light/40 px-3 py-2 text-sm leading-[1.6] text-accent-one"
+                className="rounded-xl bg-bg-light/50 px-3 py-2 text-sm leading-[1.6] text-accent-one"
               >
                 {question}
               </li>
@@ -135,7 +135,7 @@ const RecommendationCard = ({
           type="button"
           disabled={isSharing || hasShared}
           onClick={onShare}
-          className="h-12 w-full cursor-pointer rounded-[2px] bg-primary px-4 text-sm font-medium tracking-wide text-bg-cream transition-colors duration-300 hover:bg-deep disabled:cursor-not-allowed disabled:opacity-60"
+          className="h-12 w-full cursor-pointer rounded-full bg-success px-4 text-sm font-bold tracking-wide text-deep transition-colors duration-300 hover:bg-primary hover:text-bg-cream disabled:cursor-not-allowed disabled:opacity-60"
         >
           {hasShared
             ? "Shared with ElderOps ✓"

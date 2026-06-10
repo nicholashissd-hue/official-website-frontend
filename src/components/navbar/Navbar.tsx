@@ -80,8 +80,8 @@ const Navbar = ({ dark = false }: NavbarProps) => {
                   </span>
                   <span
                     className={cn(
-                      "font-display text-[2rem] leading-tight",
-                      isActive ? "italic text-border-light" : "text-bg-cream",
+                      "font-display text-[2rem] font-semibold leading-tight",
+                      isActive ? "text-border-light" : "text-bg-cream",
                     )}
                   >
                     {link.label}

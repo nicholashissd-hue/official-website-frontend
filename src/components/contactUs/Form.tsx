@@ -20,7 +20,7 @@ const EMPTY_FORM: ContactFormData = {
 
 const inputClasses = (hasError: boolean) =>
   cn(
-    "h-12 w-full rounded-[2px] border bg-white px-4 text-sm text-primary outline-none transition-colors duration-300 placeholder:text-accent-three/70 focus:border-success",
+    "h-12 w-full rounded-2xl border bg-white px-4 text-sm text-primary outline-none transition-colors duration-300 placeholder:text-accent-three/70 focus:border-success",
     hasError ? "border-red-600/60" : "border-primary/15",
   );
 
@@ -98,7 +98,7 @@ const Form = () => {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="border border-primary/10 bg-white p-6 sm:p-8 md:p-10"
+      className="rounded-[2rem] bg-white p-6 ring-1 ring-primary/10 sm:p-8 md:p-10"
     >
       <div className="grid gap-6 sm:grid-cols-2">
         <div>

@@ -17,8 +17,8 @@ const NotFound = () => {
         </Reveal>
 
         <Reveal immediate delay={0.12} y={26}>
-          <h1 className="mt-8 font-display text-[clamp(3.5rem,12vw,8rem)] leading-none tracking-[-0.02em] text-bg-cream">
-            4<em className="italic text-border-light">0</em>4
+          <h1 className="mt-8 font-display text-[clamp(3.5rem,12vw,8rem)] font-semibold leading-none tracking-[-0.02em] text-bg-cream">
+            4<span className="text-border-light">0</span>4
           </h1>
         </Reveal>
 

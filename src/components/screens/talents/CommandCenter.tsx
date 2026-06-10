@@ -28,7 +28,7 @@ const ENGAGEMENTS = [
  */
 const CommandCenter = () => {
   return (
-    <div className="relative border border-bg-cream/15 bg-deep/70">
+    <div className="relative overflow-hidden rounded-3xl bg-deep/70 shadow-[0_40px_90px_rgba(1,20,10,0.45)] ring-1 ring-bg-cream/15">
       {/* Title bar */}
       <div className="flex items-center justify-between border-b border-bg-cream/10 px-5 py-3.5">
         <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-accent-four">
