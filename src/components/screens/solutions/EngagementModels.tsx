@@ -83,10 +83,13 @@ const EngagementModels = () => {
               Start small —<span className="text-success"> scale when ready</span>
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 md:gap-6">
+            <div className="flex w-full flex-col gap-2.5 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
               {engagementModelsData.map((model, index) => (
-                <div key={model.id} className="flex items-center gap-4 md:gap-6">
-                  <div className="flex items-center gap-3">
+                <div
+                  key={model.id}
+                  className="flex w-full items-center gap-4 sm:w-auto sm:gap-6 md:gap-6"
+                >
+                  <div className="flex w-full items-center gap-3 rounded-xl bg-bg-light/60 px-3.5 py-3 sm:w-auto sm:rounded-none sm:bg-transparent sm:p-0">
                     <ScaleNode
                       count={index === 0 ? 1 : index === 1 ? 4 : 9}
                       ring={index === 2}
@@ -95,7 +98,11 @@ const EngagementModels = () => {
                       {model.scale}
                     </span>
                   </div>
-                  {index < engagementModelsData.length - 1 && <ScaleArrow />}
+                  {index < engagementModelsData.length - 1 && (
+                    <span className="hidden sm:block">
+                      <ScaleArrow />
+                    </span>
+                  )}
                 </div>
               ))}
             </div>

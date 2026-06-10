@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/util";
 
 const STAGES = ["Plan", "Build", "Test", "Deploy", "Operate"];
@@ -47,32 +47,28 @@ const PipelinePulse = () => {
 
   return (
     <div className="rounded-2xl bg-deep/70 p-5 ring-1 ring-bg-cream/15">
-      {/* Console header */}
+      {/* Console header — the chip stays mounted so the row never reflows */}
       <div className="flex min-h-7 items-center justify-between gap-4">
-        <p className="flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-accent-four">
+        <p className="flex items-center gap-2.5 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.22em] text-accent-four">
           <span
             aria-hidden="true"
             className="animate-pulse-dot size-1.5 shrink-0 rounded-full bg-success"
           />
-          ElderOps — Delivery Pipeline
+          <span className="max-sm:hidden">ElderOps — </span>Delivery Pipeline
         </p>
 
-        <AnimatePresence>
-          {deployOk && (
-            <motion.span
-              initial={{ opacity: 0, scale: 0.85 }}
-              animate={{
-                opacity: reduceMotion ? 1 : [0, 1, 0.35, 1],
-                scale: 1,
-              }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.45 }}
-              className="rounded-full bg-success/15 px-3 py-1 font-mono text-[9px] uppercase tracking-[0.16em] text-success"
-            >
-              deploy — ok
-            </motion.span>
-          )}
-        </AnimatePresence>
+        <motion.span
+          aria-hidden={!deployOk}
+          initial={false}
+          animate={{
+            opacity: deployOk ? (reduceMotion ? 1 : [0, 1, 0.35, 1]) : 0,
+            scale: deployOk ? 1 : 0.9,
+          }}
+          transition={{ duration: 0.45 }}
+          className="shrink-0 whitespace-nowrap rounded-full bg-success/15 px-3 py-1 font-mono text-[9px] uppercase tracking-[0.16em] text-success"
+        >
+          deploy — ok
+        </motion.span>
       </div>
 
       {/* Pipeline */}
@@ -96,11 +92,11 @@ const PipelinePulse = () => {
           </>
         ) : (
           <>
-            {/* Lit trail behind the pulse */}
+            {/* Lit trail behind the pulse (scaleX keeps it compositor-only) */}
             <motion.div
               aria-hidden="true"
-              className="absolute left-[10%] top-[5px] h-0.5 rounded-full bg-success/50"
-              animate={{ width: ["0%", "80%"] }}
+              className="absolute left-[10%] top-[5px] h-0.5 w-[80%] origin-left rounded-full bg-success/50"
+              animate={{ scaleX: [0, 1] }}
               transition={{
                 duration: LOOP_SECONDS,
                 repeat: Infinity,

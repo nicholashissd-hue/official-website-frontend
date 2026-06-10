@@ -78,12 +78,8 @@ const ContactUs = () => {
     <>
       <section className="bg-bg-cream">
         <div className="container pb-12 pt-36 md:pb-16 md:pt-44">
-          <Reveal immediate y={20}>
-            <Eyebrow>Start the Conversation</Eyebrow>
-          </Reveal>
-
-          <Reveal immediate delay={0.12} y={26}>
-            <h1 className="mt-8 max-w-4xl font-display text-[clamp(2.4rem,5.2vw,4.1rem)] font-semibold leading-[1.06] tracking-[-0.02em] text-primary">
+          <Reveal immediate delay={0.05} y={26}>
+            <h1 className="max-w-4xl font-display text-[clamp(2.4rem,5.2vw,4.1rem)] font-semibold leading-[1.06] tracking-[-0.02em] text-primary">
               Let's Talk About{" "}
               <span className="text-success">
                 What You're <Underlined>Building</Underlined>

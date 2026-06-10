@@ -1,6 +1,5 @@
 import { heroText } from "@/contents/screens/talents";
 import Button from "@/components/ui/button";
-import Eyebrow from "@/components/ui/eyebrow";
 import Reveal from "@/components/ui/reveal";
 import Underlined from "@/components/ui/underline";
 import CalendlyCTA from "@/components/contactUs/react-calendly";
@@ -26,12 +25,8 @@ const Hero = () => {
 
       <div className="container relative grid items-center gap-14 pb-20 pt-36 md:pt-44 lg:grid-cols-[1.05fr_1fr] lg:gap-20 lg:pb-28">
         <div>
-          <Reveal immediate y={20}>
-            <Eyebrow dark>The Network</Eyebrow>
-          </Reveal>
-
-          <Reveal immediate delay={0.12} y={26}>
-            <h1 className="mt-8 font-display text-[clamp(2.5rem,5.2vw,4.2rem)] font-semibold leading-[1.06] tracking-[-0.02em] text-bg-cream">
+          <Reveal immediate delay={0.05} y={26}>
+            <h1 className="font-display text-[clamp(2.5rem,5.2vw,4.2rem)] font-semibold leading-[1.06] tracking-[-0.02em] text-bg-cream">
               {heroText.titleLineOne}
               <br />
               <span className="text-border-light">

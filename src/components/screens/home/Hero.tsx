@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import type { CSSProperties } from "react";
 import { heroText, heroTickerItems } from "@/contents/screens/home";
 import Button from "@/components/ui/button";
-import Eyebrow from "@/components/ui/eyebrow";
 import NetworkCanvas from "@/components/ui/network-canvas";
 import Reveal from "@/components/ui/reveal";
 import Underlined from "@/components/ui/underline";
@@ -29,12 +28,8 @@ const Hero = () => {
 
       <div className="container relative z-10 grid items-center gap-14 pb-16 pt-32 md:pt-36 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-24 lg:pt-44">
         <div>
-          <Reveal immediate delay={0.08} y={18}>
-            <Eyebrow dark>Senior Engineering Partners</Eyebrow>
-          </Reveal>
-
-          <Reveal immediate delay={0.18} y={30}>
-            <h1 className="mt-7 max-w-2xl font-display text-[clamp(2.5rem,5.8vw,4.5rem)] font-semibold leading-[1.03] tracking-[-0.025em] text-bg-cream">
+          <Reveal immediate delay={0.08} y={30}>
+            <h1 className="max-w-2xl font-display text-[clamp(2.5rem,5.8vw,4.5rem)] font-semibold leading-[1.03] tracking-[-0.025em] text-bg-cream">
               Your Company Deserves{" "}
               <span className="text-border-light">Senior Engineering</span>{" "}
               <Underlined delay={1.1}>Leadership.</Underlined>

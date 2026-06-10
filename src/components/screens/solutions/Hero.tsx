@@ -1,6 +1,5 @@
 import { heroText } from "@/contents/screens/solutions";
 import Button from "@/components/ui/button";
-import Eyebrow from "@/components/ui/eyebrow";
 import PhotoCard from "@/components/ui/photo-card";
 import Reveal from "@/components/ui/reveal";
 import Underlined from "@/components/ui/underline";
@@ -12,12 +11,8 @@ const Hero = () => {
     <section className="overflow-hidden bg-bg-cream">
       <div className="container grid gap-12 pb-16 pt-36 md:pb-24 md:pt-44 lg:grid-cols-[1fr_0.9fr] lg:gap-16">
         <div>
-          <Reveal immediate y={20}>
-            <Eyebrow>Solutions</Eyebrow>
-          </Reveal>
-
-          <Reveal immediate delay={0.12} y={26}>
-            <h1 className="mt-8 font-display text-[clamp(2.5rem,5.4vw,4.3rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-primary">
+          <Reveal immediate delay={0.05} y={26}>
+            <h1 className="font-display text-[clamp(2.5rem,5.4vw,4.3rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-primary">
               Engineering Expertise That Drives{" "}
               <span className="text-success">
                 Business <Underlined delay={1}>Outcomes</Underlined>

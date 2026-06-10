@@ -27,10 +27,10 @@ const DeliveryModel = () => {
             />
           </Reveal>
 
-          <div className="grid content-between gap-5">
+          <div className="flex flex-col gap-5">
             {servicesData.map((service, index) => (
-              <Reveal key={service.id} delay={index * 0.08}>
-                <Lift className="flex gap-6 rounded-3xl bg-white p-7 ring-1 ring-primary/10 hover:shadow-[0_24px_50px_rgba(2,54,27,0.1)] md:p-8">
+              <Reveal key={service.id} delay={index * 0.08} className="flex-1">
+                <Lift className="flex items-center gap-6 rounded-3xl bg-white p-7 ring-1 ring-primary/10 hover:shadow-[0_24px_50px_rgba(2,54,27,0.1)] md:p-8">
                   <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-success/10 font-display text-lg font-semibold text-success">
                     {index + 1}
                   </span>
