@@ -4,7 +4,7 @@ import {
 } from "@/contents/screens/home";
 import SectionHeading from "@/components/ui/section-heading";
 import PhotoCard from "@/components/ui/photo-card";
-import Reveal from "@/components/ui/reveal";
+import Reveal, { Lift } from "@/components/ui/reveal";
 import ladyInOffice from "@/assets/jpg/lady-in-office.jpg";
 
 /** "Why Organizations Choose ElderOps" — lime color block with photo collage. */
@@ -30,20 +30,18 @@ const WhyElderOps = () => {
           </Reveal>
 
           {whyOrganizationsChooseData.map((item, index) => (
-            <Reveal
-              key={item.title}
-              delay={index * 0.07}
-              className="rounded-3xl bg-bg-cream p-7 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_50px_rgba(2,54,27,0.12)] md:p-9"
-            >
-              <span className="grid size-10 place-items-center rounded-full bg-success/12 font-display text-base font-semibold text-success">
-                {index + 1}
-              </span>
-              <h3 className="mt-5 font-display text-xl font-semibold leading-snug tracking-[-0.01em] text-primary">
-                {item.title}
-              </h3>
-              <p className="mt-3 text-[15px] leading-[1.75] text-accent-one">
-                {item.description}
-              </p>
+            <Reveal key={item.title} delay={index * 0.07}>
+              <Lift className="rounded-3xl bg-bg-cream p-7 hover:shadow-[0_24px_50px_rgba(2,54,27,0.12)] md:p-9">
+                <span className="grid size-10 place-items-center rounded-full bg-success/12 font-display text-base font-semibold text-success">
+                  {index + 1}
+                </span>
+                <h3 className="mt-5 font-display text-xl font-semibold leading-snug tracking-[-0.01em] text-primary">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-[15px] leading-[1.75] text-accent-one">
+                  {item.description}
+                </p>
+              </Lift>
             </Reveal>
           ))}
         </div>

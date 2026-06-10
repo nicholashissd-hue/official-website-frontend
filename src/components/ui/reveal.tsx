@@ -1,8 +1,32 @@
 import { motion, type HTMLMotionProps } from "framer-motion";
 import type { ReactNode } from "react";
+import { cn } from "@/lib/util";
 
-/** Signature easing for the V2 design language — long, settled, confident. */
+/** Signature easing for the V3 design language — long, settled, confident. */
 export const EASE = [0.16, 1, 0.3, 1] as const;
+
+/**
+ * Hoverable card surface. MUST be a child of `Reveal` (never merged into it):
+ * CSS transitions on the framer-animated element re-ease every animation
+ * frame and make the entrance strobe — and framer's leftover inline
+ * transform would block the CSS hover lift entirely.
+ */
+export const Lift = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: ReactNode;
+}) => (
+  <div
+    className={cn(
+      "h-full transition-[transform,box-shadow,background-color] duration-500 hover:-translate-y-1",
+      className,
+    )}
+  >
+    {children}
+  </div>
+);
 
 interface RevealProps
   extends Omit<HTMLMotionProps<"div">, "initial" | "whileInView" | "animate" | "transition"> {

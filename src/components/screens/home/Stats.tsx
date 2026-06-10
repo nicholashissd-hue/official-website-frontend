@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { animate, useInView } from "framer-motion";
 import { statsData } from "@/contents/screens/home";
-import Reveal, { EASE } from "@/components/ui/reveal";
+import Reveal, { EASE, Lift } from "@/components/ui/reveal";
 import { cn } from "@/lib/util";
 
 interface CounterProps {
@@ -53,14 +53,10 @@ const Stats = () => {
             const tone = TONES[index % TONES.length];
 
             return (
-              <Reveal
-                key={stat.id}
-                delay={index * 0.08}
-                className={cn(
-                  "overflow-hidden rounded-3xl p-6 transition-transform duration-500 hover:-translate-y-1 md:p-8",
-                  tone.card,
-                )}
-              >
+              <Reveal key={stat.id} delay={index * 0.08}>
+                <Lift
+                  className={cn("overflow-hidden rounded-3xl p-6 md:p-8", tone.card)}
+                >
                 <p
                   className={cn(
                     "font-display text-[clamp(2.1rem,4vw,3.3rem)] font-semibold leading-none tracking-[-0.02em]",
@@ -82,6 +78,7 @@ const Stats = () => {
                 >
                   {stat.label}
                 </p>
+                </Lift>
               </Reveal>
             );
           })}

@@ -149,7 +149,7 @@ const Beliefs = () => {
                 <article
                   key={belief.id}
                   className={cn(
-                    "flex w-[86%] shrink-0 snap-start flex-col rounded-3xl p-8 transition-all duration-500 hover:-translate-y-1 sm:w-[420px] md:p-10",
+                    "flex w-[86%] shrink-0 snap-start flex-col rounded-3xl p-8 transition-[transform,box-shadow] duration-500 hover:-translate-y-1 sm:w-[420px] md:p-10",
                     tone.card,
                   )}
                 >

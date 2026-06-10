@@ -1,6 +1,6 @@
 import { capabilitiesData, capabilitiesText } from "@/contents/screens/solutions";
 import SectionHeading from "@/components/ui/section-heading";
-import Reveal from "@/components/ui/reveal";
+import Reveal, { Lift } from "@/components/ui/reveal";
 import { cn } from "@/lib/util";
 import PipelinePulse from "./PipelinePulse";
 
@@ -32,11 +32,11 @@ const Capabilities = () => {
               key={capability.id}
               delay={index * 0.06}
               className={cn(
-                "group rounded-3xl bg-bg-cream/[0.05] p-8 ring-1 ring-bg-cream/12 transition-all duration-500 hover:-translate-y-1 hover:bg-bg-cream/[0.08] md:p-10",
                 index < 2 ? "lg:col-span-3" : "lg:col-span-2",
                 index === 4 && "max-lg:md:col-span-2",
               )}
             >
+              <Lift className="group rounded-3xl bg-bg-cream/[0.05] p-8 ring-1 ring-bg-cream/12 hover:bg-bg-cream/[0.08] md:p-10">
               <span className="grid size-10 place-items-center rounded-full bg-success font-display text-base font-semibold text-deep">
                 {index + 1}
               </span>
@@ -64,6 +64,7 @@ const Capabilities = () => {
                   </li>
                 ))}
               </ul>
+              </Lift>
             </Reveal>
           ))}
         </div>

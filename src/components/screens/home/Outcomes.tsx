@@ -1,6 +1,6 @@
 import { businessOutcomesData, businessOutcomesText } from "@/contents/screens/home";
 import SectionHeading from "@/components/ui/section-heading";
-import Reveal from "@/components/ui/reveal";
+import Reveal, { Lift } from "@/components/ui/reveal";
 import { cn } from "@/lib/util";
 
 const CARD_TONES = [
@@ -41,14 +41,10 @@ const Outcomes = () => {
             const tone = CARD_TONES[index % CARD_TONES.length];
 
             return (
-              <Reveal
-                key={outcome.title}
-                delay={index * 0.08}
-                className={cn(
-                  "overflow-hidden rounded-3xl p-8 transition-transform duration-500 hover:-translate-y-1 md:p-9",
-                  tone.card,
-                )}
-              >
+              <Reveal key={outcome.title} delay={index * 0.08}>
+                <Lift
+                  className={cn("overflow-hidden rounded-3xl p-8 md:p-9", tone.card)}
+                >
                 <span
                   className={cn(
                     "inline-block rounded-full px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em]",
@@ -68,6 +64,7 @@ const Outcomes = () => {
                 <p className={cn("mt-3 text-[15px] leading-[1.75]", tone.body)}>
                   {outcome.description}
                 </p>
+                </Lift>
               </Reveal>
             );
           })}

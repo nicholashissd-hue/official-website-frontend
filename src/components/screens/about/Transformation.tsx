@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { motion } from "framer-motion";
 import { successStagesData, successText } from "@/contents/screens/about";
 import SectionHeading from "@/components/ui/section-heading";
-import Reveal, { EASE } from "@/components/ui/reveal";
+import Reveal, { EASE, Lift } from "@/components/ui/reveal";
 import { cn } from "@/lib/util";
 
 const STAGE_TONES = [
@@ -92,14 +92,14 @@ const Transformation = () => {
               <Fragment key={stage.stage}>
                 {index > 0 && <StageArrow />}
 
-                <Reveal
-                  delay={index * 0.12}
-                  className={cn(
-                    "relative flex flex-col overflow-hidden rounded-3xl p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_50px_rgba(2,54,27,0.1)] md:p-9",
-                    tone.panel,
-                    tone.grain && "grain",
-                  )}
-                >
+                <Reveal delay={index * 0.12}>
+                  <Lift
+                    className={cn(
+                      "relative flex flex-col overflow-hidden rounded-3xl p-8 hover:shadow-[0_24px_50px_rgba(2,54,27,0.1)] md:p-9",
+                      tone.panel,
+                      tone.grain && "grain",
+                    )}
+                  >
                   <p
                     className={cn(
                       "w-fit rounded-full px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.2em]",
@@ -150,6 +150,7 @@ const Transformation = () => {
                       ))}
                     </ul>
                   </div>
+                  </Lift>
                 </Reveal>
               </Fragment>
             );

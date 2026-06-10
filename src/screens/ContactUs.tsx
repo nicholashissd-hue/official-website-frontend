@@ -126,7 +126,7 @@ const ContactUs = () => {
             </Reveal>
 
             <Reveal delay={0.2}>
-              <div className="rounded-3xl bg-white p-7 ring-1 ring-primary/10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_50px_rgba(2,54,27,0.1)] md:p-8">
+              <div className="rounded-3xl bg-white p-7 ring-1 ring-primary/10 transition-[transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-[0_24px_50px_rgba(2,54,27,0.1)] md:p-8">
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent-three">
                   Prefer to talk it through?
                 </p>

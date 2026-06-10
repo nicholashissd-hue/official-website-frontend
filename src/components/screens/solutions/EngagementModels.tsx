@@ -1,6 +1,6 @@
 import { engagementModelsData, engagementText } from "@/contents/screens/solutions";
 import SectionHeading from "@/components/ui/section-heading";
-import Reveal from "@/components/ui/reveal";
+import Reveal, { Lift } from "@/components/ui/reveal";
 import { cn } from "@/lib/util";
 
 /** Dot clusters that grow across the three models: 1 → team → managed ring. */
@@ -107,14 +107,13 @@ const EngagementModels = () => {
             const tone = CARD_TONES[index % CARD_TONES.length];
 
             return (
-              <Reveal
-                key={model.id}
-                delay={index * 0.08}
-                className={cn(
-                  "flex flex-col overflow-hidden rounded-3xl p-8 transition-all duration-500 hover:-translate-y-1 md:p-10",
-                  tone.card,
-                )}
-              >
+              <Reveal key={model.id} delay={index * 0.08}>
+                <Lift
+                  className={cn(
+                    "flex flex-col overflow-hidden rounded-3xl p-8 md:p-10",
+                    tone.card,
+                  )}
+                >
                 <span
                   className={cn(
                     "inline-flex w-fit items-center gap-2 rounded-full px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em]",
@@ -153,6 +152,7 @@ const EngagementModels = () => {
                     {model.bestFor}
                   </p>
                 </div>
+                </Lift>
               </Reveal>
             );
           })}

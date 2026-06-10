@@ -5,7 +5,7 @@ import {
 } from "@/contents/screens/about";
 import SectionHeading from "@/components/ui/section-heading";
 import Eyebrow from "@/components/ui/eyebrow";
-import Reveal from "@/components/ui/reveal";
+import Reveal, { Lift } from "@/components/ui/reveal";
 import Underlined from "@/components/ui/underline";
 import { cn } from "@/lib/util";
 
@@ -68,14 +68,13 @@ const GapWeFill = () => {
             const tone = PILLAR_TONES[index % PILLAR_TONES.length];
 
             return (
-              <Reveal
-                key={pillar.title}
-                delay={index * 0.08}
-                className={cn(
-                  "flex flex-col rounded-3xl p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_50px_rgba(2,54,27,0.1)] md:p-10",
-                  tone.card,
-                )}
-              >
+              <Reveal key={pillar.title} delay={index * 0.08}>
+                <Lift
+                  className={cn(
+                    "flex flex-col rounded-3xl p-8 hover:shadow-[0_24px_50px_rgba(2,54,27,0.1)] md:p-10",
+                    tone.card,
+                  )}
+                >
                 <span
                   className={cn(
                     "grid size-10 place-items-center rounded-full font-display text-base font-semibold",
@@ -121,6 +120,7 @@ const GapWeFill = () => {
                     ))}
                   </ul>
                 </div>
+                </Lift>
               </Reveal>
             );
           })}

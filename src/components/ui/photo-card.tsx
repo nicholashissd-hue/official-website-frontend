@@ -24,11 +24,17 @@ const PhotoCard = ({
   children,
 }: PhotoCardProps) => {
   return (
-    <div className={cn("relative overflow-hidden rounded-3xl", className)}>
+    <div
+      className={cn(
+        "relative overflow-hidden rounded-3xl bg-accent-four/20",
+        className,
+      )}
+    >
       <img
         src={src}
         alt={alt}
         loading="lazy"
+        decoding="async"
         className={cn("size-full object-cover", imgClassName)}
       />
 
