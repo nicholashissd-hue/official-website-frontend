@@ -71,7 +71,7 @@ const ContactUs = () => {
       </section>
 
       <section className="bg-bg-cream">
-        <div className="container grid items-stretch gap-8 py-14 md:py-20 lg:grid-cols-[1.35fr_1fr] lg:gap-12">
+        <div className="container grid items-stretch gap-8 pb-28 pt-14 md:pb-40 md:pt-20 lg:grid-cols-[1.35fr_1fr] lg:gap-12">
           <Reveal className="h-full">
             <Form />
           </Reveal>
