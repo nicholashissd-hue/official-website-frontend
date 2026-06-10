@@ -71,10 +71,11 @@ const Capabilities = () => {
             </Reveal>
           ))}
 
-          {/* Bespoke engagement — same card as its siblings; the pill is the accent */}
+          {/* Bespoke engagement — the open slot: no fill, centered, just an
+              outline. Differentiated by composition, not surface. */}
           <Reveal delay={capabilitiesData.length * 0.06}>
-            <Lift className="flex flex-col rounded-3xl bg-bg-cream/[0.04] p-9 ring-1 ring-bg-cream/10 hover:bg-bg-cream/[0.07] md:p-11">
-              <p className="eyebrow text-border-light">
+            <Lift className="flex h-full min-h-[320px] flex-col items-center justify-center rounded-3xl p-9 text-center ring-1 ring-bg-cream/25 md:p-11">
+              <p className="eyebrow justify-center text-border-light">
                 <span
                   aria-hidden="true"
                   className="size-1.5 shrink-0 rounded-full bg-success"
@@ -82,14 +83,14 @@ const Capabilities = () => {
                 {bespokeText.eyebrow}
               </p>
 
-              <h3 className="mt-6 font-display text-[1.6rem] font-semibold leading-snug tracking-[-0.01em] text-bg-cream md:text-3xl">
+              <h3 className="mt-5 max-w-sm font-display text-[1.7rem] font-semibold leading-tight tracking-[-0.01em] text-bg-cream md:text-3xl">
                 {bespokeText.title}
               </h3>
-              <p className="mt-4 max-w-lg flex-1 text-[15px] leading-[1.85] text-accent-four">
+              <p className="mt-3 max-w-sm text-[15px] leading-[1.75] text-accent-four">
                 {bespokeText.description}
               </p>
 
-              <div className="mt-9">
+              <div className="mt-8">
                 <Button to="/contact-us" variant="primary" withArrow>
                   {bespokeText.buttonText}
                 </Button>

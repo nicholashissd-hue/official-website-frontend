@@ -279,7 +279,7 @@ export const bespokeText = {
   eyebrow: "Bespoke",
   title: "Something more specific?",
   description:
-    "Every roadmap is different. Tell us what you're building and we'll shape a bespoke engagement around it — the capability mix, team structure, and delivery model that fit your goals.",
+    "Tell us what you're building — we'll shape the engagement around it.",
   buttonText: "Make an Inquiry",
 };
 
