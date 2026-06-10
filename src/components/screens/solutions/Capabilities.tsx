@@ -71,35 +71,32 @@ const Capabilities = () => {
             </Reveal>
           ))}
 
-          {/* Bespoke engagement — same glass as its siblings, bolder accents */}
+          {/* Bespoke engagement — solid brand green, deep text, dark pill */}
           <Reveal delay={capabilitiesData.length * 0.06}>
-            <Lift className="relative flex flex-col overflow-hidden rounded-3xl bg-bg-cream/[0.07] p-9 ring-1 ring-success/40 hover:bg-bg-cream/[0.1] md:p-11">
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_90%_at_88%_0%,rgba(6,156,78,0.16)_0%,transparent_60%)]"
-              />
+            <Lift className="flex flex-col rounded-3xl bg-success p-9 hover:shadow-[0_32px_70px_rgba(1,20,10,0.4)] md:p-11">
+              <p className="eyebrow text-deep/80">
+                <span
+                  aria-hidden="true"
+                  className="size-1.5 shrink-0 rounded-full bg-deep"
+                />
+                {bespokeText.eyebrow}
+              </p>
 
-              <div className="relative flex flex-1 flex-col">
-                <p className="eyebrow text-border-light">
-                  <span
-                    aria-hidden="true"
-                    className="size-1.5 shrink-0 rounded-full bg-success"
-                  />
-                  {bespokeText.eyebrow}
-                </p>
+              <h3 className="mt-6 font-display text-[1.6rem] font-semibold leading-snug tracking-[-0.01em] text-deep md:text-3xl">
+                {bespokeText.title}
+              </h3>
+              <p className="mt-4 max-w-lg flex-1 text-[15px] font-medium leading-[1.85] text-deep/85">
+                {bespokeText.description}
+              </p>
 
-                <h3 className="mt-6 font-display text-[1.6rem] font-semibold leading-snug tracking-[-0.01em] text-bg-cream md:text-3xl">
-                  {bespokeText.title}
-                </h3>
-                <p className="mt-4 max-w-lg flex-1 text-[15px] leading-[1.85] text-accent-four">
-                  {bespokeText.description}
-                </p>
-
-                <div className="mt-9">
-                  <Button to="/contact-us" variant="primary" withArrow>
-                    {bespokeText.buttonText}
-                  </Button>
-                </div>
+              <div className="mt-9">
+                <Button
+                  to="/contact-us"
+                  withArrow
+                  className="bg-primary text-bg-cream hover:bg-deep"
+                >
+                  {bespokeText.buttonText}
+                </Button>
               </div>
             </Lift>
           </Reveal>
