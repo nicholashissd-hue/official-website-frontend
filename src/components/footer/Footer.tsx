@@ -90,12 +90,12 @@ const Footer = () => {
         <div className="flex flex-col gap-4 border-t border-bg-cream/10 py-8 font-mono text-[11px] uppercase tracking-[0.16em] text-accent-four sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} ElderOps — Senior Engineering Partners</p>
           <div className="flex gap-8">
-            <a href="/" className="u-line pb-0.5 transition-colors hover:text-bg-cream">
+            <Link
+              to="/terms"
+              className="u-line pb-0.5 transition-colors hover:text-bg-cream"
+            >
               Terms
-            </a>
-            <a href="/" className="u-line pb-0.5 transition-colors hover:text-bg-cream">
-              Privacy
-            </a>
+            </Link>
           </div>
         </div>
       </div>
