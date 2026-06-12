@@ -4,6 +4,38 @@ import { NAV_LINKS } from "@/contents/nav";
 import Button from "../ui/button";
 import Reveal from "../ui/reveal";
 
+const SOCIALS = [
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61590638164928",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="size-4">
+        <path d="M13.5 21v-7h2.5l.5-3h-3V9.05c0-.87.24-1.55 1.65-1.55h1.55V4.85c-.3-.04-1.3-.13-2.46-.13-2.43 0-4.04 1.48-4.04 4.2V11H7.5v3h2.7v7z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/elder_ops",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-4">
+        <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" stroke="currentColor" strokeWidth="1.8" />
+        <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.8" />
+        <circle cx="17.1" cy="6.9" r="1.25" fill="currentColor" />
+      </svg>
+    ),
+  },
+  {
+    label: "X",
+    href: "https://x.com/elder_ops",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="size-3.5">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      </svg>
+    ),
+  },
+];
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -37,6 +69,20 @@ const Footer = () => {
               model — senior expertise that integrates directly into your team
               and owns outcomes.
             </p>
+            <div className="mt-7 flex gap-3">
+              {SOCIALS.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`ElderOps on ${social.label}`}
+                  className="grid size-9 place-items-center rounded-full text-bg-cream/75 ring-1 ring-inset ring-bg-cream/25 transition-all duration-300 hover:bg-success hover:text-deep hover:ring-success"
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
           </div>
 
           <nav aria-label="Footer">

@@ -118,6 +118,32 @@ const sendLeadEmail = async (lead: Required<Pick<LeadRequestBody, "name" | "emai
   return response.ok ? ("sent" as const) : ("failed" as const);
 };
 
+/** Preferred sender — used automatically once RESEND_API_KEY exists. */
+const sendLeadViaResend = async (
+  lead: Required<Pick<LeadRequestBody, "name" | "email">> & LeadRequestBody,
+  details: string,
+) => {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) return "not_configured" as const;
+
+  const response = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from: process.env.RESEND_FROM ?? "ElderOps Website <onboarding@resend.dev>",
+      to: ["contact@elderops.net"],
+      reply_to: lead.email,
+      subject: `Hiring Advisor lead — ${lead.name}`,
+      text: details,
+    }),
+  });
+
+  return response.ok ? ("sent" as const) : ("failed" as const);
+};
+
 /** No-keys fallback — forwards via FormSubmit to the team inbox. */
 const sendLeadViaFormSubmit = async (
   lead: Required<Pick<LeadRequestBody, "name" | "email">> & LeadRequestBody,
@@ -212,9 +238,13 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
       source: cleanText(body.source, 120) || "Website chatbot",
     };
 
-    let delivery = await sendLeadEmail(lead);
+    const details = buildLeadDetails(lead);
+    let delivery = await sendLeadViaResend(lead, details);
     if (delivery !== "sent") {
-      delivery = await sendLeadViaFormSubmit(lead, buildLeadDetails(lead));
+      delivery = await sendLeadEmail(lead);
+    }
+    if (delivery !== "sent") {
+      delivery = await sendLeadViaFormSubmit(lead, details);
     }
 
     return res.status(delivery === "failed" ? 502 : 202).json({
