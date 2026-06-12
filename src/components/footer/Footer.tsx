@@ -87,9 +87,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Extra bottom clearance so the floating Hiring Advisor launcher
-            never covers the legal links */}
-        <div className="flex flex-col gap-4 border-t border-bg-cream/10 pb-24 pt-8 font-mono text-[11px] uppercase tracking-[0.16em] text-accent-four sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-4 border-t border-bg-cream/10 py-8 font-mono text-[11px] uppercase tracking-[0.16em] text-accent-four sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} ElderOps — Senior Engineering Partners</p>
           <div className="flex gap-8">
             <Link

@@ -118,6 +118,57 @@ const sendLeadEmail = async (lead: Required<Pick<LeadRequestBody, "name" | "emai
   return response.ok ? ("sent" as const) : ("failed" as const);
 };
 
+/** No-keys fallback — forwards via FormSubmit to the team inbox. */
+const sendLeadViaFormSubmit = async (
+  lead: Required<Pick<LeadRequestBody, "name" | "email">> & LeadRequestBody,
+  details: string,
+) => {
+  const response = await fetch("https://formsubmit.co/ajax/contact@elderops.net", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({
+      name: lead.name,
+      email: lead.email,
+      message: details,
+      _subject: `Hiring Advisor lead — ${lead.name}`,
+      _replyto: lead.email,
+      _template: "box",
+    }),
+  });
+
+  if (!response.ok) return "failed" as const;
+  const payload = (await response.json().catch(() => null)) as {
+    success?: string | boolean;
+  } | null;
+  return payload?.success === true || payload?.success === "true"
+    ? ("sent" as const)
+    : ("failed" as const);
+};
+
+const buildLeadDetails = (
+  lead: Required<Pick<LeadRequestBody, "name" | "email">> & LeadRequestBody,
+) =>
+  [
+    `Name: ${lead.name}`,
+    `Email: ${lead.email}`,
+    lead.company ? `Company: ${lead.company}` : "",
+    lead.recommendedRole ? `Recommended role: ${lead.recommendedRole}` : "",
+    lead.confidence ? `Confidence: ${lead.confidence}` : "",
+    lead.suggestedSeniority
+      ? `Suggested seniority: ${lead.suggestedSeniority}`
+      : "",
+    lead.alternativeRoles?.length
+      ? `Alternative roles: ${lead.alternativeRoles.join(", ")}`
+      : "",
+    lead.projectDescriptionOrJD
+      ? `Project description / JD: ${lead.projectDescriptionOrJD}`
+      : "",
+    lead.notes ? `Notes: ${lead.notes}` : "",
+    `Source: ${lead.source ?? "Website chatbot"}`,
+  ]
+    .filter(Boolean)
+    .join("\n");
+
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
@@ -137,7 +188,7 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   }
 
   try {
-    const delivery = await sendLeadEmail({
+    const lead = {
       name,
       email,
       company: cleanText(body.company, 160),
@@ -154,7 +205,12 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
       budget: cleanText(body.budget, 120),
       notes: cleanText(body.notes, 1000),
       source: cleanText(body.source, 120) || "Website chatbot",
-    });
+    };
+
+    let delivery = await sendLeadEmail(lead);
+    if (delivery !== "sent") {
+      delivery = await sendLeadViaFormSubmit(lead, buildLeadDetails(lead));
+    }
 
     return res.status(delivery === "failed" ? 502 : 202).json({
       ok: delivery !== "failed",
