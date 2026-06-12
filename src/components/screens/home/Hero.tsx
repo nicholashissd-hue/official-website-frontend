@@ -30,7 +30,7 @@ const Hero = () => {
             <h1 className="max-w-2xl font-display text-[clamp(2.5rem,5.8vw,4.5rem)] font-semibold leading-[1.03] tracking-[-0.025em] text-bg-cream">
               Your Company Deserves{" "}
               <span className="text-border-light">Senior Engineering</span>{" "}
-              <Underlined delay={1.1}>Leadership.</Underlined>
+              <Underlined delay={1.1}>Talent.</Underlined>
             </h1>
           </Reveal>
 

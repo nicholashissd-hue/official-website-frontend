@@ -13,7 +13,7 @@ import tandatech from "@/assets/png/logos/tanda.png";
 import notchHr from "@/assets/png/logos/notchHr.png";
 
 export const heroText = {
-  title: "Your Company Deserves Senior Engineering Leadership",
+  title: "Your Company Deserves Senior Engineering Talent",
   subtext:
     "Get experienced engineers, technical oversight, and managed delivery that helps your business scale with confidence, without the cost and commitment of a full-time senior hire.",
 };
