@@ -74,22 +74,62 @@ const createFallbackReply = (message: string) => {
   };
 };
 
+const composeLeadDetails = (lead: ChatLeadSubmission) =>
+  [
+    `Name: ${lead.name}`,
+    `Email: ${lead.email}`,
+    lead.company ? `Company: ${lead.company}` : "",
+    lead.recommendedRole ? `Recommended role: ${lead.recommendedRole}` : "",
+    lead.confidence ? `Confidence: ${lead.confidence}` : "",
+    lead.suggestedSeniority
+      ? `Suggested seniority: ${lead.suggestedSeniority}`
+      : "",
+    lead.alternativeRoles?.length
+      ? `Alternative roles: ${lead.alternativeRoles.join(", ")}`
+      : "",
+    lead.projectDescriptionOrJD
+      ? `Project description / JD: ${lead.projectDescriptionOrJD}`
+      : "",
+    lead.notes ? `Notes: ${lead.notes}` : "",
+    `Source: ${lead.source ?? "Website chatbot"}`,
+  ]
+    .filter(Boolean)
+    .join("\n");
+
 export const submitChatLead = async (
   lead: ChatLeadSubmission,
 ): Promise<ChatLeadResponse> => {
-  const response = await fetch("/api/chat-lead", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(lead),
-  });
+  // Server route first — upgrades automatically when email keys exist.
+  try {
+    const response = await fetch("/api/chat-lead", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(lead),
+    });
 
-  if (!response.ok) {
-    throw new Error("Chat lead submission failed");
+    if (response.ok) {
+      const payload = (await response
+        .json()
+        .catch(() => null)) as ChatLeadResponse | null;
+      if (payload?.ok) return payload;
+    }
+  } catch {
+    // fall through to the browser-side relay
   }
 
-  return response.json() as Promise<ChatLeadResponse>;
+  // FormSubmit blocks datacenter IPs, so the relay must run in-browser.
+  const { sendViaFormRelay } = await import("@/lib/formRelay");
+  await sendViaFormRelay({
+    name: lead.name,
+    email: lead.email,
+    message: composeLeadDetails(lead),
+    _subject: `Hiring Advisor lead — ${lead.name}`,
+    _replyto: lead.email,
+  });
+
+  return { ok: true, delivery: "sent" } as ChatLeadResponse;
 };
 
 export const sendChatMessage = async (
