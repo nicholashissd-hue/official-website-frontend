@@ -139,14 +139,23 @@ const sendViaFormSubmit = async (lead: Required<ContactBody>) => {
     }),
   });
 
-  if (!response.ok) return "failed" as const;
-  const payload = (await response.json().catch(() => null)) as {
-    success?: string | boolean;
-  } | null;
+  const raw = await response.text().catch(() => "");
+  if (!response.ok) {
+    console.error("FormSubmit HTTP", response.status, raw.slice(0, 500));
+    return "failed" as const;
+  }
+  let payload: { success?: string | boolean } | null = null;
+  try {
+    payload = JSON.parse(raw) as { success?: string | boolean };
+  } catch {
+    payload = null;
+  }
   const success = payload?.success;
-  return success === true || success === "true"
-    ? ("sent" as const)
-    : ("failed" as const);
+  if (success !== true && success !== "true") {
+    console.error("FormSubmit rejected:", raw.slice(0, 500));
+    return "failed" as const;
+  }
+  return "sent" as const;
 };
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
