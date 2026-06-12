@@ -121,6 +121,10 @@ const sendViaFormSubmit = async (lead: Required<ContactBody>) => {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
+      // FormSubmit rejects requests without a web origin; activation is
+      // tied to this domain.
+      Origin: "https://elderops.net",
+      Referer: "https://elderops.net/",
     },
     body: JSON.stringify({
       name: lead.fullName,

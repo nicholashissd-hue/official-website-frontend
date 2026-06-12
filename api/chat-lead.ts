@@ -125,7 +125,12 @@ const sendLeadViaFormSubmit = async (
 ) => {
   const response = await fetch("https://formsubmit.co/ajax/contact@elderops.net", {
     method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Origin: "https://elderops.net",
+      Referer: "https://elderops.net/",
+    },
     body: JSON.stringify({
       name: lead.name,
       email: lead.email,
