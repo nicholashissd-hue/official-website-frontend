@@ -1,0 +1,54 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router";
+
+const DEFAULT_TITLE = "ElderOps — Senior Engineering Talent";
+const DEFAULT_DESCRIPTION =
+  "Strategy, execution, and accountability in a single engineering model. Senior expertise that integrates directly into your team.";
+
+const PAGE_META: Record<string, { title: string; description: string }> = {
+  "/": {
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+  },
+  "/solutions": {
+    title: "Solutions — ElderOps",
+    description:
+      "Engineering expertise that drives business outcomes: cloud & DevOps, data platforms, analytics & BI, AI/ML enablement, and product engineering.",
+  },
+  "/talent": {
+    title: "Talent — ElderOps",
+    description:
+      "Globally vetted senior, staff, and principal engineers — technically assessed, communication evaluated, and matched to real delivery requirements.",
+  },
+  "/about": {
+    title: "About — ElderOps",
+    description:
+      "The best engineering outcomes come from ownership, not headcount. The philosophy and operating standard behind ElderOps.",
+  },
+  "/contact-us": {
+    title: "Contact — ElderOps",
+    description:
+      "Tell us what you're building and we'll help determine the right engineering model for your goals. Typical response within one business day.",
+  },
+  "/terms": {
+    title: "Terms of Service — ElderOps",
+    description:
+      "The terms governing the ElderOps website and engineering services.",
+  },
+};
+
+/** Keeps document.title and the meta description in sync with the route. */
+export const usePageMeta = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const meta = PAGE_META[pathname] ?? {
+      title: DEFAULT_TITLE,
+      description: DEFAULT_DESCRIPTION,
+    };
+    document.title = meta.title;
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute("content", meta.description);
+  }, [pathname]);
+};
