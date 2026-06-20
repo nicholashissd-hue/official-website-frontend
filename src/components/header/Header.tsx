@@ -9,7 +9,7 @@ import Navbar from "../navbar/Navbar";
 import CalendlyCTA from "../contactUs/react-calendly";
 
 /** Routes whose hero is the deep-green surface (header starts light-on-dark). */
-const DARK_HERO_ROUTES = new Set(["/", "/talent"]);
+const DARK_HERO_ROUTES = new Set(["/", "/talent", "/careers"]);
 
 const Header = () => {
   const { pathname } = useLocation();
