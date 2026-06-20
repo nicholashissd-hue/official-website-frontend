@@ -25,6 +25,11 @@ const PAGE_META: Record<string, { title: string; description: string }> = {
     description:
       "The best engineering outcomes come from ownership, not headcount. The philosophy and operating standard behind ElderOps.",
   },
+  "/careers": {
+    title: "Careers — ElderOps",
+    description:
+      "Join a network built around engineering excellence. ElderOps partners with senior engineers who value ownership, accountability, and meaningful technical challenges.",
+  },
   "/contact-us": {
     title: "Contact — ElderOps",
     description:

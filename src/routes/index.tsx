@@ -8,6 +8,7 @@ const Solutions = lazy(() => import("@/screens/Solutions"));
 const Talents = lazy(() => import("@/screens/Talents"));
 const About = lazy(() => import("@/screens/About"));
 const Contact = lazy(() => import("@/screens/ContactUs"));
+const Careers = lazy(() => import("@/screens/Careers"));
 const Terms = lazy(() => import("@/screens/Terms"));
 
 const LoadingFallback = () => (
@@ -25,6 +26,7 @@ const AppRoutes = () => {
           <Route index path="/solutions" element={<Solutions />} />
           <Route index path="/talent" element={<Talents />} />
           <Route index path="/about" element={<About />} />
+          <Route index path="/careers" element={<Careers />} />
           <Route index path="/contact-us" element={<Contact />} />
           <Route index path="/terms" element={<Terms />} />
           <Route index path="*" element={<NotFound />} />

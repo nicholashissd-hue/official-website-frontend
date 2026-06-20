@@ -2,6 +2,7 @@ import { useLocation } from "react-router";
 import { ctaText as solutionsCTA } from "@/contents/screens/solutions";
 import { ctaText as talentsCTA } from "@/contents/screens/talents";
 import { ctaText as aboutCTA } from "@/contents/screens/about";
+import { ctaText as careersCTA } from "@/contents/screens/careers";
 import { homeCTAText } from "@/contents/footer";
 import Button from "./button";
 import Eyebrow from "./eyebrow";
@@ -21,6 +22,7 @@ const CTA_MAP: Record<string, CTAContent> = {
   "/solutions": solutionsCTA,
   "/talent": talentsCTA,
   "/about": aboutCTA,
+  "/careers": careersCTA,
 };
 
 /** Page-closing CTA: a giant rounded deep-green card with a living lattice. */
