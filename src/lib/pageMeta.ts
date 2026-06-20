@@ -25,6 +25,11 @@ const PAGE_META: Record<string, { title: string; description: string }> = {
     description:
       "The best engineering outcomes come from ownership, not headcount. The philosophy and operating standard behind ElderOps.",
   },
+  "/startup-launch": {
+    title: "Startup Launch — ElderOps",
+    description:
+      "From idea to launch. ElderOps builds websites, web and mobile apps, infrastructure, and data/AI systems — moving founders and growing teams from concept to production.",
+  },
   "/careers": {
     title: "Careers — ElderOps",
     description:
