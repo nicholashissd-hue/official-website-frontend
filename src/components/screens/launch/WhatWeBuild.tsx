@@ -1,12 +1,12 @@
 import { buildText } from "@/contents/screens/launch";
 import SectionHeading from "@/components/ui/section-heading";
 import Reveal from "@/components/ui/reveal";
-import FullStackDiagram from "./FullStackDiagram";
+import SystemMap from "./SystemMap";
 
 /**
- * "What We Build" — a living full-stack system diagram (see FullStackDiagram):
- * layers assemble out of depth, data cascades through the stack, and hovering a
- * layer lifts it out of the tower. Communicates "we build the whole stack."
+ * "What We Build" — a live system map (see SystemMap): a product core with the
+ * four disciplines radiating out as an interconnected topology that pulses,
+ * sweeps, and cycles through each discipline's capabilities.
  */
 const WhatWeBuild = () => {
   return (
@@ -23,11 +23,10 @@ const WhatWeBuild = () => {
           eyebrow="The Stack"
           title={buildText.title}
           lede={buildText.subtext}
-          align="center"
         />
 
         <Reveal>
-          <FullStackDiagram />
+          <SystemMap />
         </Reveal>
       </div>
     </section>
