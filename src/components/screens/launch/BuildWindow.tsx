@@ -242,29 +242,43 @@ const BuildWindow = () => {
                 preserveAspectRatio="none"
                 className="absolute inset-x-3 bottom-3 top-3"
               >
-                <motion.path
-                  d={CHART_PATH}
-                  stroke="#0fb45e"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  vectorEffect="non-scaling-stroke"
-                  animate={{ pathLength: build ? 1 : 0, opacity: build ? 1 : 0 }}
-                  transition={{ duration: 1, ease: EASE, delay: 0.2 }}
-                />
-                <motion.path
-                  d={`${CHART_PATH} L86 46 L2 46 Z`}
-                  fill="url(#area)"
-                  stroke="none"
-                  animate={{ opacity: build ? 1 : 0 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                />
                 <defs>
                   <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stopColor="#0fb45e" stopOpacity="0.35" />
                     <stop offset="100%" stopColor="#0fb45e" stopOpacity="0" />
                   </linearGradient>
+                  {/* Reveal the chart with a left→right wipe — the line stays a
+                      single continuous path, so no dash gaps are possible. */}
+                  <clipPath id="chartReveal">
+                    <motion.rect
+                      x="0"
+                      y="0"
+                      height="46"
+                      initial={false}
+                      animate={{ width: build ? 88 : 0 }}
+                      transition={{
+                        duration: reduceMotion ? 0 : 1.1,
+                        ease: EASE,
+                        delay: reduceMotion ? 0 : 0.2,
+                      }}
+                    />
+                  </clipPath>
                 </defs>
+                <motion.g
+                  clipPath="url(#chartReveal)"
+                  animate={{ opacity: build ? 1 : 0 }}
+                  transition={{ duration: 0.4, ease: EASE }}
+                >
+                  <path d={`${CHART_PATH} L86 46 L2 46 Z`} fill="url(#area)" stroke="none" />
+                  <path
+                    d={CHART_PATH}
+                    stroke="#0fb45e"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    vectorEffect="non-scaling-stroke"
+                  />
+                </motion.g>
               </svg>
             </div>
           </div>
