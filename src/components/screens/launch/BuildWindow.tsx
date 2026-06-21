@@ -28,21 +28,23 @@ const smoothPath = (pts: { x: number; y: number }[]) => {
   return d;
 };
 
-// A confident upward climb that peaks *inside* the frame and settles gently into
-// the end, with margin on every side so the apex never jams against an edge
-// (viewBox 0 0 88 46, lower y = higher).
+// A confident upward climb. The points run edge-to-edge (x 0→88) so the area
+// fill closes flush against the plot's left/right boundaries — no internal
+// vertical "cliff". The peak sits inside the frame with top margin, then the
+// line settles gently into the right edge (viewBox 0 0 88 46, lower y = higher).
 const CHART_PTS = [
-  { x: 4, y: 39 },
-  { x: 15, y: 35 },
-  { x: 27, y: 37 },
-  { x: 39, y: 29 },
-  { x: 50, y: 31 },
-  { x: 61, y: 21 },
-  { x: 73, y: 15 },
-  { x: 84, y: 18 },
+  { x: 0, y: 41 },
+  { x: 12, y: 37 },
+  { x: 25, y: 39 },
+  { x: 38, y: 31 },
+  { x: 50, y: 28 },
+  { x: 63, y: 18 },
+  { x: 75, y: 13 },
+  { x: 88, y: 15 },
 ];
 const CHART_PATH = smoothPath(CHART_PTS);
-const CHART_AREA = `${CHART_PATH} L ${CHART_PTS[CHART_PTS.length - 1].x} 46 L ${CHART_PTS[0].x} 46 Z`;
+// Close the fill at the exact plot edges (x = 0 and 88) so it sits flush.
+const CHART_AREA = `${CHART_PATH} L 88 46 L 0 46 Z`;
 
 const KPIS = [
   { label: "Users", value: 12480, suffix: "" },
