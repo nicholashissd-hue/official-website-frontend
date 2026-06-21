@@ -149,7 +149,7 @@ const MatchingEngine = () => {
                       ease: EASE,
                       delay: signalIndex * 0.12,
                     }}
-                    className="rounded-full bg-border-light px-3.5 py-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-primary"
+                    className="inline-flex items-center justify-center rounded-full bg-border-light px-3.5 py-1.5 font-mono text-[10px] font-medium uppercase leading-none tracking-[0.12em] text-primary"
                   >
                     {signal}
                   </motion.span>
@@ -206,7 +206,7 @@ const MatchingEngine = () => {
                   {scenario.stats.map((stat) => (
                     <span
                       key={stat}
-                      className="rounded-full bg-primary/[0.07] px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.14em] text-primary"
+                      className="inline-flex items-center justify-center rounded-full bg-primary/[0.07] px-3 py-1.5 font-mono text-[9px] uppercase leading-none tracking-[0.14em] text-primary"
                     >
                       {stat}
                     </span>

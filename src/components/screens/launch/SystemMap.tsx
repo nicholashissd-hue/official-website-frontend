@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { AnimatePresence, motion, useInView, useReducedMotion } from "framer-motion";
 import { buildLayers } from "@/contents/screens/launch";
 import { EASE } from "@/components/ui/reveal";
@@ -58,17 +58,15 @@ const SystemMap = () => {
     <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
       {/* ── The map ─────────────────────────────────────────────── */}
       <div ref={ref} className="relative mx-auto aspect-square w-full max-w-[460px]">
-        {/* radar sweep */}
+        {/* radar sweep — CSS-driven so the 2.9s auto-cycle re-render can't stop it */}
         {animate && (
-          <motion.div
+          <div
             aria-hidden="true"
-            className="absolute inset-0 rounded-full"
+            className="animate-radar-spin absolute inset-0 rounded-full"
             style={{
               background:
                 "conic-gradient(from 0deg, transparent 0deg, transparent 300deg, rgba(6,156,78,0.18) 355deg, transparent 360deg)",
             }}
-            animate={{ rotate: 360 }}
-            transition={{ duration: 12, ease: "linear", repeat: Infinity }}
           />
         )}
 
@@ -128,14 +126,20 @@ const SystemMap = () => {
                   strokeWidth={0.5}
                   style={on ? { filter: "drop-shadow(0 0 6px rgba(6,156,78,0.8))" } : undefined}
                 />
-                {/* travelling pulse on the active spoke */}
+                {/* travelling pulse on the active spoke — CSS-driven */}
                 {on && animate && (
-                  <motion.circle
+                  <circle
+                    className="animate-spoke-travel"
+                    cx={HUB.x}
+                    cy={HUB.y}
                     r={1.4}
                     fill="#b5e3c6"
-                    initial={{ cx: HUB.x, cy: HUB.y, opacity: 0 }}
-                    animate={{ cx: c.node.x, cy: c.node.y, opacity: [0, 1, 1, 0] }}
-                    transition={{ duration: 1.1, ease: "easeOut", repeat: Infinity, repeatDelay: 0.4 }}
+                    style={
+                      {
+                        "--tx": `${c.node.x - HUB.x}px`,
+                        "--ty": `${c.node.y - HUB.y}px`,
+                      } as CSSProperties
+                    }
                   />
                 )}
               </g>
@@ -145,17 +149,14 @@ const SystemMap = () => {
           {/* hub */}
           <circle cx={50} cy={50} r={6} fill="#02361b" stroke="rgba(15,180,94,0.6)" strokeWidth={0.6} />
           {animate && (
-            <motion.circle
+            <circle
+              className="animate-radar-ping"
               cx={50}
               cy={50}
               r={6}
               fill="none"
               stroke="rgba(6,156,78,0.6)"
               strokeWidth={0.6}
-              initial={{ scale: 1, opacity: 0.7 }}
-              animate={{ scale: 2.6, opacity: 0 }}
-              transition={{ duration: 2.4, ease: "easeOut", repeat: Infinity }}
-              style={{ transformOrigin: "50px 50px" }}
             />
           )}
           <circle cx={50} cy={50} r={2} fill="#0fb45e" style={{ filter: "drop-shadow(0 0 5px rgba(6,156,78,0.9))" }} />

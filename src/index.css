@@ -177,11 +177,57 @@ body {
   animation: pulse-dot 2.4s ease-in-out infinite;
 }
 
+/* ── SystemMap radar (CSS-driven so React re-renders never interrupt them) ── */
+@keyframes radar-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes radar-ping {
+  from {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+@keyframes spoke-travel {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  18% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx, 0), var(--ty, 0));
+    opacity: 0;
+  }
+}
+
+.animate-radar-spin {
+  animation: radar-spin 12s linear infinite;
+}
+.animate-radar-ping {
+  transform-box: view-box;
+  transform-origin: 50px 50px;
+  animation: radar-ping 2.4s ease-out infinite;
+}
+.animate-spoke-travel {
+  transform-box: view-box;
+  animation: spoke-travel 1.6s ease-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
   .animate-blink,
   .animate-pulse-dot,
-  .animate-float {
+  .animate-float,
+  .animate-radar-spin,
+  .animate-radar-ping,
+  .animate-spoke-travel {
     animation: none;
   }
 }
