@@ -15,7 +15,31 @@ import { cn } from "@/lib/util";
 const PHASES = ["Concept", "Wireframe", "Build", "Live"] as const;
 const PHASE_MS = [1200, 1700, 2100, 2400];
 
-const CHART_PATH = "M2 40 L14 34 L26 37 L38 24 L50 28 L62 14 L74 18 L86 7";
+/** Catmull-Rom → cubic-bezier: a smooth flowing curve through the points. */
+const smoothPath = (pts: { x: number; y: number }[]) => {
+  let d = `M ${pts[0].x} ${pts[0].y}`;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[i - 1] ?? pts[i];
+    const p1 = pts[i];
+    const p2 = pts[i + 1];
+    const p3 = pts[i + 2] ?? p2;
+    d += ` C ${p1.x + (p2.x - p0.x) / 6} ${p1.y + (p2.y - p0.y) / 6}, ${p2.x - (p3.x - p1.x) / 6} ${p2.y - (p3.y - p1.y) / 6}, ${p2.x} ${p2.y}`;
+  }
+  return d;
+};
+
+// A confident upward climb with gentle pullbacks (viewBox 0 0 88 46, lower y = higher).
+const CHART_PTS = [
+  { x: 2, y: 38 },
+  { x: 14, y: 33 },
+  { x: 26, y: 35 },
+  { x: 38, y: 27 },
+  { x: 50, y: 24 },
+  { x: 62, y: 17 },
+  { x: 74, y: 19 },
+  { x: 86, y: 6 },
+];
+const CHART_PATH = smoothPath(CHART_PTS);
 
 const KPIS = [
   { label: "Users", value: 12480, suffix: "" },
@@ -273,7 +297,7 @@ const BuildWindow = () => {
                   <path
                     d={CHART_PATH}
                     stroke="#0fb45e"
-                    strokeWidth="1.6"
+                    strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     vectorEffect="non-scaling-stroke"
