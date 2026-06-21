@@ -28,19 +28,20 @@ const smoothPath = (pts: { x: number; y: number }[]) => {
   return d;
 };
 
-// A clean trajectory sweeping from the bottom-left corner up to the top-right
-// corner — a steady, smoothly accelerating climb across the full width. Points
-// run edge-to-edge (x 0→88) so the area fill closes flush against the plot
+// A trajectory that starts in the bottom-left corner and climbs evenly across
+// the FULL width to the top-right corner, keeping gentle peaks/troughs along the
+// way (up, small pullback, up...) — present but not exaggerated. Points run
+// edge-to-edge (x 0→88) so the area fill closes flush against the plot
 // boundaries with no internal "cliff" (viewBox 0 0 88 46, lower y = higher).
 const CHART_PTS = [
-  { x: 0, y: 44 },
-  { x: 13, y: 42 },
-  { x: 25, y: 38 },
-  { x: 38, y: 33 },
-  { x: 50, y: 28 },
-  { x: 63, y: 21 },
-  { x: 75, y: 13 },
-  { x: 88, y: 6 },
+  { x: 0, y: 42 },
+  { x: 12, y: 34 },
+  { x: 25, y: 36 },
+  { x: 38, y: 27 },
+  { x: 50, y: 29 },
+  { x: 63, y: 19 },
+  { x: 75, y: 21 },
+  { x: 88, y: 8 },
 ];
 const CHART_PATH = smoothPath(CHART_PTS);
 // Close the fill at the exact plot edges (x = 0 and 88) so it sits flush.
