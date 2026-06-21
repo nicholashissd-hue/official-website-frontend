@@ -28,18 +28,21 @@ const smoothPath = (pts: { x: number; y: number }[]) => {
   return d;
 };
 
-// A confident upward climb with gentle pullbacks (viewBox 0 0 88 46, lower y = higher).
+// A confident upward climb that peaks *inside* the frame and settles gently into
+// the end, with margin on every side so the apex never jams against an edge
+// (viewBox 0 0 88 46, lower y = higher).
 const CHART_PTS = [
-  { x: 2, y: 38 },
-  { x: 14, y: 33 },
-  { x: 26, y: 35 },
-  { x: 38, y: 27 },
-  { x: 50, y: 24 },
-  { x: 62, y: 17 },
-  { x: 74, y: 19 },
-  { x: 86, y: 6 },
+  { x: 4, y: 39 },
+  { x: 15, y: 35 },
+  { x: 27, y: 37 },
+  { x: 39, y: 29 },
+  { x: 50, y: 31 },
+  { x: 61, y: 21 },
+  { x: 73, y: 15 },
+  { x: 84, y: 18 },
 ];
 const CHART_PATH = smoothPath(CHART_PTS);
+const CHART_AREA = `${CHART_PATH} L ${CHART_PTS[CHART_PTS.length - 1].x} 46 L ${CHART_PTS[0].x} 46 Z`;
 
 const KPIS = [
   { label: "Users", value: 12480, suffix: "" },
@@ -293,7 +296,7 @@ const BuildWindow = () => {
                   animate={{ opacity: build ? 1 : 0 }}
                   transition={{ duration: 0.4, ease: EASE }}
                 >
-                  <path d={`${CHART_PATH} L86 46 L2 46 Z`} fill="url(#area)" stroke="none" />
+                  <path d={CHART_AREA} fill="url(#area)" stroke="none" />
                   <path
                     d={CHART_PATH}
                     stroke="#0fb45e"
