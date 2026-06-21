@@ -6,7 +6,6 @@ import { ctaText as careersCTA } from "@/contents/screens/careers";
 import { ctaText as launchCTA } from "@/contents/screens/launch";
 import { homeCTAText } from "@/contents/footer";
 import Button from "./button";
-import Eyebrow from "./eyebrow";
 import Reveal from "./reveal";
 import NetworkCanvas from "./network-canvas";
 import CalendlyCTA from "../contactUs/react-calendly";
@@ -46,9 +45,7 @@ const CTASection = () => {
             />
 
             <div className="relative flex flex-col items-center text-center">
-              <Eyebrow dark>{content.eyebrow}</Eyebrow>
-
-              <h2 className="mt-7 max-w-3xl text-balance font-display text-[clamp(2.1rem,4.4vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-bg-cream">
+              <h2 className="max-w-3xl text-balance font-display text-[clamp(2.1rem,4.4vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-bg-cream">
                 {content.title}
               </h2>
 

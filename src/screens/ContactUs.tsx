@@ -1,5 +1,4 @@
 import Form from "@/components/contactUs/Form";
-import Eyebrow from "@/components/ui/eyebrow";
 import PhotoCard from "@/components/ui/photo-card";
 import Reveal from "@/components/ui/reveal";
 import Underlined from "@/components/ui/underline";
@@ -19,7 +18,9 @@ const WhatHappensNext = () => (
       className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_120%_at_100%_0%,#074527_0%,transparent_60%)]"
     />
     <div className="relative flex h-full flex-col">
-      <Eyebrow dark>What Happens Next?</Eyebrow>
+      <h3 className="font-display text-xl font-semibold leading-snug tracking-[-0.01em] text-bg-cream">
+        What Happens Next?
+      </h3>
 
       <ol className="mt-7 flex flex-1 flex-col justify-center gap-3">
         {NEXT_STEPS.map((step, index) => (

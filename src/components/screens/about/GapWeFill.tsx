@@ -4,7 +4,6 @@ import {
   gapText,
 } from "@/contents/screens/about";
 import SectionHeading from "@/components/ui/section-heading";
-import Eyebrow from "@/components/ui/eyebrow";
 import Reveal, { Lift } from "@/components/ui/reveal";
 import Underlined from "@/components/ui/underline";
 import { cn } from "@/lib/util";
@@ -158,8 +157,7 @@ const GapWeFill = () => {
             />
             <div className="relative grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:gap-16">
               <div>
-                <Eyebrow dark>The Synthesis</Eyebrow>
-                <h3 className="mt-6 font-display text-[clamp(1.7rem,3vw,2.4rem)] font-semibold leading-[1.15] tracking-[-0.01em] text-bg-cream">
+                <h3 className="font-display text-[clamp(1.7rem,3vw,2.4rem)] font-semibold leading-[1.15] tracking-[-0.01em] text-bg-cream">
                   {elderOpsStandardText.title}
                 </h3>
                 <div className="mt-6 space-y-5">

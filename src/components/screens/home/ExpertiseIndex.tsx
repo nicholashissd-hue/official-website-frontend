@@ -2,7 +2,6 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { coreSolutionsData, coreSolutionsText } from "@/contents/screens/home";
 import SectionHeading from "@/components/ui/section-heading";
-import Eyebrow from "@/components/ui/eyebrow";
 import ArrowLink from "@/components/ui/arrow-link";
 import Reveal, { EASE } from "@/components/ui/reveal";
 import { cn } from "@/lib/util";
@@ -97,8 +96,7 @@ const ExpertiseIndex = () => {
                 transition={{ duration: 0.45, ease: EASE }}
                 className="h-full rounded-3xl bg-bg-cream/[0.06] p-8 ring-1 ring-bg-cream/15 md:p-10"
               >
-                <Eyebrow dark>Focus Area</Eyebrow>
-                <p className="mt-6 text-[15px] leading-[1.85] text-bg-light/85 md:text-[17px]">
+                <p className="text-[15px] leading-[1.85] text-bg-light/85 md:text-[17px]">
                   {coreSolutionsData[active].description}
                 </p>
                 <ArrowLink dark to="/solutions" className="mt-8">

@@ -75,15 +75,7 @@ const Capabilities = () => {
               outline. Differentiated by composition, not surface. */}
           <Reveal delay={capabilitiesData.length * 0.06}>
             <Lift className="flex h-full min-h-[320px] flex-col items-center justify-center rounded-3xl p-9 text-center ring-1 ring-bg-cream/25 md:p-11">
-              <p className="eyebrow justify-center text-border-light">
-                <span
-                  aria-hidden="true"
-                  className="size-1.5 shrink-0 rounded-full bg-success"
-                />
-                {bespokeText.eyebrow}
-              </p>
-
-              <h3 className="mt-5 max-w-sm font-display text-[1.7rem] font-semibold leading-tight tracking-[-0.01em] text-bg-cream md:text-3xl">
+              <h3 className="max-w-sm font-display text-[1.7rem] font-semibold leading-tight tracking-[-0.01em] text-bg-cream md:text-3xl">
                 {bespokeText.title}
               </h3>
               <p className="mt-3 max-w-sm text-[15px] leading-[1.75] text-accent-four">

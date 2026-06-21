@@ -1,4 +1,3 @@
-import Eyebrow from "@/components/ui/eyebrow";
 import Reveal from "@/components/ui/reveal";
 
 const LAST_UPDATED = "June 11, 2026";
@@ -111,8 +110,7 @@ const Terms = () => {
     <section className="bg-bg-cream">
       <div className="container pb-24 pt-36 md:pb-32 md:pt-44">
         <Reveal immediate y={20}>
-          <Eyebrow>Legal</Eyebrow>
-          <h1 className="mt-6 font-display text-[clamp(2.2rem,4.6vw,3.6rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-primary">
+          <h1 className="font-display text-[clamp(2.2rem,4.6vw,3.6rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-primary">
             Terms of Service
           </h1>
           <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-accent-three">

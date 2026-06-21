@@ -4,7 +4,6 @@ import {
   vettingText,
 } from "@/contents/screens/talents";
 import SectionHeading from "@/components/ui/section-heading";
-import Eyebrow from "@/components/ui/eyebrow";
 import Button from "@/components/ui/button";
 import Reveal, { Lift } from "@/components/ui/reveal";
 
@@ -45,8 +44,7 @@ const VettingPillars = () => {
               className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_120%_at_100%_0%,#074527_0%,transparent_60%)]"
             />
             <div className="relative">
-              <Eyebrow dark>Selection Standard</Eyebrow>
-              <h3 className="mt-5 font-display text-2xl font-semibold leading-snug tracking-[-0.01em] text-bg-cream md:text-3xl">
+              <h3 className="font-display text-2xl font-semibold leading-snug tracking-[-0.01em] text-bg-cream md:text-3xl">
                 {criticalInitiativesText.title}
               </h3>
               <p className="mt-4 max-w-2xl text-[15px] leading-[1.8] text-accent-four">

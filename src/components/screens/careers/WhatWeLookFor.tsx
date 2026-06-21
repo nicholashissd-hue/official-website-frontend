@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { lookForData, lookForText } from "@/contents/screens/careers";
-import Eyebrow from "@/components/ui/eyebrow";
 import Reveal, { EASE } from "@/components/ui/reveal";
 
 /** A check that draws itself in when its row scrolls into view. */
@@ -35,8 +34,7 @@ const WhatWeLookFor = () => {
           {/* Left — editorial statement (sticky on desktop) */}
           <div className="lg:sticky lg:top-28 lg:self-start">
             <Reveal>
-              <Eyebrow index="01">The Bar</Eyebrow>
-              <h2 className="mt-6 font-display text-[clamp(2rem,4.2vw,3.3rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-primary">
+              <h2 className="font-display text-[clamp(2rem,4.2vw,3.3rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-primary">
                 {lookForText.title}
               </h2>
               <p className="mt-5 max-w-md text-[15px] leading-[1.8] text-accent-one md:text-[17px]">

@@ -1,5 +1,4 @@
 import { heroText } from "@/contents/screens/about";
-import Eyebrow from "@/components/ui/eyebrow";
 import PhotoCard from "@/components/ui/photo-card";
 import Reveal from "@/components/ui/reveal";
 import Underlined from "@/components/ui/underline";
@@ -49,8 +48,8 @@ const Hero = () => {
               <p className="mt-4 font-display text-[clamp(1.3rem,2.6vw,1.9rem)] font-medium leading-[1.4] tracking-[-0.01em] text-bg-cream">
                 {heroText.quote}
               </p>
-              <footer className="mt-7">
-                <Eyebrow dark>The ElderOps Philosophy</Eyebrow>
+              <footer className="mt-7 font-mono text-[10px] uppercase tracking-[0.2em] text-accent-four">
+                The ElderOps Philosophy
               </footer>
             </div>
           </blockquote>

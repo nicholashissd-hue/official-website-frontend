@@ -1,10 +1,11 @@
 import { cn } from "@/lib/util";
 import type { ReactNode } from "react";
-import Eyebrow from "./eyebrow";
 import Reveal from "./reveal";
 
 interface SectionHeadingProps {
-  eyebrow: string;
+  /** @deprecated kept for call-site compatibility; no longer rendered. */
+  eyebrow?: string;
+  /** @deprecated kept for call-site compatibility; no longer rendered. */
   index?: string;
   title: ReactNode;
   lede?: ReactNode;
@@ -22,8 +23,6 @@ interface SectionHeadingProps {
  * optional supporting paragraph. Keeps rhythm consistent site-wide.
  */
 const SectionHeading = ({
-  eyebrow,
-  index,
   title,
   lede,
   dark = false,
@@ -42,13 +41,9 @@ const SectionHeading = ({
         className,
       )}
     >
-      <Eyebrow index={index} dark={dark}>
-        {eyebrow}
-      </Eyebrow>
-
       <h2
         className={cn(
-          "mt-6 font-display text-[clamp(2rem,4.2vw,3.3rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-balance",
+          "font-display text-[clamp(2rem,4.2vw,3.3rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-balance",
           dark ? "text-bg-cream" : "text-primary",
           centered ? "max-w-4xl" : "max-w-3xl",
         )}
