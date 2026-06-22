@@ -1,6 +1,5 @@
 import { useLocation } from "react-router";
 import { ctaText as solutionsCTA } from "@/contents/screens/solutions";
-import { ctaText as talentsCTA } from "@/contents/screens/talents";
 import { ctaText as aboutCTA } from "@/contents/screens/about";
 import { ctaText as careersCTA } from "@/contents/screens/careers";
 import { ctaText as launchCTA } from "@/contents/screens/launch";
@@ -20,7 +19,6 @@ export interface CTAContent {
 const CTA_MAP: Record<string, CTAContent> = {
   "/": homeCTAText,
   "/solutions": solutionsCTA,
-  "/talent": talentsCTA,
   "/about": aboutCTA,
   "/careers": careersCTA,
   "/startup-launch": launchCTA,

@@ -13,12 +13,7 @@ const PAGE_META: Record<string, { title: string; description: string }> = {
   "/solutions": {
     title: "Solutions — ElderOps",
     description:
-      "Engineering expertise that drives business outcomes: cloud & DevOps, data platforms, analytics & BI, AI/ML enablement, and product engineering.",
-  },
-  "/talent": {
-    title: "Talent — ElderOps",
-    description:
-      "Globally vetted senior, staff, and principal engineers — technically assessed, communication evaluated, and matched to real delivery requirements.",
+      "Senior engineering talent matched to your roadmap — cloud & DevOps, data platforms, analytics & BI, AI/ML enablement, and product engineering, with accountable delivery.",
   },
   "/about": {
     title: "About — ElderOps",

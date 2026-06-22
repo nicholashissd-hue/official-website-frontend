@@ -1,8 +1,8 @@
 export const heroText = {
-  titleLineOne: "Global Engineering Talent.",
-  titleLineTwo: "Enterprise Standards.",
+  titleLineOne: "Senior Engineering Talent.",
+  titleLineTwo: "Enterprise Outcomes.",
   subtext:
-    "Every engineer is technically assessed, communication evaluated, and matched to real-world delivery requirements.",
+    "From cloud and data platforms to AI and product engineering, we match rigorously vetted senior engineers to your roadmap — embedded in your team and accountable for what they ship.",
 };
 
 export const rolesText = {
@@ -86,102 +86,6 @@ export const rolesData: RoleProfile[] = [
     ],
   },
 ];
-
-export const integrationText = {
-  title: "Engineers Who Feel Like They've Been on Your Team for Years",
-  subtext:
-    "We prioritize communication, accountability, and delivery ownership alongside technical excellence so integration happens naturally. Select a role to see what clients consistently notice first.",
-};
-
-export interface TestimonyEntry {
-  pillar: string;
-  quote: string;
-  source: string;
-}
-
-export const testimonyData: Record<string, TestimonyEntry[]> = {
-  "Senior Engineer": [
-    {
-      pillar: "Communication",
-      quote: "Clear updates, strong documentation, and dependable delivery.",
-      source: "Engineering Manager — SaaS",
-    },
-    {
-      pillar: "Ownership",
-      quote: "Takes initiatives from planning through implementation.",
-      source: "VP Engineering — FinTech",
-    },
-    {
-      pillar: "Technical Excellence",
-      quote: "Deep expertise in cloud platforms and automation.",
-      source: "CTO — HealthTech",
-    },
-    {
-      pillar: "Team Integration",
-      quote: "Works seamlessly alongside internal developers.",
-      source: "Engineering Manager — E-Commerce",
-    },
-    {
-      pillar: "Business Impact",
-      quote: "Accelerates delivery without increasing management overhead.",
-      source: "Founder — B2B Software",
-    },
-  ],
-  "Staff Engineer": [
-    {
-      pillar: "Communication",
-      quote: "Aligns stakeholders across engineering and product teams.",
-      source: "VP Product — SaaS",
-    },
-    {
-      pillar: "Ownership",
-      quote: "Drives complex initiatives with minimal oversight.",
-      source: "CTO — Logistics",
-    },
-    {
-      pillar: "Technical Excellence",
-      quote: "Provides architectural guidance and technical leadership.",
-      source: "VP Engineering — FinTech",
-    },
-    {
-      pillar: "Team Integration",
-      quote: "Creates consistency across multiple teams.",
-      source: "Engineering Director — Media",
-    },
-    {
-      pillar: "Business Impact",
-      quote: "Improves engineering velocity while reducing technical debt.",
-      source: "COO — HealthTech",
-    },
-  ],
-  "Principal Engineer": [
-    {
-      pillar: "Communication",
-      quote: "Translates complex technical decisions into clear business language.",
-      source: "CEO — B2B Software",
-    },
-    {
-      pillar: "Ownership",
-      quote: "Guides modernization efforts from strategy through execution.",
-      source: "CTO — FinTech",
-    },
-    {
-      pillar: "Technical Excellence",
-      quote: "Designs systems capable of supporting long-term organizational growth.",
-      source: "VP Engineering — E-Commerce",
-    },
-    {
-      pillar: "Team Integration",
-      quote: "Partners closely with executives, engineering leaders, and delivery teams.",
-      source: "CIO — Healthcare",
-    },
-    {
-      pillar: "Business Impact",
-      quote: "Creates technology strategies that enable scale and operational efficiency.",
-      source: "Founder — Logistics",
-    },
-  ],
-};
 
 export const vettingText = {
   title: "Why Teams Trust ElderOps Engineers",

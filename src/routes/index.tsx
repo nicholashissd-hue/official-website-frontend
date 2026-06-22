@@ -5,7 +5,6 @@ import { Route, Routes } from "react-router";
 
 const Home = lazy(() => import("@/screens/Home"));
 const Solutions = lazy(() => import("@/screens/Solutions"));
-const Talents = lazy(() => import("@/screens/Talents"));
 const StartupLaunch = lazy(() => import("@/screens/StartupLaunch"));
 const About = lazy(() => import("@/screens/About"));
 const Contact = lazy(() => import("@/screens/ContactUs"));
@@ -25,7 +24,6 @@ const AppRoutes = () => {
         <Route element={<Layout />}>
           <Route index path="/" element={<Home />} />
           <Route index path="/solutions" element={<Solutions />} />
-          <Route index path="/talent" element={<Talents />} />
           <Route index path="/startup-launch" element={<StartupLaunch />} />
           <Route index path="/about" element={<About />} />
           <Route index path="/careers" element={<Careers />} />
