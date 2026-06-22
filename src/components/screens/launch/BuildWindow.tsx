@@ -331,14 +331,17 @@ const BuildWindow = () => {
           )}
         </AnimatePresence>
 
+        {/* Toast sits in the vertical middle of the chart (same horizontal
+            centre). Opacity-only on the positioned node so the Tailwind
+            transform (centring) isn't overridden by framer. */}
         <AnimatePresence>
           {live && (
             <motion.div
               key="toast"
-              className="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-bg-cream/95 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.16em] text-primary shadow-lg backdrop-blur-sm"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
+              className="absolute left-1/2 top-[64%] z-10 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-bg-cream/95 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.16em] text-primary shadow-lg backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.4, ease: EASE }}
             >
               ✓ Deployed to production
@@ -346,15 +349,21 @@ const BuildWindow = () => {
           )}
         </AnimatePresence>
 
+        {/* Deploy ripple, centred on the toast. Wrapper handles position; the
+            inner span scales from its own centre. */}
         {live && !reduceMotion && (
-          <motion.span
-            key={`ripple-${phase}`}
+          <div
             aria-hidden="true"
-            className="absolute bottom-7 left-1/2 z-0 size-16 -translate-x-1/2 rounded-full border border-success/60"
-            initial={{ scale: 0.3, opacity: 0.7 }}
-            animate={{ scale: 5, opacity: 0 }}
-            transition={{ duration: 1.4, ease: "easeOut" }}
-          />
+            className="pointer-events-none absolute left-1/2 top-[64%] z-0 -translate-x-1/2 -translate-y-1/2"
+          >
+            <motion.span
+              key={`ripple-${phase}`}
+              className="block size-16 rounded-full border border-success/60"
+              initial={{ scale: 0.3, opacity: 0.7 }}
+              animate={{ scale: 5, opacity: 0 }}
+              transition={{ duration: 1.4, ease: "easeOut" }}
+            />
+          </div>
         )}
       </div>
 
