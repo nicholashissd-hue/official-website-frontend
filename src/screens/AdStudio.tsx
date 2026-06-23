@@ -1,25 +1,5 @@
 import { useState } from "react";
-import {
-  TEMPLATES,
-  type AdCopy,
-  type TemplateId,
-} from "@/components/adstudio/templates";
 import { cn } from "@/lib/util";
-
-const DEFAULT_COPY: AdCopy = {
-  eyebrow: "DAY TO DAY ENGINEERING",
-  headline: "Embedded,\nNot Outsourced",
-  subhead: "Inside the work. Close to the outcome.",
-};
-
-/** Client-side fallback copy when the AI copy endpoint isn't reachable. */
-const FALLBACK: AdCopy[] = [
-  { eyebrow: "DAY TO DAY ENGINEERING", headline: "Embedded,\nNot Outsourced", subhead: "Inside the work. Close to the outcome." },
-  { eyebrow: "SENIOR ENGINEERING TALENT", headline: "Ownership,\nNot Headcount", subhead: "Engineers accountable for what they ship." },
-  { eyebrow: "ENTERPRISE DELIVERY", headline: "Strategy Meets\nExecution", subhead: "From roadmap to production, owned end to end." },
-  { eyebrow: "CLOUD · DATA · AI", headline: "Your Roadmap,\nDelivered", subhead: "Full-stack senior engineers, matched to your mission." },
-  { eyebrow: "SCALE WITH CONFIDENCE", headline: "Move Fast.\nStay Senior.", subhead: "Engineering depth, exactly when you need it." },
-];
 
 /* ── Login gate (shared password, verified server-side) ─────────── */
 const Gate = ({ onAuthed }: { onAuthed: () => void }) => {
@@ -53,14 +33,11 @@ const Gate = ({ onAuthed }: { onAuthed: () => void }) => {
   return (
     <div className="grain flex min-h-dvh items-center justify-center bg-primary px-6">
       <form onSubmit={submit} className="w-full max-w-sm">
-        <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-border-light">
-          ElderOps
-        </p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-border-light">ElderOps</p>
         <h1 className="mt-3 font-display text-3xl font-semibold tracking-[-0.01em] text-bg-cream">
           Ad Studio
         </h1>
         <p className="mt-2 text-[14px] text-accent-four">Enter the studio password to continue.</p>
-
         <input
           type="password"
           value={password}
@@ -87,76 +64,57 @@ const Gate = ({ onAuthed }: { onAuthed: () => void }) => {
 };
 
 /* ── Studio ─────────────────────────────────────────────────────── */
-const Field = ({
-  label,
-  value,
-  onChange,
-  textarea,
-}: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-  textarea?: boolean;
-}) => (
-  <label className="block">
-    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent-three">
-      {label}
-    </span>
-    {textarea ? (
-      <textarea
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        rows={2}
-        className="mt-2 w-full resize-none rounded-lg border border-primary/15 bg-white px-3 py-2.5 text-[14px] text-primary outline-none focus:border-success"
-      />
-    ) : (
-      <input
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="mt-2 w-full rounded-lg border border-primary/15 bg-white px-3 py-2.5 text-[14px] text-primary outline-none focus:border-success"
-      />
-    )}
-  </label>
-);
+const ASPECTS = [
+  { v: "3:2", label: "Landscape" },
+  { v: "1:1", label: "Square" },
+  { v: "4:5", label: "Portrait" },
+  { v: "9:16", label: "Story" },
+  { v: "16:9", label: "Wide" },
+];
+
+const EXAMPLES: { label: string; prompt: string }[] = [
+  {
+    label: "Bold statement",
+    prompt:
+      "A bold, premium brand ad on a deep British-racing-green field with a soft emerald glow. Huge confident headline that reads \"Embedded, Not Outsourced\" on two lines, a small uppercase eyebrow above that reads \"DAY TO DAY ENGINEERING\", and a subhead that reads \"Inside the work. Close to the outcome.\". Minimal, gallery-grade, scroll-stopping.",
+  },
+  {
+    label: "Team photo",
+    prompt:
+      "A premium documentary photo of a diverse senior engineering team genuinely collaborating around a laptop in a bright modern office with plants and natural light. Across the bottom, a deep racing-green band with the headline \"Your team, not a vendor\" and the subhead \"Senior engineers who work like they're yours.\". Authentic, not stock.",
+  },
+  {
+    label: "Viral hook",
+    prompt:
+      "A witty, scroll-stopping social ad built to go viral. High-contrast deep-green and near-black with one vivid emerald accent. A huge punchy headline that reads \"Most “seniors” are expensive juniors.\" and a small subhead that reads \"We only place the real thing.\". Daring, premium, debate-sparking.",
+  },
+  {
+    label: "Cinematic desk",
+    prompt:
+      "A cinematic photo of a developer's desk at dusk, a monitor glowing softly with code, warm lamp light, deep-green ambiance, shallow depth of field, no faces. Lower-left headline that reads \"Inside the work\" with a subhead that reads \"Close to the code. Close to the outcome.\". Atmospheric and aspirational.",
+  },
+  {
+    label: "Conceptual",
+    prompt:
+      "An artful conceptual ad: a single brilliantly glowing emerald figure standing out among a vast field of faint identical silhouettes in deep green. Bold headline that reads \"Built to stand out\" with a subhead that reads \"Senior engineers who aren't like the rest.\". Cinematic, symbolic, gallery-grade.",
+  },
+];
 
 const Studio = () => {
-  const [copy, setCopy] = useState<AdCopy>(DEFAULT_COPY);
-  const [style, setStyle] = useState<TemplateId>("layers");
-  const [writingCopy, setWritingCopy] = useState(false);
+  const [prompt, setPrompt] = useState(EXAMPLES[0].prompt);
+  const [aspect, setAspect] = useState("3:2");
   const [generating, setGenerating] = useState(false);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const set = (k: keyof AdCopy) => (v: string) => setCopy((c) => ({ ...c, [k]: v }));
-
-  const writeCopy = async () => {
-    setWritingCopy(true);
-    try {
-      const res = await fetch("/api/ad-copy", { method: "POST" });
-      const data = await res.json();
-      if (data?.ok && data.copy) {
-        setCopy(data.copy);
-        return;
-      }
-      throw new Error("no copy");
-    } catch {
-      setCopy((prev) => {
-        const opts = FALLBACK.filter((f) => f.headline !== prev.headline);
-        return opts[Math.floor(Math.random() * opts.length)] ?? FALLBACK[0];
-      });
-    } finally {
-      setWritingCopy(false);
-    }
-  };
-
-  const generateImage = async () => {
+  const generate = async () => {
     setGenerating(true);
     setError(null);
     try {
       const res = await fetch("/api/generate-ad", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ style, copy }),
+        body: JSON.stringify({ prompt, aspectRatio: aspect }),
       });
       const data = await res.json();
       if (data?.ok && data.image) setImageUrl(data.image);
@@ -187,51 +145,73 @@ const Studio = () => {
         </span>
       </header>
 
-      <div className="grid gap-8 p-6 lg:grid-cols-[380px_1fr] lg:p-8">
+      <div className="grid gap-8 p-6 lg:grid-cols-[420px_1fr] lg:p-8">
         {/* Controls */}
         <div className="flex flex-col gap-5 rounded-2xl border border-primary/10 bg-white p-6">
           <div>
             <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent-three">
-              Style
+              Describe your ad
             </span>
-            <div className="mt-2 grid grid-cols-3 gap-1.5 rounded-lg bg-bg-light p-1">
-              {TEMPLATES.map((t) => (
+            <textarea
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
+              rows={8}
+              placeholder="e.g. A bold ad on deep green with the headline “Embedded, Not Outsourced”…"
+              className="mt-2 w-full resize-none rounded-lg border border-primary/15 bg-white px-3 py-3 text-[14px] leading-relaxed text-primary outline-none focus:border-success"
+            />
+            <p className="mt-2 text-[12px] leading-relaxed text-accent-three">
+              Your ElderOps logo is added to every ad automatically. Say where you want it, or it'll
+              be placed neatly in a corner.
+            </p>
+          </div>
+
+          <div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent-three">
+              Start from an example
+            </span>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {EXAMPLES.map((ex) => (
                 <button
-                  key={t.id}
+                  key={ex.label}
                   type="button"
-                  onClick={() => setStyle(t.id)}
-                  className={cn(
-                    "rounded-md px-2 py-2 text-[11px] font-medium leading-tight transition-colors",
-                    style === t.id
-                      ? "bg-primary text-bg-cream"
-                      : "text-accent-one hover:bg-primary/[0.06]",
-                  )}
+                  onClick={() => setPrompt(ex.prompt)}
+                  className="rounded-full border border-primary/15 px-3 py-1.5 text-[12px] text-accent-one transition-colors hover:bg-primary/[0.05]"
                 >
-                  {t.name}
+                  {ex.label}
                 </button>
               ))}
             </div>
           </div>
 
-          <Field label="Eyebrow" value={copy.eyebrow} onChange={set("eyebrow")} />
-          <Field label="Headline (Enter for line break)" value={copy.headline} onChange={set("headline")} textarea />
-          <Field label="Subhead" value={copy.subhead} onChange={set("subhead")} textarea />
+          <div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent-three">
+              Format
+            </span>
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              {ASPECTS.map((a) => (
+                <button
+                  key={a.v}
+                  type="button"
+                  onClick={() => setAspect(a.v)}
+                  className={cn(
+                    "rounded-md px-3 py-2 text-[12px] font-medium transition-colors",
+                    aspect === a.v ? "bg-primary text-bg-cream" : "bg-bg-light text-accent-one hover:bg-primary/[0.06]",
+                  )}
+                >
+                  {a.label}
+                  <span className="ml-1 text-[10px] opacity-60">{a.v}</span>
+                </button>
+              ))}
+            </div>
+          </div>
 
           <button
             type="button"
-            onClick={writeCopy}
-            disabled={writingCopy}
-            className="rounded-full border border-primary/20 px-5 py-3 font-mono text-[12px] font-semibold uppercase tracking-[0.16em] text-primary transition-colors hover:bg-primary/[0.05] disabled:opacity-50"
+            onClick={generate}
+            disabled={generating || prompt.trim().length < 3}
+            className="rounded-full bg-success px-5 py-3.5 font-mono text-[12px] font-semibold uppercase tracking-[0.16em] text-deep transition-colors hover:bg-border-light disabled:opacity-50"
           >
-            {writingCopy ? "Writing…" : "✦ Write Copy with AI"}
-          </button>
-          <button
-            type="button"
-            onClick={generateImage}
-            disabled={generating || !copy.headline.trim()}
-            className="rounded-full bg-success px-5 py-3 font-mono text-[12px] font-semibold uppercase tracking-[0.16em] text-deep transition-colors hover:bg-border-light disabled:opacity-50"
-          >
-            {generating ? "Generating…" : "⟳ Generate Image"}
+            {generating ? "Generating…" : "⟳ Generate Ad"}
           </button>
           {imageUrl && !generating && (
             <button
@@ -242,29 +222,28 @@ const Studio = () => {
               ↓ Download PNG
             </button>
           )}
-          {error && (
-            <p className="font-mono text-[11px] leading-relaxed text-red-500">{error}</p>
-          )}
+          {error && <p className="font-mono text-[11px] leading-relaxed text-red-500">{error}</p>}
         </div>
 
         {/* Preview */}
         <div className="flex items-start justify-center">
           <div className="w-full max-w-3xl">
-            <div className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl border border-primary/10 bg-deep ring-1 ring-primary/5">
+            <div
+              className="relative w-full overflow-hidden rounded-2xl border border-primary/10 bg-deep ring-1 ring-primary/5"
+              style={{ aspectRatio: aspect.replace(":", " / ") }}
+            >
               {imageUrl ? (
-                <img src={imageUrl} alt="Generated ad" className="size-full object-cover" />
+                <img src={imageUrl} alt="Generated ad" className="size-full object-contain" />
               ) : (
                 <div className="flex size-full items-center justify-center px-8 text-center">
                   <p className="max-w-xs font-mono text-[12px] uppercase leading-relaxed tracking-[0.16em] text-accent-four">
-                    {generating
-                      ? "Generating your ad…"
-                      : "Set your copy and a style, then Generate Image"}
+                    {generating ? "Generating your ad…" : "Describe an ad, then Generate"}
                   </p>
                 </div>
               )}
             </div>
             <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-accent-three">
-              {TEMPLATES.find((t) => t.id === style)?.name} · 3:2 · AI-generated
+              {aspect} · AI-generated · logo embedded
             </p>
           </div>
         </div>
