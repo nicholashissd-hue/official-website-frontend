@@ -10,6 +10,7 @@ const About = lazy(() => import("@/screens/About"));
 const Contact = lazy(() => import("@/screens/ContactUs"));
 const Careers = lazy(() => import("@/screens/Careers"));
 const Terms = lazy(() => import("@/screens/Terms"));
+const AdStudio = lazy(() => import("@/screens/AdStudio"));
 
 const LoadingFallback = () => (
   <div className="fixed left-0 right-0 top-0 z-50 h-0.5 overflow-hidden bg-transparent">
@@ -21,6 +22,8 @@ const AppRoutes = () => {
   return (
     <Suspense fallback={<LoadingFallback />}>
       <Routes>
+        {/* Standalone admin tool — no site chrome, hidden from nav */}
+        <Route path="/login" element={<AdStudio />} />
         <Route element={<Layout />}>
           <Route index path="/" element={<Home />} />
           <Route index path="/solutions" element={<Solutions />} />
