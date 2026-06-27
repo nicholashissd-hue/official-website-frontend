@@ -7,7 +7,7 @@ import BuildWindow from "./BuildWindow";
 
 const Hero = () => {
   return (
-    <section className="grain relative overflow-hidden bg-primary">
+    <section className="grain relative overflow-hidden bg-primary lg:flex lg:min-h-screen lg:flex-col lg:justify-center lg:pt-20">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(252,252,244,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(252,252,244,0.035)_1px,transparent_1px)] bg-[size:56px_56px]"
@@ -17,7 +17,7 @@ const Hero = () => {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(85%_90%_at_18%_18%,rgba(1,33,18,0.9)_0%,transparent_70%)]"
       />
 
-      <div className="container relative grid items-center gap-14 pb-20 pt-36 md:pt-44 lg:grid-cols-[1fr_1.05fr] lg:gap-20 lg:pb-28">
+      <div className="container relative grid w-full items-center gap-14 pb-20 pt-36 md:pt-44 lg:grid-cols-[1fr_1.05fr] lg:gap-12 lg:py-8">
         <div>
           <Reveal immediate delay={0.05} y={26}>
             <h1 className="font-display text-[clamp(2.5rem,5.4vw,4.4rem)] font-semibold leading-[1.04] tracking-[-0.02em] text-bg-cream">

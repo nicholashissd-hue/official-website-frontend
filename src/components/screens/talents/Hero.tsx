@@ -12,7 +12,7 @@ const lineTwoLead = lineTwoWords.slice(0, -1).join(" ");
 
 const Hero = () => {
   return (
-    <section className="grain relative overflow-hidden bg-primary">
+    <section className="grain relative overflow-hidden bg-primary lg:flex lg:min-h-screen lg:flex-col lg:justify-center lg:pt-20">
       {/* Engineering-paper grid + tonal depth */}
       <div
         aria-hidden="true"
@@ -23,7 +23,7 @@ const Hero = () => {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(85%_90%_at_15%_20%,rgba(1,33,18,0.9)_0%,transparent_70%)]"
       />
 
-      <div className="container relative grid items-center gap-14 pb-20 pt-36 md:pt-44 lg:grid-cols-[1.05fr_1fr] lg:gap-20 lg:pb-28">
+      <div className="container relative grid w-full items-center gap-14 pb-20 pt-36 md:pt-44 lg:grid-cols-[1.05fr_1fr] lg:gap-12 lg:py-8">
         <div>
           <Reveal immediate delay={0.05} y={26}>
             <h1 className="font-display text-[clamp(2.5rem,5.2vw,4.2rem)] font-semibold leading-[1.06] tracking-[-0.02em] text-bg-cream">
