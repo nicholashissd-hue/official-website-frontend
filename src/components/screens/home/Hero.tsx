@@ -12,7 +12,7 @@ const TRUST_AVATARS = [talentOne, talentTwo, talentThree];
 
 const Hero = () => {
   return (
-    <section className="grain relative overflow-hidden bg-primary lg:flex lg:min-h-screen lg:flex-col lg:justify-center">
+    <section className="grain relative overflow-hidden bg-primary lg:flex lg:min-h-screen lg:flex-col lg:justify-center lg:pt-20">
       {/* Layered depth: gradient, living lattice, glow behind the engine */}
       <div
         aria-hidden="true"
@@ -24,7 +24,7 @@ const Hero = () => {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_55%_at_82%_38%,rgba(6,156,78,0.2)_0%,transparent_70%)]"
       />
 
-      <div className="container relative z-10 grid w-full items-center gap-14 pb-16 pt-32 md:pt-36 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:py-16">
+      <div className="container relative z-10 grid w-full items-center gap-14 pb-16 pt-32 md:pt-36 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:py-8">
         <div>
           <Reveal immediate delay={0.08} y={30}>
             <h1 className="max-w-2xl font-display text-[clamp(2.5rem,5.8vw,4.5rem)] font-semibold leading-[1.03] tracking-[-0.025em] text-bg-cream">
