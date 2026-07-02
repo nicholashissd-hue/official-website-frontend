@@ -19,19 +19,9 @@ const LogoMarquee = ({ dark = false }: LogoMarqueeProps) => {
   const logos = [...source, ...source];
 
   return (
-    <div className="relative overflow-hidden py-1">
-      <div
-        className={cn(
-          "pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-24 bg-linear-to-r to-transparent sm:w-60",
-          dark ? "from-primary" : "from-bg-cream",
-        )}
-      />
-      <div
-        className={cn(
-          "pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-24 bg-linear-to-l to-transparent sm:w-60",
-          dark ? "from-primary" : "from-bg-cream",
-        )}
-      />
+    // Edge fade via mask (not colored overlays) so it sits cleanly on ANY
+    // background — gradients included — with no hard cutoff.
+    <div className="relative overflow-hidden py-1 [-webkit-mask-image:linear-gradient(to_right,transparent,black_14%,black_86%,transparent)] [mask-image:linear-gradient(to_right,transparent,black_14%,black_86%,transparent)]">
 
       <div className="animate-marquee flex w-max gap-8 sm:gap-12 md:gap-16">
         {logos.map((company, index) => (
