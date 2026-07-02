@@ -1,6 +1,6 @@
 import { heroText } from "@/contents/screens/careers";
 import Button from "@/components/ui/button";
-import HeroStatStrip from "@/components/ui/hero-stat-strip";
+import HeroSectionIndex from "@/components/ui/hero-section-index";
 import Reveal from "@/components/ui/reveal";
 import Underlined from "@/components/ui/underline";
 import CalendlyCTA from "@/components/contactUs/react-calendly";
@@ -11,11 +11,11 @@ const lineTwoWords = heroText.titleLineTwo.split(" ");
 const lineTwoLast = lineTwoWords[lineTwoWords.length - 1];
 const lineTwoLead = lineTwoWords.slice(0, -1).join(" ");
 
-const STATS = [
-  { value: "240+", label: "Engineers in the network" },
-  { value: "<4%", label: "Acceptance rate" },
-  { label: "Senior · Staff · Principal" },
-  { label: "Global network" },
+const SECTIONS = [
+  { id: "the-bar", label: "What We Look For" },
+  { id: "how-we-vet", label: "How We Vet" },
+  { id: "expertise", label: "Disciplines" },
+  { id: "why-join", label: "Why Join" },
 ];
 
 const scrollToExpertise = () => {
@@ -88,7 +88,7 @@ const Hero = () => {
         </Reveal>
       </div>
 
-      <HeroStatStrip stats={STATS} />
+      <HeroSectionIndex items={SECTIONS} />
     </section>
   );
 };

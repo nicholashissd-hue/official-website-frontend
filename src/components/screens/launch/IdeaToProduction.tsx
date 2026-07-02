@@ -120,7 +120,7 @@ const IdeaToProduction = () => {
   const gridYs = ready ? [0.28, 0.55, 0.82].map((f) => PAD.t + f * (baseY - PAD.t)) : [];
 
   return (
-    <section className="bg-bg-light">
+    <section id="process" className="scroll-mt-24 bg-bg-light">
       <div className="container section-space-block">
         <SectionHeading title={timelineText.title} lede={timelineText.subtext} />
 

@@ -10,7 +10,7 @@ import Reveal, { Lift } from "@/components/ui/reveal";
 /** "Why Teams Trust ElderOps Engineers" — vetting pillars + critical-initiatives card. */
 const VettingPillars = () => {
   return (
-    <section className="bg-bg-light">
+    <section id="vetting" className="scroll-mt-24 bg-bg-light">
       <div className="container section-space-block">
         <SectionHeading
           index="03"

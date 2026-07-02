@@ -28,7 +28,7 @@ const DrawnCheck = ({ delay }: { delay: number }) => (
  */
 const WhatWeLookFor = () => {
   return (
-    <section className="bg-bg-cream">
+    <section id="the-bar" className="scroll-mt-24 bg-bg-cream">
       <div className="container section-space-block">
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           {/* Left — editorial statement (sticky on desktop) */}

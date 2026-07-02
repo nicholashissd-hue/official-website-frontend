@@ -1,6 +1,6 @@
 import { heroText } from "@/contents/screens/talents";
 import Button from "@/components/ui/button";
-import HeroStatStrip from "@/components/ui/hero-stat-strip";
+import HeroSectionIndex from "@/components/ui/hero-section-index";
 import Reveal from "@/components/ui/reveal";
 import Underlined from "@/components/ui/underline";
 import CalendlyCTA from "@/components/contactUs/react-calendly";
@@ -11,11 +11,11 @@ const lineTwoWords = heroText.titleLineTwo.split(" ");
 const lineTwoLast = lineTwoWords[lineTwoWords.length - 1];
 const lineTwoLead = lineTwoWords.slice(0, -1).join(" ");
 
-const STATS = [
-  { value: "250+", label: "Vetted senior engineers" },
-  { value: "<4%", label: "Acceptance rate" },
-  { value: "48h", label: "To a curated shortlist" },
-  { label: "Senior · Staff · Principal" },
+const SECTIONS = [
+  { id: "roles", label: "Roles We Place" },
+  { id: "capabilities", label: "Capabilities" },
+  { id: "vetting", label: "The Vetting Bar" },
+  { id: "start", label: "Getting Started" },
 ];
 
 /**
@@ -79,7 +79,7 @@ const Hero = () => {
         </Reveal>
       </div>
 
-      <HeroStatStrip stats={STATS} />
+      <HeroSectionIndex items={SECTIONS} />
     </section>
   );
 };

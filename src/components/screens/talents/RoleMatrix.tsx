@@ -60,7 +60,7 @@ const RoleMatrix = () => {
   const [flipped, setFlipped] = useState<number | null>(null);
 
   return (
-    <section className="bg-bg-cream">
+    <section id="roles" className="scroll-mt-24 bg-bg-cream">
       <div className="container section-space-block">
         <SectionHeading
           index="01"

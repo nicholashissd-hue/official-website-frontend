@@ -1,17 +1,16 @@
 import { heroText } from "@/contents/screens/launch";
 import Button from "@/components/ui/button";
-import HeroStatStrip from "@/components/ui/hero-stat-strip";
+import HeroSectionIndex from "@/components/ui/hero-section-index";
 import Reveal from "@/components/ui/reveal";
 import Underlined from "@/components/ui/underline";
 import CalendlyCTA from "@/components/contactUs/react-calendly";
 import BuildWindow from "./BuildWindow";
 
-const STATS = [
-  { label: "Websites" },
-  { label: "Applications" },
-  { label: "Infrastructure" },
-  { label: "Data & AI" },
-  { value: "→", label: "Concept to production" },
+const SECTIONS = [
+  { id: "initiatives", label: "Launch Initiatives" },
+  { id: "what-we-build", label: "What We Build" },
+  { id: "process", label: "Idea to Production" },
+  { id: "why-elderops", label: "Why ElderOps" },
 ];
 
 /**
@@ -73,7 +72,7 @@ const Hero = () => {
         </Reveal>
       </div>
 
-      <HeroStatStrip stats={STATS} />
+      <HeroSectionIndex items={SECTIONS} />
     </section>
   );
 };
