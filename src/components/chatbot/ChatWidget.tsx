@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { submitChatLead } from "@/lib/chatbot/chatbotApi";
 import type { ChatLead } from "@/lib/chatbot/types";
@@ -7,10 +7,42 @@ import ChatLauncher from "./ChatLauncher";
 import ChatPanel from "./ChatPanel";
 import LeadCaptureForm from "./LeadCaptureForm";
 
+/** True once the visitor has scrolled past (most of) the hero, so the
+ *  launcher doesn't compete with the hero composition. rAF-batched. */
+const usePastHero = () => {
+  const [pastHero, setPastHero] = useState(
+    () => window.scrollY > window.innerHeight * 0.9,
+  );
+
+  useEffect(() => {
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const next = window.scrollY > window.innerHeight * 0.9;
+      setPastHero((prev) => (prev === next ? prev : next));
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
+  return pastHero;
+};
+
 const ChatWidget = () => {
   const { isChatOpen, setChatOpen, isMobileMenuOpen } = useGlobalStore();
   const [lead, setLead] = useState<ChatLead | null>(null);
   const [isSubmittingLead, setIsSubmittingLead] = useState(false);
+  const pastHero = usePastHero();
 
   const handleLeadSubmit = async (nextLead: ChatLead) => {
     setIsSubmittingLead(true);
@@ -32,7 +64,7 @@ const ChatWidget = () => {
   return (
     <>
       {!isChatOpen && !isMobileMenuOpen && (
-        <ChatLauncher onClick={() => setChatOpen(true)} />
+        <ChatLauncher visible={pastHero} onClick={() => setChatOpen(true)} />
       )}
 
       {isChatOpen && (

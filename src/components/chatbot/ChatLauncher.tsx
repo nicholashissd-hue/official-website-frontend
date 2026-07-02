@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 
 interface ChatLauncherProps {
   onClick: () => void;
+  /** Fade the launcher in only after the visitor scrolls past the hero. */
+  visible?: boolean;
 }
 
 /**
@@ -9,7 +11,7 @@ interface ChatLauncherProps {
  * while the footer is on screen, the wrapper translates up by the overlap.
  * Scroll math is rAF-batched and only attached while the footer is near.
  */
-const ChatLauncher = ({ onClick }: ChatLauncherProps) => {
+const ChatLauncher = ({ onClick, visible = true }: ChatLauncherProps) => {
   const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -54,7 +56,13 @@ const ChatLauncher = ({ onClick }: ChatLauncherProps) => {
   }, []);
 
   return (
-    <div ref={wrapRef} className="fixed bottom-5 right-5 z-[70] sm:bottom-6 sm:right-6">
+    <div
+      ref={wrapRef}
+      aria-hidden={!visible}
+      className={`fixed bottom-5 right-5 z-[70] transition-opacity duration-500 sm:bottom-6 sm:right-6 ${
+        visible ? "opacity-100" : "pointer-events-none opacity-0"
+      }`}
+    >
       <button
         type="button"
         onClick={onClick}
