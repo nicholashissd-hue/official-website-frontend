@@ -67,25 +67,34 @@ const MatchingEngine = () => {
   // Type the requirement, character by character.
   useEffect(() => {
     if (reduceMotion) {
-      setTyped(scenario.requirement);
-      setPhase("match");
-      return;
+      // Async so the React Compiler doesn't flag a synchronous cascade.
+      const t = window.setTimeout(() => {
+        setTyped(scenario.requirement);
+        setPhase("match");
+      }, 0);
+      return () => window.clearTimeout(t);
     }
     if (!inView) return;
 
-    setTyped("");
-    setPhase("typing");
     let characters = 0;
-    const timer = setInterval(() => {
-      characters++;
-      setTyped(scenario.requirement.slice(0, characters));
-      if (characters >= scenario.requirement.length) {
-        clearInterval(timer);
-        setPhase("signals");
-      }
-    }, 24);
+    let timer: number | undefined;
+    const start = window.setTimeout(() => {
+      setTyped("");
+      setPhase("typing");
+      timer = window.setInterval(() => {
+        characters++;
+        setTyped(scenario.requirement.slice(0, characters));
+        if (characters >= scenario.requirement.length) {
+          window.clearInterval(timer);
+          setPhase("signals");
+        }
+      }, 24);
+    }, 0);
 
-    return () => clearInterval(timer);
+    return () => {
+      window.clearTimeout(start);
+      if (timer !== undefined) window.clearInterval(timer);
+    };
   }, [index, scenario.requirement, reduceMotion, inView]);
 
   // Advance signals → match → next scenario.

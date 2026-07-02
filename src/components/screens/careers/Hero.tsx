@@ -29,7 +29,7 @@ const Hero = () => {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(85%_90%_at_18%_18%,rgba(1,33,18,0.9)_0%,transparent_70%)]"
       />
 
-      <div className="container relative grid w-full items-center gap-14 pb-20 pt-36 md:pt-44 lg:grid-cols-[1.02fr_1fr] lg:gap-12 lg:py-8">
+      <div className="container relative grid w-full grid-cols-1 items-center gap-14 pb-20 pt-36 md:pt-44 lg:grid-cols-[1.02fr_1fr] lg:gap-12 lg:py-8">
         <div>
           <Reveal immediate delay={0.05} y={26}>
             <h1 className="font-display text-[clamp(2.5rem,5.2vw,4.2rem)] font-semibold leading-[1.06] tracking-[-0.02em] text-bg-cream">

@@ -1,5 +1,4 @@
 import Hero from "@/components/screens/home/Hero";
-import TrustedCompanies from "@/components/screens/home/TrustedCompanies";
 import Stats from "@/components/screens/home/Stats";
 import DeliveryModel from "@/components/screens/home/DeliveryModel";
 import ExpertiseIndex from "@/components/screens/home/ExpertiseIndex";
@@ -11,7 +10,6 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <TrustedCompanies />
       <Stats />
       <DeliveryModel />
       <ExpertiseIndex />
