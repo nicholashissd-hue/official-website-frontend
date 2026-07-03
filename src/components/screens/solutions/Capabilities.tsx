@@ -14,7 +14,7 @@ import PipelinePulse from "./PipelinePulse";
  */
 const Capabilities = () => {
   return (
-    <section id="capabilities" className="scroll-mt-24 grain relative overflow-hidden bg-primary">
+    <section className="grain relative overflow-hidden bg-primary">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_90%_at_10%_0%,#074527_0%,transparent_55%)]"

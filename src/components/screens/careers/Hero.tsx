@@ -1,6 +1,5 @@
 import { heroText } from "@/contents/screens/careers";
 import Button from "@/components/ui/button";
-import HeroSectionIndex from "@/components/ui/hero-section-index";
 import Reveal from "@/components/ui/reveal";
 import Underlined from "@/components/ui/underline";
 import CalendlyCTA from "@/components/contactUs/react-calendly";
@@ -11,13 +10,6 @@ const lineTwoWords = heroText.titleLineTwo.split(" ");
 const lineTwoLast = lineTwoWords[lineTwoWords.length - 1];
 const lineTwoLead = lineTwoWords.slice(0, -1).join(" ");
 
-const SECTIONS = [
-  { id: "the-bar", label: "What We Look For" },
-  { id: "how-we-vet", label: "How We Vet" },
-  { id: "expertise", label: "Disciplines" },
-  { id: "why-join", label: "Why Join" },
-];
-
 const scrollToExpertise = () => {
   document
     .getElementById("expertise")
@@ -25,8 +17,8 @@ const scrollToExpertise = () => {
 };
 
 /**
- * Full-viewport hero on laptops: fluid poster type, scaled constellation,
- * tonal depth in the field, and a stat strip anchoring the bottom edge.
+ * Full-viewport hero on laptops: fluid poster type and a scaled
+ * constellation, centered in the frame with tonal depth in the field.
  */
 const Hero = () => {
   return (
@@ -87,8 +79,6 @@ const Hero = () => {
           </div>
         </Reveal>
       </div>
-
-      <HeroSectionIndex items={SECTIONS} />
     </section>
   );
 };

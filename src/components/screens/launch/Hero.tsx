@@ -1,21 +1,13 @@
 import { heroText } from "@/contents/screens/launch";
 import Button from "@/components/ui/button";
-import HeroSectionIndex from "@/components/ui/hero-section-index";
 import Reveal from "@/components/ui/reveal";
 import Underlined from "@/components/ui/underline";
 import CalendlyCTA from "@/components/contactUs/react-calendly";
 import BuildWindow from "./BuildWindow";
 
-const SECTIONS = [
-  { id: "initiatives", label: "Launch Initiatives" },
-  { id: "what-we-build", label: "What We Build" },
-  { id: "process", label: "Idea to Production" },
-  { id: "why-elderops", label: "Why ElderOps" },
-];
-
 /**
- * Full-viewport hero on laptops: fluid poster type, scaled build window,
- * tonal depth in the field, and a stat strip anchoring the bottom edge.
+ * Full-viewport hero on laptops: fluid poster type and a scaled build
+ * window, centered in the frame with tonal depth in the field.
  */
 const Hero = () => {
   return (
@@ -71,8 +63,6 @@ const Hero = () => {
           </div>
         </Reveal>
       </div>
-
-      <HeroSectionIndex items={SECTIONS} />
     </section>
   );
 };

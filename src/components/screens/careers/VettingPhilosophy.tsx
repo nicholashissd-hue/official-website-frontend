@@ -18,7 +18,7 @@ const NODES = [
  */
 const VettingPhilosophy = () => {
   return (
-    <section id="how-we-vet" className="scroll-mt-24 bg-bg-light">
+    <section className="bg-bg-light">
       <div className="container section-space-block">
         <SectionHeading
           index="02"

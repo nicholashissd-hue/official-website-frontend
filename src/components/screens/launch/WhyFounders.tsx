@@ -34,7 +34,7 @@ const ICONS: ReactNode[] = [
 
 const WhyFounders = () => {
   return (
-    <section id="why-elderops" className="scroll-mt-24 bg-bg-cream">
+    <section className="bg-bg-cream">
       <div className="container section-space-block">
         <SectionHeading
           index="04"

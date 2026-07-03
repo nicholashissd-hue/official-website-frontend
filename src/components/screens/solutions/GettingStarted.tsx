@@ -14,7 +14,7 @@ const BADGES = [
 /** "Getting Started Is Simple" — four steps along a dashed connector. */
 const GettingStarted = () => {
   return (
-    <section id="start" className="scroll-mt-24 bg-bg-cream">
+    <section className="bg-bg-cream">
       <div className="container section-space-block">
         <SectionHeading
           index="05"

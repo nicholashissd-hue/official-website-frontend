@@ -226,7 +226,7 @@ const LaunchInitiatives = () => {
   const on = useInView(gridRef, { amount: 0.3 });
 
   return (
-    <section id="initiatives" className="scroll-mt-24 bg-bg-cream">
+    <section className="bg-bg-cream">
       <div className="container section-space-block">
         <SectionHeading
           index="01"

@@ -28,7 +28,7 @@ const TONES = [
 /** "Why Engineers Choose ElderOps" — a bento with a deep-green feature card. */
 const WhyJoin = () => {
   return (
-    <section id="why-join" className="scroll-mt-24 bg-bg-cream">
+    <section className="bg-bg-cream">
       <div className="container section-space-block">
         <SectionHeading
           index="04"

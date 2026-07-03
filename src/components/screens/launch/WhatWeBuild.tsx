@@ -10,7 +10,7 @@ import SystemMap from "./SystemMap";
  */
 const WhatWeBuild = () => {
   return (
-    <section id="what-we-build" className="scroll-mt-24 grain relative overflow-hidden bg-pine">
+    <section className="grain relative overflow-hidden bg-pine">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_90%_at_85%_0%,#02361b_0%,transparent_60%)]"
