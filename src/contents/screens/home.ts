@@ -7,7 +7,6 @@ import moniepoint from "@/assets/png/logos/moniepoint.png";
 import newGlobe from "@/assets/png/logos/newglobe.png";
 import plugLink from "@/assets/png/logos/plug-link.png";
 import quickRemit from "@/assets/png/logos/quickremit.png";
-import shell from "@/assets/png/logos/shell.png";
 import syscomptech from "@/assets/png/logos/syscomptech.png";
 import tandatech from "@/assets/png/logos/tanda.png";
 import notchHr from "@/assets/png/logos/notchHr.png";
@@ -68,10 +67,6 @@ export const trustedCompaniesLogo = [
   {
     defaultLogo: quickRemit,
     altText: "quick remit  logo",
-  },
-  {
-    defaultLogo: shell,
-    altText: "shell  logo",
   },
   {
     defaultLogo: syscomptech,
