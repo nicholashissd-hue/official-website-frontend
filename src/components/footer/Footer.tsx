@@ -142,6 +142,12 @@ const Footer = () => {
             >
               Terms
             </Link>
+            <Link
+              to="/privacy"
+              className="u-line pb-0.5 transition-colors hover:text-bg-cream"
+            >
+              Privacy
+            </Link>
           </div>
         </div>
       </div>

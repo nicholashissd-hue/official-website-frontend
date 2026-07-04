@@ -10,6 +10,7 @@ const About = lazy(() => import("@/screens/About"));
 const Contact = lazy(() => import("@/screens/ContactUs"));
 const Careers = lazy(() => import("@/screens/Careers"));
 const Terms = lazy(() => import("@/screens/Terms"));
+const Privacy = lazy(() => import("@/screens/Privacy"));
 const AdStudio = lazy(() => import("@/screens/AdStudio"));
 
 const LoadingFallback = () => (
@@ -32,6 +33,7 @@ const AppRoutes = () => {
           <Route index path="/careers" element={<Careers />} />
           <Route index path="/contact-us" element={<Contact />} />
           <Route index path="/terms" element={<Terms />} />
+          <Route index path="/privacy" element={<Privacy />} />
           <Route index path="*" element={<NotFound />} />
         </Route>
       </Routes>

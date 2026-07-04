@@ -40,6 +40,11 @@ const PAGE_META: Record<string, { title: string; description: string }> = {
     description:
       "The terms governing the ElderOps website and engineering services.",
   },
+  "/privacy": {
+    title: "Privacy Policy — ElderOps",
+    description:
+      "How ElderOps collects, uses, and protects information submitted through the website.",
+  },
 };
 
 /** Keeps document.title and the meta description in sync with the route. */
