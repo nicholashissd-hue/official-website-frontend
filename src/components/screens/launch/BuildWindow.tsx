@@ -148,8 +148,9 @@ const BuildWindow = () => {
         </AnimatePresence>
       </div>
 
-      {/* Build surface */}
-      <div className="relative h-72 w-full p-4 sm:h-80">
+      {/* Build surface — height clamps to the viewport on laptops so the
+          stacked hero fills a 16" screen yet still fits shorter laptops. */}
+      <div className="relative h-72 w-full p-4 sm:h-80 lg:h-[min(28rem,38vh)]">
         {/* blueprint grid */}
         <div
           aria-hidden="true"
