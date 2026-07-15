@@ -99,12 +99,20 @@ const Navbar = ({ dark = false }: NavbarProps) => {
           )}
         >
           <CalendlyCTA variant="light" className="w-full" />
-          <a
-            href="mailto:contact@elderops.net"
-            className="block text-center font-mono text-[11px] uppercase tracking-[0.2em] text-accent-four"
-          >
-            contact@elderops.net
-          </a>
+          <div className="space-y-2.5">
+            <a
+              href="mailto:contact@elderops.net"
+              className="block text-center font-mono text-[11px] uppercase tracking-[0.2em] text-accent-four"
+            >
+              contact@elderops.net
+            </a>
+            <a
+              href="tel:+18667977937"
+              className="block text-center font-mono text-[11px] uppercase tracking-[0.2em] text-accent-four"
+            >
+              +1 (866) 797-7937
+            </a>
+          </div>
         </div>
       </nav>
     </>
