@@ -7,7 +7,7 @@ const Interlude = () => (
   <FullBleed
     image={workshopImage}
     alt="ElderOps engineers working through a system design on a glass wall"
-    objectPosition="center 40%"
+    objectPosition="center 45%"
   >
     <h2 className="max-w-3xl font-display text-[clamp(2.6rem,5vw,4rem)] font-bold leading-none tracking-[-0.03em] text-bg-cream">
       {interlude.statement}

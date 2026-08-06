@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import heroPoster from "@/assets/webp/v4/hero-home.webp";
+import heroPoster from "@/assets/webp/v4/hero-poster.jpg";
 import { hero } from "@/contents/screens/homeV4";
 import { EASE } from "@/components/ui/reveal";
 import { GhostLink, SignalButton } from "@/components/ui/v4";
