@@ -31,15 +31,14 @@ const Hero = () => {
       <div className="container relative pb-16 pt-40 md:pb-24">
         <motion.p
           {...rise(0)}
-          className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.16em] text-signal"
+          className="font-display text-[16px] font-semibold tracking-[-0.01em] text-signal"
         >
-          <span aria-hidden="true" className="h-px w-7 bg-signal" />
           {hero.eyebrow}
         </motion.p>
 
         <motion.h1
           {...rise(0.06)}
-          className="mt-6 max-w-5xl font-display text-[clamp(3.4rem,7.8vw,6.75rem)] font-bold leading-none tracking-[-0.03em] text-bg-cream"
+          className="mt-4 max-w-5xl font-display text-[clamp(3.4rem,7.8vw,6.75rem)] font-bold leading-none tracking-[-0.03em] text-bg-cream"
         >
           {hero.title}
         </motion.h1>

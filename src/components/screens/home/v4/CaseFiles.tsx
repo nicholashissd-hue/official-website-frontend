@@ -1,5 +1,5 @@
 import Reveal from "@/components/ui/reveal";
-import { Eyebrow } from "@/components/ui/v4";
+import { Kicker } from "@/components/ui/v4";
 import { caseFiles } from "@/contents/screens/homeV4";
 
 const FileRow = ({ label, value, strong = false }: { label: string; value: string; strong?: boolean }) => (
@@ -24,8 +24,8 @@ const CaseFiles = () => (
   <section className="border-t border-hairline bg-paper">
     <div className="container section-space-block">
       <Reveal>
-        <Eyebrow>{caseFiles.eyebrow}</Eyebrow>
-        <h2 className="mt-7 max-w-3xl font-display text-[clamp(2.1rem,3.6vw,2.75rem)] font-bold leading-[1.05] tracking-[-0.03em] text-ink">
+        <Kicker>{caseFiles.eyebrow}</Kicker>
+        <h2 className="mt-3 max-w-3xl font-display text-[clamp(2.1rem,3.6vw,2.75rem)] font-bold leading-[1.05] tracking-[-0.03em] text-ink">
           {caseFiles.title}
         </h2>
       </Reveal>

@@ -3,11 +3,13 @@ import { Link } from "react-router";
 import { cn } from "@/lib/util";
 
 /**
- * V4 primitives (approved 2026-08-05). One action color, two button shapes,
- * mono eyebrows with a leading rule. Radius belongs to buttons/chips only.
+ * V4 primitives (approved 2026-08-05; refined 2026-08-06). One action color,
+ * two button shapes. Radius belongs to buttons/chips only. Section context is
+ * a quiet sentence-case kicker in the display family (the Apple lockup), never
+ * a mono-caps eyebrow with a rule: mono is reserved for genuine data notes.
  */
 
-export const Eyebrow = ({
+export const Kicker = ({
   children,
   onDark = false,
   className,
@@ -18,15 +20,11 @@ export const Eyebrow = ({
 }) => (
   <p
     className={cn(
-      "flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.16em]",
-      onDark ? "text-signal" : "text-primary",
+      "font-display text-[16px] font-semibold tracking-[-0.01em]",
+      onDark ? "text-bg-cream/60" : "text-ink/45",
       className,
     )}
   >
-    <span
-      aria-hidden="true"
-      className={cn("h-px w-7", onDark ? "bg-signal" : "bg-primary")}
-    />
     {children}
   </p>
 );

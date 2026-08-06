@@ -1,22 +1,22 @@
 import { Link } from "react-router";
 import Reveal from "@/components/ui/reveal";
-import { Eyebrow, GhostLink } from "@/components/ui/v4";
+import { Kicker, GhostLink } from "@/components/ui/v4";
 import { capabilities } from "@/contents/screens/homeV4";
 import { SERVICES, serviceShortLabel } from "@/contents/taxonomy";
 
 /**
- * The capability catalog as a compact two-column index beside a sticky
- * heading: number, name, one line, hairline. The whole set fits in a
+ * The capability catalog as a compact two-column index beside its heading:
+ * number, name, one line, hairline. The whole set fits in a
  * viewport; the arrow appears on hover. Never a tile wall.
  */
 const CapabilityIndex = () => (
   <section className="border-y border-hairline bg-bone">
     <div className="container section-space-block">
       <div className="grid items-start gap-x-20 gap-y-12 lg:grid-cols-[4fr_8fr]">
-        <div className="lg:sticky lg:top-28">
+        <div>
           <Reveal>
-            <Eyebrow>{capabilities.eyebrow}</Eyebrow>
-            <h2 className="mt-7 font-display text-[clamp(2.6rem,4.4vw,3.4rem)] font-bold leading-none tracking-[-0.03em] text-ink">
+            <Kicker>{capabilities.eyebrow}</Kicker>
+            <h2 className="mt-3 font-display text-[clamp(2.6rem,4.4vw,3.4rem)] font-bold leading-none tracking-[-0.03em] text-ink">
               {capabilities.title}
             </h2>
             <p className="mt-6 max-w-xs text-[16px] leading-[1.6] text-sub">

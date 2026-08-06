@@ -1,5 +1,5 @@
 import Reveal from "@/components/ui/reveal";
-import { Eyebrow } from "@/components/ui/v4";
+import { Kicker } from "@/components/ui/v4";
 import { proof, logosLabel } from "@/contents/screens/homeV4";
 import { trustedCompaniesLogo } from "@/contents/screens/home";
 
@@ -11,7 +11,7 @@ const ProofBand = () => (
   <section className="bg-paper">
     <div className="container pb-14 pt-24 md:pt-28">
       <Reveal>
-        <Eyebrow>Proof</Eyebrow>
+        <Kicker>Proof</Kicker>
       </Reveal>
 
       <div className="mt-11 grid items-end gap-x-16 gap-y-14 lg:grid-cols-[7fr_5fr]">
@@ -53,7 +53,7 @@ const ProofBand = () => (
     <div className="container border-t border-hairline py-12">
       <Reveal>
         <div className="flex flex-wrap items-center gap-x-12 gap-y-6">
-          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-sub">
+          <p className="font-display text-[15px] font-semibold tracking-[-0.01em] text-ink/45">
             {logosLabel}
           </p>
           {trustedCompaniesLogo.map((company) => (

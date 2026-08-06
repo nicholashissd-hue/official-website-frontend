@@ -1,5 +1,5 @@
 import Reveal from "@/components/ui/reveal";
-import { Eyebrow } from "@/components/ui/v4";
+import { Kicker } from "@/components/ui/v4";
 import { method } from "@/contents/screens/homeV4";
 import { METHOD } from "@/contents/taxonomy";
 import assessImage from "@/assets/webp/v4/assess.webp";
@@ -13,8 +13,8 @@ const MethodSection = () => (
   <section className="bg-paper">
     <div className="container section-space-block">
       <Reveal>
-        <Eyebrow>{method.eyebrow}</Eyebrow>
-        <h2 className="mt-7 font-display text-[clamp(2.75rem,4.8vw,3.6rem)] font-bold leading-none tracking-[-0.03em] text-ink">
+        <Kicker>{method.eyebrow}</Kicker>
+        <h2 className="mt-3 font-display text-[clamp(2.75rem,4.8vw,3.6rem)] font-bold leading-none tracking-[-0.03em] text-ink">
           {method.title}
         </h2>
       </Reveal>

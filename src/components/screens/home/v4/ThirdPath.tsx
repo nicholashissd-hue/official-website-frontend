@@ -1,5 +1,5 @@
 import Reveal from "@/components/ui/reveal";
-import { Eyebrow } from "@/components/ui/v4";
+import { Kicker } from "@/components/ui/v4";
 import { thirdPath } from "@/contents/screens/homeV4";
 import pairingImage from "@/assets/webp/v4/pairing.webp";
 
@@ -10,8 +10,8 @@ const ThirdPath = () => (
       <div className="grid items-center gap-x-20 gap-y-12 lg:grid-cols-[7fr_5fr]">
         <div>
           <Reveal>
-            <Eyebrow>{thirdPath.eyebrow}</Eyebrow>
-            <h2 className="mt-7 max-w-2xl font-display text-[clamp(2.6rem,4.6vw,3.5rem)] font-bold leading-none tracking-[-0.03em] text-ink">
+            <Kicker>{thirdPath.eyebrow}</Kicker>
+            <h2 className="mt-3 max-w-2xl font-display text-[clamp(2.6rem,4.6vw,3.5rem)] font-bold leading-none tracking-[-0.03em] text-ink">
               {thirdPath.title}
             </h2>
             <p className="mt-6 max-w-xl text-[17px] leading-[1.65] text-sub">

@@ -102,6 +102,11 @@ export const caseFiles = {
   ],
 };
 
+export const interlude = {
+  statement: "We build it so your team can own it.",
+  body: "Every engagement ends in handoff: documentation, runbooks, and a team that runs the system without us.",
+};
+
 export const teamTeaser = {
   eyebrow: "The team",
   title: "The people doing the work.",
