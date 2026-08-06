@@ -159,7 +159,7 @@ const Privacy = () => {
           <div className="mt-14 max-w-3xl space-y-12">
             {SECTIONS.map((section) => (
               <div key={section.title}>
-                <h2 className="font-display text-xl font-semibold leading-snug tracking-[-0.01em] text-primary md:text-2xl">
+                <h2 className="font-display text-lede font-semibold text-primary">
                   {section.title}
                 </h2>
                 {section.paragraphs.map((paragraph, index) => (

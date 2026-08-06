@@ -36,7 +36,7 @@ const Gate = ({ onAuthed }: { onAuthed: () => void }) => {
         <p className="font-mono text-xs uppercase tracking-[0.3em] text-border-light">
           ElderOps
         </p>
-        <h1 className="mt-3 font-display text-3xl font-semibold tracking-[-0.01em] text-bg-cream">
+        <h1 className="mt-3 font-display text-subhead font-semibold text-bg-cream">
           Ad Studio
         </h1>
         <p className="mt-2 text-sm text-accent-four">
