@@ -24,13 +24,36 @@ const Hero = () => {
   // advancing, so neither the first play nor a loop restart ever pops.
   const [isFilmLive, setIsFilmLive] = useState(false);
 
+  // The film stays paused on frame zero (= the poster) until the browser
+  // expects to play it through without stalling. Starting earlier is what
+  // caused the play-freeze-play hitch: playback began on a thin buffer and
+  // ran it dry. canplaythrough is the primary gate; the buffer poll and
+  // timer are fallbacks for browsers that withhold the event.
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      video.pause();
       setIsPlaying(false);
+      return;
     }
+
+    let started = false;
+    const start = () => {
+      if (started) return;
+      started = true;
+      void video.play();
+    };
+    video.addEventListener("canplaythrough", start, { once: true });
+    const poll = window.setInterval(() => {
+      if (video.buffered.length && video.buffered.end(0) > 10) start();
+    }, 250);
+    const bail = window.setTimeout(start, 6000);
+
+    return () => {
+      video.removeEventListener("canplaythrough", start);
+      window.clearInterval(poll);
+      window.clearTimeout(bail);
+    };
   }, []);
 
   const togglePlayback = () => {
@@ -59,7 +82,6 @@ const Hero = () => {
           isFilmLive ? "opacity-100" : "opacity-0"
         }`}
         src="/video/hero-film.mp4"
-        autoPlay
         muted
         loop
         playsInline

@@ -2,7 +2,7 @@ import Form from "@/components/contactUs/Form";
 import CalendlyCTA from "@/components/contactUs/react-calendly";
 import Reveal from "@/components/ui/reveal";
 import { Kicker } from "@/components/ui/v4";
-import contactPhoto from "@/assets/webp/v4/contact-tech.webp";
+import contactPhoto from "@/assets/webp/v4/contact-city.webp";
 
 const NEXT_STEPS = [
   "An introductory conversation with an engineer",
@@ -71,7 +71,7 @@ const ContactUs = () => (
           <Reveal delay={0.08}>
             <img
               src={contactPhoto}
-              alt="A network cable seated in its port with the green link light on"
+              alt="A city grid glowing at night, seen from high above"
               loading="lazy"
               className="aspect-[4/3] w-full border border-hairline object-cover"
             />
