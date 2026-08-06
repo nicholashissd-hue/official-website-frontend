@@ -78,6 +78,9 @@ const Reveal = ({
             viewport: { once: true, margin: "-72px" },
           })}
       transition={{ duration, delay, ease: EASE }}
+      // Hook for the print and reduced-motion failsafe in index.css: these
+      // start at zero opacity, so without it the page prints blank.
+      data-reveal=""
       {...props}
     >
       {children}

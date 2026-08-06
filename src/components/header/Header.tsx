@@ -68,7 +68,7 @@ const Header = () => {
           </Link>
           <Link
             to="/contact-us"
-            className="hidden h-10 items-center rounded-[14px] bg-signal px-5 text-sm font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px md:inline-flex"
+            className="hidden h-10 items-center rounded-[14px] bg-signal px-5 text-sm font-bold text-nearblack transition-[transform,filter] duration-300 hover:-translate-y-px hover:brightness-[1.06] active:translate-y-0 active:scale-[0.985] active:duration-75 md:inline-flex"
           >
             Get in touch
           </Link>

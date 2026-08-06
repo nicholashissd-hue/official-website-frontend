@@ -44,7 +44,18 @@ export const Kicker = ({
   </p>
 );
 
-/** The primary action. Signal fill; label is always "Get in touch" on buyer pages. */
+/**
+ * The primary action, defined once. It was hand-copied into six files, and
+ * its entire response to being touched was a one-pixel lift: no press, and
+ * (Tailwind's preflight) not even a pointer cursor. It now answers on hover
+ * with a lift and a brighter fill, and on press by settling back and
+ * compressing slightly. A fill-tone shift rather than a shadow, because the
+ * site ships no shadows.
+ */
+export const signalButtonClass =
+  "inline-flex items-center justify-center rounded-[14px] bg-signal px-7 py-4 text-base font-bold text-nearblack transition-[transform,filter] duration-300 hover:-translate-y-px hover:brightness-[1.06] active:translate-y-0 active:scale-[0.985] active:duration-75 disabled:opacity-60";
+
+/** The primary action. Label is always "Get in touch" on buyer pages. */
 export const SignalButton = ({
   to,
   children,
@@ -54,13 +65,7 @@ export const SignalButton = ({
   children: ReactNode;
   className?: string;
 }) => (
-  <Link
-    to={to}
-    className={cn(
-      "inline-flex items-center justify-center rounded-[14px] bg-signal px-7 py-4 text-base font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px",
-      className,
-    )}
-  >
+  <Link to={to} className={cn(signalButtonClass, className)}>
     {children}
   </Link>
 );

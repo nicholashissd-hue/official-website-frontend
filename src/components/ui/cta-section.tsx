@@ -1,5 +1,7 @@
 import { Link, useLocation } from "react-router";
+import { signalButtonClass } from "./v4";
 import Reveal from "./reveal";
+import { cn } from "@/lib/util";
 
 /**
  * The one end-of-page CTA band (Revision Brief): identical on every page,
@@ -32,10 +34,7 @@ const CTASection = () => {
             you how we would fix it and who would own the work. You keep the
             assessment and the roadmap either way.
           </p>
-          <Link
-            to="/contact-us"
-            className="mt-9 inline-flex items-center rounded-[14px] bg-signal px-7 py-4 text-base font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px"
-          >
+          <Link to="/contact-us" className={cn(signalButtonClass, "mt-9")}>
             Get in touch
           </Link>
         </Reveal>

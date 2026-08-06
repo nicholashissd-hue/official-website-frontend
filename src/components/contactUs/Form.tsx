@@ -6,6 +6,7 @@ import {
   type ContactFormData,
 } from "@/schemas/contactUs";
 import { useSendContactEmail } from "@/hooks/useSendContactEmail";
+import { signalButtonClass } from "@/components/ui/v4";
 import { cn } from "@/lib/util";
 
 const EMPTY_FORM: ContactFormData = {
@@ -257,7 +258,7 @@ const Form = () => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex w-full items-center justify-center rounded-[14px] bg-signal px-7 py-4 text-base font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px disabled:opacity-60 sm:w-auto"
+          className={cn(signalButtonClass, "w-full sm:w-auto")}
         >
           {isSubmitting ? "Sending…" : "Start the conversation"}
         </button>

@@ -1,5 +1,5 @@
 import Reveal from "@/components/ui/reveal";
-import { Kicker } from "@/components/ui/v4";
+import { Kicker, signalButtonClass } from "@/components/ui/v4";
 import { process, APPLY_MAILTO, hero } from "@/contents/screens/careersV4";
 
 /** Apply, Vetting, Embed: how the network takes people in. */
@@ -32,10 +32,7 @@ const JoinProcess = () => (
       <Reveal>
         <div className="mt-12 flex flex-wrap items-center justify-between gap-x-10 gap-y-6 border-t border-hairline pt-8">
           <p className="text-base font-semibold text-ink">{process.note}</p>
-          <a
-            href={APPLY_MAILTO}
-            className="inline-flex items-center justify-center rounded-[14px] bg-signal px-7 py-4 text-base font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px"
-          >
+          <a href={APPLY_MAILTO} className={signalButtonClass}>
             {hero.cta}
           </a>
         </div>

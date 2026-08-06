@@ -110,13 +110,50 @@ body {
 }
 
 ::selection {
-  background-color: var(--color-success);
-  color: var(--color-bg-cream);
+  background-color: var(--color-signal);
+  color: var(--color-nearblack);
+}
+
+/**
+ * Focus is a pair, not one colour. Signal on paper is only 2.7:1 and would
+ * be a ring you cannot see; ink on paper is ~15:1. Dark surfaces flip it to
+ * signal, which reads at ~6.5:1 there. Custom properties inherit, so setting
+ * the token on a dark section covers everything inside it.
+ */
+:root {
+  --focus-ring: var(--color-ink);
+}
+
+.bg-nearblack,
+.bg-primary,
+.bg-deep {
+  --focus-ring: var(--color-signal);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-success);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Tailwind's preflight sets buttons to the default arrow. */
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+label[for],
+summary {
+  cursor: pointer;
+}
+
+/**
+ * Entrances start at zero opacity, so without this the pages print, PDF and
+ * render for reduced-motion users as blank paper: the worst case is a buyer
+ * circulating the site internally and distributing empty pages.
+ */
+@media (prefers-reduced-motion: reduce), print {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 @utility container {

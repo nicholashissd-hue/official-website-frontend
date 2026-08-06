@@ -4,7 +4,7 @@ import heroImage1600 from "@/assets/webp/v4/hero-careers-dusk-1600.webp";
 import heroImage828 from "@/assets/webp/v4/hero-careers-dusk-828.webp";
 import { hero, APPLY_MAILTO } from "@/contents/screens/careersV4";
 import { EASE } from "@/components/ui/reveal";
-import { Kicker } from "@/components/ui/v4";
+import { Kicker, signalButtonClass } from "@/components/ui/v4";
 
 const rise = (delay: number) => ({
   initial: { opacity: 0, y: 18 },
@@ -45,10 +45,7 @@ const CareersHero = () => (
         className="mt-8 flex flex-wrap items-end justify-between gap-x-12 gap-y-8"
       >
         <p className="max-w-xl text-lg text-bg-cream/82">{hero.descriptor}</p>
-        <a
-          href={APPLY_MAILTO}
-          className="inline-flex items-center justify-center rounded-[14px] bg-signal px-7 py-4 text-base font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px"
-        >
+        <a href={APPLY_MAILTO} className={signalButtonClass}>
           {hero.cta}
         </a>
       </motion.div>
