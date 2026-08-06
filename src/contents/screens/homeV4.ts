@@ -5,10 +5,9 @@
  */
 
 export const hero = {
-  eyebrow: "Fractional senior engineering",
-  title: "Senior engineering that owns the outcome.",
-  subtext:
-    "We embed senior DevOps, cloud, platform, and security engineers into your team to modernize your systems, raise reliability, and cut risk, then hand off so your team owns what we build.",
+  /** BCG X hero pattern: short statement over the launch film + one-line descriptor. */
+  title: "We build it. You own it.",
+  descriptor: "ElderOps is the embedded senior engineering partner.",
   primaryCta: "Get in touch",
   secondaryCta: "See what we do",
 };

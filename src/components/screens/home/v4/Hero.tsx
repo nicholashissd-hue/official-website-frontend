@@ -1,5 +1,6 @@
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import heroImage from "@/assets/webp/v4/hero-home.webp";
+import heroPoster from "@/assets/webp/v4/hero-home.webp";
 import { hero } from "@/contents/screens/homeV4";
 import { EASE } from "@/components/ui/reveal";
 import { GhostLink, SignalButton } from "@/components/ui/v4";
@@ -11,44 +12,71 @@ const rise = (delay: number) => ({
 });
 
 /**
- * Cinematic opener: full-bleed documentary photograph under a near-black
- * scrim, headline seated low-left, one signal action beside a ghost link.
- * The photograph settles with a single slow Ken Burns move (no loops).
+ * The launch-film hero (BCG X pattern): a full-viewport cinematic loop under
+ * a near-black scrim, a short statement seated low-left, one action. The film
+ * pauses for reduced-motion users (the poster frame carries the scene) and
+ * everyone gets a play/pause control.
  */
 const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      video.pause();
+      setIsPlaying(false);
+    }
+  }, []);
+
+  const togglePlayback = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      void video.play();
+      setIsPlaying(true);
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+  };
+
   return (
-    <section className="relative flex min-h-[94svh] flex-col justify-end overflow-hidden bg-nearblack">
-      <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
-        <img
-          src={heroImage}
-          alt=""
-          fetchPriority="high"
-          className="kenburns size-full object-cover object-[center_30%]"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(to_top,rgb(8_23_18/0.93)_0%,rgb(8_23_18/0.36)_48%,rgb(8_23_18/0.52)_100%)]" />
-      </div>
+    <section className="relative flex min-h-svh flex-col justify-end overflow-hidden bg-nearblack">
+      <video
+        ref={videoRef}
+        className="absolute inset-0 size-full object-cover"
+        src="/video/hero-film.mp4"
+        poster={heroPoster}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[linear-gradient(to_top,rgb(8_23_18/0.9)_0%,rgb(8_23_18/0.28)_50%,rgb(8_23_18/0.45)_100%)]"
+      />
 
       <div className="container relative pb-16 pt-40 md:pb-24">
-        <motion.p
-          {...rise(0)}
-          className="font-display text-[16px] font-semibold tracking-[-0.01em] text-signal"
-        >
-          {hero.eyebrow}
-        </motion.p>
-
         <motion.h1
-          {...rise(0.06)}
-          className="mt-4 max-w-5xl font-display text-[clamp(3.4rem,7.8vw,6.75rem)] font-bold leading-none tracking-[-0.03em] text-bg-cream"
+          {...rise(0)}
+          className="max-w-5xl font-display text-[clamp(3.6rem,8.5vw,7.5rem)] font-bold leading-none tracking-[-0.03em] text-bg-cream"
         >
-          {hero.title}
+          We build it.
+          <br />
+          You own it.
         </motion.h1>
 
         <motion.div
-          {...rise(0.14)}
-          className="mt-9 flex flex-wrap items-end justify-between gap-x-12 gap-y-8"
+          {...rise(0.1)}
+          className="mt-8 flex flex-wrap items-end justify-between gap-x-12 gap-y-8"
         >
-          <p className="max-w-xl text-[17px] leading-[1.6] text-bg-cream/80 md:text-[19px]">
-            {hero.subtext}
+          <p className="max-w-xl text-[17px] leading-[1.6] text-bg-cream/82 md:text-[19px]">
+            {hero.descriptor}
           </p>
           <div className="flex items-center gap-7">
             <SignalButton to="/contact-us">{hero.primaryCta}</SignalButton>
@@ -58,6 +86,24 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
+
+      <button
+        type="button"
+        onClick={togglePlayback}
+        aria-label={isPlaying ? "Pause background video" : "Play background video"}
+        className="absolute bottom-6 right-6 grid size-10 place-items-center rounded-full text-bg-cream/80 ring-1 ring-inset ring-bg-cream/35 transition-colors duration-300 hover:text-bg-cream hover:ring-bg-cream/70"
+      >
+        {isPlaying ? (
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" className="size-3.5">
+            <rect x="3" y="2.5" width="3.4" height="11" rx="0.6" />
+            <rect x="9.6" y="2.5" width="3.4" height="11" rx="0.6" />
+          </svg>
+        ) : (
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" className="size-3.5">
+            <path d="M4.5 2.8a.6.6 0 0 1 .92-.5l8.2 5.2a.6.6 0 0 1 0 1L5.42 13.7a.6.6 0 0 1-.92-.5z" />
+          </svg>
+        )}
+      </button>
     </section>
   );
 };
