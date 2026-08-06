@@ -42,7 +42,9 @@
   --color-bone: #f1eee7;
   --color-ink: #0b2418;
   --color-nearblack: #0a1a12;
-  --color-signal: #7df0a0;
+  /* The action color: the brand's own bright emerald (matches the live
+     site's accent green), luminous on dark scrims, dark text on top. */
+  --color-signal: #0fb45e;
   --color-hairline: rgb(11 36 24 / 0.14);
   --color-sub: rgb(11 36 24 / 0.64);
   --color-ondark: rgb(252 252 246 / 0.75);
