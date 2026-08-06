@@ -1,65 +1,54 @@
-import { useLocation } from "react-router";
-import { ctaText as solutionsCTA } from "@/contents/screens/solutions";
-import { ctaText as aboutCTA } from "@/contents/screens/about";
-import { ctaText as careersCTA } from "@/contents/screens/careers";
-import { ctaText as launchCTA } from "@/contents/screens/launch";
-import { homeCTAText } from "@/contents/footer";
-import Button from "./button";
+import { Link, useLocation } from "react-router";
 import Reveal from "./reveal";
-import NetworkCanvas from "./network-canvas";
-import CalendlyCTA from "../contactUs/react-calendly";
 
-export interface CTAContent {
-  eyebrow: string;
-  title: string;
-  description: string;
-  buttonText: string;
-}
+/**
+ * The one end-of-page CTA band (Revision Brief): identical on every page,
+ * no per-page label overrides. Fixed headline, subhead, single primary CTA.
+ * The contact page (and legal pages) opt out.
+ */
+const EXCLUDED = new Set(["/contact-us", "/terms", "/privacy"]);
 
-const CTA_MAP: Record<string, CTAContent> = {
-  "/": homeCTAText,
-  "/solutions": solutionsCTA,
-  "/about": aboutCTA,
-  "/careers": careersCTA,
-  "/startup-launch": launchCTA,
-};
-
-/** Page-closing CTA: a giant rounded deep-green card with a living lattice. */
 const CTASection = () => {
   const { pathname } = useLocation();
-  const content = CTA_MAP[pathname];
 
-  if (!content) return null;
+  if (EXCLUDED.has(pathname)) return null;
 
   return (
-    <section className="bg-bg-cream">
-      <div className="container section-space-block">
+    <section className="bg-nearblack">
+      <div className="container py-24 md:py-28">
         <Reveal>
-          <div className="grain relative overflow-hidden rounded-[2.5rem] bg-primary px-6 py-16 md:px-16 md:py-24">
-            <NetworkCanvas className="opacity-60" spacing={56} />
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 rounded-[2.5rem] bg-[radial-gradient(85%_120%_at_50%_-20%,#074527_0%,transparent_60%)]"
-            />
-
-            <div className="relative flex flex-col items-center text-center">
-              <h2 className="max-w-3xl text-balance font-display text-[clamp(2.1rem,4.4vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-bg-cream">
-                {content.title}
+          <div className="grid items-end gap-12 lg:grid-cols-[2fr_1fr]">
+            <div>
+              <h2 className="max-w-3xl font-display text-[clamp(2.6rem,5.2vw,4rem)] font-bold leading-none tracking-[-0.03em] text-bg-cream">
+                Senior engineering, embedded in your team.
               </h2>
-
-              <p className="mt-5 max-w-xl text-[15px] leading-[1.75] text-accent-four md:text-[17px]">
-                {content.description}
+              <p className="mt-6 max-w-xl text-[16px] leading-[1.65] text-ondark md:text-[17px]">
+                Tell us where your infrastructure or delivery is stuck. We will
+                tell you how we would fix it and who would own the work.
               </p>
+              <Link
+                to="/contact-us"
+                className="mt-9 inline-flex items-center rounded-[14px] bg-signal px-7 py-4 text-[15px] font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px"
+              >
+                Get in touch
+              </Link>
+            </div>
 
-              <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-                <Button to="/contact-us" variant="primary" withArrow>
-                  {content.buttonText}
-                </Button>
-                <CalendlyCTA variant="outline-light" />
-              </div>
-
-              <p className="mt-10 font-mono text-[10px] uppercase tracking-[0.2em] text-accent-four">
-                Typical response — within one business day
+            <div className="flex flex-col gap-1.5 lg:items-end lg:text-right">
+              <a
+                href="mailto:contact@elderops.net"
+                className="text-[15px] text-bg-cream/80 transition-colors hover:text-bg-cream"
+              >
+                contact@elderops.net
+              </a>
+              <a
+                href="tel:+18667977937"
+                className="text-[15px] text-bg-cream/80 transition-colors hover:text-bg-cream"
+              >
+                +1 (866) 797-7937
+              </a>
+              <p className="text-[13px] text-bg-cream/50">
+                Typical response within one business day.
               </p>
             </div>
           </div>

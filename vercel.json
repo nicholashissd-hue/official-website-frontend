@@ -1,3 +1,12 @@
 {
+  "redirects": [
+    { "source": "/solutions", "destination": "/services", "permanent": true },
+    {
+      "source": "/startup-launch",
+      "destination": "/how-we-work",
+      "permanent": true
+    },
+    { "source": "/talent", "destination": "/services", "permanent": true }
+  ],
   "rewrites": [{ "source": "/((?!api/.*).*)", "destination": "/" }]
 }

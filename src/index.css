@@ -1,10 +1,10 @@
-@import url("https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=satoshi@400,500,700&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=satoshi@400,500,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap");
 @import "tailwindcss";
 
 @theme {
   /* ── Typography ─────────────────────────────────────────────── */
-  --font-display: "Clash Display", "Avenir Next", "Trebuchet MS", sans-serif;
+  --font-display: "General Sans", "Avenir Next", "Trebuchet MS", sans-serif;
   --font-sans: "Satoshi", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
   /* Legacy aliases (pre-V2 components) */
@@ -32,6 +32,20 @@
   /* Tonal steps of the brand green, for layered dark surfaces */
   --color-deep: #012112;
   --color-pine: #074527;
+
+  /* ── V4 system (2026-08-05, BCG X register — see DESIGN.md) ────
+     Light-first editorial: paper/bone grounds, ink text, ONE dark
+     surface (near-black, for hero scrims + CTA band + footer), and
+     ONE luminous action color (signal). Photos are square-cornered;
+     14px radius belongs to buttons and chips only. */
+  --color-paper: #fcfcf6;
+  --color-bone: #f1eee7;
+  --color-ink: #0b2418;
+  --color-nearblack: #0a1a12;
+  --color-signal: #7df0a0;
+  --color-hairline: rgb(11 36 24 / 0.14);
+  --color-sub: rgb(11 36 24 / 0.64);
+  --color-ondark: rgb(252 252 246 / 0.75);
 }
 
 /* ── Base ─────────────────────────────────────────────────────── */

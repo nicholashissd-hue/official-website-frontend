@@ -1,11 +1,11 @@
 import Layout from "@/layout/Layout";
 import NotFound from "@/screens/NotFound";
 import { lazy, Suspense } from "react";
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 
 const Home = lazy(() => import("@/screens/Home"));
-const Solutions = lazy(() => import("@/screens/Solutions"));
-const StartupLaunch = lazy(() => import("@/screens/StartupLaunch"));
+const Services = lazy(() => import("@/screens/Solutions"));
+const HowWeWork = lazy(() => import("@/screens/StartupLaunch"));
 const About = lazy(() => import("@/screens/About"));
 const Contact = lazy(() => import("@/screens/ContactUs"));
 const Careers = lazy(() => import("@/screens/Careers"));
@@ -27,14 +27,20 @@ const AppRoutes = () => {
         <Route path="/login" element={<AdStudio />} />
         <Route element={<Layout />}>
           <Route index path="/" element={<Home />} />
-          <Route index path="/solutions" element={<Solutions />} />
-          <Route index path="/startup-launch" element={<StartupLaunch />} />
-          <Route index path="/about" element={<About />} />
-          <Route index path="/careers" element={<Careers />} />
-          <Route index path="/contact-us" element={<Contact />} />
-          <Route index path="/terms" element={<Terms />} />
-          <Route index path="/privacy" element={<Privacy />} />
-          <Route index path="*" element={<NotFound />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/how-we-work" element={<HowWeWork />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/contact-us" element={<Contact />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+          {/* Old paths 301 at the edge (vercel.json); these cover client nav + dev */}
+          <Route path="/solutions" element={<Navigate to="/services" replace />} />
+          <Route
+            path="/startup-launch"
+            element={<Navigate to="/how-we-work" replace />}
+          />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Suspense>

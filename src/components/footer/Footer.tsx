@@ -1,8 +1,6 @@
 import { Link } from "react-router";
 import elderOpsLogo from "@/assets/svg/elderOps-white-logo.svg";
-import { NAV_LINKS } from "@/contents/nav";
-import Button from "../ui/button";
-import Reveal from "../ui/reveal";
+import { SERVICES, serviceShortLabel } from "@/contents/taxonomy";
 
 const SOCIALS = [
   {
@@ -36,38 +34,34 @@ const SOCIALS = [
   },
 ];
 
+const COMPANY_LINKS = [
+  { label: "About", path: "/about" },
+  { label: "How We Work", path: "/how-we-work" },
+  { label: "Careers", path: "/careers" },
+];
+
+const columnHeading =
+  "font-mono text-[11px] uppercase tracking-[0.22em] text-bg-cream/45";
+const columnLink =
+  "text-sm leading-[2.1] text-bg-cream/75 transition-colors hover:text-bg-cream";
+
+/** Three-column footer per the Revision Brief: Services / Company / Contact. */
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="grain relative overflow-hidden bg-primary text-bg-cream">
-      {/* Tonal depth at the base of the page */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_120%,#01220f_0%,transparent_60%)]"
-      />
-
-      <div className="container relative">
-        <Reveal className="flex flex-col gap-10 border-b border-bg-cream/10 py-16 md:py-24 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <p className="max-w-2xl font-display text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.08] tracking-[-0.02em]">
-              Senior engineering expertise.{" "}
-              <span className="text-border-light">Accountable delivery.</span>
-            </p>
-          </div>
-
-          <Button to="/contact-us" variant="primary" withArrow className="shrink-0">
-            Start the Conversation
-          </Button>
-        </Reveal>
-
-        <div className="grid gap-12 py-14 md:grid-cols-[1.5fr_1fr_1fr] md:py-16">
+    <footer className="border-t border-bg-cream/10 bg-nearblack text-bg-cream">
+      <div className="container">
+        <div className="grid gap-x-12 gap-y-12 py-16 md:grid-cols-2 md:py-20 lg:grid-cols-[1.6fr_1.1fr_0.8fr_1fr]">
           <div>
             <img src={elderOpsLogo} alt="ElderOps" className="w-12" />
-            <p className="mt-6 max-w-xs text-sm leading-[1.8] text-accent-four">
-              Strategy, execution, and accountability in a single engineering
-              model — senior expertise that integrates directly into your team
-              and owns outcomes.
+            <p className="mt-6 text-[15px] font-bold">
+              Senior engineering expertise. Accountable delivery.
+            </p>
+            <p className="mt-3 max-w-xs text-sm leading-[1.75] text-bg-cream/55">
+              One engineering model that brings strategy, execution, and
+              accountability together. Senior engineers embed with your team,
+              build alongside you, and own the outcome.
             </p>
             <div className="mt-7 flex gap-3">
               {SOCIALS.map((social) => (
@@ -77,7 +71,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`ElderOps on ${social.label}`}
-                  className="grid size-9 place-items-center rounded-full text-bg-cream/75 ring-1 ring-inset ring-bg-cream/25 transition-all duration-300 hover:bg-success hover:text-deep hover:ring-success"
+                  className="grid size-9 place-items-center rounded-full text-bg-cream/70 ring-1 ring-inset ring-bg-cream/25 transition-all duration-300 hover:bg-signal hover:text-nearblack hover:ring-signal"
                 >
                   {social.icon}
                 </a>
@@ -85,17 +79,33 @@ const Footer = () => {
             </div>
           </div>
 
-          <nav aria-label="Footer">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent-four">
-              Menu
-            </p>
-            <ul className="mt-6 space-y-3.5">
-              {NAV_LINKS.map((link) => (
+          <nav aria-label="Services">
+            <p className={columnHeading}>Services</p>
+            <ul className="mt-5">
+              {SERVICES.slice(0, 6).map((service) => (
+                <li key={service.id}>
+                  <Link to={`/services#${service.id}`} className={columnLink}>
+                    {serviceShortLabel(service)}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  to="/services"
+                  className="text-sm font-semibold leading-[2.3] text-signal transition-colors hover:text-bg-cream"
+                >
+                  View all services →
+                </Link>
+              </li>
+            </ul>
+          </nav>
+
+          <nav aria-label="Company">
+            <p className={columnHeading}>Company</p>
+            <ul className="mt-5">
+              {COMPANY_LINKS.map((link) => (
                 <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    className="u-line pb-0.5 text-sm text-bg-cream/85 transition-colors hover:text-bg-cream"
-                  >
+                  <Link to={link.path} className={columnLink}>
                     {link.label}
                   </Link>
                 </li>
@@ -104,48 +114,32 @@ const Footer = () => {
           </nav>
 
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent-four">
-              Contact
-            </p>
-            <ul className="mt-6 space-y-3.5 text-sm">
+            <p className={columnHeading}>Contact</p>
+            <ul className="mt-5">
               <li>
-                <a
-                  href="mailto:contact@elderops.net"
-                  className="u-line pb-0.5 text-bg-cream/85 transition-colors hover:text-bg-cream"
-                >
+                <a href="mailto:contact@elderops.net" className={columnLink}>
                   contact@elderops.net
                 </a>
               </li>
               <li>
-                <a
-                  href="tel:+18667977937"
-                  className="u-line pb-0.5 text-bg-cream/85 transition-colors hover:text-bg-cream"
-                >
+                <a href="tel:+18667977937" className={columnLink}>
                   +1 (866) 797-7937
                 </a>
               </li>
             </ul>
-            <p className="mt-8 font-mono text-[11px] uppercase leading-relaxed tracking-[0.18em] text-accent-four">
-              Typical response
-              <br />
-              <span className="text-border-light">within one business day</span>
+            <p className="mt-4 text-[13px] leading-relaxed text-bg-cream/50">
+              Typical response within one business day.
             </p>
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-bg-cream/10 py-8 font-mono text-[11px] uppercase tracking-[0.16em] text-accent-four sm:flex-row sm:items-center sm:justify-between">
-          <p>© {currentYear} ElderOps — Senior Engineering Partners</p>
+        <div className="flex flex-col gap-4 border-t border-bg-cream/10 py-7 text-[12.5px] text-bg-cream/50 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {currentYear} ElderOps. Senior Engineering Partners.</p>
           <div className="flex gap-8">
-            <Link
-              to="/terms"
-              className="u-line pb-0.5 transition-colors hover:text-bg-cream"
-            >
+            <Link to="/terms" className="transition-colors hover:text-bg-cream">
               Terms
             </Link>
-            <Link
-              to="/privacy"
-              className="u-line pb-0.5 transition-colors hover:text-bg-cream"
-            >
+            <Link to="/privacy" className="transition-colors hover:text-bg-cream">
               Privacy
             </Link>
           </div>

@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { cn } from "@/lib/util";
 import { useGlobalStore } from "@/store/useGlobalStore";
-import { NAV_LINKS } from "@/contents/nav";
-import CalendlyCTA from "../contactUs/react-calendly";
+import { NAV_LINKS, UTILITY_LINK } from "@/contents/nav";
 
 interface NavbarProps {
   /** True when the header sits over a dark surface (dark hero or open menu). */
@@ -51,7 +50,7 @@ const Navbar = ({ dark = false }: NavbarProps) => {
         aria-label="Mobile"
         aria-hidden={!isMobileMenuOpen}
         className={cn(
-          "grain fixed inset-0 z-40 flex h-dvh flex-col overflow-y-auto bg-primary px-6 pb-10 pt-28 transition-all duration-500 md:hidden",
+          "fixed inset-0 z-40 flex h-dvh flex-col overflow-y-auto bg-nearblack px-6 pb-10 pt-28 transition-all duration-500 md:hidden",
           isMobileMenuOpen
             ? "visible opacity-100"
             : "pointer-events-none invisible opacity-0",
@@ -98,7 +97,20 @@ const Navbar = ({ dark = false }: NavbarProps) => {
             isMobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0",
           )}
         >
-          <CalendlyCTA variant="light" className="w-full" />
+          <NavLink
+            to={UTILITY_LINK.path}
+            onClick={closeMobileMenu}
+            className="block text-center text-[13px] font-medium text-bg-cream/55"
+          >
+            {UTILITY_LINK.label}
+          </NavLink>
+          <Link
+            to="/contact-us"
+            onClick={closeMobileMenu}
+            className="flex h-12 w-full items-center justify-center rounded-[14px] bg-signal text-[15px] font-bold text-nearblack"
+          >
+            Get in touch
+          </Link>
           <div className="space-y-2.5">
             <a
               href="mailto:contact@elderops.net"
