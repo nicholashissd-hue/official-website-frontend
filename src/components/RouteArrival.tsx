@@ -14,20 +14,25 @@ import { useLocation } from "react-router";
  * Focus follows the scroll so keyboard and screen-reader users continue from
  * the section they asked for instead of from the top of the document.
  */
-const MAX_FRAMES = 90; // ~1.5s, comfortably past the page transition
+/** How long to wait for a hash target to mount before giving up on it. */
+const WAIT_MS = 2000;
+const POLL_MS = 50;
 
 const RouteArrival = () => {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    let frame = 0;
-    let tries = 0;
+    let timer = 0;
+    const deadline = Date.now() + WAIT_MS;
 
     const landAtTop = () => {
       window.scrollTo({ top: 0, behavior: "instant" });
       document.getElementById("main")?.focus({ preventScroll: true });
     };
 
+    // Timers rather than animation frames: rAF is suspended entirely while a
+    // tab is in the background, so a deep link opened in a new tab would
+    // never resolve and the reader would find the top of the page.
     const run = () => {
       if (!hash) {
         landAtTop();
@@ -44,16 +49,15 @@ const RouteArrival = () => {
         return;
       }
 
-      if (tries < MAX_FRAMES) {
-        tries += 1;
-        frame = requestAnimationFrame(run);
+      if (Date.now() < deadline) {
+        timer = window.setTimeout(run, POLL_MS);
         return;
       }
       landAtTop();
     };
 
-    frame = requestAnimationFrame(run);
-    return () => cancelAnimationFrame(frame);
+    run();
+    return () => window.clearTimeout(timer);
   }, [pathname, hash]);
 
   return null;
