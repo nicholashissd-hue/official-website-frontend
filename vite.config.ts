@@ -8,11 +8,15 @@ import path from "path";
  * origin the page is actually served from: a staging page pointing at the
  * production image unfurls whatever production last shipped. So the origin
  * is stamped in at build time. Production deploys pass VITE_SITE_ORIGIN
- * explicitly; every other Vercel build (staging, previews) falls back to
- * its own deployment URL, and a local build to the canonical domain.
+ * explicitly; other Vercel builds use the project's stable domain, and a
+ * local build the canonical one. Note the per-deployment VERCEL_URL is
+ * deliberately last: those hostnames sit behind Vercel SSO, so a scraper
+ * fetching an image there gets a login redirect instead of the card.
  */
 const siteOrigin = (): string => {
   if (process.env.VITE_SITE_ORIGIN) return process.env.VITE_SITE_ORIGIN;
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL)
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
   return "https://www.elderops.net";
 };
