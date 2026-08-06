@@ -1,69 +1,107 @@
-# ElderOps V3 Design Language
+# ElderOps V4 Design Language
 
-Vibrant, rounded, photo-forward enterprise design (reference: Andela's energy,
-not a magazine). Brand palette only — used boldly.
+"Apple met BCG X." Cinematic near-black photography at the openings, light
+editorial body between them, one action colour, and hierarchy carried by scale
+rather than decoration. This file supersedes the V3 doctrine (Clash Display,
+pill CTAs, rounded cards, saturated green surfaces), which is retired: if you
+find any of it in the tree it is a leak, not a precedent.
+
+## Surfaces
+
+- `bg-paper` (#fcfcf6) and `bg-bone` (#f1eee7) are the body of the site.
+- `bg-nearblack` (#0a1a12) appears in exactly three places: hero scrims, the
+  end-of-page CTA band, and the footer.
+- **No saturated green surfaces.** Green is light, never a field.
+- Sections alternate surfaces; never place two of the same adjacent.
+
+## Colour
+
+- `--color-ink` (#0b2418) is text. `--color-sub` is the quiet tone.
+- `--color-signal` (#0fb45e) is the **one** action colour, with dark text on
+  it. It is for buttons, small data numerals, and focus rings on dark ground.
+  Never as body-text colour on paper: it measures 2.7:1 there.
+- `--color-danger` (#a4161a) is the only other saturated colour, for errors.
+- Focus is a pair: `--focus-ring` is ink on light, and flips to signal on
+  dark surfaces. Never one ring for both.
 
 ## Type
-- Display: **Clash Display** (`font-display`), weight 500–700. Headlines:
-  `font-display font-semibold tracking-[-0.02em] leading-[1.05]`.
-- Body/UI: **Satoshi** (`font-sans`), 400/500/700.
-- Technical labels/data: **IBM Plex Mono** (`font-mono`), 9–11px uppercase tracked.
-- **No italics anywhere** (the loaded fonts have none — synthesized italics look broken).
-  Accent words use `text-success` (light bg) / `text-border-light` (dark bg), or the
-  `<Underlined>` animated swash (`@/components/ui/underline`) for ONE short word.
 
-## Color blocks (sections rotate through these)
-- Cream canvas: `bg-bg-cream`
-- Deep green: `bg-primary` + `grain relative` + a radial glow div
-  (`bg-[radial-gradient(...,#074527,transparent)]`)
-- **British racing green** is the direction: large color blocks are DEEP —
-  `bg-primary` (#02361b) or `bg-pine` (#074527, + grain + glow) — never bright
-- Soft sage: `bg-bg-light` (#e9f3ec) for quiet panels/cards
-- Bright greens appear ONLY in small doses: `bg-success` (#069c4e) CTAs/badges,
-  `border-light` (#0fb45e) accent text-on-dark and chips,
-  `bg-yellow` (#0a8043) pressed/hover states (token names are legacy)
-- Card decks may deepen across members (white → sage → pine)
-- **NEVER two consecutive dark full-bleed sections** (owner rule 2026-06-09):
-  after every `bg-primary`/`bg-pine` section comes a cream or sage one.
-  Dark CARDS on light sections don't count against this.
-- REJECTED by owner (2026-06-09): yellow-green/lime, pastel mint, and bright
-  green as large surfaces. Big areas = dark greens, full stop.
-- Never separate sections with hairline borders; contrast comes from the blocks.
-- Never stack two full-width horizontal strips back-to-back (ticker + logos,
-  logos + uniform stat row = "double banner"); break strips with asymmetric
-  compositions (see the home stats bento).
+One scale, defined in `src/index.css` under `@theme`. Every step carries its
+own line-height and tracking so leading cannot drift from size.
 
-## Shape
-- Interactive elements (buttons, chips, tabs): `rounded-full` pills
-- Cards: `rounded-3xl` (or `rounded-[2rem]`+ for hero-scale panels)
-- Inputs: `rounded-2xl`
-- Photos: `PhotoCard` (`@/components/ui/photo-card`) — rounded, brand-graded,
-  optional mono caption pill + floating lime chip
+- Display: `text-hero` (home only) → `text-title` (page openers, full-bleed
+  statements, CTA band) → `text-heading` (section h2) → `text-subhead` (h3) →
+  `text-lede` (a large body statement).
+- Figures: `text-stat`, `text-stat-sm`. A figure never outranks the hero.
+- Body: `text-lg` / `text-base` / `text-sm` / `text-xs`, where `text-xs` also
+  serves the mono data labels.
+- **Never write an arbitrary `text-[..px]`.** Add or reuse a token. The site
+  previously drifted to 16 body sizes between 10px and 19px.
+- Fonts: General Sans 700 display, Satoshi body, IBM Plex Mono for genuine
+  data only (numerals, field keys). Clash Display is retired.
 
-## Components (always use these)
-- `Eyebrow` — pill chip label with green dot (replaces any hairline eyebrow)
-- `SectionHeading` — chip + Clash headline + lede; `dark` prop on green
-- `Button` — pill; variants: `primary` (bright green), `light` (lime),
-  `outline`, `outline-light`; `withArrow`
-- `ArrowLink` — text + circled arrow that fills green on hover
-- `Reveal` / `EASE` — entrance motion; stagger with `delay={i * 0.08}`
-- Number badges: colored circles, e.g.
-  `grid size-10 place-items-center rounded-full bg-success/10 font-display font-semibold text-success`
-- List bullets: `size-1.5 rounded-full bg-success` dots (no diamonds, no dashes)
+## Banned patterns
+
+These were tried and rejected. Do not reintroduce them.
+
+- The mono-caps + wide-tracking eyebrow with a rule. Section context is a
+  sentence-case `Kicker` in the display family, seated above the headline.
+- Tile walls, equal-thirds stat rows, and left chapter rails. Hierarchy over
+  symmetry: one large element with subordinates.
+- Sticky or parallax columns.
+- Rounded cards and pill buttons. Radius (14px) belongs to buttons and chips
+  only; photographs and cards are square-cornered, always.
+- Shadows and coloured glows. Depth comes from hairlines and surface changes.
+- Decorative use of the action colour, including coloured paragraph rails.
+
+## Photography
+
+- Every frame is born dark: dusk or night, near-black shadow, emerald accents.
+- It shows people or real work. Never empty architecture, never hardware
+  catalog shots.
+- It must mean the thing it sits beside, not decorate it.
+- **No legible or pseudo-legible text in any frame, ever.** Gibberish writing
+  is the one artifact that cannot be graded out, and a tiled or duplicated
+  background is an immediate reject. QC every asset at full size.
+- Screens are never shown: compose monitors from behind, or out of frame.
+- Never caption a generated photograph as a record of real ElderOps people or
+  work, and never name the people in it.
+
+## Copy
+
+- No em or en dashes anywhere, including email subjects and alt text.
+- No staffing vocabulary: shortlist, candidates, bench, matching.
+- No hype, no exclamation points, and **no invented statistics**. A figure
+  ships only when it is real and attributable; otherwise state the claim
+  qualitatively. The site previously published a headline number it
+  disclaimed as a sample, which invites the reader to discount everything.
+- One CTA system: "Get in touch" on buyer pages, "Start the conversation" on
+  the contact form's submit only, "Apply to join the network" on Careers only.
 
 ## Motion
-- Easing: `EASE = [0.16, 1, 0.3, 1]`; durations 0.4–0.9s
-- Cards hover: `transition-all duration-500 hover:-translate-y-1` (+ soft shadow on light)
-- Code-built animated artifacts are the brand signature (Matching Engine on Home,
-  Delivery Console on Talent) — small SVG/DOM machines with mono labels, pulse dots
-  (`animate-pulse-dot`), blink carets (`animate-blink`), drawing paths
-  (framer-motion `pathLength`), floating chips (`animate-float`)
-- Respect `useReducedMotion`
 
-## Banned (the "AI-generated" tells — never reintroduce)
-- Serif fonts, `italic`, `<em>`
-- Hairline grids: `gap-px bg-*/10`, `divide-x/y`, `border-l-2` accent bars,
-  `border-t border-primary/10` between sections
-- Sharp corners (`rounded-none`, `rounded-[2px]`…)
-- Bare mono digits as section numbers (use circle badges)
-- Full-bleed flat cream sections back-to-back with no color block between
+- One entrance: `Reveal`, a quiet rise and fade with a long settle.
+- Entrances start at zero opacity, so anything animated must carry the
+  `data-reveal` hook that the print and reduced-motion rule resets. Without
+  it pages print blank.
+- The router is wrapped in `MotionConfig reducedMotion="user"`; respect it.
+- Interactive elements answer: a lift and a brighter fill on hover, a settle
+  and slight compression on press. Tone shifts, never shadows.
+
+## The hero film
+
+- The poster is always the shipped film's own frame zero, or the swap from
+  still to motion is visible.
+- The film must start **and** end on full-brightness frames, or the loop
+  blinks. Check with `ffprobe … signalstats` at both ends.
+- It streams with no buffering gate; keep the bitrate well under a normal
+  connection so playback cannot outrun the download.
+- Phones get a separate smaller encode, chosen at mount.
+
+## Structure
+
+- Every page: dark photographic opening, alternating light bands, the shared
+  CTA band. Contact, Careers and the legal pages opt out of the band.
+- Content lives in `src/contents/`. `taxonomy.ts` is the single source for the
+  eight capabilities and the method, including each step's "what you keep"
+  line. Never restate one page's argument on another.

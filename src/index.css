@@ -22,20 +22,24 @@
      full-bleed statements, CTA band), heading (section h2), subhead
      (h3), lede (a large body statement). Body: lg / base / sm / xs,
      where xs also serves the mono data labels.
-     Use a token. Never an arbitrary text-[..px]. */
+     The clamp minimums are deliberately far apart. They used to sit within
+     1.24 of each other while the desktop ramp was 1.34 to 1.42, so on a
+     phone a page opener and a mid-page heading computed to the same size and
+     the hierarchy collapsed exactly where most of the traffic reads it. The
+     vw term dominates above roughly 700px, so desktop is unchanged. */
   --text-hero: clamp(3.25rem, 8vw, 7rem);
   --text-hero--line-height: 1;
   --text-hero--letter-spacing: -0.03em;
 
-  --text-title: clamp(2.6rem, 5.6vw, 4.25rem);
+  --text-title: clamp(2.25rem, 5.6vw, 4.25rem);
   --text-title--line-height: 1.02;
   --text-title--letter-spacing: -0.03em;
 
-  --text-heading: clamp(2.1rem, 4vw, 3rem);
+  --text-heading: clamp(1.75rem, 4vw, 3rem);
   --text-heading--line-height: 1.05;
   --text-heading--letter-spacing: -0.03em;
 
-  --text-subhead: clamp(1.6rem, 2.8vw, 2.25rem);
+  --text-subhead: clamp(1.4rem, 2.8vw, 2.25rem);
   --text-subhead--line-height: 1.1;
   --text-subhead--letter-spacing: -0.02em;
 

@@ -110,25 +110,23 @@ const Terms = () => {
     <section className="bg-bg-cream">
       <div className="container pb-24 pt-36 md:pb-32 md:pt-44">
         <Reveal immediate y={20}>
-          <h1 className="font-display text-heading font-semibold tracking-[-0.02em] text-primary">
+          <h1 className="font-display text-heading font-bold text-ink">
             Terms of Service
           </h1>
-          <p className="mt-5 font-mono text-xs uppercase tracking-[0.18em] text-accent-three">
-            Last updated — {LAST_UPDATED}
-          </p>
+          <p className="mt-5 text-sm text-sub">Last updated {LAST_UPDATED}</p>
         </Reveal>
 
         <Reveal immediate delay={0.15} y={24}>
           <div className="mt-14 max-w-3xl space-y-12">
             {SECTIONS.map((section) => (
               <div key={section.title}>
-                <h2 className="font-display text-lede font-semibold text-primary">
+                <h2 className="font-display text-lede font-semibold text-ink">
                   {section.title}
                 </h2>
                 {section.paragraphs.map((paragraph) => (
                   <p
                     key={paragraph.slice(0, 40)}
-                    className="mt-4 text-base leading-[1.85] text-accent-one"
+                    className="mt-4 text-base leading-[1.85] text-sub"
                   >
                     {paragraph}
                   </p>

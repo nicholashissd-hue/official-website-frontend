@@ -63,8 +63,11 @@ const COMPANY_LINKS = [
   { label: "Careers", path: "/careers" },
 ];
 
+// The mono-caps + wide-tracking eyebrow is the banned AI-tell pattern, and it
+// survived here on every page. Column heads follow the Kicker instead: quiet
+// sentence case in the display family.
 const columnHeading =
-  "font-mono text-xs uppercase tracking-[0.22em] text-bg-cream/45";
+  "font-display text-sm font-semibold tracking-[-0.01em] text-bg-cream/60";
 const columnLink =
   "text-sm leading-[2.1] text-bg-cream/75 transition-colors hover:text-bg-cream";
 
@@ -78,13 +81,8 @@ const Footer = () => {
         <div className="grid gap-x-12 gap-y-12 py-16 md:grid-cols-2 md:py-20 lg:grid-cols-[1.6fr_1.1fr_0.8fr_1fr]">
           <div>
             <img src={elderOpsLogo} alt="ElderOps" className="w-12" />
-            <p className="mt-6 text-base font-bold">
-              Senior engineering expertise. Accountable delivery.
-            </p>
-            <p className="mt-3 max-w-xs text-sm leading-[1.75] text-bg-cream/55">
-              One engineering model that brings strategy, execution, and
-              accountability together. Senior engineers embed with your team,
-              build alongside you, and own the outcome.
+            <p className="mt-6 max-w-xs text-base font-bold">
+              The embedded senior engineering partner.
             </p>
             <div className="mt-7 flex gap-3">
               {SOCIALS.map((social) => (
@@ -115,7 +113,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/services"
-                  className="text-sm font-semibold leading-[2.3] text-signal transition-colors hover:text-bg-cream"
+                  className="inline-flex items-center gap-2 border-b border-bg-cream/35 pb-0.5 text-sm font-semibold text-bg-cream/85 transition-colors hover:text-bg-cream"
                 >
                   View all services →
                 </Link>
@@ -157,7 +155,7 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col gap-4 border-t border-bg-cream/10 py-7 text-xs text-bg-cream/50 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {currentYear} ElderOps. Senior Engineering Partners.</p>
+          <p>© {currentYear} ElderOps</p>
           <div className="flex gap-8">
             <Link to="/terms" className="transition-colors hover:text-bg-cream">
               Terms
