@@ -4,7 +4,7 @@ import { lazy, Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router";
 
 const Home = lazy(() => import("@/screens/Home"));
-const Services = lazy(() => import("@/screens/Solutions"));
+const Services = lazy(() => import("@/screens/Services"));
 const HowWeWork = lazy(() => import("@/screens/StartupLaunch"));
 const About = lazy(() => import("@/screens/About"));
 const Contact = lazy(() => import("@/screens/ContactUs"));

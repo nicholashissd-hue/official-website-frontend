@@ -1,7 +1,7 @@
 import Reveal from "@/components/ui/reveal";
 import { Kicker } from "@/components/ui/v4";
 import { thirdPath } from "@/contents/screens/homeV4";
-import pairingImage from "@/assets/webp/v4/pairing.webp";
+import pairingImage from "@/assets/webp/v4/pairing-dusk.webp";
 
 /** The About page's north-star positioning, on light ground with green as accent only. */
 const ThirdPath = () => (
@@ -39,7 +39,7 @@ const ThirdPath = () => (
         <Reveal delay={0.1}>
           <img
             src={pairingImage}
-            alt="Two ElderOps engineers working through a problem at one screen"
+            alt="Two ElderOps engineers working through a problem at one screen after dusk"
             loading="lazy"
             className="aspect-[4/5] w-full object-cover"
           />
