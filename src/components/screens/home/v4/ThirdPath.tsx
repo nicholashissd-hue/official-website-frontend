@@ -1,7 +1,7 @@
 import Reveal from "@/components/ui/reveal";
 import { Kicker } from "@/components/ui/v4";
 import { thirdPath } from "@/contents/screens/homeV4";
-import pairingImage from "@/assets/webp/v4/pairing-dusk.webp";
+import pairingImage from "@/assets/webp/v4/pairing-night.webp";
 
 /** The About page's north-star positioning, on light ground with green as accent only. */
 const ThirdPath = () => (
