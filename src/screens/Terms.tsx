@@ -26,7 +26,7 @@ const SECTIONS: TermsSection[] = [
     title: "3. Engagements",
     paragraphs: [
       "Each engagement begins only upon execution of an Engagement Agreement. In the event of a conflict between these Terms and an Engagement Agreement, the Engagement Agreement controls with respect to that engagement.",
-      "Candidate shortlists, engineer profiles, and matching recommendations (including output of automated tools such as our Hiring Advisor) are provided for evaluation purposes. Estimated turnaround times, such as shortlist delivery targets, are good-faith estimates and not guarantees.",
+      "Assessments, roadmaps, recommendations, and engagement proposals shared before an Engagement Agreement is executed are provided for evaluation purposes. Estimated turnaround and response times are good-faith estimates and not guarantees.",
     ],
   },
   {
