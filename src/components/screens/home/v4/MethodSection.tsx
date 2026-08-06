@@ -8,12 +8,12 @@ import ownPhoto from "@/assets/webp/v4/own-tech.webp";
 
 /**
  * Each step carries a modern technology photograph that MEANS its verb
- * (Nicholas, 2026-08-06): Assess is the laser scanner mapping the server
- * aisle, Build is the server being seated in the rack, Own is the key in
- * the rack-door lock.
+ * (Nicholas, 2026-08-06): Assess is the inspection light over the open
+ * server chassis, Build is the server being seated in the rack, Own is
+ * the key in the rack-door lock.
  */
 const STEP_SKETCHES = [
-  { src: assessPhoto, alt: "Laser scanner on a tripod mapping a dark server aisle with green light" },
+  { src: assessPhoto, alt: "Inspection light shining into an open server chassis in a dark server room" },
   { src: buildPhoto, alt: "Rack server half-inserted on sliding rails during installation" },
   { src: ownPhoto, alt: "Key seated in the lock of a server rack door, green light glowing through the mesh" },
 ];
