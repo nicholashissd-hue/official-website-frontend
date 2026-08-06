@@ -10,12 +10,15 @@ import { cn } from "@/lib/util";
  */
 const FullBleed = ({
   image,
+  imageSet,
   alt,
   objectPosition = "center",
   minHeightClass = "min-h-[72svh]",
   children,
 }: {
   image: string;
+  /** srcSet string of width variants; sizes is always the full viewport. */
+  imageSet?: string;
   alt: string;
   objectPosition?: string;
   minHeightClass?: string;
@@ -29,6 +32,8 @@ const FullBleed = ({
   >
     <img
       src={image}
+      srcSet={imageSet}
+      sizes={imageSet ? "100vw" : undefined}
       alt={alt}
       loading="lazy"
       className="absolute inset-0 size-full object-cover"

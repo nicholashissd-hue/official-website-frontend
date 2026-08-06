@@ -1,11 +1,14 @@
 import FullBleed from "@/components/ui/full-bleed";
 import { interlude } from "@/contents/screens/servicesV4";
 import interludeImage from "@/assets/webp/v4/services-interlude.webp";
+import interludeImage1600 from "@/assets/webp/v4/services-interlude-1600.webp";
+import interludeImage828 from "@/assets/webp/v4/services-interlude-828.webp";
 
 /** The delivery promise, carried by a dusk photograph of the work itself. */
 const ServicesInterlude = () => (
   <FullBleed
     image={interludeImage}
+    imageSet={`${interludeImage828} 828w, ${interludeImage1600} 1600w, ${interludeImage} 2880w`}
     alt="Two ElderOps engineers inspecting an open server rack by work light"
     objectPosition="center 40%"
   >

@@ -2,6 +2,8 @@ import FullBleed from "@/components/ui/full-bleed";
 import { GhostLink, Kicker } from "@/components/ui/v4";
 import { teamTeaser } from "@/contents/screens/homeV4";
 import teamImage from "@/assets/webp/v4/team-dusk.webp";
+import teamImage1600 from "@/assets/webp/v4/team-dusk-1600.webp";
+import teamImage828 from "@/assets/webp/v4/team-dusk-828.webp";
 
 /**
  * The team, as a full-bleed photographic section. Ships as a teaser only
@@ -10,6 +12,7 @@ import teamImage from "@/assets/webp/v4/team-dusk.webp";
 const TeamTeaser = () => (
   <FullBleed
     image={teamImage}
+    imageSet={`${teamImage828} 828w, ${teamImage1600} 1600w, ${teamImage} 2880w`}
     alt="ElderOps engineers in discussion around a table"
     objectPosition="center 30%"
     minHeightClass="min-h-[78svh]"

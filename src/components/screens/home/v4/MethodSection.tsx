@@ -3,8 +3,11 @@ import { Kicker } from "@/components/ui/v4";
 import { method } from "@/contents/screens/homeV4";
 import { METHOD } from "@/contents/taxonomy";
 import assessPhoto from "@/assets/webp/v4/method-assess.webp";
+import assessPhoto828 from "@/assets/webp/v4/method-assess-828.webp";
 import buildPhoto from "@/assets/webp/v4/method-build.webp";
+import buildPhoto828 from "@/assets/webp/v4/method-build-828.webp";
 import ownPhoto from "@/assets/webp/v4/method-own.webp";
+import ownPhoto828 from "@/assets/webp/v4/method-own-828.webp";
 
 /**
  * The method triptych (Nicholas's pick, 2026-08-06): one engineer's arc
@@ -13,9 +16,9 @@ import ownPhoto from "@/assets/webp/v4/method-own.webp";
  * frames carry the method wherever it appears.
  */
 const STEP_SKETCHES = [
-  { src: assessPhoto, alt: "An engineer stands before a wall-sized glowing map of a system" },
-  { src: buildPhoto, alt: "The same engineer deep in work at a dark desk, lit by screen glow" },
-  { src: ownPhoto, alt: "The engineer walks away down a green-lit server aisle toward dawn light" },
+  { src: assessPhoto, srcSet: `${assessPhoto828} 828w, ${assessPhoto} 1600w`, alt: "An engineer stands before a wall-sized glowing map of a system" },
+  { src: buildPhoto, srcSet: `${buildPhoto828} 828w, ${buildPhoto} 1600w`, alt: "The same engineer deep in work at a dark desk, lit by screen glow" },
+  { src: ownPhoto, srcSet: `${ownPhoto828} 828w, ${ownPhoto} 1600w`, alt: "The engineer walks away down a green-lit server aisle toward dawn light" },
 ];
 
 const MethodSection = () => (
@@ -33,6 +36,8 @@ const MethodSection = () => (
           <Reveal key={step.num} delay={index * 0.08} as="article">
             <img
               src={STEP_SKETCHES[index].src}
+              srcSet={STEP_SKETCHES[index].srcSet}
+              sizes="(min-width: 768px) 33vw, 100vw"
               alt={STEP_SKETCHES[index].alt}
               loading="lazy"
               className="aspect-[4/3] w-full border border-hairline object-cover"

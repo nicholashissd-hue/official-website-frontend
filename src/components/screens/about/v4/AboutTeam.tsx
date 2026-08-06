@@ -2,11 +2,14 @@ import FullBleed from "@/components/ui/full-bleed";
 import { Kicker } from "@/components/ui/v4";
 import { team } from "@/contents/screens/aboutV4";
 import teamImage from "@/assets/webp/v4/team-about-dusk.webp";
+import teamImage1600 from "@/assets/webp/v4/team-about-dusk-1600.webp";
+import teamImage828 from "@/assets/webp/v4/team-about-dusk-828.webp";
 
 /** The team, full-bleed. Stays a teaser until real names and bios exist. */
 const AboutTeam = () => (
   <FullBleed
     image={teamImage}
+    imageSet={`${teamImage828} 828w, ${teamImage1600} 1600w, ${teamImage} 2880w`}
     alt="ElderOps engineers talking together in the office at dusk"
     objectPosition="center 35%"
     minHeightClass="min-h-[78svh]"

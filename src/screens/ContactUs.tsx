@@ -3,6 +3,8 @@ import CalendlyCTA from "@/components/contactUs/react-calendly";
 import Reveal from "@/components/ui/reveal";
 import { Kicker } from "@/components/ui/v4";
 import contactPhoto from "@/assets/webp/v4/contact-city.webp";
+import contactPhoto1600 from "@/assets/webp/v4/contact-city-1600.webp";
+import contactPhoto828 from "@/assets/webp/v4/contact-city-828.webp";
 
 const NEXT_STEPS = [
   "An introductory conversation with an engineer",
@@ -71,6 +73,8 @@ const ContactUs = () => (
           <Reveal delay={0.08}>
             <img
               src={contactPhoto}
+              srcSet={`${contactPhoto828} 828w, ${contactPhoto1600} 1600w, ${contactPhoto} 2400w`}
+              sizes="(min-width: 1024px) 40vw, 100vw"
               alt="A city grid glowing at night, seen from high above"
               loading="lazy"
               className="aspect-[4/3] w-full border border-hairline object-cover"

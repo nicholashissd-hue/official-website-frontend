@@ -2,8 +2,11 @@ import Reveal from "@/components/ui/reveal";
 import { Kicker } from "@/components/ui/v4";
 import { methodChapters } from "@/contents/screens/howWeWorkV4";
 import assessPhoto from "@/assets/webp/v4/method-assess.webp";
+import assessPhoto828 from "@/assets/webp/v4/method-assess-828.webp";
 import buildPhoto from "@/assets/webp/v4/method-build.webp";
+import buildPhoto828 from "@/assets/webp/v4/method-build-828.webp";
 import ownPhoto from "@/assets/webp/v4/method-own.webp";
+import ownPhoto828 from "@/assets/webp/v4/method-own-828.webp";
 
 /**
  * The method expanded: three anchored chapters carrying the method
@@ -12,9 +15,9 @@ import ownPhoto from "@/assets/webp/v4/method-own.webp";
  * the signature, not an accident.
  */
 const STEP_PHOTOS = [
-  { src: assessPhoto, alt: "An engineer stands before a wall-sized glowing map of a system" },
-  { src: buildPhoto, alt: "The same engineer deep in work at a dark desk, lit by screen glow" },
-  { src: ownPhoto, alt: "The engineer walks away down a green-lit server aisle toward dawn light" },
+  { src: assessPhoto, srcSet: `${assessPhoto828} 828w, ${assessPhoto} 1600w`, alt: "An engineer stands before a wall-sized glowing map of a system" },
+  { src: buildPhoto, srcSet: `${buildPhoto828} 828w, ${buildPhoto} 1600w`, alt: "The same engineer deep in work at a dark desk, lit by screen glow" },
+  { src: ownPhoto, srcSet: `${ownPhoto828} 828w, ${ownPhoto} 1600w`, alt: "The engineer walks away down a green-lit server aisle toward dawn light" },
 ];
 
 const ids = ["assess", "build", "own"];
@@ -38,6 +41,8 @@ const MethodChapters = () => (
             >
               <img
                 src={STEP_PHOTOS[index].src}
+                srcSet={STEP_PHOTOS[index].srcSet}
+                sizes="(min-width: 1024px) 42vw, 100vw"
                 alt={STEP_PHOTOS[index].alt}
                 loading="lazy"
                 className={`aspect-[4/3] w-full border border-hairline object-cover ${index % 2 === 1 ? "lg:order-2" : ""}`}

@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import heroImage from "@/assets/webp/v4/hero-about-dusk.webp";
+import heroImage1600 from "@/assets/webp/v4/hero-about-dusk-1600.webp";
+import heroImage828 from "@/assets/webp/v4/hero-about-dusk-828.webp";
 import { hero } from "@/contents/screens/aboutV4";
 import { EASE } from "@/components/ui/reveal";
 import { Kicker, SignalButton } from "@/components/ui/v4";
@@ -15,6 +17,8 @@ const AboutHero = () => (
   <section className="relative flex min-h-[92svh] flex-col justify-end overflow-hidden bg-nearblack">
     <img
       src={heroImage}
+      srcSet={`${heroImage828} 828w, ${heroImage1600} 1600w, ${heroImage} 2880w`}
+      sizes="100vw"
       alt="The ElderOps team working around a conference table at dusk"
       className="absolute inset-0 size-full object-cover"
       style={{ objectPosition: "center 42%" }}

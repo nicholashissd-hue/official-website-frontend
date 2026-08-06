@@ -1,11 +1,14 @@
 import FullBleed from "@/components/ui/full-bleed";
 import { interlude } from "@/contents/screens/homeV4";
 import workshopImage from "@/assets/webp/v4/interlude-dusk.webp";
+import workshopImage1600 from "@/assets/webp/v4/interlude-dusk-1600.webp";
+import workshopImage828 from "@/assets/webp/v4/interlude-dusk-828.webp";
 
 /** The enablement promise, carried by a full-bleed photograph of the work. */
 const Interlude = () => (
   <FullBleed
     image={workshopImage}
+    imageSet={`${workshopImage828} 828w, ${workshopImage1600} 1600w, ${workshopImage} 2880w`}
     alt="ElderOps engineers working through a system design on a glass wall"
     objectPosition="center 45%"
   >

@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import heroImage from "@/assets/webp/v4/hero-careers-dusk.webp";
+import heroImage1600 from "@/assets/webp/v4/hero-careers-dusk-1600.webp";
+import heroImage828 from "@/assets/webp/v4/hero-careers-dusk-828.webp";
 import { hero, APPLY_MAILTO } from "@/contents/screens/careersV4";
 import { EASE } from "@/components/ui/reveal";
 import { Kicker } from "@/components/ui/v4";
@@ -15,6 +17,8 @@ const CareersHero = () => (
   <section className="relative flex min-h-[92svh] flex-col justify-end overflow-hidden bg-nearblack">
     <img
       src={heroImage}
+      srcSet={`${heroImage828} 828w, ${heroImage1600} 1600w, ${heroImage} 2880w`}
+      sizes="100vw"
       alt="Three engineers talking in the lounge corner of a loft workspace at dusk"
       className="absolute inset-0 size-full object-cover"
       style={{ objectPosition: "center 42%" }}
