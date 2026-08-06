@@ -1,6 +1,7 @@
 import Reveal from "@/components/ui/reveal";
-import { Kicker } from "@/components/ui/v4";
+import { Keep, Kicker } from "@/components/ui/v4";
 import { methodChapters } from "@/contents/screens/howWeWorkV4";
+import { METHOD } from "@/contents/taxonomy";
 import assessPhoto from "@/assets/webp/v4/method-assess.webp";
 import assessPhoto828 from "@/assets/webp/v4/method-assess-828.webp";
 import buildPhoto from "@/assets/webp/v4/method-build.webp";
@@ -45,7 +46,7 @@ const MethodChapters = () => (
       </Reveal>
 
       <div className="mt-14 flex flex-col gap-16">
-        {methodChapters.steps.map((step, index) => (
+        {METHOD.map((step, index) => (
           <Reveal key={step.num} delay={0.05} as="article">
             <div
               id={ids[index]}
@@ -68,10 +69,10 @@ const MethodChapters = () => (
                     {step.title}
                   </span>
                 </p>
-                <p className="mt-5 max-w-xl text-base text-sub">{step.body}</p>
-                <p className="mt-5 max-w-xl border-l-2 border-signal pl-4 text-base font-semibold text-ink">
-                  {step.keep}
+                <p className="mt-5 max-w-xl text-base text-sub">
+                  {methodChapters.chapterBodies[index]}
                 </p>
+                <Keep>{step.keep}</Keep>
               </div>
             </div>
           </Reveal>

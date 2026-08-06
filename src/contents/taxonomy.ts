@@ -101,21 +101,32 @@ export const SERVICES: Service[] = [
 export const serviceShortLabel = (s: Service) =>
   s.label.replace(" (FinOps)", "").replace(" (Fractional)", "");
 
-/** The named method — one vocabulary sitewide. */
+/**
+ * The named method — one vocabulary sitewide.
+ *
+ * `body` is what happens in the step. `keep` is what the client is left
+ * holding afterwards, and it is the part no competitor can copy without
+ * adopting the handoff: consulting leaves a deck, staffing leaves nothing.
+ * It lived on one page below the fold; it now travels with the step and
+ * renders wherever the method appears.
+ */
 export const METHOD = [
   {
     num: "01",
     title: "Assess",
-    body: "We map where risk, cost, and delivery drag actually live and give you a clear roadmap. You keep the assessment whether or not you continue with us.",
+    body: "We map where risk, cost, and delivery drag actually live, and give you a clear, prioritized roadmap.",
+    keep: "You keep the assessment and the roadmap, whether or not you continue with us.",
   },
   {
     num: "02",
     title: "Build",
     body: "Senior engineers embed and do the work: migrations, platforms, pipelines, security, and cost control, measured against the roadmap.",
+    keep: "You keep working systems in production, not a deck about them.",
   },
   {
     num: "03",
     title: "Own",
-    body: "We document, upskill your team, and hand off. The goal is a system your team runs without us, with support on flexible terms if you want it.",
+    body: "We document, write runbooks, upskill your team, and hand off.",
+    keep: "You keep the system, the documentation, and a team that can run it without us.",
   },
 ] as const;

@@ -18,25 +18,15 @@ export const hero = {
 export const methodChapters = {
   kicker: "The method",
   title: "Three steps, one promise.",
-  steps: [
-    {
-      num: "01",
-      title: "Assess",
-      body: "We start where the risk and cost actually live: the stalled migration, the fragile pipeline, the bill nobody owns. Senior engineers read the systems, talk to the people who run them, and map what is really going on.",
-      keep: "You keep a clear, prioritized roadmap whether or not you continue with us.",
-    },
-    {
-      num: "02",
-      title: "Build",
-      body: "The same engineers who assessed the work do the work: migrations, platforms, pipelines, security, and cost control, inside your stack, your standups, and your tooling, measured against the roadmap.",
-      keep: "You keep working systems in production, not a deck about them.",
-    },
-    {
-      num: "03",
-      title: "Own",
-      body: "From day one we document, write runbooks, and upskill your team, because the goal is a system your team runs without us. When the handoff is done, we step back.",
-      keep: "You keep the system, the docs, and a team that can run it, with support on flexible terms if you want it.",
-    },
+  /**
+   * The long-form telling of each step, in the same order as METHOD in
+   * contents/taxonomy.ts. Step names, numbers and the "what you keep" line
+   * come from there so they can never drift between pages.
+   */
+  chapterBodies: [
+    "We start where the risk and cost actually live: the stalled migration, the fragile pipeline, the bill nobody owns. Senior engineers read the systems, talk to the people who run them, and map what is really going on.",
+    "The same engineers who assessed the work do the work: migrations, platforms, pipelines, security, and cost control, inside your stack, your standups, and your tooling, measured against the roadmap.",
+    "From day one we document, write runbooks, and upskill your team, because the goal is a system your team runs without us. When the handoff is done, we step back.",
   ],
 };
 

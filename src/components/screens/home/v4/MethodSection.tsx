@@ -1,5 +1,5 @@
 import Reveal from "@/components/ui/reveal";
-import { Kicker } from "@/components/ui/v4";
+import { Keep, Kicker } from "@/components/ui/v4";
 import { method } from "@/contents/screens/homeV4";
 import { METHOD } from "@/contents/taxonomy";
 import assessPhoto from "@/assets/webp/v4/method-assess.webp";
@@ -61,6 +61,7 @@ const MethodSection = () => (
               <span className="text-lg font-bold text-ink">{step.title}</span>
             </p>
             <p className="mt-2.5 text-base text-sub">{step.body}</p>
+            <Keep>{step.keep}</Keep>
           </Reveal>
         ))}
       </div>

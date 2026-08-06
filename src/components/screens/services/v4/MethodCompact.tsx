@@ -1,5 +1,5 @@
 import Reveal from "@/components/ui/reveal";
-import { GhostLink, Kicker } from "@/components/ui/v4";
+import { GhostLink, Keep, Kicker } from "@/components/ui/v4";
 import { method } from "@/contents/screens/servicesV4";
 import { METHOD } from "@/contents/taxonomy";
 
@@ -25,6 +25,7 @@ const MethodCompact = () => (
                 <span className="text-lg font-bold text-ink">{step.title}</span>
               </p>
               <p className="mt-2.5 text-sm text-sub">{step.body}</p>
+              <Keep>{step.keep}</Keep>
             </div>
           </Reveal>
         ))}

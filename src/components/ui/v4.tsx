@@ -9,6 +9,21 @@ import { cn } from "@/lib/util";
  * a mono-caps eyebrow with a rule: mono is reserved for genuine data notes.
  */
 
+/**
+ * The "what you keep" line under a method step. One treatment everywhere the
+ * method appears: a hairline above it and the sentence in ink, so it reads as
+ * the payload of the step and the description above reads as the setup.
+ *
+ * Deliberately not a coloured rail. A green left bar on five paragraphs is a
+ * chapter rail at paragraph scale, and it spends the one action colour on a
+ * decorative rule.
+ */
+export const Keep = ({ children }: { children: ReactNode }) => (
+  <p className="mt-5 max-w-xl border-t border-hairline pt-4 text-base font-semibold text-ink">
+    {children}
+  </p>
+);
+
 export const Kicker = ({
   children,
   onDark = false,
