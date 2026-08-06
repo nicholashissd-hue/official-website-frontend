@@ -1,19 +1,20 @@
-import Hero from "@/components/screens/careers/Hero";
-import WhatWeLookFor from "@/components/screens/careers/WhatWeLookFor";
-import VettingPhilosophy from "@/components/screens/careers/VettingPhilosophy";
-import AreasOfExpertise from "@/components/screens/careers/AreasOfExpertise";
-import WhyJoin from "@/components/screens/careers/WhyJoin";
+import CareersHero from "@/components/screens/careers/v4/CareersHero";
+import WhyJoin from "@/components/screens/careers/v4/WhyJoin";
+import Domains from "@/components/screens/careers/v4/Domains";
+import JoinProcess from "@/components/screens/careers/v4/JoinProcess";
 
-const Careers = () => {
-  return (
-    <>
-      <Hero />
-      <WhatWeLookFor />
-      <VettingPhilosophy />
-      <AreasOfExpertise />
-      <WhyJoin />
-    </>
-  );
-};
+/**
+ * Careers, V4: the supply side. One voice ("Own the work. Set the terms."),
+ * the reasons engineers join, the buyer taxonomy as the domain grid, and
+ * the Apply / Vetting / Embed process with the only Careers CTA.
+ */
+const Careers = () => (
+  <>
+    <CareersHero />
+    <WhyJoin />
+    <Domains />
+    <JoinProcess />
+  </>
+);
 
 export default Careers;

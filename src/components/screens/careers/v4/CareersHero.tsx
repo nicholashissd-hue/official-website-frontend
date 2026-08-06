@@ -1,0 +1,57 @@
+import { motion } from "framer-motion";
+import heroImage from "@/assets/webp/v4/hero-careers-dusk.webp";
+import { hero, APPLY_MAILTO } from "@/contents/screens/careersV4";
+import { EASE } from "@/components/ui/reveal";
+import { Kicker } from "@/components/ui/v4";
+
+const rise = (delay: number) => ({
+  initial: { opacity: 0, y: 18 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, delay, ease: EASE },
+});
+
+/** Supply-side dark hero: one engineer, their own space, their own terms. */
+const CareersHero = () => (
+  <section className="relative flex min-h-[92svh] flex-col justify-end overflow-hidden bg-nearblack">
+    <img
+      src={heroImage}
+      alt="An engineer working alone at a desk by a window at dusk"
+      className="absolute inset-0 size-full object-cover"
+      style={{ objectPosition: "center 42%" }}
+    />
+    <div
+      aria-hidden="true"
+      className="absolute inset-0 bg-[linear-gradient(to_top,rgb(8_23_18/0.9)_0%,rgb(8_23_18/0.3)_52%,rgb(8_23_18/0.45)_100%)]"
+    />
+    <div
+      aria-hidden="true"
+      className="absolute inset-0 bg-[linear-gradient(100deg,rgb(8_23_18/0.78)_0%,rgb(8_23_18/0.38)_40%,transparent_70%)]"
+    />
+
+    <div className="container relative pb-16 pt-40 md:pb-24">
+      <motion.div {...rise(0)}>
+        <Kicker onDark>{hero.kicker}</Kicker>
+        <h1 className="mt-3 max-w-4xl font-display text-[clamp(3rem,6.8vw,5.75rem)] font-bold leading-none tracking-[-0.03em] text-bg-cream">
+          {hero.title}
+        </h1>
+      </motion.div>
+
+      <motion.div
+        {...rise(0.1)}
+        className="mt-8 flex flex-wrap items-end justify-between gap-x-12 gap-y-8"
+      >
+        <p className="max-w-xl text-[17px] leading-[1.6] text-bg-cream/82 md:text-[18px]">
+          {hero.descriptor}
+        </p>
+        <a
+          href={APPLY_MAILTO}
+          className="inline-flex items-center justify-center rounded-[14px] bg-signal px-7 py-4 text-[15px] font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px"
+        >
+          {hero.cta}
+        </a>
+      </motion.div>
+    </div>
+  </section>
+);
+
+export default CareersHero;

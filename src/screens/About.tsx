@@ -13,9 +13,9 @@ const About = () => (
   <>
     <AboutHero />
     <Narrative />
+    <AboutTeam />
     <Principles />
     <MethodCompact />
-    <AboutTeam />
   </>
 );
 
