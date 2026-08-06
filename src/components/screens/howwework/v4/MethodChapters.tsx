@@ -6,15 +6,15 @@ import buildPhoto from "@/assets/webp/v4/hww-build.webp";
 import ownPhoto from "@/assets/webp/v4/hww-own.webp";
 
 /**
- * The method expanded: three anchored chapters. The photography is this
- * page's own hardware arc (Nicholas, 2026-08-06: never reuse the Home
- * method photos here): the fault found, the platform going up, the rack
- * closed and steady green.
+ * The method expanded: three anchored chapters. The photography is people
+ * doing the work, never hardware catalog shots (Nicholas, 2026-08-06:
+ * "it looks like we're selling hardware"): reading the system, pairing
+ * on the build, and the client engineer at the keys for the handoff.
  */
 const STEP_PHOTOS = [
-  { src: assessPhoto, alt: "Rows of green status lights on rack equipment with one amber warning light standing out" },
-  { src: buildPhoto, alt: "Storage array mid-installation, drive bays lit, a coiled cable waiting on the shelf" },
-  { src: ownPhoto, alt: "Closed server rack door with steady green lights glowing through the mesh" },
+  { src: assessPhoto, alt: "An engineer studying a whiteboard covered in a system architecture diagram" },
+  { src: buildPhoto, alt: "Two engineers pairing at one desk in the evening, one typing while the other thinks along" },
+  { src: ownPhoto, alt: "One engineer at the keyboard while an ElderOps engineer stands behind with a mug, watching the handoff" },
 ];
 
 const ids = ["assess", "build", "own"];

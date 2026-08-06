@@ -15,7 +15,7 @@ const HwwHero = () => (
   <section className="relative flex min-h-[92svh] flex-col justify-end overflow-hidden bg-nearblack">
     <img
       src={heroImage}
-      alt="ElderOps engineers working through printed system diagrams around a table at dusk"
+      alt="ElderOps data engineers working together around a boardroom table in the evening"
       className="absolute inset-0 size-full object-cover"
       style={{ objectPosition: "center 45%" }}
     />

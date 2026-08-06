@@ -71,7 +71,7 @@ const ContactUs = () => (
           <Reveal delay={0.08}>
             <img
               src={contactPhoto}
-              alt="Optical fibers glowing green and warm white against darkness"
+              alt="A network cable seated in its port with the green link light on"
               loading="lazy"
               className="aspect-[4/3] w-full border border-hairline object-cover"
             />
