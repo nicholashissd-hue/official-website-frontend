@@ -2,20 +2,20 @@ import Reveal from "@/components/ui/reveal";
 import { Kicker } from "@/components/ui/v4";
 import { method } from "@/contents/screens/homeV4";
 import { METHOD } from "@/contents/taxonomy";
-import assessPhoto from "@/assets/webp/v4/assess-tech.webp";
-import buildPhoto from "@/assets/webp/v4/build-tech.webp";
-import ownPhoto from "@/assets/webp/v4/own-tech.webp";
+import assessPhoto from "@/assets/webp/v4/method-assess.webp";
+import buildPhoto from "@/assets/webp/v4/method-build.webp";
+import ownPhoto from "@/assets/webp/v4/method-own.webp";
 
 /**
- * Each step carries a modern technology photograph that MEANS its verb
- * (Nicholas, 2026-08-06): Assess is the inspection light over the open
- * server chassis, Build is the server being seated in the rack, Own is
- * the key in the rack-door lock.
+ * The method triptych (Nicholas's pick, 2026-08-06): one engineer's arc
+ * across three cinematic frames. Reading the system map, deep in the
+ * build, walking away at dawn with everything running. The same three
+ * frames carry the method wherever it appears.
  */
 const STEP_SKETCHES = [
-  { src: assessPhoto, alt: "Inspection light shining into an open server chassis in a dark server room" },
-  { src: buildPhoto, alt: "Rack server half-inserted on sliding rails during installation" },
-  { src: ownPhoto, alt: "Key seated in the lock of a server rack door, green light glowing through the mesh" },
+  { src: assessPhoto, alt: "An engineer stands before a wall-sized glowing map of a system" },
+  { src: buildPhoto, alt: "The same engineer deep in work at a dark desk, lit by screen glow" },
+  { src: ownPhoto, alt: "The engineer walks away down a green-lit server aisle toward dawn light" },
 ];
 
 const MethodSection = () => (

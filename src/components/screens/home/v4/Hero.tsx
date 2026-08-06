@@ -24,11 +24,10 @@ const Hero = () => {
   // advancing, so neither the first play nor a loop restart ever pops.
   const [isFilmLive, setIsFilmLive] = useState(false);
 
-  // The film stays paused on frame zero (= the poster) until the browser
-  // expects to play it through without stalling. Starting earlier is what
-  // caused the play-freeze-play hitch: playback began on a thin buffer and
-  // ran it dry. canplaythrough is the primary gate; the buffer poll and
-  // timer are fallbacks for browsers that withhold the event.
+  // The film stays paused on frame zero until the ENTIRE file is buffered
+  // (canplaythrough is only an estimate and fires optimistically on fast
+  // connections, which is where the start-skip came from). Only then does
+  // playback begin, so it can never stall mid-loop either.
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -43,14 +42,25 @@ const Hero = () => {
       started = true;
       void video.play();
     };
-    video.addEventListener("canplaythrough", start, { once: true });
+    const fullyBuffered = () => {
+      try {
+        return (
+          video.duration > 0 &&
+          video.buffered.length > 0 &&
+          video.buffered.end(video.buffered.length - 1) >= video.duration - 0.25
+        );
+      } catch {
+        return false;
+      }
+    };
     const poll = window.setInterval(() => {
-      if (video.buffered.length && video.buffered.end(0) > 10) start();
-    }, 250);
-    const bail = window.setTimeout(start, 6000);
+      if (fullyBuffered()) start();
+    }, 200);
+    // If the network is too slow to ever finish, start anyway rather than
+    // showing a still image forever.
+    const bail = window.setTimeout(start, 8000);
 
     return () => {
-      video.removeEventListener("canplaythrough", start);
       window.clearInterval(poll);
       window.clearTimeout(bail);
     };
@@ -76,9 +86,12 @@ const Hero = () => {
         aria-hidden="true"
         className="absolute inset-0 size-full object-cover"
       />
+      {/* No crossfade: the poster IS the film's first frame, so an instant
+          swap at the first painted frame is invisible. A fade would blend
+          the moving film over the still poster and read as a skip. */}
       <video
         ref={videoRef}
-        className={`absolute inset-0 size-full object-cover transition-opacity duration-700 ${
+        className={`absolute inset-0 size-full object-cover ${
           isFilmLive ? "opacity-100" : "opacity-0"
         }`}
         src="/video/hero-film.mp4"

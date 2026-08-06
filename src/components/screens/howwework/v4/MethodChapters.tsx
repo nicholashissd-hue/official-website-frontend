@@ -1,20 +1,20 @@
 import Reveal from "@/components/ui/reveal";
 import { Kicker } from "@/components/ui/v4";
 import { methodChapters } from "@/contents/screens/howWeWorkV4";
-import assessPhoto from "@/assets/webp/v4/hww-assess.webp";
-import buildPhoto from "@/assets/webp/v4/hww-build.webp";
-import ownPhoto from "@/assets/webp/v4/hww-own.webp";
+import assessPhoto from "@/assets/webp/v4/method-assess.webp";
+import buildPhoto from "@/assets/webp/v4/method-build.webp";
+import ownPhoto from "@/assets/webp/v4/method-own.webp";
 
 /**
- * The method expanded: three anchored chapters. The photography is people
- * doing the work, never hardware catalog shots (Nicholas, 2026-08-06:
- * "it looks like we're selling hardware"): reading the system, pairing
- * on the build, and the client engineer at the keys for the handoff.
+ * The method expanded: three anchored chapters carrying the method
+ * triptych (Nicholas's pick, 2026-08-06): one engineer's arc. The same
+ * three frames carry the method wherever it appears; repetition here is
+ * the signature, not an accident.
  */
 const STEP_PHOTOS = [
-  { src: assessPhoto, alt: "An engineer studying a whiteboard covered in a system architecture diagram" },
-  { src: buildPhoto, alt: "Two engineers pairing at one desk in the evening, one typing while the other thinks along" },
-  { src: ownPhoto, alt: "One engineer at the keyboard while an ElderOps engineer stands behind with a mug, watching the handoff" },
+  { src: assessPhoto, alt: "An engineer stands before a wall-sized glowing map of a system" },
+  { src: buildPhoto, alt: "The same engineer deep in work at a dark desk, lit by screen glow" },
+  { src: ownPhoto, alt: "The engineer walks away down a green-lit server aisle toward dawn light" },
 ];
 
 const ids = ["assess", "build", "own"];
