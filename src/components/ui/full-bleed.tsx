@@ -34,9 +34,15 @@ const FullBleed = ({
       className="absolute inset-0 size-full object-cover"
       style={{ objectPosition }}
     />
+    {/* Two scrims: a base bottom-up lift plus a lower-left pocket where the
+        statement sits, so legibility never depends on the photograph. */}
     <div
       aria-hidden="true"
-      className="absolute inset-0 bg-[linear-gradient(to_top,rgb(8_23_18/0.88)_0%,rgb(8_23_18/0.18)_55%,rgb(8_23_18/0.32)_100%)]"
+      className="absolute inset-0 bg-[linear-gradient(to_top,rgb(8_23_18/0.92)_0%,rgb(8_23_18/0.34)_58%,rgb(8_23_18/0.38)_100%)]"
+    />
+    <div
+      aria-hidden="true"
+      className="absolute inset-0 bg-[linear-gradient(100deg,rgb(8_23_18/0.82)_0%,rgb(8_23_18/0.42)_38%,transparent_68%)]"
     />
     <div className="container relative pb-14 pt-28 md:pb-20">
       <Reveal>{children}</Reveal>

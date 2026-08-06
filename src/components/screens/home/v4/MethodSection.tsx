@@ -2,9 +2,9 @@ import Reveal from "@/components/ui/reveal";
 import { Kicker } from "@/components/ui/v4";
 import { method } from "@/contents/screens/homeV4";
 import { METHOD } from "@/contents/taxonomy";
-import assessImage from "@/assets/webp/v4/assess.webp";
-import buildImage from "@/assets/webp/v4/build.webp";
-import ownImage from "@/assets/webp/v4/own.webp";
+import assessImage from "@/assets/webp/v4/assess-object.webp";
+import buildImage from "@/assets/webp/v4/build-object.webp";
+import ownImage from "@/assets/webp/v4/own-object.webp";
 
 const STEP_IMAGES = [assessImage, buildImage, ownImage];
 

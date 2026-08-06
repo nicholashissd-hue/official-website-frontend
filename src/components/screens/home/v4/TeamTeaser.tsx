@@ -1,7 +1,7 @@
 import FullBleed from "@/components/ui/full-bleed";
 import { GhostLink, Kicker } from "@/components/ui/v4";
 import { teamTeaser } from "@/contents/screens/homeV4";
-import teamImage from "@/assets/webp/v4/team.webp";
+import teamImage from "@/assets/webp/v4/team-dusk.webp";
 
 /**
  * The team, as a full-bleed photographic section. Ships as a teaser only
