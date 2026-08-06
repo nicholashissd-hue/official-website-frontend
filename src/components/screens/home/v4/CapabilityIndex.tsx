@@ -10,7 +10,10 @@ import { SERVICES, serviceShortLabel } from "@/contents/taxonomy";
  * viewport; the arrow appears on hover. Never a tile wall.
  */
 const CapabilityIndex = () => (
-  <section className="border-y border-hairline bg-bone">
+  <section
+    id="capabilities"
+    className="scroll-mt-24 border-y border-hairline bg-bone"
+  >
     <div className="container section-space-block">
       <div className="grid items-start gap-x-20 gap-y-12 lg:grid-cols-[4fr_8fr]">
         <div>

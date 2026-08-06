@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import heroPoster from "@/assets/webp/v4/hero-poster.webp";
 import { hero } from "@/contents/screens/homeV4";
 import { EASE } from "@/components/ui/reveal";
-import { GhostLink, SignalButton } from "@/components/ui/v4";
+import { SignalButton } from "@/components/ui/v4";
 
 const rise = (delay: number) => ({
   initial: { opacity: 0, y: 18 },
@@ -107,9 +107,15 @@ const Hero = () => {
           <p className="max-w-xl text-lg text-bg-cream/82">{hero.descriptor}</p>
           <div className="flex items-center gap-7">
             <SignalButton to="/contact-us">{hero.primaryCta}</SignalButton>
-            <GhostLink to="/services" onDark>
+            {/* A downward glyph has to move down the page. This used to be a
+                router link to /services, so the one affordance inviting the
+                reader to scroll took them off the page instead. */}
+            <a
+              href="#capabilities"
+              className="inline-flex items-center gap-2 border-b border-bg-cream/35 pb-0.5 text-base font-semibold text-bg-cream/85 transition-colors duration-300 hover:text-bg-cream"
+            >
               {hero.secondaryCta} <span aria-hidden="true">↓</span>
-            </GhostLink>
+            </a>
           </div>
         </motion.div>
       </div>
