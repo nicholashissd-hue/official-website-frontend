@@ -61,7 +61,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-nearblack">
+    <section className="relative flex min-h-svh flex-col justify-end overflow-hidden bg-nearblack">
       <img
         src={heroPoster}
         alt=""
@@ -90,9 +90,7 @@ const Hero = () => {
         className="absolute inset-0 bg-[linear-gradient(to_top,rgb(8_23_18/0.9)_0%,rgb(8_23_18/0.28)_50%,rgb(8_23_18/0.45)_100%)]"
       />
 
-      {/* BCG X lockup: the statement sits center-left, descriptor and
-          actions stacked directly beneath it, not seated at the bottom. */}
-      <div className="container relative pt-16">
+      <div className="container relative pb-16 pt-40 md:pb-24">
         <motion.h1
           {...rise(0)}
           className="max-w-5xl font-display text-[clamp(3.6rem,8.5vw,7.5rem)] font-bold leading-none tracking-[-0.03em] text-bg-cream"
@@ -102,11 +100,14 @@ const Hero = () => {
           You own it.
         </motion.h1>
 
-        <motion.div {...rise(0.1)}>
-          <p className="mt-7 max-w-xl text-[17px] leading-[1.6] text-bg-cream/82 md:text-[19px]">
+        <motion.div
+          {...rise(0.1)}
+          className="mt-8 flex flex-wrap items-end justify-between gap-x-12 gap-y-8"
+        >
+          <p className="max-w-xl text-[17px] leading-[1.6] text-bg-cream/82 md:text-[19px]">
             {hero.descriptor}
           </p>
-          <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-5">
+          <div className="flex items-center gap-7">
             <SignalButton to="/contact-us">{hero.primaryCta}</SignalButton>
             <GhostLink to="/services" onDark>
               {hero.secondaryCta} <span aria-hidden="true">↓</span>
