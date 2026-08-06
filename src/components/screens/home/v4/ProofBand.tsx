@@ -70,6 +70,10 @@ const ProofBand = () => (
               key={company.altText}
               src={company.defaultLogo}
               alt={company.altText}
+              width={company.width}
+              height={company.height}
+              loading="lazy"
+              decoding="async"
               className="h-5 w-auto opacity-40 grayscale md:h-6"
             />
           ))}

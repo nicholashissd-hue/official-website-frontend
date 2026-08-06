@@ -1,67 +1,62 @@
-import infinion from "@/assets/png/logos/infinion.png";
-import atbTech from "@/assets/png/logos/atbtech.png";
-import choiceCloud from "@/assets/png/logos/choiceCloud.png";
-import hubint from "@/assets/png/logos/hubinit.png";
-import initTs from "@/assets/png/logos/inits.png";
-import moniepoint from "@/assets/png/logos/moniepoint.png";
-import newGlobe from "@/assets/png/logos/newglobe.png";
-import plugLink from "@/assets/png/logos/plug-link.png";
-import quickRemit from "@/assets/png/logos/quickremit.png";
-import syscomptech from "@/assets/png/logos/syscomptech.png";
-import tandatech from "@/assets/png/logos/tanda.png";
-import notchHr from "@/assets/png/logos/notchHr.png";
+import infinion from "@/assets/webp/logos/infinion.webp";
+import atbTech from "@/assets/webp/logos/atbtech.webp";
+import choiceCloud from "@/assets/webp/logos/choiceCloud.webp";
+import hubint from "@/assets/webp/logos/hubinit.webp";
+import initTs from "@/assets/webp/logos/inits.webp";
+import moniepoint from "@/assets/webp/logos/moniepoint.webp";
+import newGlobe from "@/assets/webp/logos/newglobe.webp";
+import plugLink from "@/assets/webp/logos/plug-link.webp";
+import quickRemit from "@/assets/webp/logos/quickremit.webp";
+import syscomptech from "@/assets/webp/logos/syscomptech.webp";
+import tandatech from "@/assets/webp/logos/tanda.webp";
+import notchHr from "@/assets/webp/logos/notchHr.webp";
 
 /**
  * Client logos for the proof band. Everything else that lived here was
  * V3 home copy, deleted in the v4.13 hygiene sweep.
+ *
+ * Each file is 72px tall: three times the 24px it renders at, so it stays
+ * crisp on any phone. The intrinsic size travels with the logo so the img
+ * can reserve its space before the file arrives (no reflow, no CLS).
  */
-export const trustedCompaniesLogo = [
-  {
-    defaultLogo: infinion,
-    altText: "infinion logo",
-  },
-  {
-    defaultLogo: atbTech,
-    altText: "atbTech logo",
-  },
+type Logo = {
+  defaultLogo: string;
+  altText: string;
+  width: number;
+  height: number;
+};
+
+export const trustedCompaniesLogo: Logo[] = [
+  { defaultLogo: infinion, altText: "Infinion logo", width: 101, height: 72 },
+  { defaultLogo: atbTech, altText: "ATB Tech logo", width: 403, height: 72 },
   {
     defaultLogo: choiceCloud,
-    altText: "choiceCloud logo",
+    altText: "ChoiceCloud logo",
+    width: 370,
+    height: 72,
   },
-  {
-    defaultLogo: hubint,
-    altText: " hubint logo",
-  },
-  {
-    defaultLogo: initTs,
-    altText: "initTs logo",
-  },
+  { defaultLogo: hubint, altText: "Hubinit logo", width: 246, height: 72 },
+  { defaultLogo: initTs, altText: "Inits logo", width: 223, height: 72 },
   {
     defaultLogo: moniepoint,
-    altText: "moniepoint  logo",
+    altText: "Moniepoint logo",
+    width: 294,
+    height: 72,
   },
-  {
-    defaultLogo: newGlobe,
-    altText: "new globe  logo",
-  },
-  {
-    defaultLogo: plugLink,
-    altText: "pluglink  logo",
-  },
+  { defaultLogo: newGlobe, altText: "NewGlobe logo", width: 182, height: 72 },
+  { defaultLogo: plugLink, altText: "PlugLink logo", width: 91, height: 72 },
   {
     defaultLogo: quickRemit,
-    altText: "quick remit  logo",
+    altText: "QuickRemit logo",
+    width: 248,
+    height: 72,
   },
   {
     defaultLogo: syscomptech,
-    altText: "syscomptech  logo",
+    altText: "Syscomptech logo",
+    width: 318,
+    height: 72,
   },
-  {
-    defaultLogo: tandatech,
-    altText: "tandatech  logo",
-  },
-  {
-    defaultLogo: notchHr,
-    altText: "notchHr  logo",
-  },
+  { defaultLogo: tandatech, altText: "Tanda logo", width: 73, height: 72 },
+  { defaultLogo: notchHr, altText: "NotchHR logo", width: 316, height: 72 },
 ];
