@@ -2,16 +2,10 @@ import Form from "@/components/contactUs/Form";
 import CalendlyCTA from "@/components/contactUs/react-calendly";
 import Reveal from "@/components/ui/reveal";
 import { Kicker } from "@/components/ui/v4";
+import { NEXT_STEPS } from "@/contents/screens/contactV4";
 import contactPhoto from "@/assets/webp/v4/contact-city.webp";
 import contactPhoto1600 from "@/assets/webp/v4/contact-city-1600.webp";
 import contactPhoto828 from "@/assets/webp/v4/contact-city-828.webp";
-
-const NEXT_STEPS = [
-  "An introductory conversation with an engineer",
-  "Technical discovery on your systems",
-  "A recommended engagement model",
-  "A scoped delivery proposal",
-];
 
 /**
  * Contact, V4.1: headline left with the direct line seated beside it (no

@@ -19,9 +19,19 @@ export const FOCUS_AREA_OPTIONS = [
   "Multiple areas",
 ];
 
-const oneOf = (options: readonly string[], message: string) =>
-  z.string().refine((value) => options.includes(value), message);
+/** Optional, but if answered it has to be one of ours. */
+const optionalOneOf = (options: readonly string[], message: string) =>
+  z
+    .string()
+    .refine((value) => value === "" || options.includes(value), message);
 
+/**
+ * Only what we genuinely need to reply is required. The engagement model and
+ * focus area used to be mandatory, which meant a VP Engineering with a cloud
+ * bill had to classify their own problem into our vocabulary before the form
+ * would accept them: a qualification step charged to the person we want to
+ * hear from.
+ */
 export const contactSchema = z
   .object({
     fullName: z.string().min(2, "Please enter your full name"),
@@ -29,8 +39,11 @@ export const contactSchema = z
       .email({ message: "Please enter a valid work email" })
       .min(1, "Email is required"),
     company: z.string().min(2, "Please enter your company name"),
-    lookingFor: oneOf(LOOKING_FOR_OPTIONS, "Select an engagement model"),
-    focusArea: oneOf(FOCUS_AREA_OPTIONS, "Select a focus area"),
+    lookingFor: optionalOneOf(
+      LOOKING_FOR_OPTIONS,
+      "Select an engagement model",
+    ),
+    focusArea: optionalOneOf(FOCUS_AREA_OPTIONS, "Select a focus area"),
     message: z.string().min(10, "Tell us a little more about your initiative"),
   })
   .strict();

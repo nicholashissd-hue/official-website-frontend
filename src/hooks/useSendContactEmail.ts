@@ -8,8 +8,8 @@ const composeMessage = (data: ContactFormData) =>
     `Name: ${data.fullName}`,
     `Email: ${data.email}`,
     `Company: ${data.company}`,
-    `Looking for: ${data.lookingFor}`,
-    `Technical focus area: ${data.focusArea}`,
+    `Engagement model: ${data.lookingFor || "not specified"}`,
+    `Focus area: ${data.focusArea || "not specified"}`,
     "",
     "Initiative:",
     data.message,
@@ -47,7 +47,7 @@ export const useSendContactEmail = () => {
           lookingFor: data.lookingFor,
           focusArea: data.focusArea,
           message: composeMessage(data),
-          _subject: `New inquiry — ${data.fullName} (${data.company})`,
+          _subject: `New inquiry: ${data.fullName} (${data.company})`,
           _replyto: data.email,
         });
       }

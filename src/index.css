@@ -96,6 +96,10 @@
   /* The action color: the brand's own bright emerald (matches the live
      site's accent green), luminous on dark scrims, dark text on top. */
   --color-signal: #0fb45e;
+  /* Errors. The stock red-600 is the most saturated colour on a site built
+     around exactly one; this is a deep red that sits beside ink and paper
+     and still clears 7:1 on white. */
+  --color-danger: #a4161a;
   --color-hairline: rgb(11 36 24 / 0.14);
   --color-sub: rgb(11 36 24 / 0.64);
   --color-ondark: rgb(252 252 246 / 0.75);
