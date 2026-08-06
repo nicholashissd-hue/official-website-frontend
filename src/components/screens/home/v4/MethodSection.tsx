@@ -2,19 +2,20 @@ import Reveal from "@/components/ui/reveal";
 import { Kicker } from "@/components/ui/v4";
 import { method } from "@/contents/screens/homeV4";
 import { METHOD } from "@/contents/taxonomy";
-import assessSketch from "@/assets/webp/v4/assess-sketch.webp";
-import buildSketch from "@/assets/webp/v4/build-sketch.webp";
-import ownSketch from "@/assets/webp/v4/own-sketch.webp";
+import assessPhoto from "@/assets/webp/v4/assess-tech.webp";
+import buildPhoto from "@/assets/webp/v4/build-tech.webp";
+import ownPhoto from "@/assets/webp/v4/own-tech.webp";
 
 /**
- * Each step carries a patent-drawing-style ink sketch that MEANS its verb
- * (Nicholas, 2026-08-06): Assess is the magnifier over the blueprint, Build
- * is the keystone being set at the arch, Own is the key on the manual.
+ * Each step carries a modern technology photograph that MEANS its verb
+ * (Nicholas, 2026-08-06): Assess is the laser scanner mapping the server
+ * aisle, Build is the server being seated in the rack, Own is the key in
+ * the rack-door lock.
  */
 const STEP_SKETCHES = [
-  { src: assessSketch, alt: "Ink drawing of a magnifying glass over an unrolled blueprint" },
-  { src: buildSketch, alt: "Ink drawing of a stone arch under construction, the keystone being lowered" },
-  { src: ownSketch, alt: "Ink drawing of a key resting on a closed engineering manual" },
+  { src: assessPhoto, alt: "Laser scanner on a tripod mapping a dark server aisle with green light" },
+  { src: buildPhoto, alt: "Rack server half-inserted on sliding rails during installation" },
+  { src: ownPhoto, alt: "Key seated in the lock of a server rack door, green light glowing through the mesh" },
 ];
 
 const MethodSection = () => (
