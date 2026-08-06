@@ -6,6 +6,14 @@
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- The two faces carrying everything above the fold. Preloaded so they
+         land before first paint instead of swapping in after it; fonts need
+         crossorigin even when same-origin, because they are fetched in CORS
+         mode. The other seven load on demand from /fonts. -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="/fonts/GeneralSans-Bold.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="/fonts/Satoshi-Regular.woff2" />
     <link rel="canonical" href="https://www.elderops.net/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0a1a12" />
