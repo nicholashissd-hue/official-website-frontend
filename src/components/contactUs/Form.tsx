@@ -6,7 +6,6 @@ import {
   type ContactFormData,
 } from "@/schemas/contactUs";
 import { useSendContactEmail } from "@/hooks/useSendContactEmail";
-import Button from "@/components/ui/button";
 import { cn } from "@/lib/util";
 
 const EMPTY_FORM: ContactFormData = {
@@ -18,16 +17,17 @@ const EMPTY_FORM: ContactFormData = {
   message: "",
 };
 
+/** V4 fields: square, hairline, quiet. Radius belongs to the button only. */
 const inputClasses = (hasError: boolean) =>
   cn(
-    "h-12 w-full rounded-2xl border bg-white px-4 text-sm text-primary outline-none transition-colors duration-300 placeholder:text-accent-three/70 focus:border-success",
-    hasError ? "border-red-600/60" : "border-primary/15",
+    "h-12 w-full border bg-white px-4 text-[15px] text-ink outline-none transition-colors duration-300 placeholder:text-sub/50 focus:border-primary",
+    hasError ? "border-red-600/60" : "border-hairline",
   );
 
 const FieldLabel = ({ htmlFor, children }: { htmlFor: string; children: string }) => (
   <label
     htmlFor={htmlFor}
-    className="mb-2.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-accent-one"
+    className="mb-2 block text-[13.5px] font-semibold text-ink"
   >
     {children}
   </label>
@@ -45,13 +45,13 @@ const SelectChevron = () => (
     viewBox="0 0 12 12"
     fill="none"
     aria-hidden="true"
-    className="pointer-events-none absolute right-4 top-1/2 size-3 -translate-y-1/2 text-primary/60"
+    className="pointer-events-none absolute right-4 top-1/2 size-3 -translate-y-1/2 text-ink/50"
   >
     <path d="M2 4.5 6 8.5l4-4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="square" />
   </svg>
 );
 
-/** Qualifying contact form — the brief's "Start the Conversation" fields. */
+/** The qualifying form. "Start the conversation" lives only on this button. */
 const Form = () => {
   const { sendContactEmail, isSubmitting } = useSendContactEmail();
   const [formData, setFormData] = useState<ContactFormData>(EMPTY_FORM);
@@ -98,11 +98,11 @@ const Form = () => {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="flex h-full flex-col rounded-[2rem] bg-white p-6 ring-1 ring-primary/10 sm:p-8 md:p-10"
+      className="flex h-full flex-col border border-hairline bg-white p-6 sm:p-8 md:p-10"
     >
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
-          <FieldLabel htmlFor="fullName">Full Name</FieldLabel>
+          <FieldLabel htmlFor="fullName">Full name</FieldLabel>
           <input
             type="text"
             id="fullName"
@@ -119,7 +119,7 @@ const Form = () => {
         </div>
 
         <div>
-          <FieldLabel htmlFor="email">Work Email</FieldLabel>
+          <FieldLabel htmlFor="email">Work email</FieldLabel>
           <input
             type="email"
             id="email"
@@ -137,7 +137,7 @@ const Form = () => {
       </div>
 
       <div className="mt-6">
-        <FieldLabel htmlFor="company">Company Name</FieldLabel>
+        <FieldLabel htmlFor="company">Company</FieldLabel>
         <input
           type="text"
           id="company"
@@ -155,7 +155,7 @@ const Form = () => {
 
       <div className="mt-6 grid gap-6 sm:grid-cols-2">
         <div>
-          <FieldLabel htmlFor="lookingFor">What are you looking for?</FieldLabel>
+          <FieldLabel htmlFor="lookingFor">Engagement model</FieldLabel>
           <div className="relative">
             <select
               id="lookingFor"
@@ -167,11 +167,11 @@ const Form = () => {
               className={cn(
                 inputClasses(!!errors.lookingFor),
                 "appearance-none pr-10",
-                !formData.lookingFor && "text-accent-three/70",
+                !formData.lookingFor && "text-sub/50",
               )}
             >
               <option value="" disabled>
-                Select an option…
+                Select a model…
               </option>
               {LOOKING_FOR_OPTIONS.map((option) => (
                 <option key={option} value={option}>
@@ -185,7 +185,7 @@ const Form = () => {
         </div>
 
         <div>
-          <FieldLabel htmlFor="focusArea">Technical Focus Area</FieldLabel>
+          <FieldLabel htmlFor="focusArea">Focus area</FieldLabel>
           <div className="relative">
             <select
               id="focusArea"
@@ -197,11 +197,11 @@ const Form = () => {
               className={cn(
                 inputClasses(!!errors.focusArea),
                 "appearance-none pr-10",
-                !formData.focusArea && "text-accent-three/70",
+                !formData.focusArea && "text-sub/50",
               )}
             >
               <option value="" disabled>
-                Select an option…
+                Select a focus area…
               </option>
               {FOCUS_AREA_OPTIONS.map((option) => (
                 <option key={option} value={option}>
@@ -216,11 +216,11 @@ const Form = () => {
       </div>
 
       <div className="mt-6 flex flex-1 flex-col">
-        <FieldLabel htmlFor="message">Tell Us About Your Initiative</FieldLabel>
+        <FieldLabel htmlFor="message">What are you working on?</FieldLabel>
         <textarea
           id="message"
           name="message"
-          placeholder="Describe your goals, current challenges, timeline, or the type of engineering support you're exploring."
+          placeholder="The initiative, where it is stuck, and any timeline that matters."
           value={formData.message}
           onChange={handleChange}
           aria-invalid={!!errors.message}
@@ -234,18 +234,16 @@ const Form = () => {
       </div>
 
       <div className="mt-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent-three">
-          Typical response — within one business day
+        <p className="text-[13.5px] text-sub">
+          You'll talk to a senior engineer, not a sales team.
         </p>
-        <Button
+        <button
           type="submit"
-          variant="primary"
-          withArrow
           disabled={isSubmitting}
-          className="w-full sm:w-auto"
+          className="inline-flex w-full items-center justify-center rounded-[14px] bg-signal px-7 py-4 text-[15px] font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px disabled:opacity-60 sm:w-auto"
         >
-          {isSubmitting ? "Sending…" : "Start the Conversation"}
-        </Button>
+          {isSubmitting ? "Sending…" : "Start the conversation"}
+        </button>
       </div>
     </form>
   );

@@ -1,101 +1,90 @@
 import Form from "@/components/contactUs/Form";
-import PhotoCard from "@/components/ui/photo-card";
 import Reveal from "@/components/ui/reveal";
-import Underlined from "@/components/ui/underline";
-import cooperateLady from "@/assets/jpg/cooperate-lady.jpg";
+import { Kicker } from "@/components/ui/v4";
 
 const NEXT_STEPS = [
-  "Introductory conversation",
-  "Technical discovery",
-  "Recommended engagement model",
-  "Curated shortlist or delivery proposal",
+  "An introductory conversation with an engineer",
+  "Technical discovery on your systems",
+  "A recommended engagement model",
+  "A scoped delivery proposal",
 ];
 
-const WhatHappensNext = () => (
-  <div className="grain relative h-full overflow-hidden rounded-[2rem] bg-primary p-7 md:p-9">
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_120%_at_100%_0%,#074527_0%,transparent_60%)]"
-    />
-    <div className="relative flex h-full flex-col">
-      <h3 className="font-display text-xl font-semibold leading-snug tracking-[-0.01em] text-bg-cream">
-        What Happens Next?
-      </h3>
+/**
+ * Contact, V4: light page, no CTA band, no photography. The form left,
+ * the direct line and what-happens-next right. One reassurance, one
+ * response-time promise, stated once each.
+ */
+const ContactUs = () => (
+  <>
+    <section className="bg-paper">
+      <div className="container pb-10 pt-36 md:pb-14 md:pt-44">
+        <Reveal immediate delay={0.05} y={26}>
+          <Kicker>Contact</Kicker>
+          <h1 className="mt-3 max-w-3xl font-display text-[clamp(2.6rem,5vw,4rem)] font-bold leading-[1.02] tracking-[-0.03em] text-ink">
+            Tell us what you're building.
+          </h1>
+          <p className="mt-6 max-w-xl text-[17px] leading-[1.6] text-sub">
+            And where it is stuck. We will tell you how we would fix it and
+            who would own the work.
+          </p>
+        </Reveal>
+      </div>
+    </section>
 
-      <ol className="mt-7 flex flex-1 flex-col justify-center gap-3">
-        {NEXT_STEPS.map((step, index) => (
-          <li
-            key={step}
-            className="flex items-center gap-4 rounded-xl bg-bg-cream/[0.04] px-4 py-3.5"
-          >
-            <span className="grid size-9 shrink-0 place-items-center rounded-full bg-bg-cream/10 font-display text-sm font-semibold text-border-light">
-              {index + 1}
-            </span>
-            <span className="text-[15px] text-bg-light/90">{step}</span>
-          </li>
-        ))}
-      </ol>
+    <section className="bg-paper">
+      <div className="container grid items-start gap-10 pb-28 pt-4 md:pb-36 lg:grid-cols-[7fr_5fr] lg:gap-14">
+        <Reveal className="h-full">
+          <Form />
+        </Reveal>
 
-      <p className="mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-success/15 px-3.5 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-success">
-        Typical turnaround — 48 hours
-      </p>
-    </div>
-  </div>
+        <div className="flex flex-col gap-12 lg:pt-2">
+          <Reveal delay={0.08}>
+            <p className="font-display text-[16px] font-semibold tracking-[-0.01em] text-ink/45">
+              Prefer a direct line
+            </p>
+            <div className="mt-4 flex flex-col gap-1.5">
+              <a
+                href="mailto:contact@elderops.net"
+                className="w-fit text-[17px] font-semibold text-ink transition-colors hover:text-primary"
+              >
+                contact@elderops.net
+              </a>
+              <a
+                href="tel:+18667977937"
+                className="w-fit text-[17px] font-semibold text-ink transition-colors hover:text-primary"
+              >
+                +1 (866) 797-7937
+              </a>
+              <p className="mt-2 text-[14px] text-sub">
+                Typical response within one business day.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.12}>
+            <p className="font-display text-[16px] font-semibold tracking-[-0.01em] text-ink/45">
+              What happens next
+            </p>
+            <ol className="mt-4">
+              {NEXT_STEPS.map((step, index) => (
+                <li
+                  key={step}
+                  className="flex items-baseline gap-4 border-t border-hairline py-3.5 first:border-t-0"
+                >
+                  <span className="font-mono text-[11px] tracking-[0.1em] text-primary">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-[15px] leading-[1.55] text-sub">
+                    {step}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  </>
 );
-
-const ContactUs = () => {
-  return (
-    <>
-      <section className="bg-bg-cream">
-        <div className="container pb-12 pt-36 md:pb-16 md:pt-44">
-          <Reveal immediate delay={0.05} y={26}>
-            <h1 className="max-w-4xl font-display text-[clamp(2.4rem,5.2vw,4.1rem)] font-semibold leading-[1.06] tracking-[-0.02em] text-primary">
-              Let's Talk About{" "}
-              <span className="text-success">
-                What You're <Underlined>Building</Underlined>
-              </span>
-            </h1>
-          </Reveal>
-
-          <Reveal immediate delay={0.26} y={22}>
-            <p className="mt-7 max-w-2xl text-[15px] leading-[1.85] text-accent-one md:text-base">
-              Whether you're scaling infrastructure, accelerating product
-              delivery, modernizing data platforms, or building AI capabilities,
-              we'll help determine the right engineering model for your goals.
-            </p>
-            <p className="mt-6 flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-accent-three">
-              <span className="animate-pulse-dot size-1.5 rounded-full bg-success" />
-              Typical response — within one business day
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="bg-bg-cream">
-        <div className="container grid items-stretch gap-8 pb-28 pt-14 md:pb-40 md:pt-20 lg:grid-cols-[1.35fr_1fr] lg:gap-12">
-          <Reveal className="h-full">
-            <Form />
-          </Reveal>
-
-          {/* Sidebar stretches to match the form so the section stays balanced */}
-          <div className="flex flex-col gap-6">
-            <Reveal delay={0.08}>
-              <PhotoCard
-                src={cooperateLady}
-                alt="An ElderOps team member personally answering an inbound conversation"
-                caption="Real humans. Fast answers."
-                className="h-48"
-              />
-            </Reveal>
-
-            <Reveal delay={0.12} className="flex-1">
-              <WhatHappensNext />
-            </Reveal>
-          </div>
-        </div>
-      </section>
-    </>
-  );
-};
 
 export default ContactUs;
