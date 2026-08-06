@@ -2,14 +2,21 @@ import Reveal from "@/components/ui/reveal";
 import { Kicker } from "@/components/ui/v4";
 import { method } from "@/contents/screens/homeV4";
 import { METHOD } from "@/contents/taxonomy";
-import { AssessDiagram, BuildDiagram, OwnDiagram } from "./MethodDiagrams";
-
-const STEP_DIAGRAMS = [AssessDiagram, BuildDiagram, OwnDiagram];
+import assessSketch from "@/assets/webp/v4/assess-sketch.webp";
+import buildSketch from "@/assets/webp/v4/build-sketch.webp";
+import ownSketch from "@/assets/webp/v4/own-sketch.webp";
 
 /**
- * The named method, told as one drawn system in three states: the risk
- * ringed, the active path built, the whole boundary owned.
+ * Each step carries a patent-drawing-style ink sketch that MEANS its verb
+ * (Nicholas, 2026-08-06): Assess is the magnifier over the blueprint, Build
+ * is the keystone being set at the arch, Own is the key on the manual.
  */
+const STEP_SKETCHES = [
+  { src: assessSketch, alt: "Ink drawing of a magnifying glass over an unrolled blueprint" },
+  { src: buildSketch, alt: "Ink drawing of a stone arch under construction, the keystone being lowered" },
+  { src: ownSketch, alt: "Ink drawing of a key resting on a closed engineering manual" },
+];
+
 const MethodSection = () => (
   <section className="bg-paper">
     <div className="container section-space-block">
@@ -21,23 +28,25 @@ const MethodSection = () => (
       </Reveal>
 
       <div className="mt-14 grid gap-x-10 gap-y-12 md:grid-cols-3">
-        {METHOD.map((step, index) => {
-          const Diagram = STEP_DIAGRAMS[index];
-          return (
-            <Reveal key={step.num} delay={index * 0.08} as="article">
-              <Diagram />
-              <p className="mt-6 flex items-center gap-3">
-                <span className="font-mono text-[11px] tracking-[0.1em] text-primary">
-                  {step.num}
-                </span>
-                <span className="text-[18px] font-bold text-ink">{step.title}</span>
-              </p>
-              <p className="mt-2.5 text-[15px] leading-[1.62] text-sub">
-                {step.body}
-              </p>
-            </Reveal>
-          );
-        })}
+        {METHOD.map((step, index) => (
+          <Reveal key={step.num} delay={index * 0.08} as="article">
+            <img
+              src={STEP_SKETCHES[index].src}
+              alt={STEP_SKETCHES[index].alt}
+              loading="lazy"
+              className="aspect-[4/3] w-full border border-hairline object-cover"
+            />
+            <p className="mt-6 flex items-center gap-3">
+              <span className="font-mono text-[11px] tracking-[0.1em] text-primary">
+                {step.num}
+              </span>
+              <span className="text-[18px] font-bold text-ink">{step.title}</span>
+            </p>
+            <p className="mt-2.5 text-[15px] leading-[1.62] text-sub">
+              {step.body}
+            </p>
+          </Reveal>
+        ))}
       </div>
     </div>
   </section>
