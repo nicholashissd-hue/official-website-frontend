@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import heroPoster from "@/assets/webp/v4/hero-poster.jpg";
+import heroPoster from "@/assets/webp/v4/hero-poster.webp";
 import { hero } from "@/contents/screens/homeV4";
 import { EASE } from "@/components/ui/reveal";
 import { GhostLink, SignalButton } from "@/components/ui/v4";
@@ -24,46 +24,21 @@ const Hero = () => {
   // advancing, so neither the first play nor a loop restart ever pops.
   const [isFilmLive, setIsFilmLive] = useState(false);
 
-  // The film stays paused on frame zero until the ENTIRE file is buffered
-  // (canplaythrough is only an estimate and fires optimistically on fast
-  // connections, which is where the start-skip came from). Only then does
-  // playback begin, so it can never stall mid-loop either.
+  // BCG X model: the poster (a ~60KB webp of the film's exact first frame)
+  // paints instantly, and the film streams and starts as soon as the
+  // browser has frames. The file's bitrate (~1.5 Mbps) is far below any
+  // broadband connection, so playback never outruns the download; no
+  // buffering gate is needed. The film and poster both begin on the same
+  // fully formed frame, so the swap on first paint is invisible.
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      video.pause();
       setIsPlaying(false);
       return;
     }
-
-    let started = false;
-    const start = () => {
-      if (started) return;
-      started = true;
-      void video.play();
-    };
-    const fullyBuffered = () => {
-      try {
-        return (
-          video.duration > 0 &&
-          video.buffered.length > 0 &&
-          video.buffered.end(video.buffered.length - 1) >= video.duration - 0.25
-        );
-      } catch {
-        return false;
-      }
-    };
-    const poll = window.setInterval(() => {
-      if (fullyBuffered()) start();
-    }, 200);
-    // If the network is too slow to ever finish, start anyway rather than
-    // showing a still image forever.
-    const bail = window.setTimeout(start, 8000);
-
-    return () => {
-      window.clearInterval(poll);
-      window.clearTimeout(bail);
-    };
+    void video.play().catch(() => {});
   }, []);
 
   const togglePlayback = () => {
@@ -95,6 +70,7 @@ const Hero = () => {
           isFilmLive ? "opacity-100" : "opacity-0"
         }`}
         src="/video/hero-film.mp4"
+        autoPlay
         muted
         loop
         playsInline
