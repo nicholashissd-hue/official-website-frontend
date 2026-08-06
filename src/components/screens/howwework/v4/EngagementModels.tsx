@@ -1,0 +1,63 @@
+import Reveal from "@/components/ui/reveal";
+import { Kicker } from "@/components/ui/v4";
+import { models } from "@/contents/screens/howWeWorkV4";
+
+/**
+ * The three stage-agnostic engagement models as asymmetric editorial rows.
+ * The third row is the old Startup Launch page, folded in per the brief.
+ */
+const EngagementModels = () => (
+  <section className="border-t border-hairline bg-bone">
+    <div className="container section-space-block">
+      <Reveal>
+        <Kicker>{models.kicker}</Kicker>
+        <h2 className="mt-3 font-display text-[clamp(2.75rem,4.8vw,3.6rem)] font-bold leading-none tracking-[-0.03em] text-ink">
+          {models.title}
+        </h2>
+        <p className="mt-6 max-w-xl text-[16px] leading-[1.6] text-sub">
+          {models.intro}
+        </p>
+      </Reveal>
+
+      <div className="mt-14">
+        {models.items.map((model) => (
+          <Reveal key={model.num} delay={0.05} as="article">
+            <div className="grid gap-x-16 gap-y-4 border-t border-hairline py-11 lg:grid-cols-[5fr_7fr]">
+              <div className="flex items-baseline gap-5">
+                <span className="font-mono text-[11px] tracking-[0.1em] text-primary">
+                  {model.num}
+                </span>
+                <div>
+                  <h3 className="font-display text-[clamp(1.7rem,2.6vw,2.15rem)] font-bold leading-[1.05] tracking-[-0.02em] text-ink">
+                    {model.title}
+                  </h3>
+                  <p className="mt-2 text-[15px] font-semibold text-ink/60">
+                    {model.who}
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <p className="max-w-2xl text-[15.5px] leading-[1.62] text-sub">
+                  {model.body}
+                </p>
+                <ul className="mt-5 flex flex-wrap gap-2">
+                  {model.chips.map((chip) => (
+                    <li
+                      key={chip}
+                      className="rounded-[14px] border border-hairline px-3.5 py-1.5 text-[13px] font-semibold text-ink/75"
+                    >
+                      {chip}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+export default EngagementModels;
