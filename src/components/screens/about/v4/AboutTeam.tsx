@@ -15,12 +15,10 @@ const AboutTeam = () => (
     minHeightClass="min-h-[78svh]"
   >
     <Kicker onDark>{team.kicker}</Kicker>
-    <h2 className="mt-3 max-w-3xl font-display text-[clamp(2.6rem,5vw,4rem)] font-bold leading-none tracking-[-0.03em] text-bg-cream">
+    <h2 className="mt-3 max-w-3xl font-display text-title font-bold tracking-[-0.03em] text-bg-cream">
       {team.title}
     </h2>
-    <p className="mt-6 max-w-xl text-[16.5px] leading-[1.6] text-bg-cream/80">
-      {team.body}
-    </p>
+    <p className="mt-6 max-w-xl text-lg text-bg-cream/80">{team.body}</p>
   </FullBleed>
 );
 

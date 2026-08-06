@@ -11,6 +11,55 @@
   --font-urbanist: "Satoshi", system-ui, sans-serif;
   --font-lato: "Satoshi", system-ui, sans-serif;
 
+  /* ── Type scale (2026-08-06) ────────────────────────────────────
+     One ramp for the whole site. The pages had drifted to 16 body
+     sizes between 10px and 19px (several a half-pixel apart) and 22
+     one-off heading clamps, which reads as sloppiness rather than
+     hierarchy. Each size carries its own line-height and tracking, so
+     leading can never drift away from the size again.
+
+     Display, largest first: hero (home only), title (page openers,
+     full-bleed statements, CTA band), heading (section h2), subhead
+     (h3), lede (a large body statement). Body: lg / base / sm / xs,
+     where xs also serves the mono data labels.
+     Use a token. Never an arbitrary text-[..px]. */
+  --text-hero: clamp(3.25rem, 8vw, 7rem);
+  --text-hero--line-height: 1;
+  --text-hero--letter-spacing: -0.03em;
+
+  --text-title: clamp(2.6rem, 5.6vw, 4.25rem);
+  --text-title--line-height: 1.02;
+  --text-title--letter-spacing: -0.03em;
+
+  --text-heading: clamp(2.1rem, 4vw, 3rem);
+  --text-heading--line-height: 1.05;
+  --text-heading--letter-spacing: -0.03em;
+
+  --text-subhead: clamp(1.6rem, 2.8vw, 2.25rem);
+  --text-subhead--line-height: 1.1;
+  --text-subhead--letter-spacing: -0.02em;
+
+  --text-lede: clamp(1.25rem, 2vw, 1.6rem);
+  --text-lede--line-height: 1.35;
+  --text-lede--letter-spacing: -0.015em;
+
+  --text-stat: clamp(4.5rem, 10vw, 9rem);
+  --text-stat--line-height: 0.85;
+  --text-stat--letter-spacing: -0.05em;
+
+  --text-stat-sm: clamp(1.9rem, 3vw, 2.5rem);
+  --text-stat-sm--line-height: 1;
+  --text-stat-sm--letter-spacing: -0.03em;
+
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.6;
+  --text-base: 1rem;
+  --text-base--line-height: 1.65;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.6;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.5;
+
   /* ── Brand palette ──────────────────────────────────────────── */
   --color-primary: #02361b;
   --color-secondary: #313131;

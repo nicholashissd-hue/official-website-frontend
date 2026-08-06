@@ -15,9 +15,21 @@ import ownPhoto828 from "@/assets/webp/v4/method-own-828.webp";
  * the signature, not an accident.
  */
 const STEP_PHOTOS = [
-  { src: assessPhoto, srcSet: `${assessPhoto828} 828w, ${assessPhoto} 1600w`, alt: "An engineer stands before a wall-sized glowing map of a system" },
-  { src: buildPhoto, srcSet: `${buildPhoto828} 828w, ${buildPhoto} 1600w`, alt: "The same engineer deep in work at a dark desk, lit by screen glow" },
-  { src: ownPhoto, srcSet: `${ownPhoto828} 828w, ${ownPhoto} 1600w`, alt: "The engineer walks away down a green-lit server aisle toward dawn light" },
+  {
+    src: assessPhoto,
+    srcSet: `${assessPhoto828} 828w, ${assessPhoto} 1600w`,
+    alt: "An engineer stands before a wall-sized glowing map of a system",
+  },
+  {
+    src: buildPhoto,
+    srcSet: `${buildPhoto828} 828w, ${buildPhoto} 1600w`,
+    alt: "The same engineer deep in work at a dark desk, lit by screen glow",
+  },
+  {
+    src: ownPhoto,
+    srcSet: `${ownPhoto828} 828w, ${ownPhoto} 1600w`,
+    alt: "The engineer walks away down a green-lit server aisle toward dawn light",
+  },
 ];
 
 const ids = ["assess", "build", "own"];
@@ -27,7 +39,7 @@ const MethodChapters = () => (
     <div className="container section-space-block">
       <Reveal>
         <Kicker>{methodChapters.kicker}</Kicker>
-        <h2 className="mt-3 font-display text-[clamp(2.75rem,4.8vw,3.6rem)] font-bold leading-none tracking-[-0.03em] text-ink">
+        <h2 className="mt-3 font-display text-heading font-bold tracking-[-0.03em] text-ink">
           {methodChapters.title}
         </h2>
       </Reveal>
@@ -49,17 +61,15 @@ const MethodChapters = () => (
               />
               <div>
                 <p className="flex items-baseline gap-4">
-                  <span className="font-mono text-[11px] tracking-[0.1em] text-primary">
+                  <span className="font-mono text-xs tracking-[0.1em] text-primary">
                     {step.num}
                   </span>
-                  <span className="font-display text-[clamp(2rem,3.4vw,2.7rem)] font-bold leading-none tracking-[-0.02em] text-ink">
+                  <span className="font-display text-subhead font-bold tracking-[-0.02em] text-ink">
                     {step.title}
                   </span>
                 </p>
-                <p className="mt-5 max-w-xl text-[16px] leading-[1.65] text-sub">
-                  {step.body}
-                </p>
-                <p className="mt-5 max-w-xl border-l-2 border-signal pl-4 text-[15px] font-semibold leading-[1.6] text-ink">
+                <p className="mt-5 max-w-xl text-base text-sub">{step.body}</p>
+                <p className="mt-5 max-w-xl border-l-2 border-signal pl-4 text-base font-semibold text-ink">
                   {step.keep}
                 </p>
               </div>

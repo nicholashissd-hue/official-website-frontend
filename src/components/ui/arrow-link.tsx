@@ -11,13 +11,19 @@ interface ArrowLinkProps {
 }
 
 /** Text link with a circled arrow that fills bright green on hover. */
-const ArrowLink = ({ to, children, dark = false, className, onClick }: ArrowLinkProps) => {
+const ArrowLink = ({
+  to,
+  children,
+  dark = false,
+  className,
+  onClick,
+}: ArrowLinkProps) => {
   return (
     <Link
       to={to}
       onClick={onClick}
       className={cn(
-        "group inline-flex items-center gap-3 font-sans text-[15px] font-bold transition-colors duration-300",
+        "group inline-flex items-center gap-3 font-sans text-base font-bold transition-colors duration-300",
         dark
           ? "text-border-light hover:text-bg-cream"
           : "text-primary hover:text-success",

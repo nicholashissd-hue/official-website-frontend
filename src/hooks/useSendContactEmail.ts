@@ -52,7 +52,9 @@ export const useSendContactEmail = () => {
         });
       }
 
-      toast.success("Message sent. We'll get back to you within one business day.");
+      toast.success(
+        "Message sent. We'll get back to you within one business day.",
+      );
     } catch (error) {
       console.error("Contact send error:", error);
       toast.error(

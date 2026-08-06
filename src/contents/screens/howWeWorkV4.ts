@@ -63,7 +63,13 @@ export const models = {
       title: "Embedded delivery",
       who: "The core model, for initiatives that must land.",
       body: "Senior engineers embed in your team and own the work end to end across any of the eight capabilities, measured against the roadmap and handed off when your team is ready to run it.",
-      chips: ["Migrations", "Platforms", "Pipelines", "Security", "Cost control"],
+      chips: [
+        "Migrations",
+        "Platforms",
+        "Pipelines",
+        "Security",
+        "Cost control",
+      ],
     },
     {
       num: "03",

@@ -35,7 +35,7 @@ const CareersHero = () => (
     <div className="container relative pb-16 pt-40 md:pb-24">
       <motion.div {...rise(0)}>
         <Kicker onDark>{hero.kicker}</Kicker>
-        <h1 className="mt-3 max-w-4xl font-display text-[clamp(3rem,6.8vw,5.75rem)] font-bold leading-none tracking-[-0.03em] text-bg-cream">
+        <h1 className="mt-3 max-w-4xl font-display text-title font-bold tracking-[-0.03em] text-bg-cream">
           {hero.title}
         </h1>
       </motion.div>
@@ -44,12 +44,10 @@ const CareersHero = () => (
         {...rise(0.1)}
         className="mt-8 flex flex-wrap items-end justify-between gap-x-12 gap-y-8"
       >
-        <p className="max-w-xl text-[17px] leading-[1.6] text-bg-cream/82 md:text-[18px]">
-          {hero.descriptor}
-        </p>
+        <p className="max-w-xl text-lg text-bg-cream/82">{hero.descriptor}</p>
         <a
           href={APPLY_MAILTO}
-          className="inline-flex items-center justify-center rounded-[14px] bg-signal px-7 py-4 text-[15px] font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px"
+          className="inline-flex items-center justify-center rounded-[14px] bg-signal px-7 py-4 text-base font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px"
         >
           {hero.cta}
         </a>

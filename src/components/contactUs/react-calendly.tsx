@@ -37,7 +37,7 @@ const CalendlyCTA = ({
         type="button"
         onClick={() => setOpen(true)}
         className={cn(
-          "inline-flex items-center justify-center rounded-[14px] border border-ink/25 px-6 py-3.5 text-[15px] font-bold text-ink transition-colors duration-300 hover:border-primary hover:text-primary",
+          "inline-flex items-center justify-center rounded-[14px] border border-ink/25 px-6 py-3.5 text-base font-bold text-ink transition-colors duration-300 hover:border-primary hover:text-primary",
           className,
         )}
       >

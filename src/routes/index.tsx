@@ -35,7 +35,10 @@ const AppRoutes = () => {
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
           {/* Old paths 301 at the edge (vercel.json); these cover client nav + dev */}
-          <Route path="/solutions" element={<Navigate to="/services" replace />} />
+          <Route
+            path="/solutions"
+            element={<Navigate to="/services" replace />}
+          />
           <Route
             path="/startup-launch"
             element={<Navigate to="/how-we-work" replace />}

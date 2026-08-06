@@ -43,7 +43,7 @@ const SectionHeading = ({
     >
       <h2
         className={cn(
-          "font-display text-[clamp(2rem,4.2vw,3.3rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-balance",
+          "font-display text-heading font-semibold tracking-[-0.02em] text-balance",
           dark ? "text-bg-cream" : "text-primary",
           centered ? "max-w-4xl" : "max-w-3xl",
         )}
@@ -54,7 +54,7 @@ const SectionHeading = ({
       {lede && (
         <p
           className={cn(
-            "mt-5 text-[15px] leading-[1.75] md:text-[17px]",
+            "mt-5 text-base leading-[1.75] md:text-lg",
             dark ? "text-accent-four" : "text-accent-one",
             ledeWidth,
             ledeClassName,

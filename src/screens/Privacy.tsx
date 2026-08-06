@@ -58,7 +58,7 @@ const SECTIONS: PrivacySection[] = [
     title: "4. How We Use Your Information",
     paragraphs: [
       "We use the information you submit through our forms for one purpose: to respond to your inquiry and follow up on it. That includes answering questions, preparing recommendations you have asked for, and scheduling conversations. We do not sell the details you submit, we do not pass them to advertisers, and we do not add you to marketing lists you have not asked to join. The contact details you type into our forms are never sent to LinkedIn.",
-      "We do not sell your personal information for money. Because the LinkedIn Insight Tag is used for retargeting, however, our disclosure of browsing activity to LinkedIn may count as \"sharing\" for cross-context behavioral advertising — also called \"targeted advertising\" — under some United States state privacy laws. To stop it, use the opt-out options in section 3, or email contact@elderops.net and we will help.",
+      'We do not sell your personal information for money. Because the LinkedIn Insight Tag is used for retargeting, however, our disclosure of browsing activity to LinkedIn may count as "sharing" for cross-context behavioral advertising — also called "targeted advertising" — under some United States state privacy laws. To stop it, use the opt-out options in section 3, or email contact@elderops.net and we will help.',
     ],
   },
   {
@@ -147,10 +147,10 @@ const Privacy = () => {
     <section className="bg-bg-cream">
       <div className="container pb-24 pt-36 md:pb-32 md:pt-44">
         <Reveal immediate y={20}>
-          <h1 className="font-display text-[clamp(2.2rem,4.6vw,3.6rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-primary">
+          <h1 className="font-display text-heading font-semibold tracking-[-0.02em] text-primary">
             Privacy Policy
           </h1>
-          <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-accent-three">
+          <p className="mt-5 font-mono text-xs uppercase tracking-[0.18em] text-accent-three">
             Last updated — {LAST_UPDATED}
           </p>
         </Reveal>
@@ -165,7 +165,7 @@ const Privacy = () => {
                 {section.paragraphs.map((paragraph, index) => (
                   <p
                     key={index}
-                    className="mt-4 text-[15px] leading-[1.85] text-accent-one"
+                    className="mt-4 text-base leading-[1.85] text-accent-one"
                   >
                     {typeof paragraph === "string"
                       ? paragraph

@@ -28,8 +28,10 @@ export const Lift = ({
   </div>
 );
 
-interface RevealProps
-  extends Omit<HTMLMotionProps<"div">, "initial" | "whileInView" | "animate" | "transition"> {
+interface RevealProps extends Omit<
+  HTMLMotionProps<"div">,
+  "initial" | "whileInView" | "animate" | "transition"
+> {
   children: ReactNode;
   /** Seconds to wait before the reveal begins. Use index * 0.08 for stagger. */
   delay?: number;

@@ -11,15 +11,15 @@ const SECTIONS: TermsSection[] = [
   {
     title: "1. Agreement to These Terms",
     paragraphs: [
-      "These Terms of Service (the \"Terms\") govern your access to and use of the website located at elderops.net (the \"Site\") and the engineering services offered by ElderOps (\"ElderOps\", \"we\", \"us\", or \"our\"). By accessing the Site or engaging our services, you agree to be bound by these Terms. If you are entering into these Terms on behalf of a company or other legal entity, you represent that you have the authority to bind that entity.",
+      'These Terms of Service (the "Terms") govern your access to and use of the website located at elderops.net (the "Site") and the engineering services offered by ElderOps ("ElderOps", "we", "us", or "our"). By accessing the Site or engaging our services, you agree to be bound by these Terms. If you are entering into these Terms on behalf of a company or other legal entity, you represent that you have the authority to bind that entity.',
       "If you do not agree to these Terms, you may not access the Site or use our services.",
     ],
   },
   {
     title: "2. Our Services",
     paragraphs: [
-      "ElderOps provides senior engineering services, including team extension, dedicated engineering teams, and outcome-based delivery engagements across cloud and DevOps, data platforms, analytics, AI/ML enablement, and product engineering (collectively, the \"Services\").",
-      "Information on the Site — including descriptions of capabilities, representative engagements, process timelines, and response times — is provided for general information only and does not constitute a binding offer. The specific scope, deliverables, fees, and timelines of any engagement are defined exclusively in a mutually executed proposal, statement of work, or services agreement (each, an \"Engagement Agreement\").",
+      'ElderOps provides senior engineering services, including team extension, dedicated engineering teams, and outcome-based delivery engagements across cloud and DevOps, data platforms, analytics, AI/ML enablement, and product engineering (collectively, the "Services").',
+      'Information on the Site — including descriptions of capabilities, representative engagements, process timelines, and response times — is provided for general information only and does not constitute a binding offer. The specific scope, deliverables, fees, and timelines of any engagement are defined exclusively in a mutually executed proposal, statement of work, or services agreement (each, an "Engagement Agreement").',
     ],
   },
   {
@@ -38,7 +38,7 @@ const SECTIONS: TermsSection[] = [
   {
     title: "5. Confidentiality",
     paragraphs: [
-      "Each party may receive non-public information from the other in connection with an engagement (\"Confidential Information\"). The receiving party will use Confidential Information only to perform under the applicable engagement, protect it with at least reasonable care, and not disclose it to third parties except to personnel and contractors bound by obligations at least as protective. These obligations do not apply to information that is or becomes public through no fault of the receiving party, was lawfully known prior to disclosure, is independently developed, or must be disclosed by law.",
+      'Each party may receive non-public information from the other in connection with an engagement ("Confidential Information"). The receiving party will use Confidential Information only to perform under the applicable engagement, protect it with at least reasonable care, and not disclose it to third parties except to personnel and contractors bound by obligations at least as protective. These obligations do not apply to information that is or becomes public through no fault of the receiving party, was lawfully known prior to disclosure, is independently developed, or must be disclosed by law.',
     ],
   },
   {
@@ -57,7 +57,7 @@ const SECTIONS: TermsSection[] = [
   {
     title: "8. Warranties and Disclaimer",
     paragraphs: [
-      "ElderOps warrants that Services will be performed in a professional and workmanlike manner consistent with industry standards. EXCEPT AS EXPRESSLY SET OUT IN THESE TERMS OR AN ENGAGEMENT AGREEMENT, THE SITE AND SERVICES ARE PROVIDED \"AS IS\" AND ELDEROPS DISCLAIMS ALL OTHER WARRANTIES, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.",
+      'ElderOps warrants that Services will be performed in a professional and workmanlike manner consistent with industry standards. EXCEPT AS EXPRESSLY SET OUT IN THESE TERMS OR AN ENGAGEMENT AGREEMENT, THE SITE AND SERVICES ARE PROVIDED "AS IS" AND ELDEROPS DISCLAIMS ALL OTHER WARRANTIES, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.',
     ],
   },
   {
@@ -94,7 +94,7 @@ const SECTIONS: TermsSection[] = [
   {
     title: "14. Changes to These Terms",
     paragraphs: [
-      "We may update these Terms from time to time. The \"Last updated\" date above reflects the most recent revision. Material changes will be posted on this page, and continued use of the Site or Services after changes take effect constitutes acceptance of the revised Terms. Changes do not retroactively modify executed Engagement Agreements.",
+      'We may update these Terms from time to time. The "Last updated" date above reflects the most recent revision. Material changes will be posted on this page, and continued use of the Site or Services after changes take effect constitutes acceptance of the revised Terms. Changes do not retroactively modify executed Engagement Agreements.',
     ],
   },
   {
@@ -110,10 +110,10 @@ const Terms = () => {
     <section className="bg-bg-cream">
       <div className="container pb-24 pt-36 md:pb-32 md:pt-44">
         <Reveal immediate y={20}>
-          <h1 className="font-display text-[clamp(2.2rem,4.6vw,3.6rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-primary">
+          <h1 className="font-display text-heading font-semibold tracking-[-0.02em] text-primary">
             Terms of Service
           </h1>
-          <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-accent-three">
+          <p className="mt-5 font-mono text-xs uppercase tracking-[0.18em] text-accent-three">
             Last updated — {LAST_UPDATED}
           </p>
         </Reveal>
@@ -128,7 +128,7 @@ const Terms = () => {
                 {section.paragraphs.map((paragraph) => (
                   <p
                     key={paragraph.slice(0, 40)}
-                    className="mt-4 text-[15px] leading-[1.85] text-accent-one"
+                    className="mt-4 text-base leading-[1.85] text-accent-one"
                   >
                     {paragraph}
                   </p>

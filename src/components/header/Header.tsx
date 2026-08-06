@@ -58,7 +58,7 @@ const Header = () => {
           <Link
             to={UTILITY_LINK.path}
             className={cn(
-              "hidden text-[12.5px] font-medium transition-colors duration-300 md:block",
+              "hidden text-xs font-medium transition-colors duration-300 md:block",
               darkContext
                 ? "text-bg-cream/55 hover:text-bg-cream"
                 : "text-ink/50 hover:text-ink",
@@ -68,7 +68,7 @@ const Header = () => {
           </Link>
           <Link
             to="/contact-us"
-            className="hidden h-10 items-center rounded-[14px] bg-signal px-5 text-[13px] font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px md:inline-flex"
+            className="hidden h-10 items-center rounded-[14px] bg-signal px-5 text-sm font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px md:inline-flex"
           >
             Get in touch
           </Link>

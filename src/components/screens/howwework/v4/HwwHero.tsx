@@ -35,7 +35,7 @@ const HwwHero = () => (
     <div className="container relative pb-16 pt-40 md:pb-24">
       <motion.div {...rise(0)}>
         <Kicker onDark>{hero.kicker}</Kicker>
-        <h1 className="mt-3 max-w-4xl font-display text-[clamp(3rem,6.8vw,5.75rem)] font-bold leading-none tracking-[-0.03em] text-bg-cream">
+        <h1 className="mt-3 max-w-4xl font-display text-title font-bold tracking-[-0.03em] text-bg-cream">
           {hero.title}
         </h1>
       </motion.div>
@@ -44,14 +44,12 @@ const HwwHero = () => (
         {...rise(0.1)}
         className="mt-8 flex flex-wrap items-end justify-between gap-x-12 gap-y-8"
       >
-        <p className="max-w-xl text-[17px] leading-[1.6] text-bg-cream/82 md:text-[18px]">
-          {hero.descriptor}
-        </p>
+        <p className="max-w-xl text-lg text-bg-cream/82">{hero.descriptor}</p>
         <div className="flex items-center gap-7">
           <SignalButton to="/contact-us">{hero.primaryCta}</SignalButton>
           <a
             href="#assess"
-            className="inline-flex items-center gap-2 border-b border-bg-cream/35 pb-0.5 text-[15px] font-semibold text-bg-cream/85 transition-colors duration-300 hover:text-bg-cream"
+            className="inline-flex items-center gap-2 border-b border-bg-cream/35 pb-0.5 text-base font-semibold text-bg-cream/85 transition-colors duration-300 hover:text-bg-cream"
           >
             {hero.secondaryCta} <span aria-hidden="true">↓</span>
           </a>

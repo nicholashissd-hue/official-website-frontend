@@ -93,20 +93,18 @@ const Hero = () => {
       <div className="container relative pb-16 pt-40 md:pb-24">
         <motion.h1
           {...rise(0)}
-          className="max-w-5xl font-display text-[clamp(3.6rem,8.5vw,7.5rem)] font-bold leading-none tracking-[-0.03em] text-bg-cream"
+          className="max-w-5xl font-display text-hero font-bold tracking-[-0.03em] text-bg-cream"
         >
-          We build it.
+          Stop hiring.
           <br />
-          You own it.
+          Start shipping.
         </motion.h1>
 
         <motion.div
           {...rise(0.1)}
           className="mt-8 flex flex-wrap items-end justify-between gap-x-12 gap-y-8"
         >
-          <p className="max-w-xl text-[17px] leading-[1.6] text-bg-cream/82 md:text-[19px]">
-            {hero.descriptor}
-          </p>
+          <p className="max-w-xl text-lg text-bg-cream/82">{hero.descriptor}</p>
           <div className="flex items-center gap-7">
             <SignalButton to="/contact-us">{hero.primaryCta}</SignalButton>
             <GhostLink to="/services" onDark>
@@ -119,16 +117,28 @@ const Hero = () => {
       <button
         type="button"
         onClick={togglePlayback}
-        aria-label={isPlaying ? "Pause background video" : "Play background video"}
+        aria-label={
+          isPlaying ? "Pause background video" : "Play background video"
+        }
         className="absolute bottom-6 right-6 grid size-10 place-items-center rounded-full text-bg-cream/80 ring-1 ring-inset ring-bg-cream/35 transition-colors duration-300 hover:text-bg-cream hover:ring-bg-cream/70"
       >
         {isPlaying ? (
-          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" className="size-3.5">
+          <svg
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            aria-hidden="true"
+            className="size-3.5"
+          >
             <rect x="3" y="2.5" width="3.4" height="11" rx="0.6" />
             <rect x="9.6" y="2.5" width="3.4" height="11" rx="0.6" />
           </svg>
         ) : (
-          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" className="size-3.5">
+          <svg
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            aria-hidden="true"
+            className="size-3.5"
+          >
             <path d="M4.5 2.8a.6.6 0 0 1 .92-.5l8.2 5.2a.6.6 0 0 1 0 1L5.42 13.7a.6.6 0 0 1-.92-.5z" />
           </svg>
         )}

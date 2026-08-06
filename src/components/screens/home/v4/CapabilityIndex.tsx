@@ -16,10 +16,10 @@ const CapabilityIndex = () => (
         <div>
           <Reveal>
             <Kicker>{capabilities.eyebrow}</Kicker>
-            <h2 className="mt-3 font-display text-[clamp(2.6rem,4.4vw,3.4rem)] font-bold leading-none tracking-[-0.03em] text-ink">
+            <h2 className="mt-3 font-display text-heading font-bold tracking-[-0.03em] text-ink">
               {capabilities.title}
             </h2>
-            <p className="mt-6 max-w-xs text-[16px] leading-[1.6] text-sub">
+            <p className="mt-6 max-w-xs text-base text-sub">
               {capabilities.intro}
             </p>
             <GhostLink to="/services" className="mt-7">
@@ -37,10 +37,10 @@ const CapabilityIndex = () => (
               >
                 <span className="flex items-center justify-between gap-4">
                   <span className="flex items-baseline gap-3">
-                    <span className="font-mono text-[11px] tracking-[0.1em] text-primary">
+                    <span className="font-mono text-xs tracking-[0.1em] text-primary">
                       {service.num}
                     </span>
-                    <span className="text-[17px] font-bold text-ink transition-colors duration-300 group-hover:text-primary">
+                    <span className="text-lg font-bold text-ink transition-colors duration-300 group-hover:text-primary">
                       {serviceShortLabel(service)}
                     </span>
                   </span>
@@ -51,7 +51,7 @@ const CapabilityIndex = () => (
                     →
                   </span>
                 </span>
-                <span className="mt-1.5 block pl-8 text-[13.5px] leading-[1.55] text-sub">
+                <span className="mt-1.5 block pl-8 text-sm text-sub">
                   {service.gerund}
                 </span>
               </Link>

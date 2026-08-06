@@ -35,7 +35,7 @@ const AboutHero = () => (
     <div className="container relative pb-16 pt-40 md:pb-24">
       <motion.div {...rise(0)}>
         <Kicker onDark>{hero.kicker}</Kicker>
-        <h1 className="mt-3 max-w-5xl font-display text-[clamp(2.5rem,5.2vw,4.4rem)] font-bold leading-[1.02] tracking-[-0.03em] text-bg-cream">
+        <h1 className="mt-3 max-w-5xl font-display text-title font-bold tracking-[-0.03em] text-bg-cream">
           {hero.title}
         </h1>
       </motion.div>
@@ -44,9 +44,7 @@ const AboutHero = () => (
         {...rise(0.1)}
         className="mt-8 flex flex-wrap items-end justify-between gap-x-12 gap-y-8"
       >
-        <p className="max-w-xl text-[17px] leading-[1.6] text-bg-cream/82 md:text-[18px]">
-          {hero.descriptor}
-        </p>
+        <p className="max-w-xl text-lg text-bg-cream/82">{hero.descriptor}</p>
         <SignalButton to="/contact-us">{hero.primaryCta}</SignalButton>
       </motion.div>
     </div>

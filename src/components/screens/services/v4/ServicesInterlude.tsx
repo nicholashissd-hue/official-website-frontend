@@ -12,12 +12,10 @@ const ServicesInterlude = () => (
     alt="Two ElderOps engineers inspecting an open server rack by work light"
     objectPosition="center 40%"
   >
-    <h2 className="max-w-3xl font-display text-[clamp(2.6rem,5vw,4rem)] font-bold leading-none tracking-[-0.03em] text-bg-cream">
+    <h2 className="max-w-3xl font-display text-title font-bold tracking-[-0.03em] text-bg-cream">
       {interlude.statement}
     </h2>
-    <p className="mt-6 max-w-xl text-[16.5px] leading-[1.6] text-bg-cream/80">
-      {interlude.body}
-    </p>
+    <p className="mt-6 max-w-xl text-lg text-bg-cream/80">{interlude.body}</p>
   </FullBleed>
 );
 

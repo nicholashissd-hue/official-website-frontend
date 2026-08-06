@@ -16,9 +16,21 @@ import ownPhoto828 from "@/assets/webp/v4/method-own-828.webp";
  * frames carry the method wherever it appears.
  */
 const STEP_SKETCHES = [
-  { src: assessPhoto, srcSet: `${assessPhoto828} 828w, ${assessPhoto} 1600w`, alt: "An engineer stands before a wall-sized glowing map of a system" },
-  { src: buildPhoto, srcSet: `${buildPhoto828} 828w, ${buildPhoto} 1600w`, alt: "The same engineer deep in work at a dark desk, lit by screen glow" },
-  { src: ownPhoto, srcSet: `${ownPhoto828} 828w, ${ownPhoto} 1600w`, alt: "The engineer walks away down a green-lit server aisle toward dawn light" },
+  {
+    src: assessPhoto,
+    srcSet: `${assessPhoto828} 828w, ${assessPhoto} 1600w`,
+    alt: "An engineer stands before a wall-sized glowing map of a system",
+  },
+  {
+    src: buildPhoto,
+    srcSet: `${buildPhoto828} 828w, ${buildPhoto} 1600w`,
+    alt: "The same engineer deep in work at a dark desk, lit by screen glow",
+  },
+  {
+    src: ownPhoto,
+    srcSet: `${ownPhoto828} 828w, ${ownPhoto} 1600w`,
+    alt: "The engineer walks away down a green-lit server aisle toward dawn light",
+  },
 ];
 
 const MethodSection = () => (
@@ -26,7 +38,7 @@ const MethodSection = () => (
     <div className="container section-space-block">
       <Reveal>
         <Kicker>{method.eyebrow}</Kicker>
-        <h2 className="mt-3 font-display text-[clamp(2.75rem,4.8vw,3.6rem)] font-bold leading-none tracking-[-0.03em] text-ink">
+        <h2 className="mt-3 font-display text-heading font-bold tracking-[-0.03em] text-ink">
           {method.title}
         </h2>
       </Reveal>
@@ -43,14 +55,12 @@ const MethodSection = () => (
               className="aspect-[4/3] w-full border border-hairline object-cover"
             />
             <p className="mt-6 flex items-center gap-3">
-              <span className="font-mono text-[11px] tracking-[0.1em] text-primary">
+              <span className="font-mono text-xs tracking-[0.1em] text-primary">
                 {step.num}
               </span>
-              <span className="text-[18px] font-bold text-ink">{step.title}</span>
+              <span className="text-lg font-bold text-ink">{step.title}</span>
             </p>
-            <p className="mt-2.5 text-[15px] leading-[1.62] text-sub">
-              {step.body}
-            </p>
+            <p className="mt-2.5 text-base text-sub">{step.body}</p>
           </Reveal>
         ))}
       </div>

@@ -35,7 +35,11 @@ export const SERVICES: Service[] = [
     gerund:
       "A scalable delivery foundation that cuts operational friction so teams ship faster.",
     body: "When every deploy needs a specialist, delivery crawls; we help companies build internal platforms and golden paths so product teams self-serve.",
-    subs: ["Internal developer platform", "Golden paths", "Developer experience"],
+    subs: [
+      "Internal developer platform",
+      "Golden paths",
+      "Developer experience",
+    ],
   },
   {
     num: "03",

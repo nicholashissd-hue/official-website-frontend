@@ -12,22 +12,20 @@ const ThirdPath = () => (
         <div>
           <Reveal>
             <Kicker>{thirdPath.eyebrow}</Kicker>
-            <h2 className="mt-3 max-w-2xl font-display text-[clamp(2.6rem,4.6vw,3.5rem)] font-bold leading-none tracking-[-0.03em] text-ink">
+            <h2 className="mt-3 max-w-2xl font-display text-heading font-bold tracking-[-0.03em] text-ink">
               {thirdPath.title}
             </h2>
-            <p className="mt-6 max-w-xl text-[17px] leading-[1.65] text-sub">
-              {thirdPath.body}
-            </p>
+            <p className="mt-6 max-w-xl text-lg text-sub">{thirdPath.body}</p>
           </Reveal>
 
           <div className="mt-10">
             {thirdPath.pillars.map((pillar, index) => (
               <Reveal key={pillar.num} delay={index * 0.08}>
                 <div className="flex gap-6 border-t border-hairline py-5.5">
-                  <span className="pt-1 font-mono text-[11px] tracking-[0.1em] text-primary">
+                  <span className="pt-1 font-mono text-xs tracking-[0.1em] text-primary">
                     {pillar.num}
                   </span>
-                  <p className="text-[15.5px] leading-[1.6]">
+                  <p className="text-base">
                     <span className="font-bold text-ink">{pillar.title}</span>
                     <span className="text-sub">: {pillar.body}</span>
                   </p>

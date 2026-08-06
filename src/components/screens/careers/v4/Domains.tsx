@@ -11,12 +11,10 @@ const Domains = () => (
       <div className="grid items-start gap-x-20 gap-y-12 lg:grid-cols-[4fr_8fr]">
         <Reveal>
           <Kicker>{domains.kicker}</Kicker>
-          <h2 className="mt-3 font-display text-[clamp(2.4rem,4vw,3.1rem)] font-bold leading-[1.02] tracking-[-0.03em] text-ink">
+          <h2 className="mt-3 font-display text-heading font-bold tracking-[-0.03em] text-ink">
             {domains.title}
           </h2>
-          <p className="mt-6 max-w-xs text-[15.5px] leading-[1.6] text-sub">
-            {domains.intro}
-          </p>
+          <p className="mt-6 max-w-xs text-base text-sub">{domains.intro}</p>
         </Reveal>
 
         <div className="grid content-start gap-x-14 sm:grid-cols-2">
@@ -27,10 +25,10 @@ const Domains = () => (
                 className="group flex items-baseline justify-between gap-4 border-b border-hairline py-4"
               >
                 <span className="flex items-baseline gap-3">
-                  <span className="font-mono text-[11px] tracking-[0.1em] text-primary">
+                  <span className="font-mono text-xs tracking-[0.1em] text-primary">
                     {service.num}
                   </span>
-                  <span className="text-[16px] font-bold text-ink transition-colors duration-300 group-hover:text-primary">
+                  <span className="text-base font-bold text-ink transition-colors duration-300 group-hover:text-primary">
                     {serviceShortLabel(service)}
                   </span>
                 </span>

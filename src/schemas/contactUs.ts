@@ -31,9 +31,7 @@ export const contactSchema = z
     company: z.string().min(2, "Please enter your company name"),
     lookingFor: oneOf(LOOKING_FOR_OPTIONS, "Select an engagement model"),
     focusArea: oneOf(FOCUS_AREA_OPTIONS, "Select a focus area"),
-    message: z
-      .string()
-      .min(10, "Tell us a little more about your initiative"),
+    message: z.string().min(10, "Tell us a little more about your initiative"),
   })
   .strict();
 

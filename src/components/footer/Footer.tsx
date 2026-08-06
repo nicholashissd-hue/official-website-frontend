@@ -7,7 +7,12 @@ const SOCIALS = [
     label: "Facebook",
     href: "https://www.facebook.com/profile.php?id=61590638164928",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="size-4">
+      <svg
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+        className="size-4"
+      >
         <path d="M13.5 21v-7h2.5l.5-3h-3V9.05c0-.87.24-1.55 1.65-1.55h1.55V4.85c-.3-.04-1.3-.13-2.46-.13-2.43 0-4.04 1.48-4.04 4.2V11H7.5v3h2.7v7z" />
       </svg>
     ),
@@ -16,8 +21,21 @@ const SOCIALS = [
     label: "Instagram",
     href: "https://www.instagram.com/elder_ops",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-4">
-        <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" stroke="currentColor" strokeWidth="1.8" />
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+        className="size-4"
+      >
+        <rect
+          x="3.2"
+          y="3.2"
+          width="17.6"
+          height="17.6"
+          rx="5"
+          stroke="currentColor"
+          strokeWidth="1.8"
+        />
         <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.8" />
         <circle cx="17.1" cy="6.9" r="1.25" fill="currentColor" />
       </svg>
@@ -27,7 +45,12 @@ const SOCIALS = [
     label: "X",
     href: "https://x.com/elder_ops",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="size-3.5">
+      <svg
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+        className="size-3.5"
+      >
         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
       </svg>
     ),
@@ -41,7 +64,7 @@ const COMPANY_LINKS = [
 ];
 
 const columnHeading =
-  "font-mono text-[11px] uppercase tracking-[0.22em] text-bg-cream/45";
+  "font-mono text-xs uppercase tracking-[0.22em] text-bg-cream/45";
 const columnLink =
   "text-sm leading-[2.1] text-bg-cream/75 transition-colors hover:text-bg-cream";
 
@@ -55,7 +78,7 @@ const Footer = () => {
         <div className="grid gap-x-12 gap-y-12 py-16 md:grid-cols-2 md:py-20 lg:grid-cols-[1.6fr_1.1fr_0.8fr_1fr]">
           <div>
             <img src={elderOpsLogo} alt="ElderOps" className="w-12" />
-            <p className="mt-6 text-[15px] font-bold">
+            <p className="mt-6 text-base font-bold">
               Senior engineering expertise. Accountable delivery.
             </p>
             <p className="mt-3 max-w-xs text-sm leading-[1.75] text-bg-cream/55">
@@ -127,19 +150,22 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-            <p className="mt-4 text-[13px] leading-relaxed text-bg-cream/50">
+            <p className="mt-4 text-sm leading-relaxed text-bg-cream/50">
               Typical response within one business day.
             </p>
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-bg-cream/10 py-7 text-[12.5px] text-bg-cream/50 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-4 border-t border-bg-cream/10 py-7 text-xs text-bg-cream/50 sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} ElderOps. Senior Engineering Partners.</p>
           <div className="flex gap-8">
             <Link to="/terms" className="transition-colors hover:text-bg-cream">
               Terms
             </Link>
-            <Link to="/privacy" className="transition-colors hover:text-bg-cream">
+            <Link
+              to="/privacy"
+              className="transition-colors hover:text-bg-cream"
+            >
               Privacy
             </Link>
           </div>

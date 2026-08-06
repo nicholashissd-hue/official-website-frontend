@@ -20,7 +20,7 @@ export const Kicker = ({
 }) => (
   <p
     className={cn(
-      "font-display text-[16px] font-semibold tracking-[-0.01em]",
+      "font-display text-base font-semibold tracking-[-0.01em]",
       onDark ? "text-bg-cream/60" : "text-ink/45",
       className,
     )}
@@ -42,7 +42,7 @@ export const SignalButton = ({
   <Link
     to={to}
     className={cn(
-      "inline-flex items-center justify-center rounded-[14px] bg-signal px-7 py-4 text-[15px] font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px",
+      "inline-flex items-center justify-center rounded-[14px] bg-signal px-7 py-4 text-base font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px",
       className,
     )}
   >
@@ -65,7 +65,7 @@ export const GhostLink = ({
   <Link
     to={to}
     className={cn(
-      "inline-flex items-center gap-2 border-b pb-0.5 text-[15px] font-semibold transition-colors duration-300",
+      "inline-flex items-center gap-2 border-b pb-0.5 text-base font-semibold transition-colors duration-300",
       onDark
         ? "border-bg-cream/35 text-bg-cream/85 hover:text-bg-cream"
         : "border-hairline text-ink hover:text-primary",

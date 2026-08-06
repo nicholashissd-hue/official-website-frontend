@@ -11,19 +11,19 @@ const NotFound = () => {
 
       <div className="container relative z-10 flex flex-1 flex-col items-center justify-center py-40 text-center">
         <Reveal immediate y={20}>
-          <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-border-light">
+          <p className="font-mono text-xs uppercase tracking-[0.24em] text-border-light">
             Error — 404
           </p>
         </Reveal>
 
         <Reveal immediate delay={0.12} y={26}>
-          <h1 className="mt-8 font-display text-[clamp(3.5rem,12vw,8rem)] font-semibold leading-none tracking-[-0.02em] text-bg-cream">
+          <h1 className="mt-8 font-display text-hero font-semibold tracking-[-0.02em] text-bg-cream">
             4<span className="text-border-light">0</span>4
           </h1>
         </Reveal>
 
         <Reveal immediate delay={0.24} y={22}>
-          <p className="mt-7 max-w-md text-[15px] leading-[1.8] text-accent-four">
+          <p className="mt-7 max-w-md text-base leading-[1.8] text-accent-four">
             This page doesn't exist — or it was decommissioned with proper
             documentation and a clean rollback plan.
           </p>

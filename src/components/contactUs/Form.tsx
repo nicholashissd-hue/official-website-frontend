@@ -20,14 +20,20 @@ const EMPTY_FORM: ContactFormData = {
 /** V4 fields: square, hairline, quiet. Radius belongs to the button only. */
 const inputClasses = (hasError: boolean) =>
   cn(
-    "h-12 w-full border bg-white px-4 text-[15px] text-ink outline-none transition-colors duration-300 placeholder:text-sub/50 focus:border-primary",
+    "h-12 w-full border bg-white px-4 text-base text-ink outline-none transition-colors duration-300 placeholder:text-sub/50 focus:border-primary",
     hasError ? "border-red-600/60" : "border-hairline",
   );
 
-const FieldLabel = ({ htmlFor, children }: { htmlFor: string; children: string }) => (
+const FieldLabel = ({
+  htmlFor,
+  children,
+}: {
+  htmlFor: string;
+  children: string;
+}) => (
   <label
     htmlFor={htmlFor}
-    className="mb-2 block text-[13.5px] font-semibold text-ink"
+    className="mb-2 block text-sm font-semibold text-ink"
   >
     {children}
   </label>
@@ -47,7 +53,12 @@ const SelectChevron = () => (
     aria-hidden="true"
     className="pointer-events-none absolute right-4 top-1/2 size-3 -translate-y-1/2 text-ink/50"
   >
-    <path d="M2 4.5 6 8.5l4-4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="square" />
+    <path
+      d="M2 4.5 6 8.5l4-4"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      strokeLinecap="square"
+    />
   </svg>
 );
 
@@ -60,7 +71,9 @@ const Form = () => {
   >({});
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -163,7 +176,9 @@ const Form = () => {
               value={formData.lookingFor}
               onChange={handleChange}
               aria-invalid={!!errors.lookingFor}
-              aria-describedby={errors.lookingFor ? "lookingFor-error" : undefined}
+              aria-describedby={
+                errors.lookingFor ? "lookingFor-error" : undefined
+              }
               className={cn(
                 inputClasses(!!errors.lookingFor),
                 "appearance-none pr-10",
@@ -193,7 +208,9 @@ const Form = () => {
               value={formData.focusArea}
               onChange={handleChange}
               aria-invalid={!!errors.focusArea}
-              aria-describedby={errors.focusArea ? "focusArea-error" : undefined}
+              aria-describedby={
+                errors.focusArea ? "focusArea-error" : undefined
+              }
               className={cn(
                 inputClasses(!!errors.focusArea),
                 "appearance-none pr-10",
@@ -234,13 +251,13 @@ const Form = () => {
       </div>
 
       <div className="mt-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-[13.5px] text-sub">
+        <p className="text-sm text-sub">
           You'll talk to a senior engineer, not a sales team.
         </p>
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex w-full items-center justify-center rounded-[14px] bg-signal px-7 py-4 text-[15px] font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px disabled:opacity-60 sm:w-auto"
+          className="inline-flex w-full items-center justify-center rounded-[14px] bg-signal px-7 py-4 text-base font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px disabled:opacity-60 sm:w-auto"
         >
           {isSubmitting ? "Sending…" : "Start the conversation"}
         </button>

@@ -6,7 +6,7 @@
 
 export const hero = {
   /** BCG X hero pattern: short statement over the launch film + one-line descriptor. */
-  title: "We build it. You own it.",
+  title: "Stop hiring. Start shipping.",
   descriptor: "ElderOps is the embedded senior engineering partner.",
   primaryCta: "Get in touch",
   secondaryCta: "See what we do",
@@ -18,10 +18,21 @@ export const painStrip = {
 };
 
 export const proof = {
-  headline: { value: "38", unit: "%", label: "lower monthly cloud spend", qualifier: "after a FinOps and rightsizing engagement" },
+  headline: {
+    value: "38",
+    unit: "%",
+    label: "lower monthly cloud spend",
+    qualifier: "after a FinOps and rightsizing engagement",
+  },
   secondary: [
-    { value: "days → minutes", label: "release lead time, after CI/CD and platform work" },
-    { value: "99.95%", label: "uptime sustained, after reliability and on-call redesign" },
+    {
+      value: "days → minutes",
+      label: "release lead time, after CI/CD and platform work",
+    },
+    {
+      value: "99.95%",
+      label: "uptime sustained, after reliability and on-call redesign",
+    },
   ],
   trustLine:
     "Every engagement is led by a senior engineer who has run production systems for years.",

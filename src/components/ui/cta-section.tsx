@@ -19,16 +19,16 @@ const CTASection = () => {
         <Reveal>
           <div className="grid items-end gap-12 lg:grid-cols-[2fr_1fr]">
             <div>
-              <h2 className="max-w-3xl font-display text-[clamp(2.6rem,5.2vw,4rem)] font-bold leading-none tracking-[-0.03em] text-bg-cream">
+              <h2 className="max-w-3xl font-display text-title font-bold tracking-[-0.03em] text-bg-cream">
                 Senior engineering, embedded in your team.
               </h2>
-              <p className="mt-6 max-w-xl text-[16px] leading-[1.65] text-ondark md:text-[17px]">
+              <p className="mt-6 max-w-xl text-base text-ondark md:text-lg">
                 Tell us where your infrastructure or delivery is stuck. We will
                 tell you how we would fix it and who would own the work.
               </p>
               <Link
                 to="/contact-us"
-                className="mt-9 inline-flex items-center rounded-[14px] bg-signal px-7 py-4 text-[15px] font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px"
+                className="mt-9 inline-flex items-center rounded-[14px] bg-signal px-7 py-4 text-base font-bold text-nearblack transition-transform duration-300 hover:-translate-y-px"
               >
                 Get in touch
               </Link>
@@ -37,17 +37,17 @@ const CTASection = () => {
             <div className="flex flex-col gap-1.5 lg:items-end lg:text-right">
               <a
                 href="mailto:contact@elderops.net"
-                className="text-[15px] text-bg-cream/80 transition-colors hover:text-bg-cream"
+                className="text-base text-bg-cream/80 transition-colors hover:text-bg-cream"
               >
                 contact@elderops.net
               </a>
               <a
                 href="tel:+18667977937"
-                className="text-[15px] text-bg-cream/80 transition-colors hover:text-bg-cream"
+                className="text-base text-bg-cream/80 transition-colors hover:text-bg-cream"
               >
                 +1 (866) 797-7937
               </a>
-              <p className="text-[13px] text-bg-cream/50">
+              <p className="text-sm text-bg-cream/50">
                 Typical response within one business day.
               </p>
             </div>

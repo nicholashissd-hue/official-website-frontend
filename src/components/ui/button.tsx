@@ -58,7 +58,7 @@ const Button = ({
   ...rest
 }: ButtonProps) => {
   const classes = cn(
-    "group/btn inline-flex h-12 cursor-pointer touch-manipulation items-center justify-center gap-2.5 whitespace-nowrap rounded-full px-7 font-sans text-[15px] font-bold transition-all duration-300 hover:-translate-y-0.5",
+    "group/btn inline-flex h-12 cursor-pointer touch-manipulation items-center justify-center gap-2.5 whitespace-nowrap rounded-full px-7 font-sans text-base font-bold transition-all duration-300 hover:-translate-y-0.5",
     VARIANTS[variant],
     rest.disabled && "pointer-events-none opacity-50",
     className,
