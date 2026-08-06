@@ -43,7 +43,8 @@
   --text-lede--line-height: 1.35;
   --text-lede--letter-spacing: -0.015em;
 
-  --text-stat: clamp(4.5rem, 10vw, 9rem);
+  /* Capped below --text-hero: no figure may outrank the headline. */
+  --text-stat: clamp(4rem, 8vw, 6.5rem);
   --text-stat--line-height: 0.85;
   --text-stat--letter-spacing: -0.05em;
 

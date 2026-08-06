@@ -47,12 +47,6 @@ const ProofBand = () => (
           ))}
         </div>
       </Reveal>
-
-      <Reveal>
-        <p className="mt-4 text-right font-mono text-xs uppercase tracking-[0.16em] text-sub/60">
-          {proof.sampleNote}
-        </p>
-      </Reveal>
     </div>
 
     <div className="container pb-16 pt-6">

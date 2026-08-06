@@ -46,12 +46,6 @@ const CaseFiles = () => (
           </Reveal>
         ))}
       </div>
-
-      <Reveal>
-        <p className="mt-10 font-mono text-xs uppercase tracking-[0.16em] text-sub/70">
-          {caseFiles.note}
-        </p>
-      </Reveal>
     </div>
   </section>
 );

@@ -42,11 +42,8 @@ const ServicesProof = () => (
       </div>
 
       <Reveal>
-        <div className="mt-11 flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-5">
-          <p className="text-sm text-sub">{proof.trustLine}</p>
-          <p className="font-mono text-xs uppercase tracking-[0.16em] text-sub/70">
-            {proof.sampleNote}
-          </p>
+        <div className="mt-11 border-t border-hairline pt-5">
+          <p className="max-w-2xl text-sm text-sub">{proof.trustLine}</p>
         </div>
       </Reveal>
     </div>

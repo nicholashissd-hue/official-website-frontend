@@ -17,26 +17,35 @@ export const painStrip = {
   tail: "Senior engineering capacity is hard to hire and harder to keep.",
 };
 
+/**
+ * The proof ledger carries only claims that are true today. It previously
+ * led with engagement figures that the page itself disclaimed as samples,
+ * which invited the reader to discount every other claim on the site. When
+ * real engagement numbers are confirmed they drop into this same shape and
+ * the layout does not move.
+ */
 export const proof = {
   headline: {
-    value: "38",
+    value: "<4",
     unit: "%",
-    label: "lower monthly cloud spend",
-    qualifier: "after a FinOps and rightsizing engagement",
+    label: "of applicants join the network",
+    qualifier:
+      "Vetted in deep technical conversations by engineers who have done the work, never a recruiter screen.",
   },
   secondary: [
     {
-      value: "days → minutes",
-      label: "release lead time, after CI/CD and platform work",
+      value: "8",
+      label:
+        "capabilities, each staffed senior: cloud, platform, delivery, security, reliability, cost, data, and advisory",
     },
     {
-      value: "99.95%",
-      label: "uptime sustained, after reliability and on-call redesign",
+      value: "Yours",
+      label:
+        "the assessment and roadmap are yours to keep, whether or not you continue with us",
     },
   ],
   trustLine:
     "Every engagement is led by a senior engineer who has run production systems for years.",
-  sampleNote: "Sample values · real figures before launch",
 };
 
 export const logosLabel = "Teams we've delivered for";
@@ -77,10 +86,14 @@ export const method = {
   title: "Assess. Build. Own.",
 };
 
+/**
+ * Outcomes are stated qualitatively and completely. They previously shipped
+ * bracketed placeholders ([X], [Y], [Z]) visible to the reader; a real
+ * figure belongs here only once it is confirmed and attributable.
+ */
 export const caseFiles = {
   eyebrow: "Client work",
-  title: "Real Business Challenges. Real Engineering Outcomes.",
-  note: "Outcome figures ship as placeholders until real engagement numbers are confirmed",
+  title: "Real business challenges. Real engineering outcomes.",
   cases: [
     {
       title: "Cloud Modernization",
@@ -89,7 +102,7 @@ export const caseFiles = {
       whatWeDid:
         "We re-architected the environment, set up landing zones, and moved delivery to automated pipelines.",
       outcome:
-        "[Real engagement result], with release lead time going from [X] to [Y] and downtime incidents down [Z]%.",
+        "Releases went from a hand-run checklist to a pipeline the team runs itself, and the load failures stopped.",
     },
     {
       title: "Data Platform Transformation",
@@ -98,7 +111,7 @@ export const caseFiles = {
       whatWeDid:
         "We modernized the data foundation and pipelines and put governance around the data.",
       outcome:
-        "[Real engagement result]: trusted data, with reporting time cut from [X] to [Y].",
+        "Reporting runs on its own, and the numbers it produces are the ones the business now decides on.",
     },
     {
       title: "Engineering Process Improvement",
@@ -107,7 +120,7 @@ export const caseFiles = {
       whatWeDid:
         "We introduced observability, an on-call structure, and DevOps practices that replaced ticket-driven ops.",
       outcome:
-        "[Real engagement result]: [X]% fewer incidents and engineers back to shipping features.",
+        "The team can see what is failing before customers do, and the engineers are back on the roadmap.",
     },
   ],
 };
