@@ -31,6 +31,7 @@ const SECTIONS: PrivacySection[] = [
     paragraphs: [
       "Contact form. When you submit the form on our contact page, we receive the details you enter: your name, work email, company, the engagement model you select, your focus area, and your message.",
       "Email and phone. If you email or call us directly, we receive whatever details you choose to share, and we use them only to respond.",
+      "Scheduling. If you book a consultation, scheduling happens through Calendly's own booking window, and any details you enter there are collected by Calendly under its own privacy policy.",
     ],
   },
   {
@@ -69,7 +70,7 @@ const SECTIONS: PrivacySection[] = [
   {
     title: "6. Service Providers",
     paragraphs: [
-      "We rely on a small number of providers to handle visitor information, each receiving only what is necessary for its role: Vercel (website hosting and request handling), Resend, EmailJS, and FormSubmit (delivery of form submissions to our inbox as email), LinkedIn (advertising measurement and retargeting, via the Insight Tag described in section 3), and Fontshare and Google Fonts (webfont delivery).",
+      "We rely on a small number of providers to handle visitor information, each receiving only what is necessary for its role: Vercel (website hosting and request handling), Resend, EmailJS, and FormSubmit (delivery of form submissions to our inbox as email), Calendly (consultation scheduling, only when you open the booking window), LinkedIn (advertising measurement and retargeting, via the Insight Tag described in section 3), and Fontshare and Google Fonts (webfont delivery).",
       [
         "Apart from LinkedIn, these providers process data on our behalf and are not authorized to use your information for their own marketing. LinkedIn operates as an advertising platform under its own ",
         { text: "privacy policy", href: LI_PRIVACY },

@@ -1,6 +1,8 @@
 import Form from "@/components/contactUs/Form";
+import CalendlyCTA from "@/components/contactUs/react-calendly";
 import Reveal from "@/components/ui/reveal";
 import { Kicker } from "@/components/ui/v4";
+import contactPhoto from "@/assets/webp/v4/contact-dusk.webp";
 
 const NEXT_STEPS = [
   "An introductory conversation with an engineer",
@@ -10,39 +12,31 @@ const NEXT_STEPS = [
 ];
 
 /**
- * Contact, V4: light page, no CTA band, no photography. The form left,
- * the direct line and what-happens-next right. One reassurance, one
- * response-time promise, stated once each.
+ * Contact, V4.1: headline left with the direct line seated beside it (no
+ * dead air top-right), the form left below, and the sidebar anchored by a
+ * photograph of the person who actually answers. No CTA band on this page.
  */
 const ContactUs = () => (
   <>
     <section className="bg-paper">
-      <div className="container pb-10 pt-36 md:pb-14 md:pt-44">
-        <Reveal immediate delay={0.05} y={26}>
-          <Kicker>Contact</Kicker>
-          <h1 className="mt-3 max-w-3xl font-display text-[clamp(2.6rem,5vw,4rem)] font-bold leading-[1.02] tracking-[-0.03em] text-ink">
-            Tell us what you're building.
-          </h1>
-          <p className="mt-6 max-w-xl text-[17px] leading-[1.6] text-sub">
-            And where it is stuck. We will tell you how we would fix it and
-            who would own the work.
-          </p>
-        </Reveal>
-      </div>
-    </section>
+      <div className="container pb-12 pt-36 md:pb-16 md:pt-44">
+        <div className="grid items-end gap-x-16 gap-y-10 lg:grid-cols-[7fr_5fr]">
+          <Reveal immediate delay={0.05} y={26}>
+            <Kicker>Contact</Kicker>
+            <h1 className="mt-3 max-w-3xl font-display text-[clamp(2.6rem,5vw,4rem)] font-bold leading-[1.02] tracking-[-0.03em] text-ink">
+              Tell us what you're building.
+            </h1>
+            <p className="mt-6 max-w-xl text-[17px] leading-[1.6] text-sub">
+              And where it is stuck. We will tell you how we would fix it and
+              who would own the work.
+            </p>
+          </Reveal>
 
-    <section className="bg-paper">
-      <div className="container grid items-start gap-10 pb-28 pt-4 md:pb-36 lg:grid-cols-[7fr_5fr] lg:gap-14">
-        <Reveal className="h-full">
-          <Form />
-        </Reveal>
-
-        <div className="flex flex-col gap-12 lg:pt-2">
-          <Reveal delay={0.08}>
+          <Reveal immediate delay={0.16} y={22}>
             <p className="font-display text-[16px] font-semibold tracking-[-0.01em] text-ink/45">
               Prefer a direct line
             </p>
-            <div className="mt-4 flex flex-col gap-1.5">
+            <div className="mt-3 flex flex-col gap-1">
               <a
                 href="mailto:contact@elderops.net"
                 className="w-fit text-[17px] font-semibold text-ink transition-colors hover:text-primary"
@@ -55,10 +49,36 @@ const ContactUs = () => (
               >
                 +1 (866) 797-7937
               </a>
-              <p className="mt-2 text-[14px] text-sub">
+            </div>
+            <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <CalendlyCTA />
+              <p className="text-[13.5px] text-sub">
                 Typical response within one business day.
               </p>
             </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+
+    <section className="bg-paper">
+      <div className="container grid items-start gap-10 border-t border-hairline pb-28 pt-14 md:pb-36 lg:grid-cols-[7fr_5fr] lg:gap-14">
+        <Reveal className="h-full">
+          <Form />
+        </Reveal>
+
+        <div className="flex flex-col gap-10">
+          <Reveal delay={0.08}>
+            <img
+              src={contactPhoto}
+              alt="An ElderOps engineer taking a call at his desk in the evening"
+              loading="lazy"
+              className="aspect-[4/3] w-full border border-hairline object-cover"
+            />
+            <p className="mt-3 text-[13.5px] text-sub">
+              The person who answers is an engineer, and the person who scopes
+              your work is the person who does it.
+            </p>
           </Reveal>
 
           <Reveal delay={0.12}>
