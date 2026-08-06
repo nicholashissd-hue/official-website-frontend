@@ -1,19 +1,20 @@
 import Reveal from "@/components/ui/reveal";
 import { Kicker } from "@/components/ui/v4";
 import { methodChapters } from "@/contents/screens/howWeWorkV4";
-import assessPhoto from "@/assets/webp/v4/assess-tech.webp";
-import buildPhoto from "@/assets/webp/v4/build-tech.webp";
-import ownPhoto from "@/assets/webp/v4/own-tech.webp";
+import assessPhoto from "@/assets/webp/v4/hww-assess.webp";
+import buildPhoto from "@/assets/webp/v4/hww-build.webp";
+import ownPhoto from "@/assets/webp/v4/hww-own.webp";
 
 /**
- * The method expanded: three anchored chapters, each carrying the same
- * technology photograph that stands for its verb on Home, the full story
- * of the step, and the "what you keep" line as the quiet contract.
+ * The method expanded: three anchored chapters. The photography is this
+ * page's own hardware arc (Nicholas, 2026-08-06: never reuse the Home
+ * method photos here): the fault found, the platform going up, the rack
+ * closed and steady green.
  */
 const STEP_PHOTOS = [
-  { src: assessPhoto, alt: "Inspection light shining into an open server chassis" },
-  { src: buildPhoto, alt: "Rack server half-inserted on sliding rails during installation" },
-  { src: ownPhoto, alt: "Key seated in the lock of a server rack door" },
+  { src: assessPhoto, alt: "Rows of green status lights on rack equipment with one amber warning light standing out" },
+  { src: buildPhoto, alt: "Storage array mid-installation, drive bays lit, a coiled cable waiting on the shelf" },
+  { src: ownPhoto, alt: "Closed server rack door with steady green lights glowing through the mesh" },
 ];
 
 const ids = ["assess", "build", "own"];

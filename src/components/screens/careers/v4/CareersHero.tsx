@@ -15,7 +15,7 @@ const CareersHero = () => (
   <section className="relative flex min-h-[92svh] flex-col justify-end overflow-hidden bg-nearblack">
     <img
       src={heroImage}
-      alt="An engineer working alone at a desk by a window at dusk"
+      alt="Three engineers talking in the lounge corner of a loft workspace at dusk"
       className="absolute inset-0 size-full object-cover"
       style={{ objectPosition: "center 42%" }}
     />

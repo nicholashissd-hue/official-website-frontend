@@ -20,6 +20,9 @@ const rise = (delay: number) => ({
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
+  // The film fades in over the poster only once frames are actually
+  // advancing, so neither the first play nor a loop restart ever pops.
+  const [isFilmLive, setIsFilmLive] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -44,16 +47,24 @@ const Hero = () => {
 
   return (
     <section className="relative flex min-h-svh flex-col justify-end overflow-hidden bg-nearblack">
+      <img
+        src={heroPoster}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 size-full object-cover"
+      />
       <video
         ref={videoRef}
-        className="absolute inset-0 size-full object-cover"
+        className={`absolute inset-0 size-full object-cover transition-opacity duration-700 ${
+          isFilmLive ? "opacity-100" : "opacity-0"
+        }`}
         src="/video/hero-film.mp4"
-        poster={heroPoster}
         autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
+        onPlaying={() => setIsFilmLive(true)}
         aria-hidden="true"
       />
       <div
