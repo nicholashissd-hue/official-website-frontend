@@ -3,13 +3,16 @@ import CapabilityChapters from "@/components/screens/services/v4/CapabilityChapt
 import ServicesInterlude from "@/components/screens/services/v4/ServicesInterlude";
 import SeniorByDefault from "@/components/screens/services/v4/SeniorByDefault";
 import ServicesProof from "@/components/screens/services/v4/ServicesProof";
-import ThirdPathCompact from "@/components/screens/services/v4/ThirdPathCompact";
-import MethodCompact from "@/components/screens/services/v4/MethodCompact";
 
 /**
- * Services, V4: one rich page. Dark dusk hero, the buyer's pain in one
- * line, all eight capabilities as anchored chapters, then the supporting
- * bands: delivery promise, seniority, sample outcomes, positioning, method.
+ * Services, V4: one rich page. Dark dusk hero, the buyer's pain in one line,
+ * all eight capabilities as anchored chapters, then the delivery promise,
+ * who does the work, and the evidence.
+ *
+ * It used to close with the positioning band and the method, both restating
+ * the home page, so the page got less specific the further a buyer scrolled
+ * and ended on someone else's argument. The method has its own page and the
+ * interlude links to it.
  *
  * Deep links into the chapters are handled centrally by RouteArrival.
  */
@@ -20,8 +23,6 @@ const Services = () => (
     <ServicesInterlude />
     <SeniorByDefault />
     <ServicesProof />
-    <ThirdPathCompact />
-    <MethodCompact />
   </>
 );
 
