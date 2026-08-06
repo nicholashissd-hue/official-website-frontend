@@ -81,6 +81,24 @@ body {
   }
 }
 
+/* ── V4 hero motion: one slow settle, never a loop ───────────── */
+@keyframes kenburns {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.kenburns {
+  animation: kenburns 14s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kenburns {
+    animation: none;
+  }
+}
+
 /* ── Section rhythm ───────────────────────────────────────────── */
 .section-space-top {
   padding-top: clamp(72px, 9vw, 120px);

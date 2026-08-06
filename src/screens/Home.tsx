@@ -1,21 +1,24 @@
-import Hero from "@/components/screens/home/Hero";
-import Stats from "@/components/screens/home/Stats";
-import DeliveryModel from "@/components/screens/home/DeliveryModel";
-import ExpertiseIndex from "@/components/screens/home/ExpertiseIndex";
-import WhyElderOps from "@/components/screens/home/WhyElderOps";
-import EngagementSteps from "@/components/screens/home/EngagementSteps";
-import Outcomes from "@/components/screens/home/Outcomes";
+import Hero from "@/components/screens/home/v4/Hero";
+import PainStrip from "@/components/screens/home/v4/PainStrip";
+import ProofBand from "@/components/screens/home/v4/ProofBand";
+import ThirdPath from "@/components/screens/home/v4/ThirdPath";
+import CapabilityIndex from "@/components/screens/home/v4/CapabilityIndex";
+import MethodSection from "@/components/screens/home/v4/MethodSection";
+import CaseFiles from "@/components/screens/home/v4/CaseFiles";
+import TeamTeaser from "@/components/screens/home/v4/TeamTeaser";
 
+/** Home, V4 (approved 2026-08-05): cinematic open, light editorial body. */
 const Home = () => {
   return (
     <>
       <Hero />
-      <Stats />
-      <DeliveryModel />
-      <ExpertiseIndex />
-      <WhyElderOps />
-      <EngagementSteps />
-      <Outcomes />
+      <PainStrip />
+      <ProofBand />
+      <ThirdPath />
+      <CapabilityIndex />
+      <MethodSection />
+      <CaseFiles />
+      <TeamTeaser />
     </>
   );
 };

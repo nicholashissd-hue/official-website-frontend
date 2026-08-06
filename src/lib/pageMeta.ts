@@ -1,47 +1,47 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router";
 
-const DEFAULT_TITLE = "ElderOps — Senior Engineering Talent";
+const DEFAULT_TITLE = "ElderOps | Senior Engineering, Embedded in Your Team";
 const DEFAULT_DESCRIPTION =
-  "Strategy, execution, and accountability in a single engineering model. Senior expertise that integrates directly into your team.";
+  "ElderOps embeds senior DevOps, cloud, platform, and security engineers into your team to modernize systems, raise reliability, and cut risk, then hands off so your team owns the result.";
 
 const PAGE_META: Record<string, { title: string; description: string }> = {
   "/": {
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
   },
-  "/solutions": {
-    title: "Solutions — ElderOps",
+  "/services": {
+    title: "Services | ElderOps",
     description:
-      "Senior engineering talent matched to your roadmap — cloud & DevOps, data platforms, analytics & BI, AI/ML enablement, and product engineering, with accountable delivery.",
+      "Eight capabilities, one embedded team: cloud and infrastructure, platform engineering, DevOps and delivery, security and DevSecOps, reliability, FinOps, data and modernization, and technology advisory.",
+  },
+  "/how-we-work": {
+    title: "How We Work | ElderOps",
+    description:
+      "Assess. Build. Own. A named method and three stage-agnostic engagement models: fractional advisory, embedded delivery, and launch (0 to 1). We build it so your team can own it.",
   },
   "/about": {
-    title: "About — ElderOps",
+    title: "About | ElderOps",
     description:
-      "The best engineering outcomes come from ownership, not headcount. The philosophy and operating standard behind ElderOps.",
-  },
-  "/startup-launch": {
-    title: "Startup Launch — ElderOps",
-    description:
-      "From idea to launch. ElderOps builds websites, web and mobile apps, infrastructure, and data/AI systems — moving founders and growing teams from concept to production.",
+      "The best engineering outcomes come from ownership, not headcount. A third path between consulting and staffing: senior engineers who embed with your team and own the result.",
   },
   "/careers": {
-    title: "Careers — ElderOps",
+    title: "Careers | ElderOps",
     description:
-      "Join a network built around engineering excellence. ElderOps partners with senior engineers who value ownership, accountability, and meaningful technical challenges.",
+      "Own the work. Set the terms. ElderOps is where senior engineers do embedded, high-trust work on engagements that fit their lives.",
   },
   "/contact-us": {
-    title: "Contact — ElderOps",
+    title: "Contact | ElderOps",
     description:
-      "Tell us what you're building and we'll help determine the right engineering model for your goals. Typical response within one business day.",
+      "Tell us what you're building and where it is stuck. You'll talk to a senior engineer, not a sales team. Typical response within one business day.",
   },
   "/terms": {
-    title: "Terms of Service — ElderOps",
+    title: "Terms of Service | ElderOps",
     description:
       "The terms governing the ElderOps website and engineering services.",
   },
   "/privacy": {
-    title: "Privacy Policy — ElderOps",
+    title: "Privacy Policy | ElderOps",
     description:
       "How ElderOps collects, uses, and protects information submitted through the website.",
   },
