@@ -48,6 +48,8 @@ const Header = () => {
           <img
             src={darkContext ? elderOpsLogo : elderOpsLogoGreen}
             alt="ElderOps"
+            width={54}
+            height={45}
             className="w-14 transition-opacity duration-300 md:w-16"
           />
         </Link>

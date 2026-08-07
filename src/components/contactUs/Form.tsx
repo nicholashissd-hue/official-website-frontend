@@ -160,7 +160,7 @@ const Form = () => {
           {confirmation.title}
         </p>
         <p className="mt-4 max-w-md text-base text-sub">{confirmation.body}</p>
-        <p className="mt-8 font-display text-base font-semibold tracking-[-0.01em] text-ink/45">
+        <p className="mt-8 font-display text-base font-semibold tracking-[-0.01em] text-ink/70">
           {confirmation.stepsLabel}
         </p>
         <ol className="mt-3">

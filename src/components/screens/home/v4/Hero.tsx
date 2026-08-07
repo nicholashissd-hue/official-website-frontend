@@ -20,8 +20,10 @@ const rise = (delay: number) => ({
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
-  // Phones stream a 960x540 encode (1.6MB) instead of the 1080p file
-  // (4.4MB); under the scrim at phone size the difference is invisible.
+  // Phones stream a 960x540 encode (1.5MB) instead of the 1080p file (8MB).
+  // Under the scrim at phone size the difference is invisible, and on a
+  // throttled connection the smaller file stops the video competing with
+  // everything else for bandwidth.
   const [filmSrc] = useState(() =>
     window.matchMedia("(max-width: 767px)").matches
       ? "/video/hero-film-mobile.mp4"
@@ -91,14 +93,15 @@ const Hero = () => {
       />
 
       <div className="container relative pb-16 pt-40 md:pb-24">
-        <motion.h1
-          {...rise(0)}
-          className="max-w-5xl font-display text-hero font-bold tracking-[-0.03em] text-bg-cream"
-        >
+        {/* Deliberately not animated. This is the page's largest contentful
+            element, and fading it in from zero opacity delayed the LCP
+            measurement by the whole length of the entrance. It paints with
+            the poster; everything beneath it still rises in. */}
+        <h1 className="max-w-5xl font-display text-hero font-bold tracking-[-0.03em] text-bg-cream">
           Stop hiring.
           <br />
           Start shipping.
-        </motion.h1>
+        </h1>
 
         <motion.div
           {...rise(0.1)}

@@ -51,7 +51,7 @@ const ProofBand = () => (
 
     <div className="container pb-16 pt-6">
       <Reveal>
-        <p className="font-display text-base font-semibold tracking-[-0.01em] text-ink/45">
+        <p className="font-display text-base font-semibold tracking-[-0.01em] text-ink/70">
           {logosLabel}
         </p>
         <div className="mt-7 flex flex-wrap items-center justify-between gap-x-10 gap-y-6">

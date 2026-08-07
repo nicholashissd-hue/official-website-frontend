@@ -29,7 +29,7 @@ const ContactUs = () => (
           </Reveal>
 
           <Reveal immediate delay={0.16} y={22}>
-            <p className="font-display text-base font-semibold tracking-[-0.01em] text-ink/45">
+            <p className="font-display text-base font-semibold tracking-[-0.01em] text-ink/70">
               Prefer a direct line
             </p>
             <div className="mt-3 flex flex-col gap-1">
@@ -80,7 +80,7 @@ const ContactUs = () => (
           </Reveal>
 
           <Reveal delay={0.12}>
-            <p className="font-display text-base font-semibold tracking-[-0.01em] text-ink/45">
+            <p className="font-display text-base font-semibold tracking-[-0.01em] text-ink/70">
               What happens next
             </p>
             <ol className="mt-4">

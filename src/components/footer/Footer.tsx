@@ -83,7 +83,13 @@ const Footer = () => {
       <div className="container">
         <div className="grid gap-x-12 gap-y-12 py-16 md:grid-cols-2 md:py-20 lg:grid-cols-[1.6fr_1.1fr_0.8fr_1fr]">
           <div>
-            <img src={elderOpsLogo} alt="ElderOps" className="w-12" />
+            <img
+              src={elderOpsLogo}
+              alt="ElderOps"
+              width={54}
+              height={45}
+              className="w-12"
+            />
             <p className="mt-6 max-w-xs text-base font-bold">
               The embedded senior engineering partner.
             </p>
