@@ -35,7 +35,8 @@ export const senior = {
   kicker: "Who does the work",
   title: "Senior by default.",
   body: "The engineer who scopes your work is the engineer who does it. Every engagement is led by someone who has run production systems for years.",
-  chips: [
+  /** Rendered as the loud bullet list, not as chips. */
+  roles: [
     "Cloud architects",
     "Platform engineers",
     "Site reliability engineers",

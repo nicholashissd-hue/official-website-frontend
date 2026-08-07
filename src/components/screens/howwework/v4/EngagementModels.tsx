@@ -1,5 +1,5 @@
 import Reveal from "@/components/ui/reveal";
-import { Kicker } from "@/components/ui/v4";
+import { BulletList, Kicker } from "@/components/ui/v4";
 import { models } from "@/contents/screens/howWeWorkV4";
 
 /**
@@ -37,16 +37,7 @@ const EngagementModels = () => (
 
               <div>
                 <p className="max-w-2xl text-base text-sub">{model.body}</p>
-                <ul className="mt-5 flex flex-wrap gap-2">
-                  {model.chips.map((chip) => (
-                    <li
-                      key={chip}
-                      className="rounded-[14px] border border-hairline px-3.5 py-1.5 text-sm font-semibold text-ink/75"
-                    >
-                      {chip}
-                    </li>
-                  ))}
-                </ul>
+                <BulletList items={model.includes} className="mt-6" />
               </div>
             </div>
           </Reveal>

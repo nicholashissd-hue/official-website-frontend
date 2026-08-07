@@ -4,10 +4,86 @@ import { cn } from "@/lib/util";
 
 /**
  * V4 primitives (approved 2026-08-05; refined 2026-08-06). One action color,
- * two button shapes. Radius belongs to buttons/chips only. Section context is
+ * two button shapes. Radius now belongs to buttons alone. Section context is
  * a quiet sentence-case kicker in the display family (the Apple lockup), never
  * a mono-caps eyebrow with a rule: mono is reserved for genuine data notes.
  */
+
+/**
+ * What a capability, an engagement, or a discipline actually includes.
+ *
+ * These were rounded chips in three places: a tag language borrowed from
+ * filter interfaces, which made real substance ("Cloud migration", "Site
+ * reliability engineers") read as metadata about the paragraph above rather
+ * than as part of the offer. It also spent the site's only radius on
+ * something that is not an action, so the shape said "press me" six times a
+ * screen and meant it none of them.
+ *
+ * As bullets they read as what they are. The marker is a square, because
+ * every other corner on this site outside a button is square, and it is the
+ * one place besides an action where the signal green appears at this size.
+ *
+ * `emphasis="loud"` is the standalone version: display type, ruled rows, two
+ * columns. Use it when the list is the section's content rather than a
+ * footnote to a paragraph.
+ */
+export const BulletList = ({
+  items,
+  emphasis = "quiet",
+  columns = 1,
+  className,
+}: {
+  items: readonly string[];
+  emphasis?: "quiet" | "loud";
+  columns?: 1 | 2 | 3;
+  className?: string;
+}) => (
+  <ul
+    className={cn(
+      "grid",
+      // A multi-column loud list needs real width: at display size the
+      // longest label ("Site reliability engineers") wants about 320px, so
+      // two columns inside a 5fr/7fr section wrapped four rows of six and
+      // left the rules ragged. Three columns across the full container
+      // clear it at every width, and the ramp down matches the type clamp.
+      columns === 3
+        ? "gap-x-14 sm:grid-cols-2 lg:grid-cols-3"
+        : columns === 2
+          ? "gap-x-14 sm:grid-cols-2"
+          : "gap-y-2.5",
+      className,
+    )}
+  >
+    {items.map((item) => (
+      <li
+        key={item}
+        className={cn(
+          "flex items-center",
+          emphasis === "loud"
+            ? "gap-4 border-t border-hairline py-4"
+            : "gap-3",
+        )}
+      >
+        <span
+          aria-hidden="true"
+          className={cn(
+            "shrink-0 bg-signal",
+            emphasis === "loud" ? "size-2" : "size-1.5",
+          )}
+        />
+        <span
+          className={
+            emphasis === "loud"
+              ? "font-display text-lede font-bold tracking-[-0.015em] text-ink"
+              : "text-base font-semibold text-ink"
+          }
+        >
+          {item}
+        </span>
+      </li>
+    ))}
+  </ul>
+);
 
 /**
  * The "what you keep" line under a method step. One treatment everywhere the

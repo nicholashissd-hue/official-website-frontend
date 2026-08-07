@@ -1,5 +1,5 @@
 import Reveal from "@/components/ui/reveal";
-import { Kicker } from "@/components/ui/v4";
+import { BulletList, Kicker } from "@/components/ui/v4";
 import { capabilities, pain } from "@/contents/screens/servicesV4";
 import { SERVICES } from "@/contents/taxonomy";
 
@@ -56,16 +56,7 @@ const CapabilityChapters = () => (
                   <p className="mt-3 max-w-2xl text-base text-sub">
                     {service.body}
                   </p>
-                  <ul className="mt-5 flex flex-wrap gap-2">
-                    {service.subs.map((sub) => (
-                      <li
-                        key={sub}
-                        className="rounded-[14px] border border-hairline px-3.5 py-1.5 text-sm font-semibold text-ink/75"
-                      >
-                        {sub}
-                      </li>
-                    ))}
-                  </ul>
+                  <BulletList items={service.subs} className="mt-6" />
                 </div>
               </div>
             </Reveal>

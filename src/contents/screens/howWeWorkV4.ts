@@ -114,14 +114,14 @@ export const models = {
       title: "Fractional advisory",
       who: "For teams that need direction before headcount.",
       body: "Senior judgment on a fraction of the time: architecture, roadmap, and technical due diligence from an engineer who has run production systems, on terms that scale up or down as the work changes.",
-      chips: ["Architecture", "Roadmap", "Technical due diligence"],
+      includes: ["Architecture", "Roadmap", "Technical due diligence"],
     },
     {
       num: "02",
       title: "Embedded delivery",
       who: "The core model, for initiatives that must land.",
       body: "Senior engineers embed in your team and own the work end to end across any of the eight capabilities, measured against the roadmap and handed off when your team is ready to run it.",
-      chips: [
+      includes: [
         "Migrations",
         "Platforms",
         "Pipelines",
@@ -134,7 +134,7 @@ export const models = {
       title: "Launch, zero to one",
       who: "For new products and new companies.",
       body: "From concept to production, built correctly the first time: the websites and applications your customers touch, and the infrastructure, pipelines, and data foundations underneath them.",
-      chips: ["Websites", "Applications", "Infrastructure", "Data and AI"],
+      includes: ["Websites", "Applications", "Infrastructure", "Data and AI"],
     },
   ],
 };
