@@ -18,15 +18,83 @@ export const hero = {
 export const methodChapters = {
   kicker: "The method",
   title: "Three steps, one promise.",
+  intro:
+    "Three steps, in this order, on every engagement. What changes with the size of the work is how long each step takes, never the sequence, and never how it ends.",
+  detailLabel: "What happens",
   /**
    * The long-form telling of each step, in the same order as METHOD in
    * contents/taxonomy.ts. Step names, numbers and the "what you keep" line
    * come from there so they can never drift between pages.
+   *
+   * `detail` is the substance the section was missing: each chapter used to
+   * be a single short paragraph sitting beside a photograph twice its
+   * height, so the image carried the section and the method itself said
+   * almost nothing about how the work is actually done.
    */
-  chapterBodies: [
-    "We start where the risk and cost actually live: the stalled migration, the fragile pipeline, the bill nobody owns. Senior engineers read the systems, talk to the people who run them, and map what is really going on.",
-    "The same engineers who assessed the work do the work: migrations, platforms, pipelines, security, and cost control, inside your stack, your standups, and your tooling, measured against the roadmap.",
-    "From day one we document, write runbooks, and upskill your team, because the goal is a system your team runs without us. When the handoff is done, we step back.",
+  chapters: [
+    {
+      rail: "Before anything gets built.",
+      body: [
+        "We start where the risk and cost actually live: the stalled migration, the fragile pipeline, the bill nobody owns. Senior engineers read the systems, talk to the people who run them, and map what is really going on.",
+        "This is not a questionnaire and it is not a discovery workshop. The engineers who would do the work are the ones reading the code, the pipelines, the cloud accounts, and the incident history, because a roadmap written by someone who has never opened the system is a guess with a logo on it.",
+      ],
+      detail: [
+        {
+          label: "Systems review",
+          body: "Architecture, environments, pipelines, and cloud accounts as they actually run today, not as the diagram says they run.",
+        },
+        {
+          label: "Risk and cost",
+          body: "Where reliability, security, and spend are exposed, ordered by what it costs you to leave each one alone.",
+        },
+        {
+          label: "The roadmap",
+          body: "A sequenced plan with the first move named and sized against your team's capacity, not ours.",
+        },
+      ],
+    },
+    {
+      rail: "The work itself, inside your team.",
+      body: [
+        "The same engineers who assessed the work do the work: migrations, platforms, pipelines, security, and cost control, inside your stack, your standups, and your tooling, measured against the roadmap.",
+        "Embedded means embedded. Work lands in your repositories, your ticket tracker, and your review process, so your team watches it arrive in the same place they watch their own, instead of receiving it as a status report.",
+      ],
+      detail: [
+        {
+          label: "Inside your tooling",
+          body: "Your repositories, your pipelines, your ticket tracker, your review standards. Nothing that matters lives in a vendor's environment.",
+        },
+        {
+          label: "Shipped in increments",
+          body: "Change goes live in pieces that can be reviewed and reversed, rather than in one migration weekend everybody dreads.",
+        },
+        {
+          label: "Measured against the plan",
+          body: "The roadmap from Assess is the scoreboard, and it gets revised in the open when the system disagrees with it.",
+        },
+      ],
+    },
+    {
+      rail: "The part most firms skip.",
+      body: [
+        "From day one we document, write runbooks, and upskill your team, because the goal is a system your team runs without us. When the handoff is done, we step back.",
+        "Handoff is not a meeting at the end. Documentation is written while the work is happening, your engineers are in the reviews from the first week, and the last stretch is deliberately run by your team with ours alongside rather than in front.",
+      ],
+      detail: [
+        {
+          label: "Documentation and runbooks",
+          body: "How it works, how it fails, and what to do at three in the morning, written for the person who will be on call.",
+        },
+        {
+          label: "Your team leading",
+          body: "Pairing and review while the work is still live, so the knowledge transfers through doing it rather than through a slide about it.",
+        },
+        {
+          label: "A deliberate exit",
+          body: "Access, ownership, and on-call responsibility handed back on a date you agree to. We leave when your team no longer needs us, and stay reachable if that changes.",
+        },
+      ],
+    },
   ],
 };
 
