@@ -142,4 +142,46 @@ for (const [route, { title, description }] of Object.entries(meta)) {
   written += 1;
 }
 
-console.log(`prerendered ${written} routes against ${origin}`);
+/**
+ * llms.txt, for the language models that increasingly read a site on a
+ * buyer's behalf. There was no file, and the SPA rewrite answered the path
+ * with index.html, so a checker saw an HTML document where markdown was
+ * expected. Built from the same route metadata as everything else.
+ */
+const llms = [
+  "# ElderOps",
+  "",
+  `> ${meta["/"].description}`,
+  "",
+  "ElderOps is an engineering services firm, not a staffing agency. Senior",
+  "engineers embed with a client's team, own an initiative end to end, and hand",
+  "it back documented, with the client's people trained to run it. The",
+  "assessment and roadmap belong to the client whether or not the engagement",
+  "continues.",
+  "",
+  "## Pages",
+  "",
+  ...Object.entries(meta)
+    .filter(([route]) => !["/terms", "/privacy"].includes(route))
+    .map(([route, m]) => {
+      const label = m.title.replace(" | ElderOps", "");
+      return `- [${route === "/" ? "Home" : label}](${route === "/" ? origin + "/" : origin + route}): ${m.description}`;
+    }),
+  "",
+  "## Legal",
+  "",
+  ...["/terms", "/privacy"].map(
+    (route) =>
+      `- [${meta[route].title.replace(" | ElderOps", "")}](${origin}${route}): ${meta[route].description}`,
+  ),
+  "",
+  "## Contact",
+  "",
+  `- Email: contact@elderops.net`,
+  `- Phone: +1 (866) 797-7937`,
+  "",
+].join("\n");
+
+writeFileSync(join(dist, "llms.txt"), llms);
+
+console.log(`prerendered ${written} routes and llms.txt against ${origin}`);

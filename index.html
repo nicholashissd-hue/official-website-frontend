@@ -109,12 +109,20 @@
           };
           window.lintrk.q = [];
         }
-        var s = document.getElementsByTagName("script")[0];
-        var b = document.createElement("script");
-        b.type = "text/javascript";
-        b.async = true;
-        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-        s.parentNode.insertBefore(b, s);
+        // Calls queue immediately so nothing is lost, but the tag itself is
+        // fetched only once the page has loaded. It is the site's only
+        // third-party script and it has no business competing with the hero
+        // for a throttled connection. Attribution still fires per page view.
+        var load = function () {
+          var s = document.getElementsByTagName("script")[0];
+          var b = document.createElement("script");
+          b.type = "text/javascript";
+          b.async = true;
+          b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+          s.parentNode.insertBefore(b, s);
+        };
+        if (document.readyState === "complete") window.setTimeout(load, 300);
+        else window.addEventListener("load", load, { once: true });
       })(window.lintrk);
     </script>
     <noscript>
