@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -37,6 +37,53 @@ const swapTag = (html, pattern, replacement) => {
   if (!pattern.test(html)) throw new Error(`prerender: no match for ${pattern}`);
   return html.replace(pattern, replacement);
 };
+
+/**
+ * The homepage hero, written into the served HTML.
+ *
+ * The headline is the largest contentful element on the site, and it existed
+ * only inside the bundle: nothing could paint it until the stylesheet and
+ * 146KB of JavaScript had arrived and React had mounted, which the report
+ * measured as a full second of render delay. Emitting it statically lets it
+ * paint as soon as the HTML and CSS land.
+ *
+ * The markup below must stay identical to Hero.tsx, which is why the copy and
+ * the button class are read from source rather than retyped, and why the hero
+ * carries no entrance animation: React replaces this on mount, and anything
+ * that differs would show as a flicker.
+ */
+const read = (rel) => readFileSync(join(root, rel), "utf8");
+const pick = (src, re, label) => {
+  const m = src.match(re);
+  if (!m) throw new Error(`prerender: could not read ${label}`);
+  return m[1];
+};
+
+const homeCopy = read("src/contents/screens/homeV4.ts");
+const heroTitle = pick(homeCopy, /title:\s*"([^"]+)"/, "hero.title");
+const heroDescriptor = pick(homeCopy, /descriptor:\s*"([^"]+)"/, "hero.descriptor");
+const heroPrimary = pick(homeCopy, /primaryCta:\s*"([^"]+)"/, "hero.primaryCta");
+const heroSecondary = pick(homeCopy, /secondaryCta:\s*"([^"]+)"/, "hero.secondaryCta");
+const buttonClass = pick(
+  read("src/components/ui/v4.tsx"),
+  /export const signalButtonClass =\s*"([^"]+)"/,
+  "signalButtonClass",
+);
+
+const posterFile = readdirSync(join(dist, "assets")).find((f) =>
+  /^hero-poster-.*\.webp$/.test(f),
+);
+if (!posterFile) throw new Error("prerender: hero poster asset not found");
+const poster = `/assets/${posterFile}`;
+
+const [firstLine, ...restLines] = heroTitle.split(/(?<=\.)\s+/);
+const headline = [firstLine, restLines.join(" ")]
+  .filter(Boolean)
+  .join("<br />");
+
+const heroHtml = `<section class="relative flex min-h-svh flex-col justify-end overflow-hidden bg-nearblack"><img src="${poster}" alt="" aria-hidden="true" class="absolute inset-0 size-full object-cover" /><div aria-hidden="true" class="absolute inset-0 bg-[linear-gradient(to_top,rgb(8_23_18/0.9)_0%,rgb(8_23_18/0.28)_50%,rgb(8_23_18/0.45)_100%)]"></div><div class="container relative pb-16 pt-40 md:pb-24"><h1 class="max-w-5xl font-display text-hero font-bold tracking-[-0.03em] text-bg-cream">${headline}</h1><div class="mt-8 flex flex-wrap items-end justify-between gap-x-12 gap-y-8"><p class="max-w-xl text-lg text-bg-cream/82">${escape(heroDescriptor)}</p><div class="flex items-center gap-7"><a class="${buttonClass}" href="/contact-us">${heroPrimary}</a><a href="#capabilities" class="inline-flex items-center gap-2 border-b border-bg-cream/35 pb-0.5 text-base font-semibold text-bg-cream/85 transition-colors duration-300 hover:text-bg-cream">${heroSecondary} <span aria-hidden="true">↓</span></a></div></div></div></section>`;
+
+const posterPreload = `<link rel="preload" as="image" fetchpriority="high" href="${poster}" />`;
 
 let written = 0;
 
@@ -84,6 +131,8 @@ for (const [route, { title, description }] of Object.entries(meta)) {
   );
 
   if (route === "/") {
+    html = html.replace('<div id="root"></div>', `<div id="root">${heroHtml}</div>`);
+    html = html.replace("</head>", `  ${posterPreload}\n  </head>`);
     writeFileSync(join(dist, "index.html"), html);
   } else {
     const dir = join(dist, route.replace(/^\//, ""));

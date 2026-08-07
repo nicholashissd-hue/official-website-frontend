@@ -1,15 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 import heroPoster from "@/assets/webp/v4/hero-poster.webp";
 import { hero } from "@/contents/screens/homeV4";
-import { EASE } from "@/components/ui/reveal";
 import { SignalButton } from "@/components/ui/v4";
-
-const rise = (delay: number) => ({
-  initial: { opacity: 0, y: 18 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, delay, ease: EASE },
-});
 
 /**
  * The launch-film hero (BCG X pattern): a full-viewport cinematic loop under
@@ -103,10 +95,11 @@ const Hero = () => {
           Start shipping.
         </h1>
 
-        <motion.div
-          {...rise(0.1)}
-          className="mt-8 flex flex-wrap items-end justify-between gap-x-12 gap-y-8"
-        >
+        {/* No entrance animation anywhere in the hero lockup. The same
+            markup is written into the served HTML by scripts/prerender.mjs
+            so the headline can paint before the bundle arrives, and the two
+            have to match exactly or the swap on mount would flicker. */}
+        <div className="mt-8 flex flex-wrap items-end justify-between gap-x-12 gap-y-8">
           <p className="max-w-xl text-lg text-bg-cream/82">{hero.descriptor}</p>
           <div className="flex items-center gap-7">
             <SignalButton to="/contact-us">{hero.primaryCta}</SignalButton>
@@ -120,7 +113,7 @@ const Hero = () => {
               {hero.secondaryCta} <span aria-hidden="true">↓</span>
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       <button
