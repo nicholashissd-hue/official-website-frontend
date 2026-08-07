@@ -12,34 +12,45 @@ import { SignalButton } from "@/components/ui/v4";
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
-  // Phones stream a 960x540 encode (1.5MB) instead of the 1080p file (8MB).
-  // Under the scrim at phone size the difference is invisible, and on a
-  // throttled connection the smaller file stops the video competing with
-  // everything else for bandwidth.
-  const [filmSrc] = useState(() =>
-    window.matchMedia("(max-width: 767px)").matches
-      ? "/video/hero-film-mobile.mp4"
-      : "/video/hero-film.mp4",
-  );
+  /** Null until the page has painted: see the effect below. */
+  const [filmSrc, setFilmSrc] = useState<string | null>(null);
   // The film fades in over the poster only once frames are actually
   // advancing, so neither the first play nor a loop restart ever pops.
   const [isFilmLive, setIsFilmLive] = useState(false);
 
-  // BCG X model: the poster (a ~60KB webp of the film's exact first frame)
-  // paints instantly, and the film streams and starts as soon as the
-  // browser has frames. The file's bitrate (~1.5 Mbps) is far below any
-  // broadband connection, so playback never outruns the download; no
-  // buffering gate is needed. The film and poster both begin on the same
-  // fully formed frame, so the swap on first paint is invisible.
+  /**
+   * The poster carries the hero; the film arrives once the page is painted.
+   *
+   * With a src on the element the browser began fetching the film
+   * immediately, and on a throttled connection that is ruinous: the phone
+   * encode is 12 Mbit, which is roughly seven seconds of a slow 4G line,
+   * while everything the headline needs to paint (stylesheet, two fonts,
+   * poster) totals under one. The film was starving the very thing it sits
+   * behind, which is why the largest paint would not improve no matter what
+   * changed in the markup. Waiting for load leaves the critical path to the
+   * things a reader actually sees first.
+   */
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      video.pause();
       setIsPlaying(false);
       return;
     }
-    void video.play().catch(() => {});
+
+    // Phones stream a 960x540 encode (1.5MB) instead of the 1080p file (8MB);
+    // under the scrim at phone size the difference is invisible.
+    const start = () =>
+      setFilmSrc(
+        window.matchMedia("(max-width: 767px)").matches
+          ? "/video/hero-film-mobile.mp4"
+          : "/video/hero-film.mp4",
+      );
+
+    if (document.readyState === "complete") {
+      const id = window.setTimeout(start, 200);
+      return () => window.clearTimeout(id);
+    }
+    window.addEventListener("load", start, { once: true });
+    return () => window.removeEventListener("load", start);
   }, []);
 
   const togglePlayback = () => {
@@ -70,12 +81,12 @@ const Hero = () => {
         className={`absolute inset-0 size-full object-cover ${
           isFilmLive ? "opacity-100" : "opacity-0"
         }`}
-        src={filmSrc}
+        src={filmSrc ?? undefined}
         autoPlay
         muted
         loop
         playsInline
-        preload="auto"
+        preload="none"
         onPlaying={() => setIsFilmLive(true)}
         aria-hidden="true"
       />
