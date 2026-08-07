@@ -68,8 +68,11 @@ const COMPANY_LINKS = [
 // sentence case in the display family.
 const columnHeading =
   "font-display text-sm font-semibold tracking-[-0.01em] text-bg-cream/60";
+// inline-block, so the generous leading becomes the tap target rather than
+// just visual spacing: as inline anchors these were 18px tall, under the 24px
+// minimum, on the surface most often read on a phone.
 const columnLink =
-  "text-sm leading-[2.1] text-bg-cream/75 transition-colors hover:text-bg-cream";
+  "inline-block text-sm leading-[2.1] text-bg-cream/75 transition-colors hover:text-bg-cream";
 
 /** Three-column footer per the Revision Brief: Services / Company / Contact. */
 const Footer = () => {
@@ -157,12 +160,15 @@ const Footer = () => {
         <div className="flex flex-col gap-4 border-t border-bg-cream/10 py-7 text-xs text-bg-cream/50 sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} ElderOps</p>
           <div className="flex gap-8">
-            <Link to="/terms" className="transition-colors hover:text-bg-cream">
+            <Link
+              to="/terms"
+              className="inline-block py-1.5 transition-colors hover:text-bg-cream"
+            >
               Terms
             </Link>
             <Link
               to="/privacy"
-              className="transition-colors hover:text-bg-cream"
+              className="inline-block py-1.5 transition-colors hover:text-bg-cream"
             >
               Privacy
             </Link>

@@ -105,7 +105,7 @@ const Navbar = ({ dark = false }: NavbarProps) => {
           <NavLink
             to={UTILITY_LINK.path}
             onClick={closeMobileMenu}
-            className="block text-center text-sm font-medium text-bg-cream/55"
+            className="block py-2 text-center text-sm font-medium text-bg-cream/70"
           >
             {UTILITY_LINK.label}
           </NavLink>
@@ -119,13 +119,13 @@ const Navbar = ({ dark = false }: NavbarProps) => {
           <div className="space-y-2.5">
             <a
               href="mailto:contact@elderops.net"
-              className="block text-center font-mono text-xs uppercase tracking-[0.2em] text-accent-four"
+              className="block py-2 text-center font-mono text-xs uppercase tracking-[0.2em] text-bg-cream/60"
             >
               contact@elderops.net
             </a>
             <a
               href="tel:+18667977937"
-              className="block text-center font-mono text-xs uppercase tracking-[0.2em] text-accent-four"
+              className="block py-2 text-center font-mono text-xs uppercase tracking-[0.2em] text-bg-cream/60"
             >
               +1 (866) 797-7937
             </a>
