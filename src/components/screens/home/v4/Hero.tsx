@@ -53,6 +53,14 @@ const Hero = () => {
     return () => window.removeEventListener("load", start);
   }, []);
 
+  // Ask for playback explicitly once the source is attached: the autoplay
+  // attribute is reliable for a src present at parse time, less so for one
+  // assigned later.
+  useEffect(() => {
+    if (!filmSrc) return;
+    void videoRef.current?.play().catch(() => {});
+  }, [filmSrc]);
+
   const togglePlayback = () => {
     const video = videoRef.current;
     if (!video) return;
