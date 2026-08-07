@@ -25,7 +25,7 @@ const CapabilityChapters = () => (
       <div className="container section-space-block">
         <Reveal>
           <Kicker>{capabilities.kicker}</Kicker>
-          <h2 className="mt-3 font-display text-heading font-bold tracking-[-0.03em] text-ink">
+          <h2 className="mt-3 font-display text-title font-bold tracking-[-0.03em] text-ink">
             {capabilities.title}
           </h2>
           <p className="mt-6 max-w-xl text-base text-sub">

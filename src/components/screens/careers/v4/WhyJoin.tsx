@@ -9,7 +9,7 @@ const WhyJoin = () => (
       <div className="grid items-start gap-x-20 gap-y-10 lg:grid-cols-[5fr_7fr]">
         <Reveal>
           <Kicker>{whyJoin.kicker}</Kicker>
-          <h2 className="mt-3 max-w-md font-display text-heading font-bold tracking-[-0.03em] text-ink">
+          <h2 className="mt-3 max-w-md font-display text-title font-bold tracking-[-0.03em] text-ink">
             {whyJoin.title}
           </h2>
         </Reveal>

@@ -36,20 +36,20 @@ const CapabilityIndex = () => (
             <Reveal key={service.id} delay={(index % 4) * 0.06}>
               <Link
                 to={`/services#${service.id}`}
-                className="group block border-b border-hairline py-5"
+                className="group -mx-3 block border-b border-hairline px-3 py-5 transition-colors duration-300 hover:border-ink/45 hover:bg-ink/[0.035]"
               >
                 <span className="flex items-center justify-between gap-4">
                   <span className="flex items-baseline gap-3">
                     <span className="font-mono text-xs tracking-[0.1em] text-primary">
                       {service.num}
                     </span>
-                    <span className="text-lg font-bold text-ink transition-colors duration-300 group-hover:text-primary">
+                    <span className="text-lg font-bold text-ink">
                       {serviceShortLabel(service)}
                     </span>
                   </span>
                   <span
                     aria-hidden="true"
-                    className="-translate-x-1.5 text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+                    className="-translate-x-2 text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100"
                   >
                     →
                   </span>

@@ -36,7 +36,7 @@ export const Kicker = ({
   <p
     className={cn(
       "font-display text-base font-semibold tracking-[-0.01em]",
-      onDark ? "text-bg-cream/60" : "text-ink/45",
+      onDark ? "text-bg-cream/70" : "text-ink/70",
       className,
     )}
   >

@@ -16,7 +16,7 @@ const ProofBand = () => (
     <div className="container pb-14 pt-24 md:pt-28">
       <Reveal>
         <Kicker>Proof</Kicker>
-        <h2 className="mt-3 max-w-3xl font-display text-heading font-bold tracking-[-0.02em] text-ink">
+        <h2 className="mt-3 max-w-3xl font-display text-title font-bold tracking-[-0.02em] text-ink">
           {proof.trustLine}
         </h2>
       </Reveal>
