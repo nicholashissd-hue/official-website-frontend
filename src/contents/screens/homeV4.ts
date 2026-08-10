@@ -28,7 +28,7 @@ export const proof = {
   headline: {
     value: "<4",
     unit: "%",
-    label: "of applicants join the network",
+    label: "of applicants clear our technical bar",
     qualifier:
       "Vetted in deep technical conversations by engineers who have done the work, never a recruiter screen.",
   },
@@ -36,7 +36,7 @@ export const proof = {
     {
       value: "8",
       label:
-        "capabilities, each staffed senior: cloud, platform, delivery, security, reliability, cost, data, and advisory",
+        "capabilities, each run by senior engineers: cloud, platform, delivery, security, reliability, cost, data, and advisory",
     },
     {
       value: "Yours",
@@ -57,8 +57,8 @@ export const thirdPath = {
   pillars: [
     {
       num: "01",
-      title: "Ownership, not headcount",
-      body: "accountable for outcomes you can measure, not hours logged.",
+      title: "Accountability, not headcount",
+      body: "measured on outcomes you can see, not hours logged.",
     },
     {
       num: "02",
@@ -83,7 +83,7 @@ export const capabilities = {
 
 export const method = {
   eyebrow: "How we work",
-  title: "Assess. Build. Own.",
+  title: "Assess. Build. Hand off.",
 };
 
 /**
@@ -126,8 +126,8 @@ export const caseFiles = {
 };
 
 export const interlude = {
-  statement: "We build it so your team can own it.",
-  body: "Every engagement ends in handoff: documentation, runbooks, and a team that runs the system without us.",
+  statement: "We build inside your team, not around it.",
+  body: "Documentation, runbooks, and a team that runs the system after we leave.",
 };
 
 export const teamTeaser = {

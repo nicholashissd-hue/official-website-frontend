@@ -64,7 +64,7 @@ export const SERVICES: Service[] = [
     id: "reliability-operations",
     label: "Reliability & Operations",
     gerund:
-      "Catching issues before they hit the business, so you build instead of firefight.",
+      "Catching issues before they hit the business, so your team builds instead of firefighting.",
     body: "Always-on expectations meet a team stretched thin on call; we help companies stand up observability, SLOs, and incident response that hold under load.",
     subs: ["Observability", "SLOs", "Incident response"],
   },
@@ -91,8 +91,8 @@ export const SERVICES: Service[] = [
     id: "technology-advisory",
     label: "Technology Advisory (Fractional)",
     gerund:
-      "Senior judgment on flexible terms; we advise, build, and hand off so your team owns it, at any stage.",
-    body: "Sometimes you need direction before headcount; we help companies set architecture and roadmap, then build alongside your team and hand off.",
+      "Senior judgment on flexible terms; we advise, build, and hand off, at any stage.",
+    body: "Sometimes you need direction before a hire; we help companies set architecture and roadmap, then build alongside your team and hand off.",
     subs: ["Fractional architecture", "Roadmap", "Technical due diligence"],
   },
 ];
@@ -125,7 +125,7 @@ export const METHOD = [
   },
   {
     num: "03",
-    title: "Own",
+    title: "Hand off",
     body: "We document, write runbooks, upskill your team, and hand off.",
     keep: "You keep the system, the documentation, and a team that can run it without us.",
   },

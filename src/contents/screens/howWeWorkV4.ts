@@ -7,9 +7,9 @@
 
 export const hero = {
   kicker: "How we work",
-  title: "Assess. Build. Own.",
+  title: "Assess. Build. Hand off.",
   descriptor:
-    "A named method and three ways to engage. Every engagement ends the same way: with your team owning the system.",
+    "A named method and three ways to engage. Every engagement ends the same way: with a system your team runs without us.",
   primaryCta: "Get in touch",
   secondaryCta: "See the method",
 };
@@ -17,9 +17,9 @@ export const hero = {
 /** Expanded chapters: what happens in each step and what you keep. */
 export const methodChapters = {
   kicker: "The method",
-  title: "Three steps, one promise.",
+  title: "How an engagement runs.",
   intro:
-    "Three steps, in this order, on every engagement. What changes with the size of the work is how long each step takes, never the sequence, and never how it ends.",
+    "The same three steps on every engagement. What changes with the size of the work is how long each one takes, not the order.",
   detailLabel: "What happens",
   /**
    * The long-form telling of each step, in the same order as METHOD in
@@ -75,7 +75,7 @@ export const methodChapters = {
       ],
     },
     {
-      rail: "The part most firms skip.",
+      rail: "Built into the work from day one.",
       body: [
         "From day one we document, write runbooks, and upskill your team, because the goal is a system your team runs without us. When the handoff is done, we step back.",
         "Handoff is not a meeting at the end. Documentation is written while the work is happening, your engineers are in the reviews from the first week, and the last stretch is deliberately run by your team with ours alongside rather than in front.",
@@ -99,7 +99,7 @@ export const methodChapters = {
 };
 
 export const interlude = {
-  statement: "Handoff is the goal, not the risk.",
+  statement: "Built to run without us.",
   body: "Documentation, runbooks, and upskilling are part of the work from day one, not a courtesy at the end.",
 };
 

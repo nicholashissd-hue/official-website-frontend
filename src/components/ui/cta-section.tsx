@@ -31,7 +31,7 @@ const CTASection = () => {
           </h2>
           <p className="mt-6 max-w-xl text-base text-ondark md:text-lg">
             Tell us where your infrastructure or delivery is stuck. We will tell
-            you how we would fix it and who would own the work. You keep the
+            you how we would fix it and who would run it. You keep the
             assessment and the roadmap either way.
           </p>
           <Link to="/contact-us" className={cn(signalButtonClass, "mt-9")}>

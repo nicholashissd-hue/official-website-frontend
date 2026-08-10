@@ -9,21 +9,21 @@ export const hero = {
   kicker: "Services",
   title: "Eight capabilities. One embedded team.",
   descriptor:
-    "Senior engineers who take on the initiatives that carry the most risk and cost, inside your team, until your team owns them.",
+    "Senior engineers who take on the initiatives that carry the most risk and cost, inside your team, until your team runs them without us.",
   primaryCta: "Get in touch",
   secondaryCta: "See the capabilities",
 };
 
 export const pain = {
   lead: "The work is rarely a mystery: a migration to finish, a pipeline to trust, a bill to explain, a system that has to stay up.",
-  tail: "What's scarce is senior capacity to own it.",
+  tail: "What's scarce is the senior capacity to see it through.",
 };
 
 export const capabilities = {
   kicker: "What we do",
   title: "The capabilities.",
   intro:
-    "Each engagement is scoped against your roadmap, staffed senior, and measured by outcomes you can check.",
+    "Each engagement is scoped against your roadmap, led by senior engineers, and measured by outcomes you can check.",
 };
 
 export const interlude = {
@@ -52,6 +52,6 @@ export const outcomes = {
 
 export const method = {
   kicker: "How we work",
-  title: "Assess. Build. Own.",
+  title: "Assess. Build. Hand off.",
   cta: "How we work",
 };

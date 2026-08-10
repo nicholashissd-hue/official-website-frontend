@@ -6,7 +6,7 @@
 
 export const hero = {
   kicker: "About",
-  title: "The best engineering outcomes come from ownership, not headcount.",
+  title: "The best engineering outcomes come from accountability, not headcount.",
   descriptor:
     "ElderOps exists because the two usual ways to buy engineering help both shortchange you. We built the third.",
   primaryCta: "Get in touch",
@@ -26,9 +26,9 @@ export const principles = {
   title: "What we optimize for.",
   items: [
     {
-      lead: "Ownership",
+      lead: "Accountability",
       over: "headcount",
-      body: "We are accountable for outcomes you can measure, not hours logged or seats filled.",
+      body: "We are measured on outcomes you can see, not hours logged or seats filled.",
     },
     {
       lead: "Integration",
@@ -41,8 +41,8 @@ export const principles = {
       body: "Engagements are scoped against a roadmap and measured by what ships and what it changes.",
     },
     {
-      lead: "Handoff",
-      over: "dependency",
+      lead: "Your independence",
+      over: "our retention",
       body: "The goal is a system your team runs without us. Documentation and upskilling are part of the work.",
     },
   ],

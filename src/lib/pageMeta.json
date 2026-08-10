@@ -1,7 +1,7 @@
 {
   "/": {
     "title": "ElderOps | Senior Engineering, Embedded in Your Team",
-    "description": "ElderOps embeds senior DevOps, cloud, platform, and security engineers into your team to modernize systems, raise reliability, and cut risk, then hands off so your team owns the result."
+    "description": "ElderOps embeds senior DevOps, cloud, platform, and security engineers into your team to modernize systems, raise reliability, and cut risk, then hands off a system your team runs without us."
   },
   "/services": {
     "title": "Services | ElderOps",
@@ -9,11 +9,11 @@
   },
   "/how-we-work": {
     "title": "How We Work | ElderOps",
-    "description": "Assess. Build. Own. A named method and three stage-agnostic engagement models: fractional advisory, embedded delivery, and launch (0 to 1). We build it so your team can own it."
+    "description": "Assess. Build. Hand off. A named method and three stage-agnostic engagement models: fractional advisory, embedded delivery, and launch (0 to 1). We build inside your team, not around it."
   },
   "/about": {
     "title": "About | ElderOps",
-    "description": "The best engineering outcomes come from ownership, not headcount. A third path between consulting and staffing: senior engineers who embed with your team and own the result."
+    "description": "The best engineering outcomes come from accountability, not headcount. A third path between consulting and staffing: senior engineers who embed with your team and see the work through."
   },
   "/careers": {
     "title": "Careers | ElderOps",

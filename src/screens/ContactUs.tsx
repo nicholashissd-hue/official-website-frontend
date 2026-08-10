@@ -24,7 +24,7 @@ const ContactUs = () => (
             </h1>
             <p className="mt-6 max-w-xl text-lg text-sub">
               And where it is stuck. We will tell you how we would fix it and
-              who would own the work.
+              who would run it.
             </p>
           </Reveal>
 
