@@ -1,5 +1,4 @@
 import Reveal from "@/components/ui/reveal";
-import { Kicker } from "@/components/ui/v4";
 import { proof, logosLabel } from "@/contents/screens/homeV4";
 import { trustedCompaniesLogo } from "@/contents/screens/home";
 
@@ -15,8 +14,10 @@ const ProofBand = () => (
   <section className="bg-paper">
     <div className="container pb-14 pt-24 md:pt-28">
       <Reveal>
-        <Kicker>Proof</Kicker>
-        <h2 className="mt-3 max-w-3xl font-display text-title font-bold tracking-[-0.02em] text-ink">
+        {/* No kicker. Labelling the section "Proof" announced that what
+            followed was proof, which is the reader's judgement to make.
+            The statement and the ledger under it make the case unlabelled. */}
+        <h2 className="max-w-3xl font-display text-title font-bold tracking-[-0.02em] text-ink">
           {proof.trustLine}
         </h2>
       </Reveal>
