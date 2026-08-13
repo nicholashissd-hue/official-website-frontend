@@ -21,7 +21,7 @@ export const pain = {
 
 export const capabilities = {
   kicker: "What we do",
-  title: "The capabilities.",
+  title: "Our capabilities.",
   intro:
     "Each engagement is scoped against your roadmap, led by senior engineers, and measured by outcomes you can check.",
 };
