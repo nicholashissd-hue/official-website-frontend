@@ -17,6 +17,17 @@ const DARK_HERO_ROUTES = new Set([
   "/careers",
 ]);
 
+/**
+ * Exact matching silently failed the moment a route gained children. The
+ * eight capability pages at /services/<slug> open on the same photo hero as
+ * their index, but only "/services" was in the set, so the header rendered
+ * its LIGHT treatment — dark green links and the green logo — directly on
+ * top of a dark photograph. Any future nested route under a photo hero
+ * belongs here too.
+ */
+const opensOnDarkHero = (pathname: string) =>
+  DARK_HERO_ROUTES.has(pathname) || pathname.startsWith("/services/");
+
 const Header = () => {
   const { pathname } = useLocation();
   const isScrolled = useScrollDetection(40);
@@ -24,7 +35,7 @@ const Header = () => {
   const { isMobileMenuOpen, isNavbarRevealBlocked, toggleMobileMenu } =
     useGlobalStore();
 
-  const overDarkHero = DARK_HERO_ROUTES.has(pathname) && !isScrolled;
+  const overDarkHero = opensOnDarkHero(pathname) && !isScrolled;
   const darkContext = overDarkHero || isMobileMenuOpen;
   const shouldShowHeader =
     !isNavbarRevealBlocked && (isVisible || isMobileMenuOpen);
