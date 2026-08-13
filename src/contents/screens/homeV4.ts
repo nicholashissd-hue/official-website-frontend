@@ -12,17 +12,14 @@ export const hero = {
   secondaryCta: "See what we do",
 };
 
-export const painStrip = {
-  lead: "Migrations stall, cloud bills climb, and reliability slips while your team keeps the lights on instead of building.",
-  tail: "Senior engineering capacity is hard to hire and harder to keep.",
-};
-
 /**
- * The proof ledger carries only claims that are true today. It previously
- * led with engagement figures that the page itself disclaimed as samples,
- * which invited the reader to discount every other claim on the site. When
- * real engagement numbers are confirmed they drop into this same shape and
- * the layout does not move.
+ * The proof carries only claims that are true today. It previously led with
+ * engagement figures that the page itself disclaimed as samples, which
+ * invited the reader to discount every other claim on the site.
+ *
+ * Two secondary tiles ("8 capabilities…", "Yours…") were cut on Nicholas's
+ * call, 2026-08-13. What is left is one figure and the sentence it supports,
+ * rendered inside ThirdPath on Home and SeniorByDefault on Services.
  */
 export const proof = {
   headline: {
@@ -32,18 +29,6 @@ export const proof = {
     qualifier:
       "Vetted in deep technical conversations by engineers who have done the work, never a recruiter screen.",
   },
-  secondary: [
-    {
-      value: "8",
-      label:
-        "capabilities, each run by senior engineers: cloud, platform, delivery, security, reliability, cost, data, and advisory",
-    },
-    {
-      value: "Yours",
-      label:
-        "the assessment and roadmap are yours to keep, whether or not you continue with us",
-    },
-  ],
   trustLine:
     "Every engagement is led by a senior engineer who has run production systems for years.",
 };

@@ -1,6 +1,7 @@
 import Reveal from "@/components/ui/reveal";
 import { BulletList, Kicker } from "@/components/ui/v4";
 import { senior } from "@/contents/screens/servicesV4";
+import { proof } from "@/contents/screens/homeV4";
 
 /**
  * Who shows up: the seniority promise, with the disciplines as the loud
@@ -34,6 +35,29 @@ const SeniorByDefault = () => (
           columns={3}
           className="mt-14"
         />
+      </Reveal>
+
+      {/* The vetting figure closes the section that makes the claim it
+          proves. It used to sit in a separate strip at the foot of the page
+          beside two tiles that were cut, under an "Outcomes" kicker it never
+          fitted: a hiring-bar number is not an outcome. The trust sentence
+          that travelled with it is not repeated here — it says almost
+          exactly what this section's own body says. */}
+      <Reveal>
+        <div className="mt-16 grid items-end gap-x-14 gap-y-5 border-t border-ink/25 pt-10 lg:grid-cols-[4fr_8fr]">
+          <p className="font-display text-stat font-bold tracking-[-0.05em] text-primary">
+            {proof.headline.value}
+            <span className="opacity-45">{proof.headline.unit}</span>
+          </p>
+          <div className="pb-2">
+            <p className="text-lg font-bold text-ink">
+              {proof.headline.label}
+            </p>
+            <p className="mt-1.5 max-w-xl text-sm text-sub">
+              {proof.headline.qualifier}
+            </p>
+          </div>
+        </div>
       </Reveal>
     </div>
   </section>

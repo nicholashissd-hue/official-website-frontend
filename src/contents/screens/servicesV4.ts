@@ -46,10 +46,6 @@ export const senior = {
   ],
 };
 
-export const outcomes = {
-  kicker: "Outcomes",
-};
-
 export const method = {
   kicker: "How we work",
   title: "Assess. Build. Hand off.",
