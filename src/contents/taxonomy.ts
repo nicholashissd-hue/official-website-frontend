@@ -9,6 +9,13 @@ export type Service = {
   num: string;
   /** Stable id — used for anchors on /services (#cloud-infrastructure). */
   id: string;
+  /**
+   * URL segment for the capability's own page at /services/<slug>.
+   * Kept separate from `id` because two slugs read better in a URL than
+   * their ids do ("finops", "technology-advisory"), and the ids are still
+   * what older anchor links and the contact form's focus areas key on.
+   */
+  slug: string;
   /** Noun-phrase label, exactly as specified in the brief. */
   label: string;
   /** One-line gerund value line shown under the label. */
@@ -23,6 +30,7 @@ export const SERVICES: Service[] = [
   {
     num: "01",
     id: "cloud-infrastructure",
+    slug: "cloud-infrastructure",
     label: "Cloud & Infrastructure",
     gerund: "Modernizing your cloud foundation for reliability and speed.",
     body: "Half-finished migrations and hand-built environments slow every release; we help companies build cloud-native foundations, landing zones, and infrastructure as code that scale cleanly.",
@@ -31,6 +39,7 @@ export const SERVICES: Service[] = [
   {
     num: "02",
     id: "platform-engineering",
+    slug: "platform-engineering",
     label: "Platform Engineering",
     gerund:
       "A scalable delivery foundation that cuts operational friction so teams ship faster.",
@@ -44,6 +53,7 @@ export const SERVICES: Service[] = [
   {
     num: "03",
     id: "devops-delivery",
+    slug: "devops-delivery",
     label: "DevOps & Delivery",
     gerund:
       "Automation over ticket-driven ops, raising change velocity without sacrificing stability.",
@@ -53,6 +63,7 @@ export const SERVICES: Service[] = [
   {
     num: "04",
     id: "security-devsecops",
+    slug: "security-devsecops",
     label: "Security & DevSecOps",
     gerund:
       "Security embedded in every layer so trust is provable and cyber risk becomes a business metric.",
@@ -62,6 +73,7 @@ export const SERVICES: Service[] = [
   {
     num: "05",
     id: "reliability-operations",
+    slug: "reliability-operations",
     label: "Reliability & Operations",
     gerund:
       "Catching issues before they hit the business, so your team builds instead of firefighting.",
@@ -71,6 +83,7 @@ export const SERVICES: Service[] = [
   {
     num: "06",
     id: "finops",
+    slug: "cloud-cost-optimization",
     label: "Cloud Cost Optimization (FinOps)",
     gerund:
       "Turning runaway cloud spend into a managed line item that lowers total cost of ownership.",
@@ -80,6 +93,7 @@ export const SERVICES: Service[] = [
   {
     num: "07",
     id: "data-modernization",
+    slug: "data-modernization",
     label: "Data & Modernization",
     gerund:
       "Modernizing core systems and data foundations to cut tech debt and speed decisions.",
@@ -89,6 +103,7 @@ export const SERVICES: Service[] = [
   {
     num: "08",
     id: "technology-advisory",
+    slug: "technology-advisory",
     label: "Technology Advisory (Fractional)",
     gerund:
       "Senior judgment on flexible terms; we advise, build, and hand off, at any stage.",
@@ -130,3 +145,7 @@ export const METHOD = [
     keep: "You keep the system, the documentation, and a team that can run it without us.",
   },
 ] as const;
+
+/** The capability whose own page lives at /services/<slug>. */
+export const serviceBySlug = (slug: string) =>
+  SERVICES.find((service) => service.slug === slug);

@@ -6,6 +6,7 @@ import { Navigate, Route, Routes } from "react-router";
 
 const Home = lazy(() => import("@/screens/Home"));
 const Services = lazy(() => import("@/screens/Services"));
+const ServiceDetail = lazy(() => import("@/screens/ServiceDetail"));
 const HowWeWork = lazy(() => import("@/screens/HowWeWork"));
 const About = lazy(() => import("@/screens/About"));
 const Contact = lazy(() => import("@/screens/ContactUs"));
@@ -33,6 +34,7 @@ const AppRoutes = () => {
           <Route element={<Layout />}>
             <Route index path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/services/:slug" element={<ServiceDetail />} />
             <Route path="/how-we-work" element={<HowWeWork />} />
             <Route path="/about" element={<About />} />
             <Route path="/careers" element={<Careers />} />

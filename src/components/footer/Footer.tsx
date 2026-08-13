@@ -114,7 +114,7 @@ const Footer = () => {
             <ul className="mt-5">
               {SERVICES.slice(0, 6).map((service) => (
                 <li key={service.id}>
-                  <Link to={`/services#${service.id}`} className={columnLink}>
+                  <Link to={`/services/${service.slug}`} className={columnLink}>
                     {serviceShortLabel(service)}
                   </Link>
                 </li>

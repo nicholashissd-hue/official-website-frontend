@@ -7,6 +7,38 @@
     "title": "Services | ElderOps",
     "description": "Eight capabilities, one embedded team: cloud and infrastructure, platform engineering, DevOps and delivery, security and DevSecOps, reliability, FinOps, data and modernization, and technology advisory."
   },
+  "/services/cloud-infrastructure": {
+    "title": "Cloud & Infrastructure Engineering | ElderOps",
+    "description": "Design, modernize, automate, and operate secure cloud and infrastructure environments with senior ElderOps engineers embedded directly into your team."
+  },
+  "/services/platform-engineering": {
+    "title": "Platform Engineering Services | ElderOps",
+    "description": "Build internal platforms, golden paths, and self-service developer experiences with senior platform engineers embedded into your organization."
+  },
+  "/services/devops-delivery": {
+    "title": "DevOps & Software Delivery Services | ElderOps",
+    "description": "Improve CI/CD, release engineering, automation, and delivery performance with senior DevOps engineers embedded directly into your teams."
+  },
+  "/services/security-devsecops": {
+    "title": "Security & DevSecOps Engineering | ElderOps",
+    "description": "Embed security into architecture, cloud, CI/CD, and software delivery with senior security and DevSecOps engineers from ElderOps."
+  },
+  "/services/reliability-operations": {
+    "title": "Reliability & Operations Engineering | ElderOps",
+    "description": "Improve system reliability, observability, incident response, and operational performance with embedded ElderOps SRE and operations engineers."
+  },
+  "/services/cloud-cost-optimization": {
+    "title": "Cloud Cost Optimization & FinOps | ElderOps",
+    "description": "Gain control of cloud spend through hands-on FinOps, architecture optimization, cost automation, and embedded cloud engineering from ElderOps."
+  },
+  "/services/data-modernization": {
+    "title": "Data & Technology Modernization | ElderOps",
+    "description": "Modernize legacy applications, data platforms, pipelines, and integrations with senior ElderOps engineers embedded into your organization."
+  },
+  "/services/technology-advisory": {
+    "title": "Technology Advisory & Fractional Leadership | ElderOps",
+    "description": "Access fractional CTO, CIO, security, platform, and technology leadership backed by ElderOps' senior engineering bench."
+  },
   "/how-we-work": {
     "title": "How We Work | ElderOps",
     "description": "Assess. Build. Hand off. A named method and three stage-agnostic engagement models: fractional advisory, embedded delivery, and launch (0 to 1). We build inside your team, not around it."

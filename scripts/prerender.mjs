@@ -148,32 +148,39 @@ for (const [route, { title, description }] of Object.entries(meta)) {
  * with index.html, so a checker saw an HTML document where markdown was
  * expected. Built from the same route metadata as everything else.
  */
+const isCapability = (route) => route.startsWith("/services/");
+const isLegal = (route) => ["/terms", "/privacy"].includes(route);
+const abs = (route) => (route === "/" ? `${origin}/` : `${origin}${route}`);
+const link = ([route, m]) =>
+  `- [${route === "/" ? "Home" : m.title.replace(" | ElderOps", "")}](${abs(route)}): ${m.description}`;
+
 const llms = [
   "# ElderOps",
   "",
   `> ${meta["/"].description}`,
   "",
   "ElderOps is an engineering services firm, not a staffing agency. Senior",
-  "engineers embed with a client's team, own an initiative end to end, and hand",
-  "it back documented, with the client's people trained to run it. The",
+  "engineers embed with a client's team, carry an initiative end to end, and",
+  "hand it back documented, with the client's people trained to run it. The",
   "assessment and roadmap belong to the client whether or not the engagement",
   "continues.",
   "",
   "## Pages",
   "",
   ...Object.entries(meta)
-    .filter(([route]) => !["/terms", "/privacy"].includes(route))
-    .map(([route, m]) => {
-      const label = m.title.replace(" | ElderOps", "");
-      return `- [${route === "/" ? "Home" : label}](${route === "/" ? origin + "/" : origin + route}): ${m.description}`;
-    }),
+    .filter(([route]) => !isLegal(route) && !isCapability(route))
+    .map(link),
+  "",
+  "## Capabilities",
+  "",
+  "Each capability has its own page covering the work itself, the engagement",
+  "shapes available, and the outcomes it is measured against.",
+  "",
+  ...Object.entries(meta).filter(([route]) => isCapability(route)).map(link),
   "",
   "## Legal",
   "",
-  ...["/terms", "/privacy"].map(
-    (route) =>
-      `- [${meta[route].title.replace(" | ElderOps", "")}](${origin}${route}): ${meta[route].description}`,
-  ),
+  ...["/terms", "/privacy"].map((route) => link([route, meta[route]])),
   "",
   "## Contact",
   "",
@@ -184,4 +191,34 @@ const llms = [
 
 writeFileSync(join(dist, "llms.txt"), llms);
 
-console.log(`prerendered ${written} routes and llms.txt against ${origin}`);
+/**
+ * sitemap.xml, generated from the same route table.
+ *
+ * It used to be a hand-maintained file in public/, which meant adding a route
+ * and forgetting the sitemap were two separate mistakes rather than one
+ * impossible one. Priorities are derived from depth: the homepage, then the
+ * top-level pages, then the capability pages, then the legal pages.
+ */
+const priority = (route) => {
+  if (route === "/") return "1.0";
+  if (isLegal(route)) return "0.3";
+  if (isCapability(route)) return "0.8";
+  return "0.9";
+};
+
+const sitemap = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+  ...Object.keys(meta).map(
+    (route) =>
+      `  <url><loc>${abs(route)}</loc><priority>${priority(route)}</priority></url>`,
+  ),
+  "</urlset>",
+  "",
+].join("\n");
+
+writeFileSync(join(dist, "sitemap.xml"), sitemap);
+
+console.log(
+  `prerendered ${written} routes, llms.txt and sitemap.xml against ${origin}`,
+);

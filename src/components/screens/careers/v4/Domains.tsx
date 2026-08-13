@@ -21,7 +21,7 @@ const Domains = () => (
           {SERVICES.map((service, index) => (
             <Reveal key={service.id} delay={(index % 4) * 0.06}>
               <Link
-                to={`/services#${service.id}`}
+                to={`/services/${service.slug}`}
                 className="group -mx-3 flex items-baseline justify-between gap-4 border-b border-hairline px-3 py-4 transition-colors duration-300 hover:border-ink/45 hover:bg-ink/[0.035]"
               >
                 <span className="flex items-baseline gap-3">

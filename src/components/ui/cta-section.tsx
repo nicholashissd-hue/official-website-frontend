@@ -17,10 +17,17 @@ import { cn } from "@/lib/util";
  */
 const EXCLUDED = new Set(["/contact-us", "/careers", "/terms", "/privacy"]);
 
+/**
+ * The eight capability pages close with their own headline and sentence,
+ * written for the capability the reader just spent five minutes on. A
+ * generic band underneath would read as a second, weaker ask.
+ */
+const hasOwnClose = (pathname: string) => pathname.startsWith("/services/");
+
 const CTASection = () => {
   const { pathname } = useLocation();
 
-  if (EXCLUDED.has(pathname)) return null;
+  if (EXCLUDED.has(pathname) || hasOwnClose(pathname)) return null;
 
   return (
     <section className="bg-nearblack">

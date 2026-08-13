@@ -31,11 +31,13 @@ export const BulletList = ({
   items,
   emphasis = "quiet",
   columns = 1,
+  onDark = false,
   className,
 }: {
   items: readonly string[];
   emphasis?: "quiet" | "loud";
   columns?: 1 | 2 | 3;
+  onDark?: boolean;
   className?: string;
 }) => (
   <ul
@@ -58,25 +60,28 @@ export const BulletList = ({
       <li
         key={item}
         className={cn(
-          "flex items-center",
           emphasis === "loud"
-            ? "gap-4 border-t border-hairline py-4"
-            : "gap-3",
+            ? "flex items-center gap-4 border-t py-4"
+            : "flex items-start gap-3",
+          onDark ? "border-bg-cream/20" : "border-hairline",
         )}
       >
+        {/* Quiet items can wrap to two lines, so the marker is nudged to the
+            optical centre of the FIRST line rather than of the whole block. */}
         <span
           aria-hidden="true"
           className={cn(
             "shrink-0 bg-signal",
-            emphasis === "loud" ? "size-2" : "size-1.5",
+            emphasis === "loud" ? "size-2" : "mt-[0.6em] size-1.5",
           )}
         />
         <span
-          className={
+          className={cn(
             emphasis === "loud"
-              ? "font-display text-lede font-bold tracking-[-0.015em] text-ink"
-              : "text-base font-semibold text-ink"
-          }
+              ? "font-display text-lede font-bold tracking-[-0.015em]"
+              : "text-base font-semibold",
+            onDark ? "text-bg-cream/90" : "text-ink",
+          )}
         >
           {item}
         </span>

@@ -35,7 +35,7 @@ const CapabilityIndex = () => (
           {SERVICES.map((service, index) => (
             <Reveal key={service.id} delay={(index % 4) * 0.06}>
               <Link
-                to={`/services#${service.id}`}
+                to={`/services/${service.slug}`}
                 className="group -mx-3 block border-b border-hairline px-3 py-5 transition-colors duration-300 hover:border-ink/45 hover:bg-ink/[0.035]"
               >
                 <span className="flex items-center justify-between gap-4">
