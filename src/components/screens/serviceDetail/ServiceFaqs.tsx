@@ -12,7 +12,7 @@ import { faqLabel } from "@/contents/services";
  * wrong. The marker is suppressed and replaced with a rule-aligned glyph.
  */
 const ServiceFaqs = ({ page }: { page: ServicePage }) => (
-  <section className="bg-paper">
+  <section className="bg-bone">
     <div className="container section-space-block">
       <div className="grid items-start gap-x-16 gap-y-9 lg:grid-cols-[4fr_8fr]">
         <Reveal>

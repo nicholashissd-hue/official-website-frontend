@@ -4,7 +4,7 @@ const page: ServicePage = {
   id: "cloud-infrastructure",
 
   seo: {
-    title: "Cloud & Infrastructure Engineering | ElderOps",
+    title: "Build a cloud foundation your business can rely on",
     description:
       "Design, modernize, automate, and operate secure cloud and infrastructure environments with senior ElderOps engineers embedded directly into your team.",
   },
@@ -13,7 +13,7 @@ const page: ServicePage = {
     kicker: "Cloud & Infrastructure",
     title: "Build a cloud foundation your business can rely on",
     descriptor:
-      "ElderOps embeds senior cloud and infrastructure engineers into your organization to design, modernize, automate, and operate secure, resilient environments across public cloud, private cloud, on-premises infrastructure, and hybrid estates.",
+      "Senior cloud engineers embedded in your team to design, migrate, automate, and operate environments that scale cleanly. Public cloud, hybrid, or on-premises.",
     primaryCta: "Talk to a cloud engineer",
     photoAlt:
       "Two engineers working at an open equipment rack in a dark server hall at night",
@@ -22,87 +22,52 @@ const page: ServicePage = {
 
   lead: "Whether you are migrating critical workloads, correcting an environment that has grown without sufficient control, or preparing a platform for its next stage of scale, we bring the engineering experience required to move from uncertainty to a clear, production-ready foundation.",
 
-  thesis: {
-    title: "Cloud should create leverage, not another layer of complexity",
-    paragraphs: [
-      "Cloud platforms make it possible to provision infrastructure quickly. They do not automatically make that infrastructure secure, maintainable, resilient, or cost-effective.",
-      "As organizations grow, early infrastructure decisions begin to compound. Accounts and subscriptions multiply. Network boundaries become harder to understand. Environments drift apart. Manual processes remain in place long after they should have been automated. Critical systems depend on knowledge held by one or two people, and teams become hesitant to change infrastructure because the impact is difficult to predict.",
-      "ElderOps helps organizations regain control of that environment. Our engineers work alongside your internal teams to understand what exists, identify where risk and friction are accumulating, and build the architecture, automation, controls, and operating practices required for dependable growth.",
-      "We do not stop at a strategy document. We help implement the environment, migrate the workloads, automate the processes, resolve production issues, and transfer the knowledge your team needs to operate confidently.",
-    ],
-  },
-
   signals: {
-    title: "Where organizations commonly need help",
-    intro: "You may need cloud and infrastructure support when:",
+    title: "When you would call us",
     items: [
-      "Your cloud estate has expanded without a consistent architecture or governance model.",
-      "Provisioning environments still requires manual tickets, scripts, or intervention from a small infrastructure team.",
-      "A migration has stalled because application dependencies, networking, security, or ownership are unclear.",
-      "Reliability, performance, or capacity problems are affecting customers and delivery teams.",
-      "Your infrastructure works today, but there is little confidence that it will support the next stage of growth.",
-      "You need senior cloud expertise but do not yet require, or cannot wait to hire, a full internal department.",
+      "Your cloud estate grew without a consistent architecture or governance model.",
+      "Provisioning an environment still needs a ticket and a specialist.",
+      "A migration has stalled on unclear dependencies, networking, or ownership.",
+      "Reliability, performance, or capacity problems are reaching customers.",
+      "It works today, but nobody is confident it survives the next stage of growth.",
+      "You need senior cloud expertise before you can justify a full internal team.",
     ],
   },
 
   work: {
-    title: "What our cloud and infrastructure engineers do",
+    title: "What we do",
     groups: [
       {
         title: "Cloud strategy and target architecture",
-        body: [
-          "We assess your current environment, business priorities, workload requirements, operational constraints, and risk profile. From there, we define a practical target architecture and an achievable path toward it.",
-          "That may involve public cloud, private cloud, hybrid infrastructure, multiple cloud providers, or a deliberate decision to keep specific workloads outside the public cloud. Our objective is not to move everything. It is to put each workload in the environment that best supports its performance, security, resilience, compliance, and economic requirements.",
-        ],
+        body: "Assess what exists, define a target you can actually reach, and decide what belongs where.",
       },
       {
         title: "Cloud foundations and landing zones",
-        body: [
-          "Our engineers design and implement the foundations on which secure cloud adoption depends. This can include account and subscription structures, identity integration, network architecture, centralized logging, security controls, policy enforcement, resource standards, tagging, budget controls, and environment separation.",
-          "These foundations give teams a repeatable way to launch new services without redesigning security, networking, and governance every time.",
-        ],
+        body: "Accounts, identity, network, logging, and policy so new services launch without redesigning security every time.",
       },
       {
-        title: "Infrastructure as code and automation",
-        body: [
-          "We replace fragile manual processes with version-controlled, testable, and repeatable automation.",
-          "Our engineers can build or improve infrastructure-as-code frameworks, reusable modules, configuration management, automated environment provisioning, policy checks, deployment workflows, and operational tooling. Changes become easier to review, reproduce, audit, and reverse.",
-        ],
+        title: "Infrastructure as code",
+        body: "Replace hand-built environments with version-controlled, reviewable, reversible infrastructure.",
       },
       {
-        title: "Cloud migration and workload modernization",
-        body: [
-          "We help plan and execute migrations without losing sight of business continuity. Our work can include application and dependency discovery, migration sequencing, workload classification, proof-of-concept migrations, data transfer, cutover planning, rollback design, validation, and post-migration stabilization.",
-          "Where a direct migration would preserve too much existing complexity, we can help replatform, refactor, containerize, or redesign the workload as part of the move.",
-        ],
+        title: "Migration and modernization",
+        body: "Discovery, sequencing, rehearsal, cutover, rollback, and post-migration stabilization.",
       },
       {
-        title: "Containers, Kubernetes, and cloud-native runtimes",
-        body: [
-          "ElderOps engineers design and operate container platforms that match the maturity and actual needs of the organization. We can help with Kubernetes architecture, cluster provisioning, workload deployment, ingress, service networking, secrets, policy, autoscaling, observability, upgrades, and platform operations.",
-          "We also work with serverless, managed container, and platform-as-a-service options when they offer a simpler and more appropriate operating model. The goal is not Kubernetes for its own sake. It is a reliable runtime that reduces operational burden and enables teams to deliver safely.",
-        ],
+        title: "Containers and cloud-native runtimes",
+        body: "Kubernetes, or the simpler managed option, sized to what you actually need to operate.",
       },
       {
         title: "Networking and hybrid connectivity",
-        body: [
-          "We design the connectivity that allows applications, users, data, and third-party services to communicate securely and predictably.",
-          "This may include virtual networks, segmentation, routing, DNS, load balancing, private connectivity, VPNs, cloud interconnects, firewalls, ingress and egress controls, content delivery, and connectivity between cloud and on-premises environments.",
-        ],
+        body: "Segmentation, routing, DNS, private connectivity, and the cloud-to-on-premises path.",
       },
       {
-        title: "Resilience, backup, and disaster recovery",
-        body: [
-          "We help organizations move from assumed resilience to tested resilience.",
-          "Our engineers identify critical services and dependencies, define recovery requirements, improve availability design, automate backups, validate restoration procedures, design failover patterns, and run recovery exercises. We also document responsibilities and decision paths so that recovery does not depend on improvisation during an incident.",
-        ],
+        title: "Resilience and disaster recovery",
+        body: "Move from assumed recovery to tested recovery.",
       },
       {
-        title: "Infrastructure governance and operating practices",
-        body: [
-          "Technology alone does not create a sustainable cloud environment. Teams also need ownership, standards, escalation paths, documentation, and a clear way to make decisions.",
-          "We help establish architecture principles, operational responsibilities, change controls, service ownership, support models, technical documentation, and governance that protects the organization without creating unnecessary delivery friction.",
-        ],
+        title: "Governance and operating practice",
+        body: "Ownership, standards, and change control that protect you without slowing delivery.",
       },
     ],
   },
@@ -123,32 +88,34 @@ const page: ServicePage = {
   },
 
   outcomes: {
-    title: "What changes as a result",
-    intro:
-      "A successful cloud and infrastructure engagement should leave you with more than a functioning environment. It should create:",
+    title: "What changes",
     items: [
-      "Repeatable, version-controlled infrastructure.",
-      "Faster and safer environment provisioning.",
-      "Clearer responsibility and fewer operational bottlenecks.",
-      "Stronger resilience, recovery, and production readiness.",
-      "Better visibility into how infrastructure behaves and changes.",
-      "A team that understands the environment rather than depending indefinitely on an external provider.",
+      "Environments provision in minutes instead of tickets.",
+      "Recovery is tested, not assumed.",
+      "Your team can explain and change the environment without us.",
     ],
   },
 
-  why: {
-    title: "Why ElderOps",
-    paragraphs: [
-      "ElderOps gives organizations access to senior engineers with experience delivering and operating technology in demanding multinational environments.",
-      "We match the engagement to the problem. That may mean one experienced engineer embedded into your existing team, a multidisciplinary squad, a technical lead, or fractional senior leadership.",
-      "In every model, our objective is the same: solve the immediate problem, reduce the risk around it, and strengthen the engineering capability that remains behind.",
+  caseStudy: {
+    title: "The migration that had been almost done for nine months",
+    client:
+      "A Series A health-tech company, roughly 35 engineers, midway from a colocation facility to public cloud.",
+    problem:
+      "The migration had stalled for most of a year. Two estates ran in parallel, the dependency map lived in one engineer's head, and every proposed cutover date slipped.",
+    whatWeDid:
+      "We mapped the real dependencies, built a landing zone with account separation and infrastructure as code, sequenced the remaining workloads into three waves, and rehearsed each cutover with a tested rollback before running it.",
+    results: [
+      "The migration finished, and the parallel estate was switched off.",
+      "Provisioning an environment went from a multi-day ticket to a pipeline the team runs itself.",
+      "The cost of running two facilities at once ended entirely.",
     ],
+    kept: "Their engineers owned the infrastructure code by the second wave. We ran the last one from the back seat.",
   },
 
   finalCta: {
     title: "Build the foundation for what comes next",
     body: "Whether you are planning a migration, correcting cloud sprawl, strengthening resilience, or preparing for significant growth, ElderOps can place experienced cloud and infrastructure engineers directly into the work.",
-    primaryCta: "Speak with a cloud specialist",
+    primaryCta: "Talk to a cloud engineer",
   },
 
   faqs: [

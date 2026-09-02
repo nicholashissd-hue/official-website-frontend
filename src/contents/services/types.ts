@@ -5,6 +5,21 @@
  * as eight hand-built layouts. The step names, labels and ids these pages key
  * on still come from contents/taxonomy.ts, which stays the single source for
  * the capability list itself.
+ *
+ * Concise rewrite (Sept 2026, from the partner's rebuild spec). The pages ran
+ * 1,200 to 1,900 words each and the substance was buried by the length. Three
+ * things went: the opening argument (the signal list qualifies a reader faster
+ * than four paragraphs of framing), the multi-paragraph service blocks (a
+ * heading and one line each), and the per-page "Why ElderOps", which was the
+ * one section that genuinely said the same thing eight times and now renders
+ * once from `whyElderOps` in ./index.
+ *
+ * What deliberately did NOT move to a shared block: `faqs` and `embedded`. The
+ * spec described all four repeated sections as identical across the eight
+ * pages; they are not. Every page carries its own questions (SOC 2 on
+ * security, a savings guarantee on FinOps, fractional time on advisory) and
+ * its own staffing argument. Those are the highest-intent copy on the site and
+ * merging them would have deleted eight arguments to save one.
  */
 export type ServicePage = {
   /** Taxonomy id. Ties the page to its entry in SERVICES. */
@@ -19,7 +34,7 @@ export type ServicePage = {
     /** Capability name, rendered as the kicker above the headline. */
     kicker: string;
     title: string;
-    /** First hero paragraph. Sits under the headline on the photograph. */
+    /** The one supporting sentence. Sits under the headline on the photograph. */
     descriptor: string;
     primaryCta: string;
     /** Alt text for the page's one photograph. */
@@ -29,35 +44,28 @@ export type ServicePage = {
   };
 
   /**
-   * The second hero paragraph, promoted to the quiet band under the hero.
-   * Two paragraphs on a dark photograph is one too many; the band gives the
-   * sentence room and gives the page its first light surface.
+   * The sentence promoted to the quiet band under the hero. Kept through the
+   * concise rewrite: it is one line, and it gives the page its first light
+   * surface between the dark hero and the signal list.
    */
   lead: string;
 
-  /** The argument: why this capability is hard, stated before any offer. */
-  thesis: {
-    title: string;
-    paragraphs: string[];
-  };
-
-  /** "Where organizations commonly need help" — the qualifying list. */
+  /** "When you would call us" — six one-line triggers, no intro paragraph. */
   signals: {
     title: string;
-    intro: string;
     items: string[];
   };
 
-  /** The core: what the engineers actually do, as numbered chapters. */
+  /** What the engineers actually do. A heading and one line each. */
   work: {
     title: string;
     groups: {
       title: string;
-      body: string[];
+      body: string;
     }[];
   };
 
-  /** How the engagement is staffed and shaped. */
+  /** How the engagement is staffed and shaped. Per page, not shared. */
   embedded: {
     title: string;
     paragraphs: string[];
@@ -65,17 +73,32 @@ export type ServicePage = {
     models: string[];
   };
 
-  /** "What changes as a result" — the outcome list. */
+  /** "What changes" — three outcomes, one line each. */
   outcomes: {
     title: string;
-    intro: string;
     items: string[];
   };
 
-  /** The page's own closing argument, above the shared proof band. */
-  why: {
+  /**
+   * The page's case study, immediately before the closing CTA.
+   *
+   * Illustrative, and labelled as such by the component so a page can never
+   * ship one without the tag. Outcomes are stated qualitatively for the same
+   * reason Home's case files are: this site does not publish figures it cannot
+   * attribute, and an invented number beside a named company profile reads as
+   * a real client result no tag can undo. The shape is built so a real
+   * engagement drops straight in once there is one to tell.
+   */
+  caseStudy: {
     title: string;
-    paragraphs: string[];
+    /** "A Series B B2B SaaS company, about 60 engineers." */
+    client: string;
+    problem: string;
+    whatWeDid: string;
+    /** Three outcomes, qualitative. Never a figure we cannot attribute. */
+    results: string[];
+    /** The handoff line: what the client's own team kept. */
+    kept: string;
   };
 
   finalCta: {

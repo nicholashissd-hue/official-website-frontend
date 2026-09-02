@@ -4,7 +4,7 @@ const page: ServicePage = {
   id: "devops-delivery",
 
   seo: {
-    title: "DevOps & Software Delivery Services | ElderOps",
+    title: "Make software delivery faster, safer, and repeatable",
     description:
       "Improve CI/CD, release engineering, automation, and delivery performance with senior DevOps engineers embedded directly into your teams.",
   },
@@ -13,8 +13,8 @@ const page: ServicePage = {
     kicker: "DevOps & Delivery",
     title: "Make software delivery faster, safer, and repeatable",
     descriptor:
-      "ElderOps embeds senior DevOps and delivery engineers into your organization to remove friction from the path between a code change and a reliable production release.",
-    primaryCta: "Talk to a DevOps engineer",
+      "We automate the path from commit to production so release velocity rises and change-related incidents fall.",
+    primaryCta: "Talk to a delivery engineer",
     photoAlt:
       "A group of engineers gathered behind a colleague at a desk, watching a deployment on a monitor at night",
     photoPosition: "center 42%",
@@ -22,87 +22,52 @@ const page: ServicePage = {
 
   lead: "We improve the systems, automation, controls, and working practices behind software delivery, helping teams release more confidently without trading speed for quality, security, or operational stability.",
 
-  thesis: {
-    title: "Delivery problems are rarely solved by adding another tool",
-    paragraphs: [
-      "A slow or unreliable release process is usually the visible symptom of a wider system.",
-      "Builds are inconsistent. Tests take too long or cannot be trusted. Environments differ. Deployments require a sequence of manual steps known by only a few people. Security reviews happen after development is complete. Release dates depend on multiple teams coordinating perfectly, and a failed deployment creates enough disruption that teams become reluctant to release frequently.",
-      "Organizations often respond by buying another tool. The underlying process remains unchanged.",
-      "ElderOps looks at software delivery as an end-to-end engineering system. Our engineers examine the flow of work from planning and source control through build, test, security, deployment, verification, and production feedback. We then help remove the bottlenecks, automate repeated work, improve controls, and establish a delivery model that teams can operate and continuously improve.",
-    ],
-  },
-
   signals: {
-    title: "Where organizations commonly need help",
-    intro: "You may need DevOps and delivery support when:",
+    title: "When you would call us",
     items: [
-      "Releases are infrequent, stressful, or dependent on a small number of people.",
-      "Teams spend significant time preparing environments or coordinating manual handoffs.",
-      "CI/CD pipelines exist but are unreliable, difficult to maintain, or different for every application.",
+      "Releases are infrequent, stressful, or depend on a few people.",
+      "Teams spend real time preparing environments and coordinating handoffs.",
+      "Pipelines exist but are unreliable and different for every application.",
       "Testing and security checks create late-stage surprises.",
-      "Deployment failures, rollbacks, and change-related incidents are increasing.",
-      "Delivery performance is discussed through activity and deadlines, but the organization cannot see where work is actually slowing down.",
+      "Deployment failures and rollbacks are increasing.",
+      "You cannot see where delivery actually slows down.",
     ],
   },
 
   work: {
-    title: "What our DevOps and delivery engineers do",
+    title: "What we do",
     groups: [
       {
-        title: "Delivery assessment and value-stream analysis",
-        body: [
-          "We map the real path a change takes from idea to production. That includes queues, approvals, handoffs, build time, test time, environment preparation, security reviews, release coordination, deployment, and production verification.",
-          "We identify where work waits, where failures are introduced, and where senior engineering time is being consumed by repeatable manual activity. The result is a prioritized improvement plan grounded in actual delivery behavior rather than assumptions.",
-        ],
+        title: "Delivery assessment",
+        body: "Map the value stream and find the real constraint, which is rarely the tool.",
       },
       {
-        title: "CI/CD architecture and implementation",
-        body: [
-          "Our engineers design, build, repair, and standardize continuous integration and continuous delivery pipelines.",
-          "We can automate compilation, testing, security analysis, artifact creation, environment promotion, deployment, verification, rollback, and release reporting. Pipelines are treated as production software: version-controlled, reviewed, observable, maintainable, and designed around clear responsibility.",
-        ],
+        title: "CI/CD architecture",
+        body: "Pipelines that are consistent across services and maintainable by the team.",
       },
       {
         title: "Build and test automation",
-        body: [
-          "Fast delivery depends on feedback that is both timely and trustworthy.",
-          "We help improve test strategy, test execution, dependency management, build caching, parallelization, test environments, quality gates, and failure reporting. The objective is not to add the maximum number of tests. It is to give engineers the right evidence at the right point in the delivery process.",
-        ],
+        body: "Fast, trustworthy checks that catch problems before review, not after release.",
       },
       {
         title: "Release and deployment engineering",
-        body: [
-          "We help teams move away from high-risk release events toward smaller, controlled, and repeatable changes.",
-          "Our engineers can implement progressive delivery, feature flags, automated rollback, blue-green deployments, canary releases, immutable artifacts, environment promotion, release orchestration, and post-deployment validation. The deployment approach is matched to the application's risk, architecture, customer impact, and operational maturity.",
-        ],
+        body: "Progressive delivery, feature flags, and rollbacks that are a button rather than an event.",
       },
       {
-        title: "Environment and infrastructure automation",
-        body: [
-          "Delivery cannot be reliable when infrastructure and environments are inconsistent.",
-          "We automate environment provisioning, configuration, secrets integration, infrastructure changes, test environments, ephemeral environments, and supporting services. This reduces drift and gives teams a consistent basis for validating changes before production.",
-        ],
+        title: "Environment automation",
+        body: "Reproducible environments on demand instead of one shared bottleneck.",
       },
       {
-        title: "Toolchain rationalization and integration",
-        body: [
-          "Many organizations have accumulated overlapping delivery tools without a coherent operating model.",
-          "We evaluate the existing toolchain, identify redundant or poorly integrated components, clarify responsibility, and simplify where appropriate. We also connect source control, work management, CI/CD, artifact repositories, security tools, change systems, observability, and communication workflows so information moves with the delivery process.",
-        ],
+        title: "Toolchain rationalization",
+        body: "Fewer, better-integrated tools instead of an accumulated stack.",
       },
       {
-        title: "Delivery metrics and continuous improvement",
-        body: [
-          "We help teams measure flow, stability, and outcomes, not lines of code or the number of tickets completed.",
-          "That may include deployment frequency, lead time, change failure, restoration time, build health, test reliability, pipeline duration, release wait time, and repeated sources of failure. Metrics are used to identify constraints and guide engineering decisions, not to rank individual developers.",
-        ],
+        title: "Delivery metrics",
+        body: "Lead time, deploy frequency, change-failure rate, and recovery time, measured honestly.",
       },
       {
-        title: "Delivery practices and team enablement",
-        body: [
-          "DevOps is not a separate team that receives work from development. It is a way of organizing responsibility across the software lifecycle.",
-          "Our engineers help establish shared responsibility, practical working agreements, repository and branching practices, release duties, operational readiness criteria, documentation, and feedback loops. We coach teams while delivering alongside them, so improvements become part of normal engineering work.",
-        ],
+        title: "Team enablement",
+        body: "The practices and documentation that keep it working after we leave.",
       },
     ],
   },
@@ -124,32 +89,34 @@ const page: ServicePage = {
   },
 
   outcomes: {
-    title: "What changes as a result",
-    intro: "A successful engagement should produce:",
+    title: "What changes",
     items: [
-      "Shorter and more predictable paths to production.",
-      "Fewer manual handoffs and repeated operational tasks.",
-      "Faster, clearer feedback when a change is unsafe.",
-      "More consistent pipelines and deployment practices.",
-      "Smaller, lower-risk releases with reliable rollback options.",
-      "Better visibility into delivery constraints and failure patterns.",
-      "More engineering time directed toward products and customers.",
+      "Releases become routine rather than an event.",
+      "Rollback stops being a crisis.",
+      "You can see and defend your delivery performance.",
     ],
   },
 
-  why: {
-    title: "Why ElderOps",
-    paragraphs: [
-      "Our engineers have designed, repaired, and operated delivery systems in complex multinational environments.",
-      "They understand that delivery improvement requires more than configuring a CI server. It requires technical depth across software engineering, infrastructure, testing, security, cloud, and production operations.",
-      "ElderOps gives you that expertise in the form best suited to the problem, from one embedded engineer to a complete delivery squad or fractional technical lead.",
+  caseStudy: {
+    title: "Releases were a Thursday night event",
+    client:
+      "A logistics software company, about 25 engineers, shipping monthly.",
+    problem:
+      "Each release ran most of the evening, needed most of the team on a call, and rolled back often enough that people planned around it. Environment preparation and manual regression testing were the real cost.",
+    whatWeDid:
+      "We mapped the value stream, automated build and test, containerized environments so they were reproducible on demand, moved the team to trunk-based development with feature flags, and introduced progressive rollout with an automated rollback path.",
+    results: [
+      "Monthly releases became weekly, then daily.",
+      "Deployment went from an evening on a call to a routine step inside the working day.",
+      "Rollback became a single action rather than an incident.",
     ],
+    kept: "Documented and run entirely by their own engineers by the time we left.",
   },
 
   finalCta: {
     title: "Remove the friction between an idea and a production outcome",
     body: "Build a delivery system that helps your teams move with greater speed, control, and confidence.",
-    primaryCta: "Speak with a DevOps specialist",
+    primaryCta: "Talk to a delivery engineer",
   },
 
   faqs: [

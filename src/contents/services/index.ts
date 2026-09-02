@@ -30,7 +30,14 @@ export const MISSING_SERVICE_PAGES = SERVICES.filter(
 ).map((service) => service.id);
 
 /**
- * The shared band that closes all eight pages, above the site's own CTA.
+ * "Why ElderOps" — the shared band that closes all eight pages, above the
+ * site's own CTA.
+ *
+ * This is the one section the concise rewrite (Sept 2026) genuinely could
+ * merge. Every page used to carry its own `why` block immediately above this
+ * band, and the two said the same thing in sequence: senior engineers, matched
+ * to the problem, who leave capability behind. The per-page version is gone
+ * and this band now carries the kicker.
  *
  * The draft carried a headcount figure here ("a global network of more than
  * 250 engineers"). It is held back deliberately: the site's copy rules
@@ -39,6 +46,7 @@ export const MISSING_SERVICE_PAGES = SERVICES.filter(
  * back in once the figure is confirmed and the wording is agreed.
  */
 export const sharedProof = {
+  kicker: "Why ElderOps",
   title: "Senior expertise. Embedded delivery. Lasting capability.",
   paragraphs: [
     "ElderOps gives organizations direct access to senior engineers with experience across large, complex, and multinational technology environments.",
@@ -63,6 +71,15 @@ export const sharedProof = {
       body: "Immediate delivery without creating unnecessary long-term dependency.",
     },
   ],
+};
+
+/**
+ * The case-study band's fixed furniture. The tag lives here rather than in the
+ * page data so no page can ship a case study without declaring it illustrative.
+ */
+export const caseStudyLabel = {
+  kicker: "Illustrative example",
+  note: "A composite of engagements of this shape, not a named client. We publish figures only when we can attribute them.",
 };
 
 /** Label for the cross-navigation strip at the foot of every capability page. */

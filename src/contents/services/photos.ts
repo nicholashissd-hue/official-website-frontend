@@ -42,11 +42,7 @@ export const SERVICE_PHOTOS: Record<string, ServicePhoto> = {
   "platform-engineering": photo(platform, platform1600, platform828),
   "devops-delivery": photo(devops, devops1600, devops828),
   "security-devsecops": photo(security, security1600, security828),
-  "reliability-operations": photo(
-    reliability,
-    reliability1600,
-    reliability828,
-  ),
+  "reliability-operations": photo(reliability, reliability1600, reliability828),
   finops: photo(cost, cost1600, cost828),
   "data-modernization": photo(data, data1600, data828),
   "technology-advisory": photo(advisory, advisory1600, advisory828),

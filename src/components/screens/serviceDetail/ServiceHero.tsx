@@ -66,9 +66,7 @@ const ServiceHero = ({ page }: { page: ServicePage }) => {
             {page.hero.descriptor}
           </p>
           <div className="flex items-center gap-7">
-            <SignalButton to="/contact-us">
-              {page.hero.primaryCta}
-            </SignalButton>
+            <SignalButton to="/contact-us">{page.hero.primaryCta}</SignalButton>
             {/* A downward glyph moves down the page, never off it. */}
             <a
               href="#what-we-do"

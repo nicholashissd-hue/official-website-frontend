@@ -4,7 +4,7 @@ const page: ServicePage = {
   id: "reliability-operations",
 
   seo: {
-    title: "Reliability & Operations Engineering | ElderOps",
+    title: "Engineer reliability before incidents make the decision for you",
     description:
       "Improve system reliability, observability, incident response, and operational performance with embedded ElderOps SRE and operations engineers.",
   },
@@ -13,8 +13,8 @@ const page: ServicePage = {
     kicker: "Reliability & Operations",
     title: "Engineer reliability before incidents make the decision for you",
     descriptor:
-      "ElderOps embeds experienced site reliability and operations engineers into your organization to improve availability, performance, observability, incident response, and operational control.",
-    primaryCta: "Talk to an SRE specialist",
+      "Observability, service objectives, and incident practice that hold under load, so your team builds instead of firefighting.",
+    primaryCta: "Talk to a reliability engineer",
     photoAlt:
       "Two engineers working an incident at night in an operations room, a wall of dashboards glowing behind them",
     photoPosition: "center 45%",
@@ -22,101 +22,56 @@ const page: ServicePage = {
 
   lead: "We help teams move from reactive support to an engineering-led operating model, reducing repetitive work, strengthening production systems, and creating clear evidence of how services behave under real conditions.",
 
-  thesis: {
-    title: "Reliability is a product capability",
-    paragraphs: [
-      "Customers do not experience your architecture diagrams, cloud strategy, or deployment pipeline. They experience whether the service is available, responsive, and trustworthy when they need it.",
-      "Reliability problems rarely come from a single missing tool. They emerge from unclear responsibility, weak telemetry, fragile dependencies, manual operations, untested recovery, excessive alerting, and a delivery model that rewards new features without making space for operational health.",
-      "The result is familiar: teams discover problems through customers, incidents require too many people, the same failures return, on-call engineers burn out, and the organization cannot explain what level of reliability it is actually providing.",
-      "ElderOps helps turn reliability into an explicit engineering discipline. Our engineers work with product, development, infrastructure, security, and support teams to define what matters, improve visibility, automate repeated work, and design systems that can withstand failure more effectively.",
-    ],
-  },
-
   signals: {
-    title: "Where organizations commonly need help",
-    intro: "You may need reliability and operations support when:",
+    title: "When you would call us",
     items: [
-      "Production incidents are increasing in frequency, duration, or business impact.",
-      "Monitoring exists, but teams still struggle to understand why a service is failing.",
-      "Alert noise makes it difficult to identify the signals that require action.",
-      "Operational knowledge is concentrated in a few individuals.",
-      "Engineers spend too much time on repetitive support and manual recovery.",
-      "Backups, failover, capacity, or disaster-recovery assumptions have not been tested under realistic conditions.",
+      "Incidents are increasing in frequency, duration, or business impact.",
+      "Monitoring exists, but teams still cannot tell why a service is failing.",
+      "Alert noise buries the signals that need action.",
+      "Operational knowledge sits with a few individuals.",
+      "Engineers spend their time on repetitive support and manual recovery.",
+      "Backup, failover, and capacity assumptions have never been tested.",
     ],
   },
 
   work: {
-    title: "What our reliability and operations engineers do",
+    title: "What we do",
     groups: [
       {
-        title: "Reliability strategy and service priorities",
-        body: [
-          "Not every system needs the same level of availability, latency, recovery, or operational investment.",
-          "We work with technical and business stakeholders to identify critical services, customer journeys, dependencies, risk tolerances, and failure impact. This creates a practical basis for deciding where reliability engineering effort should be concentrated.",
-        ],
+        title: "Reliability strategy",
+        body: "Decide which services deserve which level of reliability, and pay for it deliberately.",
       },
       {
-        title: "Service-level indicators and objectives",
-        body: [
-          "Our engineers help define measurable indicators of service behavior and realistic objectives for availability, latency, throughput, correctness, freshness, or other customer-relevant outcomes.",
-          "These objectives make reliability visible. They also help teams balance feature delivery against operational risk rather than relying on vague expectations such as the system should always be up.",
-        ],
+        title: "Service level objectives",
+        body: "Indicators and objectives on the journeys that actually carry revenue.",
       },
       {
         title: "Observability engineering",
-        body: [
-          "We design and improve the telemetry required to understand distributed systems. This can include logs, metrics, traces, events, dashboards, service maps, deployment context, business signals, synthetic tests, and user-experience monitoring.",
-          "We help connect signals across applications, infrastructure, cloud services, networks, data pipelines, and third-party dependencies. The objective is not simply to collect more data. It is to help engineers explain what is happening, why it is happening, and what needs to be done next.",
-        ],
+        body: "Metrics, logs, and traces that answer why, not just whether.",
       },
       {
-        title: "Alerting and on-call improvement",
-        body: [
-          "We reduce noisy, duplicated, low-value alerts and improve the signals that trigger action.",
-          "Our engineers can define alert responsibility, severity, escalation, runbooks, on-call rotations, incident roles, and communication paths. We help teams move away from alerts based only on infrastructure thresholds toward signals connected to service behavior and customer impact.",
-        ],
+        title: "Alerting and on-call",
+        body: "Fewer, better alerts, and a rotation people can sustain.",
       },
       {
-        title: "Incident management and restoration",
-        body: [
-          "During an incident, teams need clear command, useful information, and safe recovery options.",
-          "We help establish incident-management processes, roles, communication templates, escalation paths, status reporting, decision records, and recovery procedures. Our engineers can also participate directly in incident response, investigate technical causes, and help restore services.",
-        ],
+        title: "Incident management",
+        body: "A clear path from detection to restoration that does not depend on improvisation.",
       },
       {
-        title: "Root-cause analysis and learning",
-        body: [
-          "An incident is not closed when the service comes back online.",
-          "We facilitate blameless, evidence-based reviews that identify technical causes, contributing conditions, detection gaps, response issues, and organizational factors. Actions are prioritized around reducing recurrence and improving the system, not producing a document that no one revisits.",
-        ],
+        title: "Learning from failure",
+        body: "Blameless review that produces changes, not documents.",
       },
       {
-        title: "Toil reduction and operational automation",
-        body: [
-          "Repeated manual work consumes engineering capacity and introduces inconsistency.",
-          "We identify recurring checks, support tasks, restarts, access requests, deployments, data corrections, environment changes, and recovery procedures that should be automated or eliminated. Our engineers build the scripts, services, workflows, and self-service capabilities required to remove that toil.",
-        ],
+        title: "Toil reduction",
+        body: "Automate the repetitive operational work quietly consuming your team.",
       },
       {
-        title: "Resilience and failure testing",
-        body: [
-          "We help validate how systems behave when components, dependencies, regions, networks, or workloads fail.",
-          "This can include load and stress testing, dependency-failure exercises, chaos experiments, backup restoration, regional failover, game days, and recovery simulations. Exercises are designed around meaningful business scenarios and conducted with appropriate safeguards.",
-        ],
+        title: "Resilience testing",
+        body: "Game days and failure injection, so recovery is proven rather than hoped for.",
       },
       {
-        title: "Performance and capacity engineering",
-        body: [
-          "Reliability includes the ability to deliver acceptable performance as demand changes.",
-          "We analyze latency, throughput, resource utilization, contention, scaling behavior, database performance, queues, caching, and critical dependencies. We then help implement improvements and establish capacity planning based on real demand.",
-        ],
-      },
-      {
-        title: "Operational readiness and recovery",
-        body: [
-          "Before a new service or major change enters production, we help validate responsibility, monitoring, alerting, support expectations, dependencies, runbooks, rollback, backup, capacity, and recovery.",
-          "This creates a consistent standard for production readiness and reduces the number of operational problems discovered after launch.",
-        ],
+        title: "Performance and capacity",
+        body: "Know your limits before your customers find them.",
       },
     ],
   },
@@ -138,31 +93,34 @@ const page: ServicePage = {
   },
 
   outcomes: {
-    title: "What changes as a result",
-    intro: "Effective reliability engineering should create:",
+    title: "What changes",
     items: [
-      "Earlier detection and clearer diagnosis of production problems.",
-      "Faster, more controlled incident response and recovery.",
-      "Fewer repeated failures and stronger follow-through after incidents.",
-      "Reduced operational toil and alert fatigue.",
-      "Better understanding of service-level risk and customer impact.",
-      "Tested recovery procedures rather than unverified assumptions.",
-      "More engineering capacity available for planned improvement and product work.",
+      "Problems are found before customers report them.",
+      "On-call becomes sustainable.",
+      "Recovery is a practiced procedure.",
     ],
   },
 
-  why: {
-    title: "Why ElderOps",
-    paragraphs: [
-      "Our engineers have operated critical systems across global and multinational environments.",
-      "They understand the difference between a dashboard that looks complete and an operating model that works under pressure. ElderOps can provide the practical engineering depth required to stabilize services immediately while building a more sustainable reliability capability over time.",
+  caseStudy: {
+    title: "The dashboards were green while customers were down",
+    client:
+      "A consumer marketplace, about 50 engineers, with sharp traffic peaks.",
+    problem:
+      "Monitoring covered infrastructure rather than user journeys, so dashboards looked healthy during outages customers could plainly see. Alert noise had trained the team to ignore pages, on-call was burning people out, and restoring a service was an open-ended hunt.",
+    whatWeDid:
+      "We defined indicators and objectives for the four revenue-critical journeys, rebuilt observability around distributed tracing and structured logs, cut alerting down to what a human should act on, restructured on-call with real runbooks, introduced blameless incident review, and ran game days against the failure modes that actually occurred.",
+    results: [
+      "Alerting quietened to what a human should act on, and real detection improved.",
+      "Restoring a service became a practiced procedure rather than an open-ended hunt.",
+      "Most incidents are now caught before customers notice them.",
     ],
+    kept: "Their engineers own the objectives and run the review cadence themselves.",
   },
 
   finalCta: {
     title: "Build systems your customers, and your engineers, can trust",
     body: "Improve visibility, resilience, response, and operational control with senior reliability engineers embedded directly into your environment.",
-    primaryCta: "Speak with an SRE specialist",
+    primaryCta: "Talk to a reliability engineer",
   },
 
   faqs: [

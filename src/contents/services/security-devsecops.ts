@@ -4,7 +4,7 @@ const page: ServicePage = {
   id: "security-devsecops",
 
   seo: {
-    title: "Security & DevSecOps Engineering | ElderOps",
+    title: "Build security into the way technology is delivered",
     description:
       "Embed security into architecture, cloud, CI/CD, and software delivery with senior security and DevSecOps engineers from ElderOps.",
   },
@@ -13,7 +13,7 @@ const page: ServicePage = {
     kicker: "Security & DevSecOps",
     title: "Build security into the way technology is delivered",
     descriptor:
-      "ElderOps embeds senior security and DevSecOps engineers into your teams to turn security requirements into practical architecture, automated controls, and everyday engineering behavior.",
+      "We embed controls, scanning, and policy into the pipeline so security stops being the last gate before release.",
     primaryCta: "Talk to a security engineer",
     photoAlt:
       "Two engineers reviewing work on monitors in a very dark room lit by screens and a single desk lamp",
@@ -22,94 +22,56 @@ const page: ServicePage = {
 
   lead: "We help organizations reduce risk without placing unnecessary friction between developers and production, integrating security across design, cloud infrastructure, code, pipelines, dependencies, identities, and operations.",
 
-  thesis: {
-    title: "Security should be part of delivery, not a final obstacle to it",
-    paragraphs: [
-      "Security problems often appear late because security decisions happen outside the systems where software is built.",
-      "A development team completes a feature and then discovers a control that requires significant redesign. Vulnerability reports create large backlogs without clear prioritization. Cloud environments are configured differently across teams. Secrets appear in repositories or pipeline variables. Open-source dependencies enter production without sufficient visibility. Compliance evidence is assembled manually before an audit.",
-      "This creates an unhelpful choice between moving quickly and moving safely. ElderOps helps remove that choice.",
-      "Our engineers work with development, cloud, platform, security, risk, and operations teams to translate policies and threat scenarios into engineering controls. Wherever possible, those controls are automated and placed directly into the development and delivery lifecycle. Security becomes faster to apply, easier to verify, and more consistent across the organization.",
-    ],
-  },
-
   signals: {
-    title: "Where organizations commonly need help",
-    intro: "You may need security and DevSecOps support when:",
+    title: "When you would call us",
     items: [
-      "Security reviews happen near the end of delivery and repeatedly delay releases.",
-      "Development teams receive vulnerability findings but lack the context or capacity to remediate them.",
-      "Cloud identities, permissions, network controls, or configurations have grown without consistent governance.",
-      "Security tooling produces substantial noise and limited actionable information.",
-      "Customer or regulatory requirements are increasing faster than your internal security capability.",
-      "You need senior security engineering expertise but are not ready to build every role internally.",
+      "Security review happens at the end and repeatedly delays releases.",
+      "Teams receive vulnerability findings without the context or capacity to fix them.",
+      "Cloud identities, permissions, and configurations grew without governance.",
+      "Security tooling produces noise rather than action.",
+      "Customer and regulatory requirements are outpacing your internal capability.",
+      "You need senior security engineering without building every role internally.",
     ],
   },
 
   work: {
-    title: "What our security and DevSecOps engineers do",
+    title: "What we do",
     groups: [
       {
         title: "Secure architecture and threat modeling",
-        body: [
-          "We help teams identify security risks before they become expensive implementation problems.",
-          "Our engineers review system designs, data flows, trust boundaries, authentication, authorization, integrations, external exposure, administrative access, and failure scenarios. We facilitate practical threat modeling and translate findings into prioritized engineering actions. The objective is to make risk visible early enough to influence design.",
-        ],
+        body: "Find the risks worth engineering against, on the flows that matter.",
       },
       {
-        title: "DevSecOps pipeline integration",
-        body: [
-          "We integrate security checks into the tools and workflows engineers already use. This may include static application security testing, dynamic testing, software composition analysis, secret detection, infrastructure-as-code scanning, container image scanning, dependency checks, policy validation, and deployment controls.",
-          "We tune checks around material risk and establish clear paths for triage, exception handling, remediation, and escalation. A pipeline that produces thousands of ignored findings is not an effective security control.",
-        ],
+        title: "Pipeline security integration",
+        body: "Scanning and policy in CI, with gates tuned to be actionable rather than noisy.",
       },
       {
         title: "Cloud and infrastructure security",
-        body: [
-          "Our engineers assess and improve security across cloud accounts, subscriptions, networks, workloads, storage, identities, logging, encryption, backups, and management interfaces.",
-          "We can help establish secure landing zones, configuration standards, posture monitoring, network segmentation, workload protections, policy enforcement, and automated remediation for common misconfigurations.",
-        ],
+        body: "Posture, configuration, and network controls that hold as the estate grows.",
       },
       {
-        title: "Identity, access, and zero-trust foundations",
-        body: [
-          "Identity is one of the most important control planes in a modern technology estate.",
-          "We help improve identity architecture, role design, least-privilege access, privileged access, workload identity, service accounts, authentication, authorization, joiner-mover-leaver processes, conditional access, and access review. Our focus is to make legitimate access straightforward while reducing unnecessary standing privilege.",
-        ],
+        title: "Identity and access",
+        body: "Least privilege and zero-trust foundations that survive contact with delivery.",
       },
       {
-        title: "Secrets, keys, and sensitive configuration",
-        body: [
-          "We help remove secrets from source code, local files, shared documents, and unmanaged pipeline variables.",
-          "Our engineers can implement centralized secrets management, encryption key practices, workload identity, rotation, certificate management, access controls, and auditability. We also help applications consume secrets safely without introducing excessive operational burden.",
-        ],
+        title: "Secrets and key management",
+        body: "Get credentials out of configuration and into managed, rotatable storage.",
       },
       {
-        title: "Software supply-chain security",
-        body: [
-          "Modern applications depend on open-source packages, container images, build systems, plugins, and external services.",
-          "We help establish dependency visibility, software bills of materials, artifact integrity, trusted build processes, provenance, signing, repository controls, dependency policies, and practical remediation workflows. The aim is to understand what enters production, where it came from, and how the organization can respond when a component becomes unsafe.",
-        ],
+        title: "Software supply chain",
+        body: "Dependency, build, and artifact integrity from source to deploy.",
       },
       {
-        title: "Vulnerability management and remediation",
-        body: [
-          "Finding vulnerabilities is only the beginning.",
-          "ElderOps engineers help organizations validate findings, assess exploitability and business context, prioritize remediation, assign responsibility, repair affected systems, improve patching, and remove recurring causes. We can work directly with development and infrastructure teams to turn security backlogs into executable engineering work.",
-        ],
+        title: "Vulnerability management",
+        body: "A remediation path engineers can actually work, with owners and deadlines.",
       },
       {
-        title: "Compliance automation and technical evidence",
-        body: [
-          "We help translate technical control requirements into automated, repeatable evidence. That may include configuration checks, access records, pipeline results, change history, asset data, vulnerability status, logging, backup validation, and policy enforcement.",
-          "Our engineers can support the technical controls and evidence required for frameworks and customer reviews. Formal certification, regulatory interpretation, and legal determinations remain with the relevant auditors, legal advisers, and accountable organizational leaders.",
-        ],
+        title: "Compliance automation",
+        body: "Technical evidence collected continuously instead of assembled in a panic.",
       },
       {
-        title: "Detection, response, and recovery readiness",
-        body: [
-          "We help ensure systems produce the information and response options required when suspicious activity occurs.",
-          "This can include audit logging, alerting, cloud detections, incident runbooks, containment automation, access revocation, evidence preservation, recovery procedures, and exercises involving engineering and business stakeholders.",
-        ],
+        title: "Detection and response readiness",
+        body: "Know how you would find it, contain it, and recover from it.",
       },
     ],
   },
@@ -131,31 +93,34 @@ const page: ServicePage = {
   },
 
   outcomes: {
-    title: "What changes as a result",
-    intro: "A successful engagement should create:",
+    title: "What changes",
     items: [
-      "Earlier visibility of meaningful security risk.",
-      "Fewer last-minute release and architecture surprises.",
-      "Automated controls applied consistently across teams.",
-      "Clearer responsibility and faster remediation of vulnerabilities.",
-      "Stronger cloud, identity, dependency, and pipeline security.",
-      "Better technical evidence for customers, auditors, and internal governance.",
-      "Development teams that can move safely without depending on manual security intervention for every change.",
+      "Security findings surface in minutes, not at the release gate.",
+      "Audit evidence is a query, not a project.",
+      "Engineers can act on what they are told to fix.",
     ],
   },
 
-  why: {
-    title: "Why ElderOps",
-    paragraphs: [
-      "Security engineering sits across software, infrastructure, cloud, identity, delivery, and operations. ElderOps brings together the exact combination of experience your environment requires.",
-      "Our specialists can advise, but they are also prepared to implement. They work with your teams to reduce immediate exposure, engineer sustainable controls, and build security capability into normal delivery.",
+  caseStudy: {
+    title: "Security was the last gate, so security was always the delay",
+    client:
+      "A fintech company moving upmarket into enterprise deals and preparing for a SOC 2 audit.",
+    problem:
+      "Every release met a manual security review that added weeks. Findings arrived as a spreadsheet with no owner. Credentials sat in configuration files, and cloud roles had accumulated permissions nobody could justify.",
+    whatWeDid:
+      "We threat-modeled the two critical money flows, moved dependency, code, container, and infrastructure scanning into the pipeline with gates tuned to block only what mattered, migrated secrets into managed storage with rotation, rebuilt access around least privilege, and automated evidence collection for the audit.",
+    results: [
+      "Security review became a pipeline check rather than a gate at the end.",
+      "Findings surface at commit time, with an owner, instead of at the release.",
+      "Audit evidence is collected continuously, and the enterprise deals unblocked.",
     ],
+    kept: "Their engineers own the pipeline gates and the remediation queue.",
   },
 
   finalCta: {
     title: "Make security part of how your organization moves",
     body: "Embed practical security expertise into your architecture, delivery systems, cloud environments, and engineering teams.",
-    primaryCta: "Speak with a security engineer",
+    primaryCta: "Talk to a security engineer",
   },
 
   faqs: [

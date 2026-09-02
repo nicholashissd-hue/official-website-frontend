@@ -3,15 +3,16 @@ import { Kicker } from "@/components/ui/v4";
 import type { ServicePage } from "@/contents/services";
 
 /**
- * The page's core: what the engineers actually do, as numbered chapters.
+ * The page's core: what the engineers actually do.
  *
- * The same rhythm as the method chapters on /how-we-work — a rail carrying
- * the number and the name, the substance in the wide column, a hairline
- * between each. It is the one structure on this site that scales to eleven
- * items without turning into a wall or a grid of cards.
+ * A two-column grid of a heading and one line, not the numbered chapters this
+ * used to be. Each block carried one to three paragraphs, which is where most
+ * of the page's length lived; the heading already says what the thing is, so
+ * the line only has to say why it matters. At one line each, numbering is
+ * noise and the rail that carried it is dead weight.
  */
 const ServiceWork = ({ page }: { page: ServicePage }) => (
-  <section id="what-we-do" className="scroll-mt-24 bg-paper">
+  <section id="what-we-do" className="scroll-mt-24 bg-bone">
     <div className="container section-space-block">
       <Reveal>
         <Kicker>The work</Kicker>
@@ -20,29 +21,14 @@ const ServiceWork = ({ page }: { page: ServicePage }) => (
         </h2>
       </Reveal>
 
-      <div className="mt-14">
-        {page.work.groups.map((group, index) => (
+      <div className="mt-14 grid gap-x-16 sm:grid-cols-2">
+        {page.work.groups.map((group) => (
           <Reveal key={group.title} delay={0.05} as="article">
-            <div className="grid gap-x-16 gap-y-5 border-t border-hairline py-11 lg:grid-cols-[4fr_8fr]">
-              <div className="flex items-baseline gap-5">
-                <span className="font-mono text-xs tracking-[0.1em] text-primary">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3 className="font-display text-subhead font-bold tracking-[-0.02em] text-ink">
-                  {group.title}
-                </h3>
-              </div>
-
-              <div>
-                {group.body.map((paragraph) => (
-                  <p
-                    key={paragraph}
-                    className="mt-4 max-w-2xl text-base text-sub first:mt-0"
-                  >
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
+            <div className="border-t border-hairline py-7">
+              <h3 className="font-display text-lg font-bold tracking-[-0.01em] text-ink">
+                {group.title}
+              </h3>
+              <p className="mt-2 max-w-md text-base text-sub">{group.body}</p>
             </div>
           </Reveal>
         ))}

@@ -4,7 +4,7 @@ const page: ServicePage = {
   id: "technology-advisory",
 
   seo: {
-    title: "Technology Advisory & Fractional Leadership | ElderOps",
+    title: "Senior technology leadership, exactly where you need it",
     description:
       "Access fractional CTO, CIO, security, platform, and technology leadership backed by ElderOps' senior engineering bench.",
   },
@@ -13,7 +13,7 @@ const page: ServicePage = {
     kicker: "Technology Advisory & Fractional Leadership",
     title: "Senior technology leadership, exactly where you need it",
     descriptor:
-      "ElderOps provides experienced technology leaders who can help set direction, make critical decisions, govern delivery, and connect business priorities to engineering execution.",
+      "Fractional architecture and technology leadership. We advise, build alongside your team, and hand off, at any stage.",
     primaryCta: "Talk to a technology advisor",
     photoAlt:
       "Three colleagues in conversation at a boardroom table at night, laptops closed, city lights beyond the glass",
@@ -22,110 +22,60 @@ const page: ServicePage = {
 
   lead: "From a focused advisory engagement to an embedded fractional CTO, CIO, security leader, platform leader, or transformation lead, we give organizations access to senior judgment without requiring every leadership capability to become permanent headcount.",
 
-  thesis: {
-    title:
-      "Technology decisions become business decisions sooner than most organizations expect",
-    paragraphs: [
-      "A growing company can reach a point where technology risk exceeds the leadership capacity available to manage it.",
-      "The product is gaining customers, but the architecture has not been reviewed for the next stage of scale. Enterprise prospects are asking security questions. Cloud costs are increasing. Delivery dates are becoming less predictable. Vendors are recommending conflicting solutions. The engineering team needs direction, but hiring a complete technology leadership function would be premature or too slow.",
-      "Larger organizations face a different version of the same problem. They may have strong leaders but lack capacity for a major transformation, acquisition, modernization program, operating-model change, or critical interim role.",
-      "ElderOps provides experienced leadership that can step into that gap. Our advisors do more than produce recommendations. They work with executives and engineers to define priorities, make decisions, establish accountability, and support execution. Where deeper technical delivery is required, they can assemble the right engineering capability around the strategy.",
-    ],
-  },
-
   signals: {
-    title: "Where organizations commonly need help",
-    intro:
-      "Technology advisory or fractional leadership may be appropriate when:",
+    title: "When you would call us",
     items: [
-      "The company needs senior technology direction but does not yet require a full-time executive.",
-      "A CTO, CIO, CISO, VP of Engineering, or technical leader has left unexpectedly.",
-      "Founders or business executives are making increasingly consequential technology decisions without an independent adviser.",
-      "A transformation, migration, or modernization program lacks clear technical responsibility.",
-      "The engineering organization is growing but roles, priorities, architecture, and delivery practices have not evolved with it.",
-      "Leadership needs an objective assessment before an investment, acquisition, vendor commitment, or major program.",
+      "You need senior technology direction but not a full-time executive.",
+      "A CTO, CIO, CISO, or engineering leader has left unexpectedly.",
+      "Consequential technology decisions are being made without an independent adviser.",
+      "A transformation or migration program lacks clear technical ownership.",
+      "The engineering organization has outgrown its roles, priorities, and practices.",
+      "You need an objective assessment before an investment, acquisition, or major commitment.",
     ],
   },
 
   work: {
-    title: "What our technology advisors and fractional leaders do",
+    title: "What we do",
     groups: [
       {
         title: "Technology strategy and roadmap",
-        body: [
-          "We connect technology decisions to the organization's commercial priorities, operating needs, risk profile, and investment capacity.",
-          "Our advisors help define the technology vision, strategic themes, target capabilities, sequencing, investment priorities, decision points, and measurable outcomes. The result is not a list of every possible initiative. It is a roadmap that makes clear what should happen now, what should wait, and why.",
-        ],
+        body: "A plan tied to business outcomes, not a wish list of technology.",
       },
       {
-        title: "Technology and architecture assessment",
-        body: [
-          "We provide an objective view of the current estate and its ability to support the business.",
-          "That can include architecture, cloud infrastructure, security, reliability, software delivery, data, technical debt, cost, team capability, vendor dependencies, and operational risk. Findings are translated into decisions and a prioritized action plan rather than presented as an undifferentiated backlog of concerns.",
-        ],
+        title: "Architecture and technology assessment",
+        body: "An honest read on what you have, what it risks, and what it will cost.",
       },
       {
-        title: "Architecture direction and governance",
-        body: [
-          "Our fractional leaders help establish principles and decision mechanisms that keep architecture connected to business needs.",
-          "They can chair architecture reviews, guide major design decisions, clarify standards, manage exceptions, evaluate build-versus-buy choices, and prevent local decisions from creating unnecessary enterprise complexity. Where required, they work directly with engineering teams to validate that the direction is practical.",
-        ],
+        title: "Architecture direction",
+        body: "Decisions made and documented, with the standards to keep them.",
       },
       {
-        title: "Engineering operating model and organization design",
-        body: [
-          "As an engineering organization grows, its original structure can begin to create bottlenecks.",
-          "We help clarify team boundaries, product and platform responsibility, leadership duties, decision rights, delivery expectations, career structures, capability gaps, and the relationship between engineering and the wider business. The objective is to create accountable teams that can deliver outcomes without excessive handoffs or centralized dependency.",
-        ],
+        title: "Engineering operating model",
+        body: "Roles, ownership, and practices that fit the size you are becoming.",
       },
       {
-        title: "Transformation and program oversight",
-        body: [
-          "Major technology programs require more than project reporting.",
-          "Our leaders can provide technical governance across cloud transformation, platform development, security improvement, modernization, data programs, operating-model change, and large delivery initiatives. They challenge assumptions, resolve dependencies, monitor technical risk, support executive decisions, and ensure that program progress reflects working capability, not just completed activity.",
-        ],
+        title: "Program and delivery oversight",
+        body: "Independent technical accountability on the work that matters most.",
       },
       {
-        title: "Delivery leadership and portfolio prioritization",
-        body: [
-          "We help organizations determine where scarce engineering capacity should be invested.",
-          "That can include portfolio review, roadmap prioritization, delivery health, dependency management, risk escalation, outcome definition, and the removal of work that no longer justifies its cost. Our leaders can introduce an operating cadence that gives executives useful visibility without burdening teams with unnecessary reporting.",
-        ],
+        title: "Vendor and sourcing strategy",
+        body: "Commitments and renewals evaluated on the engineering reality.",
       },
       {
-        title: "Vendor, partner, and sourcing strategy",
-        body: [
-          "Technology leaders frequently need to decide what to build internally, what to buy, and where external expertise can create the greatest value.",
-          "We help assess vendors, delivery partners, managed services, cloud providers, software platforms, contracts, concentration risk, and internal capability requirements. As an engineering firm with an embedded model, ElderOps can also help ensure external capacity is integrated around clear responsibility and outcomes rather than treated as a disconnected supply of people.",
-        ],
+        title: "Investment and cost governance",
+        body: "Where the technology money goes, and what it is buying.",
       },
       {
-        title: "Technology investment and cost governance",
-        body: [
-          "We help connect technology spending to business capability, risk, and expected value.",
-          "This can include cloud economics, software and vendor spend, team investment, modernization funding, cost optimization, technical debt, budgeting, forecasting, and the balance between operating, expanding, and innovating.",
-        ],
+        title: "Security and resilience leadership",
+        body: "Risk owned at leadership level rather than delegated and forgotten.",
       },
       {
-        title: "Security, resilience, and risk leadership",
-        body: [
-          "A fractional technology or security leader can help define risk priorities, customer assurance, governance, incident readiness, technical controls, and investment sequencing.",
-          "They work with accountable executives, legal advisers, auditors, security specialists, and engineering teams to ensure risk decisions are understood and acted upon.",
-        ],
+        title: "Technical due diligence",
+        body: "A defensible view of a technology estate before you commit to it.",
       },
       {
-        title: "Data, AI, and modernization direction",
-        body: [
-          "We help leadership move from broad ambition to a credible execution path.",
-          "That may include data strategy, AI readiness, use-case prioritization, architecture, governance, operating models, modernization sequencing, capability requirements, cost, and risk. Our advisors can identify where an experiment is appropriate, where foundational work is required, and where an initiative does not yet have a sufficient business or technical case.",
-        ],
-      },
-      {
-        title: "Executive, board, and stakeholder communication",
-        body: [
-          "Technology leaders must make complex decisions understandable without stripping away the information required for sound governance.",
-          "Our advisors can prepare board and executive updates, investment cases, risk summaries, transformation narratives, decision papers, customer responses, and technical due-diligence findings. They can also represent the technology function in senior leadership discussions where required.",
-        ],
+        title: "Executive and board communication",
+        body: "Translate the engineering position into decisions leadership can make.",
       },
     ],
   },
@@ -147,31 +97,34 @@ const page: ServicePage = {
   },
 
   outcomes: {
-    title: "What changes as a result",
-    intro: "Effective technology advisory should create:",
+    title: "What changes",
     items: [
-      "Clearer priorities and faster, better-informed decisions.",
-      "A technology roadmap connected to business outcomes and investment capacity.",
-      "Stronger responsibility across architecture, delivery, risk, and operations.",
-      "Greater executive visibility into material technology issues.",
-      "More disciplined use of vendors, platforms, and engineering capacity.",
-      "Reduced dependence on reactive or personality-led decision-making.",
-      "A practical route from strategic direction to implemented change.",
+      "Decisions get made and owned.",
+      "Leadership has an independent technical read.",
+      "You build internal capability rather than a dependency on us.",
     ],
   },
 
-  why: {
-    title: "Why ElderOps",
-    paragraphs: [
-      "ElderOps combines senior leadership with direct access to engineers across cloud, infrastructure, platform engineering, DevOps, security, reliability, cost optimization, data, and modernization.",
-      "That means advice can be tested against delivery reality. You gain senior judgment without building every capability at once, and a direct route to execution when the organization is ready to move.",
+  caseStudy: {
+    title: "The CTO left three weeks before diligence started",
+    client:
+      "An early-growth startup with about 20 engineers, heading into a funding round.",
+    problem:
+      "Their technical leader departed just as a diligence process began. Architecture decisions, the roadmap, and several vendor renewals had no owner, and the two strongest engineers were being pulled into leadership questions nobody had prepared them for.",
+    whatWeDid:
+      "We stepped in fractionally, two days a week: stabilized delivery priorities, produced an honest architecture and risk assessment for diligence, set a credible near-term roadmap, took the vendor and renewal decisions, coached the two senior engineers into the gap, and defined the profile for the permanent hire.",
+    results: [
+      "Diligence completed with no material technical surprises.",
+      "The round closed on schedule.",
+      "A permanent CTO was hired into a role with a clear mandate.",
     ],
+    kept: "We stepped down as they stepped up. That was the goal from day one.",
   },
 
   finalCta: {
     title: "Put experienced technology judgment behind your next decision",
     body: "Bring in a fractional leader, independent advisor, or transformation lead who can establish direction and stay close enough to the work to make it real.",
-    primaryCta: "Speak with a technology advisor",
+    primaryCta: "Talk to a technology advisor",
   },
 
   faqs: [

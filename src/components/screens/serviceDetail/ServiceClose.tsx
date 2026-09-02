@@ -20,7 +20,7 @@ const ServiceClose = ({ page }: { page: ServicePage }) => {
 
   return (
     <>
-      <section className="border-t border-hairline bg-bone">
+      <section className="border-t border-hairline bg-paper">
         <div className="container section-space-block">
           <Reveal>
             <Kicker>{otherCapabilities.kicker}</Kicker>
@@ -66,10 +66,7 @@ const ServiceClose = ({ page }: { page: ServicePage }) => {
             <p className="mt-6 max-w-2xl text-base text-ondark md:text-lg">
               {page.finalCta.body}
             </p>
-            <Link
-              to="/contact-us"
-              className={cn(signalButtonClass, "mt-9")}
-            >
+            <Link to="/contact-us" className={cn(signalButtonClass, "mt-9")}>
               {page.finalCta.primaryCta}
             </Link>
           </Reveal>
