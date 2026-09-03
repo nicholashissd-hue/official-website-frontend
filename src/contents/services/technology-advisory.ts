@@ -23,7 +23,7 @@ const page: ServicePage = {
   lead: "From a focused advisory engagement to an embedded fractional CTO, CIO, security leader, platform leader, or transformation lead, we give organizations access to senior judgment without requiring every leadership capability to become permanent headcount.",
 
   signals: {
-    title: "When you would call us",
+    title: "The problems teams usually come to us with",
     items: [
       "You need senior technology direction but not a full-time executive.",
       "A CTO, CIO, CISO, or engineering leader has left unexpectedly.",

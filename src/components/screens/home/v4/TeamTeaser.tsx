@@ -13,7 +13,7 @@ const TeamTeaser = () => (
   <FullBleed
     image={teamImage}
     imageSet={`${teamImage828} 828w, ${teamImage1600} 1600w, ${teamImage} 2880w`}
-    alt="ElderOps engineers in discussion around a table"
+    alt="ElderOps engineers talking a problem through together along a desk in a daylit office"
     objectPosition="center 30%"
     minHeightClass="min-h-[78svh]"
   >

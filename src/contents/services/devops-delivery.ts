@@ -23,7 +23,7 @@ const page: ServicePage = {
   lead: "We improve the systems, automation, controls, and working practices behind software delivery, helping teams release more confidently without trading speed for quality, security, or operational stability.",
 
   signals: {
-    title: "When you would call us",
+    title: "The problems teams usually come to us with",
     items: [
       "Releases are infrequent, stressful, or depend on a few people.",
       "Teams spend real time preparing environments and coordinating handoffs.",

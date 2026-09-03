@@ -23,7 +23,7 @@ const page: ServicePage = {
   lead: "We help organizations reduce risk without placing unnecessary friction between developers and production, integrating security across design, cloud infrastructure, code, pipelines, dependencies, identities, and operations.",
 
   signals: {
-    title: "When you would call us",
+    title: "The problems teams usually come to us with",
     items: [
       "Security review happens at the end and repeatedly delays releases.",
       "Teams receive vulnerability findings without the context or capacity to fix them.",

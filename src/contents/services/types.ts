@@ -55,7 +55,8 @@ export type ServicePage = {
    */
   lead: string;
 
-  /** "When you would call us" — six one-line triggers, no intro paragraph. */
+  /** "The problems teams usually come to us with" — six one-line triggers,
+   *  no intro paragraph. */
   signals: {
     title: string;
     items: string[];

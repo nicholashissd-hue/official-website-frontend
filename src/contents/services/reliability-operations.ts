@@ -23,7 +23,7 @@ const page: ServicePage = {
   lead: "We help teams move from reactive support to an engineering-led operating model, reducing repetitive work, strengthening production systems, and creating clear evidence of how services behave under real conditions.",
 
   signals: {
-    title: "When you would call us",
+    title: "The problems teams usually come to us with",
     items: [
       "Incidents are increasing in frequency, duration, or business impact.",
       "Monitoring exists, but teams still cannot tell why a service is failing.",

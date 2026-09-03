@@ -25,7 +25,7 @@ const page: ServicePage = {
   lead: "Our senior engineers embed directly into your teams to assess the existing estate, define a practical target architecture, modernize applications and data platforms, execute low-risk migrations, and build the operational capability required to sustain the new environment.",
 
   signals: {
-    title: "When you would call us",
+    title: "The problems teams usually come to us with",
     items: [
       "Legacy applications are costly to change and depend on scarce knowledge.",
       "Data is fragmented across operational systems, spreadsheets, and departmental tools.",

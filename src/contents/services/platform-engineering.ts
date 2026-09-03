@@ -23,7 +23,7 @@ const page: ServicePage = {
   lead: "Our senior platform engineers embed directly into your organization to create self-service capabilities, reusable delivery patterns, secure defaults, and clear developer experiences, reducing the amount of infrastructure complexity every product team must solve for itself.",
 
   signals: {
-    title: "When you would call us",
+    title: "The problems teams usually come to us with",
     items: [
       "Developers wait on infrastructure tickets for routine changes.",
       "Every product team maintains a different pipeline and deployment pattern.",

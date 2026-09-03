@@ -23,7 +23,7 @@ const page: ServicePage = {
   lead: "Our cloud and FinOps engineers work directly with finance, product, infrastructure, and engineering teams to identify where money is being consumed, implement validated improvements, and embed cost awareness into the systems and decisions that create cloud spend.",
 
   signals: {
-    title: "When you would call us",
+    title: "The problems teams usually come to us with",
     items: [
       "Cloud spend is growing faster than usage, customers, or revenue.",
       "Finance sees a total but cannot attribute it to teams, products, or environments.",
