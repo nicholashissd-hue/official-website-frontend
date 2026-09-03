@@ -16,8 +16,8 @@ const page: ServicePage = {
       "We embed controls, scanning, and policy into the pipeline so security stops being the last gate before release.",
     primaryCta: "Talk to a security engineer",
     photoAlt:
-      "Two engineers reviewing work on monitors in a very dark room lit by screens and a single desk lamp",
-    photoPosition: "center 45%",
+      "Two engineers talking beside a window at night, city lights behind them",
+    photoPosition: "center 42%",
   },
 
   lead: "We help organizations reduce risk without placing unnecessary friction between developers and production, integrating security across design, cloud infrastructure, code, pipelines, dependencies, identities, and operations.",

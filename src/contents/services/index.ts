@@ -74,8 +74,10 @@ export const sharedProof = {
 };
 
 /**
- * The case-study band's fixed furniture. The tag lives here rather than in the
- * page data so no page can ship a case study without declaring it illustrative.
+ * The case-study band's illustrative tag. Currently NOT RENDERED anywhere:
+ * Nicholas asked for it off "for now" (Sept 2026). Kept here, and kept as the
+ * single definition, so turning it back on is a two line change in
+ * ServiceCaseStudy and CaseFiles rather than rewriting the copy.
  */
 export const caseStudyLabel = {
   kicker: "Illustrative example",

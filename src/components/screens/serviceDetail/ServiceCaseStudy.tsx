@@ -1,16 +1,16 @@
 import Reveal from "@/components/ui/reveal";
-import { Keep, Kicker } from "@/components/ui/v4";
+import { Keep } from "@/components/ui/v4";
 import type { ServicePage } from "@/contents/services";
-import { caseStudyLabel } from "@/contents/services";
 
 /**
  * The page's case study, one per capability, above the shared closing blocks.
  *
- * Two rules are enforced here rather than in the copy, so a page cannot ship
- * without them. The "Illustrative example" kicker and the note beneath it come
- * from `caseStudyLabel`, not from page data: a composite engagement has to say
- * so on the page, every time, and a label that lives in eight files is a label
- * that eventually goes missing from one of them.
+ * The illustrative label and its note are OFF at Nicholas's request (Sept 2026,
+ * "for now"). `caseStudyLabel` is still defined in contents/services/index.ts so
+ * restoring them is a two line change rather than an archaeology exercise. Worth
+ * knowing what is uncovered while they are off: the outcomes are qualitative so
+ * no figure is invented, but the client line still reads as a specific company,
+ * so the page presents a composite without saying it is one.
  *
  * The results are sentences, not figures. Home's case files were stripped of
  * bracketed placeholders for the same reason: this site publishes numbers only
@@ -27,13 +27,9 @@ const ServiceCaseStudy = ({ page }: { page: ServicePage }) => {
       <div className="container section-space-block">
         <div className="grid items-start gap-x-16 gap-y-9 lg:grid-cols-[4fr_8fr]">
           <Reveal>
-            <Kicker>{caseStudyLabel.kicker}</Kicker>
-            <h2 className="mt-3 max-w-sm font-display text-heading font-bold tracking-[-0.03em] text-ink">
+            <h2 className="max-w-sm font-display text-heading font-bold tracking-[-0.03em] text-ink">
               {caseStudy.title}
             </h2>
-            <p className="mt-5 max-w-xs text-sm text-sub">
-              {caseStudyLabel.note}
-            </p>
           </Reveal>
 
           <Reveal delay={0.08}>

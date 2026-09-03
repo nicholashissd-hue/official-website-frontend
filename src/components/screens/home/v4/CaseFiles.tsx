@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import Reveal from "@/components/ui/reveal";
 import { Kicker } from "@/components/ui/v4";
 import { caseFiles } from "@/contents/screens/homeV4";
-import { SERVICE_PAGES, caseStudyLabel } from "@/contents/services";
+import { SERVICE_PAGES } from "@/contents/services";
 import { SERVICES } from "@/contents/taxonomy";
 
 const FileRow = ({ label, value }: { label: string; value: string }) => (
@@ -21,9 +21,8 @@ const FileRow = ({ label, value }: { label: string; value: string }) => (
  * Nothing is authored here. The section reads `caseFiles.featured` (taxonomy ids)
  * and pulls the case study off SERVICE_PAGES, so a case study exists in exactly
  * one place and the card and the full page can never disagree. The illustrative
- * tag and its note come from `caseStudyLabel` for the same reason they do on the
- * capability pages: a composite has to say so, and a label duplicated by hand is
- * a label that eventually goes missing.
+ * tag and its note are off here too (see ServiceCaseStudy for the reasoning and
+ * what that leaves uncovered).
  */
 const CaseFiles = () => {
   const featured = caseFiles.featured
@@ -44,12 +43,6 @@ const CaseFiles = () => {
           <h2 className="mt-3 max-w-3xl font-display text-heading font-bold tracking-[-0.03em] text-ink">
             {caseFiles.title}
           </h2>
-          <p className="mt-5 max-w-xl text-sm text-sub">
-            <span className="font-semibold text-ink">
-              {caseStudyLabel.kicker}.
-            </span>{" "}
-            {caseStudyLabel.note}
-          </p>
         </Reveal>
 
         <div className="mt-14 grid gap-x-9 gap-y-14 md:grid-cols-3">

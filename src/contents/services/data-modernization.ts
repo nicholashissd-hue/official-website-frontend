@@ -18,8 +18,8 @@ const page: ServicePage = {
       "We modernize core systems and data foundations in deliverable slices, so tech debt shrinks without halting the business.",
     primaryCta: "Talk to a data engineer",
     photoAlt:
-      "Two engineers working through a system at a desk at night beside a rain-streaked window",
-    photoPosition: "center 42%",
+      "Two engineers working through a system together at a desk at night, city lights beyond the window",
+    photoPosition: "center 45%",
   },
 
   lead: "Our senior engineers embed directly into your teams to assess the existing estate, define a practical target architecture, modernize applications and data platforms, execute low-risk migrations, and build the operational capability required to sustain the new environment.",
