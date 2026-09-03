@@ -90,6 +90,11 @@ export const caseFiles = {
   title: "Real business challenges. Real engineering outcomes.",
   intro:
     "One engagement for each of the eight capabilities. Open any of them on the capability page it belongs to.",
+  /* Unrendered. Each row used to end in a bold emerald "Read the case"; eight
+     of them stacked were eight calls to action competing with the one at the
+     foot of the page, and the row is already entirely clickable. Kept because
+     restoring it is one line, and because the string is the right one if the
+     rows ever need a visible affordance again. */
   cta: "Read the case",
 };
 

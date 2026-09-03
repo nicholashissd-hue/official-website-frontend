@@ -27,7 +27,10 @@ const CaseFiles = () => {
   if (!cases.length) return null;
 
   return (
-    <section id="client-work" className="scroll-mt-24 border-t border-hairline bg-paper">
+    <section
+      id="client-work"
+      className="scroll-mt-24 border-t border-hairline bg-paper"
+    >
       <div className="container section-space-block">
         <Reveal>
           <Kicker>{caseFiles.eyebrow}</Kicker>
@@ -47,34 +50,47 @@ const CaseFiles = () => {
             <Reveal key={service.id} delay={(index % 2) * 0.06} as="article">
               {/* The whole row is the hit area, but only the title is the link,
                   so a screen reader announces the case and not the row around it. */}
-              <div className="group relative -mx-4 grid scroll-mt-28 gap-y-3.5 border-t border-hairline px-4 py-7 transition-colors duration-300 hover:bg-ink/[0.028]">
-                <div className="flex items-baseline gap-4">
-                  <span className="font-mono text-xs tracking-[0.1em] text-primary">
+              <div className="group relative -mx-4 grid scroll-mt-28 gap-y-3 border-t border-hairline px-4 py-7 transition-colors duration-300 hover:bg-ink/[0.028]">
+                {/* Sentence case, in the display face, the same eyebrow
+                    language as every Kicker on the site. This row used to set
+                    the capability in tracked-out mono capitals, which is the
+                    one eyebrow treatment this site does not use, and eight of
+                    them stacked read as a directory listing rather than as an
+                    index of work. The numeral stays: it is the taxonomy's, and
+                    it is what lets a reader match a row to the schematic. */}
+                <div className="flex items-baseline gap-3.5">
+                  <span className="font-mono text-xs text-ink/40">
                     {service.num}
                   </span>
-                  <span className="font-mono text-xs uppercase tracking-[0.14em] text-sub">
+                  <span className="font-display text-sm font-semibold text-ink/60">
                     {service.label}
                   </span>
                 </div>
 
-                <h3 className="max-w-sm font-display text-lede font-bold leading-[1.2] tracking-[-0.015em] text-ink">
+                {/* An article title, not a headline. It was set bold and
+                    tracked tight against a narrow measure, so three of the
+                    eight broke to three lines and the column read as eight
+                    slogans shouting in sequence. Semibold on a wider measure at
+                    the same step of the scale is a title you read rather than
+                    one that is announced at you. */}
+                <h3 className="max-w-md font-display text-lede font-semibold leading-[1.28] text-ink">
                   <Link
                     to={`/services/${service.slug}#case-study`}
                     className="transition-colors duration-300 after:absolute after:inset-0 group-hover:text-primary"
                   >
                     {caseStudy.title}
+                    {/* The affordance rides the title. Eight bold green
+                        "Read the case" lines were eight calls to action on a
+                        page whose actual call to action is at the bottom, and
+                        the row is already entirely clickable. */}
+                    <span
+                      aria-hidden="true"
+                      className="ml-2 inline-block -translate-x-1 text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:opacity-100"
+                    >
+                      &#8594;
+                    </span>
                   </Link>
                 </h3>
-
-                <p className="inline-flex items-baseline gap-2 text-sm font-bold text-primary">
-                  {caseFiles.cta}
-                  <span
-                    aria-hidden="true"
-                    className="inline-block -translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:opacity-100"
-                  >
-                    &#8594;
-                  </span>
-                </p>
               </div>
             </Reveal>
           ))}
