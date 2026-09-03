@@ -33,9 +33,15 @@ const ServiceHero = ({ page }: { page: ServicePage }) => {
         className="absolute inset-0 size-full object-cover"
         style={{ objectPosition: page.hero.photoPosition ?? "center" }}
       />
+      {/* Every one of these photographs was composed for a 16:9 crop, with the
+          quiet dark part of the picture at the lower left where the headline
+          sits. A phone crops the same file to portrait and throws that side
+          away, so the type can land on whatever the middle of the frame
+          happens to be. The scrim carries more of the load below sm; the
+          desktop value is untouched. */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(to_top,rgb(8_23_18/0.66)_0%,rgb(8_23_18/0.15)_52%,rgb(8_23_18/0.26)_100%)]"
+        className="absolute inset-0 bg-[linear-gradient(to_top,rgb(8_23_18/0.82)_0%,rgb(8_23_18/0.34)_58%,rgb(8_23_18/0.32)_100%)] sm:bg-[linear-gradient(to_top,rgb(8_23_18/0.66)_0%,rgb(8_23_18/0.15)_52%,rgb(8_23_18/0.26)_100%)]"
       />
       <div
         aria-hidden="true"
@@ -65,12 +71,17 @@ const ServiceHero = ({ page }: { page: ServicePage }) => {
           <p className="max-w-2xl text-lg text-bg-cream/82">
             {page.hero.descriptor}
           </p>
-          <div className="flex items-center gap-7">
+          {/* Side by side these two need about 420px, and a phone gives the
+              row 342. Squeezed into that, "Talk to a technology advisor" broke
+              inside its own pill and the secondary link split "What we do"
+              across two lines with the arrow stranded beside it. They stack
+              until there is room for the row. */}
+          <div className="flex w-full flex-col items-start gap-5 sm:w-auto sm:flex-row sm:items-center sm:gap-7">
             <SignalButton to="/contact-us">{page.hero.primaryCta}</SignalButton>
             {/* A downward glyph moves down the page, never off it. */}
             <a
               href="#what-we-do"
-              className="inline-flex items-center gap-2 border-b border-bg-cream/35 pb-0.5 text-base font-semibold text-bg-cream/85 transition-colors duration-300 hover:text-bg-cream"
+              className="inline-flex items-center gap-2 whitespace-nowrap border-b border-bg-cream/35 pb-0.5 text-base font-semibold text-bg-cream/85 transition-colors duration-300 hover:text-bg-cream"
             >
               What we do <span aria-hidden="true">↓</span>
             </a>
