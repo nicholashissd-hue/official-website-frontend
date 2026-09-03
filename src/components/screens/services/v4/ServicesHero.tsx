@@ -22,7 +22,7 @@ const ServicesHero = () => (
       src={heroImage}
       srcSet={`${heroImage828} 828w, ${heroImage1600} 1600w, ${heroImage} 2880w`}
       sizes="100vw"
-      alt="An ElderOps engineer presenting a system architecture slide to a conference audience"
+      alt="An ElderOps engineer speaking to a seated conference audience, seen from behind"
       className="absolute inset-0 size-full object-cover"
       style={{ objectPosition: "center 38%" }}
     />
