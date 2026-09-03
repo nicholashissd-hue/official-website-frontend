@@ -16,7 +16,7 @@ const page: ServicePage = {
       "Observability, service objectives, and incident practice that hold under load, so your team builds instead of firefighting.",
     primaryCta: "Talk to a reliability engineer",
     photoAlt:
-      "A quiet operations room at night with one engineer at a desk, nothing on fire",
+      "An operations floor at night, a wall of monitoring displays at one end and the city dark beyond the windows",
     photoPosition: "center 45%",
   },
 
