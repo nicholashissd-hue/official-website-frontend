@@ -35,11 +35,11 @@ const ServiceHero = ({ page }: { page: ServicePage }) => {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(to_top,rgb(8_23_18/0.9)_0%,rgb(8_23_18/0.3)_52%,rgb(8_23_18/0.45)_100%)]"
+        className="absolute inset-0 bg-[linear-gradient(to_top,rgb(8_23_18/0.66)_0%,rgb(8_23_18/0.15)_52%,rgb(8_23_18/0.26)_100%)]"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(100deg,rgb(8_23_18/0.78)_0%,rgb(8_23_18/0.38)_40%,transparent_70%)]"
+        className="absolute inset-0 bg-[linear-gradient(100deg,rgb(8_23_18/0.40)_0%,rgb(8_23_18/0.16)_40%,transparent_70%)]"
       />
       {/* A third scrim, for the nav rather than the headline. The lower-left
           pocket leaves the top right of the frame open, and these eight
@@ -47,7 +47,7 @@ const ServiceHero = ({ page }: { page: ServicePage }) => {
           image. */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 h-32 bg-[linear-gradient(to_bottom,rgb(8_23_18/0.6)_0%,transparent_100%)]"
+        className="absolute inset-x-0 top-0 h-32 bg-[linear-gradient(to_bottom,rgb(8_23_18/0.45)_0%,transparent_100%)]"
       />
 
       <div className="container relative pb-16 pt-40 md:pb-24">

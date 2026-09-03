@@ -26,6 +26,9 @@ import advisory828 from "@/assets/webp/v4/svc-technology-advisory-828.webp";
 /**
  * One photograph per capability page, in the site's three widths.
  *
+ * The base is 3840 wide (Sept 2026, Nicholas): these are full-bleed heroes and
+ * on a high density display the old 2880 was being upscaled by the browser.
+ *
  * Deliberately one per page: the hero carries it, and everything below is
  * typography. A second photograph on a page this long would land in the
  * middle of an argument and interrupt it.
@@ -34,7 +37,7 @@ export type ServicePhoto = { src: string; srcSet: string };
 
 const photo = (full: string, w1600: string, w828: string): ServicePhoto => ({
   src: full,
-  srcSet: `${w828} 828w, ${w1600} 1600w, ${full} 2880w`,
+  srcSet: `${w828} 828w, ${w1600} 1600w, ${full} 3840w`,
 });
 
 export const SERVICE_PHOTOS: Record<string, ServicePhoto> = {
