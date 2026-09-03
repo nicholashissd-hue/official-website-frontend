@@ -16,8 +16,8 @@ const page: ServicePage = {
       "We automate the path from commit to production so release velocity rises and change-related incidents fall.",
     primaryCta: "Talk to a delivery engineer",
     photoAlt:
-      "A group of engineers gathered behind a colleague at a desk, watching a deployment on a monitor at night",
-    photoPosition: "center 42%",
+      "Two engineers side by side at a desk at night, working through a release together",
+    photoPosition: "center 45%",
   },
 
   lead: "We improve the systems, automation, controls, and working practices behind software delivery, helping teams release more confidently without trading speed for quality, security, or operational stability.",

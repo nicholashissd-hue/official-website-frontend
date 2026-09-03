@@ -16,8 +16,8 @@ const page: ServicePage = {
       "We instrument spend, remove waste, and put guardrails in the pipeline so the bill becomes a managed number instead of a monthly surprise.",
     primaryCta: "Talk to a FinOps engineer",
     photoAlt:
-      "Two colleagues working through printed spreadsheets and a laptop at a desk in a dim office at dusk",
-    photoPosition: "center 45%",
+      "Three colleagues talking at a desk in a dark office at night, city lights beyond the window",
+    photoPosition: "center 42%",
   },
 
   lead: "Our cloud and FinOps engineers work directly with finance, product, infrastructure, and engineering teams to identify where money is being consumed, implement validated improvements, and embed cost awareness into the systems and decisions that create cloud spend.",
