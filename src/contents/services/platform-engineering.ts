@@ -16,7 +16,7 @@ const page: ServicePage = {
       "We build the internal platform and golden paths that let product teams ship on their own instead of queueing behind a specialist.",
     primaryCta: "Talk to a platform engineer",
     photoAlt:
-      "A platform engineer explaining an architecture sketch at a whiteboard to three developers in a dark office",
+      "A daylit engineering floor seen past a dark glazed partition, desks and monitors receding toward a window wall",
     photoPosition: "center 40%",
   },
 
