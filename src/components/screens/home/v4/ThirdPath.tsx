@@ -55,7 +55,7 @@ const ThirdPath = () => (
         <Reveal delay={0.1}>
           <img
             src={pairingImage}
-            srcSet={`${pairingImage828} 828w, ${pairingImage} 1856w`}
+            srcSet={`${pairingImage828} 828w, ${pairingImage} 2480w`}
             sizes="(min-width: 1024px) 42vw, 100vw"
             alt="Two ElderOps engineers working a problem through together at one desk in a daylit office"
             loading="lazy"
