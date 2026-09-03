@@ -16,7 +16,7 @@ const page: ServicePage = {
       "We automate the path from commit to production so release velocity rises and change-related incidents fall.",
     primaryCta: "Talk to a delivery engineer",
     photoAlt:
-      "A long working bench in a daylit office, linear ceiling lights and glazed rooms running away down the floor",
+      "Three engineers leaning over a bench together, working through drawings on an engineering floor lit by tall factory windows",
     photoPosition: "center 45%",
   },
 
