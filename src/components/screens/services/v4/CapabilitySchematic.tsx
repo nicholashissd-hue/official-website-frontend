@@ -110,17 +110,17 @@ const CapabilitySchematic = () => (
         {/* The sheet keeps its proportions and scrolls sideways rather than
             reflowing: a schematic that rewraps is no longer the same drawing. */}
         <div className="-mx-6 overflow-x-auto px-6 md:mx-0 md:px-0">
+          {/* The accessible name is an aria-label, not a <title> child.
+              A <title> is the only SVG element browsers render as a native
+              tooltip, and it fired on every hover — a grey OS box parked over
+              the drawing at the exact moment the reader is reading it. The
+              label carries the same sentence to a screen reader. */}
           <svg
             className="sc-plate"
             viewBox="0 0 1312 980"
             role="img"
-            aria-labelledby="sc-plate-title"
+            aria-label="A schematic of the eight ElderOps capabilities: what they stand on, how change reaches production, and what keeps it honest once it is there."
           >
-            <title id="sc-plate-title">
-              A schematic of the eight ElderOps capabilities: what they stand
-              on, how change reaches production, and what keeps it honest once
-              it is there.
-            </title>
             <defs>
               <pattern
                 id="sc-grid"
