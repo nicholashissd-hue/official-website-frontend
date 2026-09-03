@@ -69,13 +69,15 @@ const ContactUs = () => (
               src={contactPhoto}
               srcSet={`${contactPhoto828} 828w, ${contactPhoto1600} 1600w, ${contactPhoto} 2400w`}
               sizes="(min-width: 1024px) 40vw, 100vw"
-              alt="A city grid glowing at night, seen from high above"
+              alt="An ElderOps engineer at their desk in a daylit office, reading through the work"
               loading="lazy"
               className="aspect-[4/3] w-full border border-hairline object-cover"
             />
+            {/* Three "the person who" clauses in one sentence, and the second
+                half restated the first. Two short sentences say it once each. */}
             <p className="mt-3 text-sm text-sub">
-              The person who answers is an engineer, and the person who scopes
-              your work is the person who does it.
+              An engineer reads what you send. Whoever scopes the work is the
+              one who does it.
             </p>
           </Reveal>
 

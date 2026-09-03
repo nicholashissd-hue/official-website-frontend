@@ -19,7 +19,7 @@ const HwwHero = () => (
       src={heroImage}
       srcSet={`${heroImage828} 828w, ${heroImage1600} 1600w, ${heroImage} 2880w`}
       sizes="100vw"
-      alt="An ElderOps engineer talking a client team through the work, around a boardroom table at night"
+      alt="ElderOps engineers working together along a desk at night, the city dark beyond the glazing"
       className="absolute inset-0 size-full object-cover"
       style={{ objectPosition: "center 45%" }}
     />

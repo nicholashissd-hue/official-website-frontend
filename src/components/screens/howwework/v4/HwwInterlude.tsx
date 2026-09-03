@@ -10,7 +10,7 @@ const HwwInterlude = () => (
   <FullBleed
     image={interludeImage}
     imageSet={`${interludeImage828} 828w, ${interludeImage1600} 1600w, ${interludeImage} 2880w`}
-    alt="One ElderOps engineer showing a colleague how something works on a laptop at a desk"
+    alt="One ElderOps engineer talking a colleague through the work at their desk in a daylit office"
     objectPosition="center 40%"
   >
     <h2 className="max-w-3xl font-display text-title font-bold tracking-[-0.03em] text-bg-cream">
