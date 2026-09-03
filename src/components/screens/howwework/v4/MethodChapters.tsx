@@ -45,7 +45,7 @@ const MethodChapters = () => (
             src={assessPhoto}
             srcSet={`${assessPhoto828} 828w, ${assessPhoto} 1600w`}
             sizes="(min-width: 1024px) 46vw, 100vw"
-            alt="An engineer stands before a wall-sized glowing map of a system"
+            alt="Two engineers reading a system together at a desk, one leaning in over the other's shoulder"
             loading="lazy"
             className="aspect-[3/2] w-full border border-hairline object-cover"
           />

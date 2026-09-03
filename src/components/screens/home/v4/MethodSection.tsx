@@ -19,17 +19,17 @@ const STEP_SKETCHES = [
   {
     src: assessPhoto,
     srcSet: `${assessPhoto828} 828w, ${assessPhoto} 1600w`,
-    alt: "An engineer stands before a wall-sized glowing map of a system",
+    alt: "Two engineers reading a system together at a desk, one leaning in over the other's shoulder",
   },
   {
     src: buildPhoto,
     srcSet: `${buildPhoto828} 828w, ${buildPhoto} 1600w`,
-    alt: "The same engineer deep in work at a dark desk, lit by screen glow",
+    alt: "An engineer crouched at an open equipment rack, patching cables with a laptop to hand",
   },
   {
     src: ownPhoto,
     srcSet: `${ownPhoto828} 828w, ${ownPhoto} 1600w`,
-    alt: "The engineer walks away down a green-lit server aisle toward dawn light",
+    alt: "An open ring-bound runbook on a desk, one hand steadying the page while another writes notes alongside",
   },
 ];
 
