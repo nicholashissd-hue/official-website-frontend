@@ -180,6 +180,13 @@
      around exactly one; this is a deep red that sits beside ink and paper
      and still clears 7:1 on white. */
   --color-danger: #a4161a;
+  /* The capability schematic's ground. It is the near-black surface with the
+     green pulled out of it: at full width, behind a drawing made of hairlines,
+     nearblack reads as a green field rather than as black. Same role, less hue,
+     and used only by that one plate. */
+  --color-plate: #0a1110;
+  --color-plate-node: #0f1615;
+  --color-plate-node-lift: #141d1b;
   --color-hairline: rgb(11 36 24 / 0.14);
   --color-sub: rgb(11 36 24 / 0.64);
   --color-ondark: rgb(252 252 246 / 0.75);
@@ -468,4 +475,385 @@ summary {
 
 video::-webkit-media-controls {
   display: none !important;
+}
+
+/* ── The capability schematic ─────────────────────────────────────
+   Hand CSS rather than utilities, because the interaction is relational:
+   hovering one node has to dim every unrelated edge and light the ones that
+   touch it, which is a `:has()` plus attribute-selector problem that utility
+   classes cannot express. Everything here is scoped to .sc- and used by one
+   component. Colours come from the theme tokens so the plate is defined once.
+
+   Green appears in exactly two places at rest: nowhere. It arrives only on the
+   travelling trace and on whatever the reader is pointing at. */
+.sc-plate {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* The sheet keeps its proportions and scrolls sideways rather than
+     reflowing — a schematic that rewraps is a different drawing. The floor
+     drops on a phone so the block is a readable band rather than a wall;
+     below it, the schedule is the same eight capabilities in one column. */
+  min-width: 820px;
+}
+@media (min-width: 768px) {
+  .sc-plate {
+    min-width: 1100px;
+  }
+}
+.sc-rlab {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  fill: rgb(241 238 231 / 0.44);
+}
+.sc-elab {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  fill: rgb(241 238 231 / 0.4);
+  transition: fill 0.22s ease;
+}
+.sc-cut {
+  fill: var(--color-plate);
+}
+.sc-edge {
+  fill: none;
+  stroke: rgb(241 238 231 / 0.22);
+  stroke-width: 1;
+  transition:
+    stroke 0.22s ease,
+    opacity 0.22s ease;
+}
+.sc-adv {
+  stroke-dasharray: 2 3;
+  stroke: rgb(241 238 231 / 0.2);
+}
+.sc-jn {
+  fill: rgb(241 238 231 / 0.34);
+  transition: fill 0.22s ease;
+}
+
+/* One packet in flight at a time, on a fixed published order, so it reads as a
+   scheduled sweep rather than decoration. */
+.sc-live {
+  fill: none;
+  stroke: var(--color-signal);
+  stroke-width: 1.5;
+  stroke-dasharray: 26 calc(var(--len) * 1px);
+  stroke-dashoffset: 0;
+  opacity: 0;
+  animation: sc-trace 21.7s linear infinite;
+}
+@keyframes sc-trace {
+  0% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+  0.4% {
+    opacity: 1;
+  }
+  12.44% {
+    stroke-dashoffset: calc(var(--len) * -1px);
+    opacity: 1;
+  }
+  13.13% {
+    stroke-dashoffset: calc(var(--len) * -1px);
+    opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: calc(var(--len) * -1px);
+    opacity: 0;
+  }
+}
+.sc-live[data-for="e1"] {
+  animation-delay: 0s;
+}
+.sc-live[data-for="e2"] {
+  animation-delay: 3.1s;
+}
+.sc-live[data-for="e3"] {
+  animation-delay: 6.2s;
+}
+.sc-live[data-for="e4"] {
+  animation-delay: 9.3s;
+}
+.sc-live[data-for="e5"] {
+  animation-delay: 12.4s;
+}
+.sc-live[data-for="e6"] {
+  animation-delay: 15.5s;
+}
+.sc-live[data-for="e7"] {
+  animation-delay: 18.6s;
+}
+
+.sc-node {
+  cursor: pointer;
+  outline: none;
+}
+.sc-nbg {
+  fill: var(--color-plate-node);
+  transition: fill 0.2s ease;
+}
+.sc-nbr {
+  fill: none;
+  stroke: rgb(241 238 231 / 0.15);
+  stroke-width: 1;
+  transition: stroke 0.2s ease;
+}
+.sc-nidx {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  fill: rgb(241 238 231 / 0.45);
+}
+.sc-nrule {
+  stroke: rgb(241 238 231 / 0.13);
+  stroke-width: 1;
+}
+.sc-ntitle {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  fill: var(--color-bg-cream);
+}
+.sc-nqual {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  fill: rgb(241 238 231 / 0.55);
+}
+.sc-nkind {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  fill: rgb(241 238 231 / 0.4);
+}
+.sc-nsubs {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  fill: rgb(241 238 231 / 0);
+  transition: fill 0.22s ease;
+}
+
+/* The drawings: primary form, construction line, centre line, solid mass, and
+   two hatch directions. The weight hierarchy is what stops them reading as
+   icon-set line art. */
+.sc-sym .p {
+  fill: none;
+  stroke: rgb(241 238 231 / 0.68);
+  stroke-width: 1.5;
+  stroke-linejoin: miter;
+  transition: stroke 0.2s ease;
+}
+.sc-sym .c {
+  fill: none;
+  stroke: rgb(241 238 231 / 0.3);
+  stroke-width: 0.8;
+  transition: stroke 0.2s ease;
+}
+.sc-sym .cl {
+  fill: none;
+  stroke: rgb(241 238 231 / 0.22);
+  stroke-width: 0.8;
+  stroke-dasharray: 7 2.5 1.5 2.5;
+  transition: stroke 0.2s ease;
+}
+.sc-sym .s {
+  fill: rgb(241 238 231 / 0.7);
+  stroke: none;
+  transition: fill 0.2s ease;
+}
+.sc-sym .h {
+  fill: url(#sc-hx);
+  stroke: none;
+}
+.sc-sym .h2 {
+  fill: url(#sc-hx2);
+  stroke: none;
+}
+
+.sc-node:hover .sc-nbg,
+.sc-node:focus-visible .sc-nbg {
+  fill: var(--color-plate-node-lift);
+}
+.sc-node:hover .sc-nbr,
+.sc-node:focus-visible .sc-nbr {
+  stroke: var(--color-signal);
+}
+.sc-node:focus-visible .sc-nbr {
+  stroke-width: 2;
+}
+.sc-node:hover .sc-sym .p,
+.sc-node:focus-visible .sc-sym .p {
+  stroke: var(--color-signal);
+}
+.sc-node:hover .sc-sym .s,
+.sc-node:focus-visible .sc-sym .s {
+  fill: var(--color-signal);
+}
+.sc-node:hover .sc-sym .c,
+.sc-node:hover .sc-sym .cl,
+.sc-node:focus-visible .sc-sym .c,
+.sc-node:focus-visible .sc-sym .cl {
+  stroke: rgb(15 180 94 / 0.5);
+}
+.sc-node:hover .sc-nsubs,
+.sc-node:focus-visible .sc-nsubs {
+  fill: rgb(241 238 231 / 0.62);
+}
+
+/* Point at one capability and the sweep holds still while you read it. */
+.sc-plate:has(.sc-node:hover) .sc-live,
+.sc-plate:has(.sc-node:focus-visible) .sc-live {
+  animation-play-state: paused;
+  opacity: 0;
+}
+.sc-plate:has(.sc-node:hover) .sc-node:not(:hover) {
+  opacity: 0.32;
+}
+.sc-plate:has(.sc-node:hover) .sc-edge,
+.sc-plate:has(.sc-node:focus-visible) .sc-edge {
+  opacity: 0.16;
+}
+.sc-plate:has(.sc-node:hover) .sc-elab,
+.sc-plate:has(.sc-node:focus-visible) .sc-elab {
+  fill: rgb(241 238 231 / 0.12);
+}
+.sc-plate:has(.sc-node[data-n="01"]:hover) .sc-jn,
+.sc-plate:has(.sc-node[data-n="01"]:focus-visible) .sc-jn {
+  fill: var(--color-signal);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sc-live {
+    animation: none;
+    opacity: 1;
+    stroke-dashoffset: calc(var(--len) * -0.38px);
+  }
+  .sc-nbg,
+  .sc-nbr,
+  .sc-sym .p,
+  .sc-sym .c,
+  .sc-nsubs,
+  .sc-elab,
+  .sc-edge {
+    transition: none;
+  }
+}
+
+.sc-plate:has(.sc-node[data-n="01"]:hover) .sc-edge[data-a="01"],
+.sc-plate:has(.sc-node[data-n="01"]:hover) .sc-edge[data-b="01"],
+.sc-plate:has(.sc-node[data-n="01"]:focus-visible) .sc-edge[data-a="01"],
+.sc-plate:has(.sc-node[data-n="01"]:focus-visible) .sc-edge[data-b="01"] {
+  stroke: var(--color-signal);
+  opacity: 1;
+  marker-end: url(#sc-chev-live);
+}
+.sc-plate:has(.sc-node[data-n="01"]:hover) .sc-elab[data-a="01"],
+.sc-plate:has(.sc-node[data-n="01"]:hover) .sc-elab[data-b="01"],
+.sc-plate:has(.sc-node[data-n="01"]:focus-visible) .sc-elab[data-a="01"],
+.sc-plate:has(.sc-node[data-n="01"]:focus-visible) .sc-elab[data-b="01"] {
+  fill: var(--color-signal);
+}
+.sc-plate:has(.sc-node[data-n="02"]:hover) .sc-edge[data-a="02"],
+.sc-plate:has(.sc-node[data-n="02"]:hover) .sc-edge[data-b="02"],
+.sc-plate:has(.sc-node[data-n="02"]:focus-visible) .sc-edge[data-a="02"],
+.sc-plate:has(.sc-node[data-n="02"]:focus-visible) .sc-edge[data-b="02"] {
+  stroke: var(--color-signal);
+  opacity: 1;
+  marker-end: url(#sc-chev-live);
+}
+.sc-plate:has(.sc-node[data-n="02"]:hover) .sc-elab[data-a="02"],
+.sc-plate:has(.sc-node[data-n="02"]:hover) .sc-elab[data-b="02"],
+.sc-plate:has(.sc-node[data-n="02"]:focus-visible) .sc-elab[data-a="02"],
+.sc-plate:has(.sc-node[data-n="02"]:focus-visible) .sc-elab[data-b="02"] {
+  fill: var(--color-signal);
+}
+.sc-plate:has(.sc-node[data-n="03"]:hover) .sc-edge[data-a="03"],
+.sc-plate:has(.sc-node[data-n="03"]:hover) .sc-edge[data-b="03"],
+.sc-plate:has(.sc-node[data-n="03"]:focus-visible) .sc-edge[data-a="03"],
+.sc-plate:has(.sc-node[data-n="03"]:focus-visible) .sc-edge[data-b="03"] {
+  stroke: var(--color-signal);
+  opacity: 1;
+  marker-end: url(#sc-chev-live);
+}
+.sc-plate:has(.sc-node[data-n="03"]:hover) .sc-elab[data-a="03"],
+.sc-plate:has(.sc-node[data-n="03"]:hover) .sc-elab[data-b="03"],
+.sc-plate:has(.sc-node[data-n="03"]:focus-visible) .sc-elab[data-a="03"],
+.sc-plate:has(.sc-node[data-n="03"]:focus-visible) .sc-elab[data-b="03"] {
+  fill: var(--color-signal);
+}
+.sc-plate:has(.sc-node[data-n="04"]:hover) .sc-edge[data-a="04"],
+.sc-plate:has(.sc-node[data-n="04"]:hover) .sc-edge[data-b="04"],
+.sc-plate:has(.sc-node[data-n="04"]:focus-visible) .sc-edge[data-a="04"],
+.sc-plate:has(.sc-node[data-n="04"]:focus-visible) .sc-edge[data-b="04"] {
+  stroke: var(--color-signal);
+  opacity: 1;
+  marker-end: url(#sc-chev-live);
+}
+.sc-plate:has(.sc-node[data-n="04"]:hover) .sc-elab[data-a="04"],
+.sc-plate:has(.sc-node[data-n="04"]:hover) .sc-elab[data-b="04"],
+.sc-plate:has(.sc-node[data-n="04"]:focus-visible) .sc-elab[data-a="04"],
+.sc-plate:has(.sc-node[data-n="04"]:focus-visible) .sc-elab[data-b="04"] {
+  fill: var(--color-signal);
+}
+.sc-plate:has(.sc-node[data-n="05"]:hover) .sc-edge[data-a="05"],
+.sc-plate:has(.sc-node[data-n="05"]:hover) .sc-edge[data-b="05"],
+.sc-plate:has(.sc-node[data-n="05"]:focus-visible) .sc-edge[data-a="05"],
+.sc-plate:has(.sc-node[data-n="05"]:focus-visible) .sc-edge[data-b="05"] {
+  stroke: var(--color-signal);
+  opacity: 1;
+  marker-end: url(#sc-chev-live);
+}
+.sc-plate:has(.sc-node[data-n="05"]:hover) .sc-elab[data-a="05"],
+.sc-plate:has(.sc-node[data-n="05"]:hover) .sc-elab[data-b="05"],
+.sc-plate:has(.sc-node[data-n="05"]:focus-visible) .sc-elab[data-a="05"],
+.sc-plate:has(.sc-node[data-n="05"]:focus-visible) .sc-elab[data-b="05"] {
+  fill: var(--color-signal);
+}
+.sc-plate:has(.sc-node[data-n="06"]:hover) .sc-edge[data-a="06"],
+.sc-plate:has(.sc-node[data-n="06"]:hover) .sc-edge[data-b="06"],
+.sc-plate:has(.sc-node[data-n="06"]:focus-visible) .sc-edge[data-a="06"],
+.sc-plate:has(.sc-node[data-n="06"]:focus-visible) .sc-edge[data-b="06"] {
+  stroke: var(--color-signal);
+  opacity: 1;
+  marker-end: url(#sc-chev-live);
+}
+.sc-plate:has(.sc-node[data-n="06"]:hover) .sc-elab[data-a="06"],
+.sc-plate:has(.sc-node[data-n="06"]:hover) .sc-elab[data-b="06"],
+.sc-plate:has(.sc-node[data-n="06"]:focus-visible) .sc-elab[data-a="06"],
+.sc-plate:has(.sc-node[data-n="06"]:focus-visible) .sc-elab[data-b="06"] {
+  fill: var(--color-signal);
+}
+.sc-plate:has(.sc-node[data-n="07"]:hover) .sc-edge[data-a="07"],
+.sc-plate:has(.sc-node[data-n="07"]:hover) .sc-edge[data-b="07"],
+.sc-plate:has(.sc-node[data-n="07"]:focus-visible) .sc-edge[data-a="07"],
+.sc-plate:has(.sc-node[data-n="07"]:focus-visible) .sc-edge[data-b="07"] {
+  stroke: var(--color-signal);
+  opacity: 1;
+  marker-end: url(#sc-chev-live);
+}
+.sc-plate:has(.sc-node[data-n="07"]:hover) .sc-elab[data-a="07"],
+.sc-plate:has(.sc-node[data-n="07"]:hover) .sc-elab[data-b="07"],
+.sc-plate:has(.sc-node[data-n="07"]:focus-visible) .sc-elab[data-a="07"],
+.sc-plate:has(.sc-node[data-n="07"]:focus-visible) .sc-elab[data-b="07"] {
+  fill: var(--color-signal);
+}
+.sc-plate:has(.sc-node[data-n="08"]:hover) .sc-edge[data-a="08"],
+.sc-plate:has(.sc-node[data-n="08"]:hover) .sc-edge[data-b="08"],
+.sc-plate:has(.sc-node[data-n="08"]:focus-visible) .sc-edge[data-a="08"],
+.sc-plate:has(.sc-node[data-n="08"]:focus-visible) .sc-edge[data-b="08"] {
+  stroke: var(--color-signal);
+  opacity: 1;
+  marker-end: url(#sc-chev-live);
+}
+.sc-plate:has(.sc-node[data-n="08"]:hover) .sc-elab[data-a="08"],
+.sc-plate:has(.sc-node[data-n="08"]:hover) .sc-elab[data-b="08"],
+.sc-plate:has(.sc-node[data-n="08"]:focus-visible) .sc-elab[data-a="08"],
+.sc-plate:has(.sc-node[data-n="08"]:focus-visible) .sc-elab[data-b="08"] {
+  fill: var(--color-signal);
 }

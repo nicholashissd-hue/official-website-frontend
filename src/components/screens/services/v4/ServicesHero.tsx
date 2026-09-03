@@ -51,7 +51,7 @@ const ServicesHero = () => (
         <div className="flex items-center gap-7">
           <SignalButton to="/contact-us">{hero.primaryCta}</SignalButton>
           <a
-            href="#cloud-infrastructure"
+            href="#capabilities"
             className="inline-flex items-center gap-2 border-b border-bg-cream/35 pb-0.5 text-base font-semibold text-bg-cream/85 transition-colors duration-300 hover:text-bg-cream"
           >
             {hero.secondaryCta} <span aria-hidden="true">↓</span>
