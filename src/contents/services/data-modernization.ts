@@ -95,7 +95,7 @@ const page: ServicePage = {
   },
 
   caseStudy: {
-    title: "Reporting took a week and nobody trusted the number",
+    title: "Consolidating reporting on a trusted data foundation",
     client:
       "A long-established services business with a legacy ERP at the center of operations.",
     problem:

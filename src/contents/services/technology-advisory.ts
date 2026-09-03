@@ -97,7 +97,7 @@ const page: ServicePage = {
   },
 
   caseStudy: {
-    title: "The CTO left three weeks before diligence started",
+    title: "Fractional technology leadership through a funding round",
     client:
       "An early-growth startup with about 20 engineers, heading into a funding round.",
     problem:

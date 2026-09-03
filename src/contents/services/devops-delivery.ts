@@ -89,7 +89,7 @@ const page: ServicePage = {
   },
 
   caseStudy: {
-    title: "Releases were a Thursday night event",
+    title: "Replacing release night at a logistics software company",
     client:
       "A logistics software company, about 25 engineers, shipping monthly.",
     problem:

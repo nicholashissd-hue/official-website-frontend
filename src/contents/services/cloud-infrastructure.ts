@@ -88,7 +88,7 @@ const page: ServicePage = {
   },
 
   caseStudy: {
-    title: "The migration that had been almost done for nine months",
+    title: "Completing a stalled cloud migration for a health-tech company",
     client:
       "A Series A health-tech company, roughly 35 engineers, midway from a colocation facility to public cloud.",
     problem:

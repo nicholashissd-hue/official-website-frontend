@@ -89,7 +89,7 @@ const page: ServicePage = {
   },
 
   caseStudy: {
-    title: "The bill kept growing while usage stayed flat",
+    title: "Bringing cloud spend under ownership at a data company",
     client:
       "A Series B data company running a multi-account estate with heavy Kubernetes usage.",
     problem:

@@ -88,7 +88,7 @@ const page: ServicePage = {
   },
 
   caseStudy: {
-    title: "Eight teams, eight pipelines, and one very tired platform lead",
+    title: "A self-service delivery platform for eight product teams",
     client:
       "A Series B B2B SaaS company, about 60 engineers across eight product teams.",
     problem:

@@ -93,7 +93,7 @@ const page: ServicePage = {
   },
 
   caseStudy: {
-    title: "The dashboards were green while customers were down",
+    title: "Rebuilding reliability around customer experience at a marketplace",
     client:
       "A consumer marketplace, about 50 engineers, with sharp traffic peaks.",
     problem:

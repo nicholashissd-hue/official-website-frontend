@@ -93,7 +93,7 @@ const page: ServicePage = {
   },
 
   caseStudy: {
-    title: "Security was the last gate, so security was always the delay",
+    title: "Building security into delivery ahead of a SOC 2 audit",
     client:
       "A fintech company moving upmarket into enterprise deals and preparing for a SOC 2 audit.",
     problem:
