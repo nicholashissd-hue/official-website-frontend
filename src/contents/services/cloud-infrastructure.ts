@@ -16,7 +16,7 @@ const page: ServicePage = {
       "Senior cloud engineers embedded in your team to design, migrate, automate, and operate environments that scale cleanly. Public cloud, hybrid, or on-premises.",
     primaryCta: "Talk to a cloud engineer",
     photoAlt:
-      "An ElderOps engineer working at a rack in a data centre aisle at night",
+      "A containment aisle in a working data hall, with an engineer at an open cabinet far down the lit end of the row",
     photoPosition: "center 45%",
   },
 
