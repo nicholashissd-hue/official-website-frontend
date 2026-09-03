@@ -23,7 +23,7 @@ const ServiceCaseStudy = ({ page }: { page: ServicePage }) => {
   const { caseStudy } = page;
 
   return (
-    <section className="bg-bone">
+    <section id="case-study" className="scroll-mt-24 bg-bone">
       <div className="container section-space-block">
         <div className="grid items-start gap-x-16 gap-y-9 lg:grid-cols-[4fr_8fr]">
           <Reveal>

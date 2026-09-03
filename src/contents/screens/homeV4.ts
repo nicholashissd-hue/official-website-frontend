@@ -72,31 +72,25 @@ export const method = {
 };
 
 /**
- * Client work on Home: three of the eight capability case studies, selected by
- * taxonomy id rather than written again here.
+ * Client work on Home: an index of all eight case studies, not the studies
+ * themselves.
  *
- * These used to be three separate stories in an older shape (situation, what we
- * did, outcome) with no client, no handoff line, and vaguer outcomes than the
- * capability pages carry. Once the eight pages adopted the rebuild spec's format
- * (Sept 2026) the site was telling client stories two different ways, and Home's
- * were the weaker half. Referencing the real ones fixes that permanently: there
- * is one place a case study is written, so Home and the capability page can never
- * drift apart, and a reader who follows the link finds the same engagement rather
- * than a near-duplicate of it.
+ * This section has been through three shapes. It began as three separately
+ * written stories in an older format, then became three of the real capability
+ * case studies rendered in full, which duplicated a page a reader could already
+ * reach. It is now what it should have been: the titles of all eight, each a
+ * door into the capability page that owns it. Home advertises the range of work
+ * and the capability page tells the story once.
  *
- * They are illustrative composites, so this section carries the same tag and the
- * same note the capability pages do, from `caseStudyLabel`.
+ * Nothing is authored here. The titles come from SERVICE_PAGES and the order
+ * from the taxonomy, so a retitled case study updates here without being touched.
  */
 export const caseFiles = {
   eyebrow: "Client work",
   title: "Real business challenges. Real engineering outcomes.",
-  /** Taxonomy ids. Order is the order they appear. */
-  featured: [
-    "cloud-infrastructure",
-    "data-modernization",
-    "reliability-operations",
-  ],
-  cta: "Read the full case",
+  intro:
+    "One engagement for each of the eight capabilities. Open any of them on the capability page it belongs to.",
+  cta: "Read the case",
 };
 
 export const interlude = {
