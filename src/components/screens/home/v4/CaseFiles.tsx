@@ -82,10 +82,18 @@ const CaseFiles = () => {
                     {/* The affordance rides the title. Eight bold green
                         "Read the case" lines were eight calls to action on a
                         page whose actual call to action is at the bottom, and
-                        the row is already entirely clickable. */}
+                        the row is already entirely clickable.
+
+                        On a pointer device it arrives on hover. A touch device
+                        has no hover, so hiding it there left eight rows that
+                        looked like plain text and gave a reader nothing to
+                        tell them the titles open anything: it is shown at rest
+                        wherever hover does not exist. Keyed on the input, not
+                        on width, because a tablet is wide and still cannot
+                        hover. */}
                     <span
                       aria-hidden="true"
-                      className="ml-2 inline-block -translate-x-1 text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:opacity-100"
+                      className="ml-2 inline-block -translate-x-1 text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:opacity-100 [@media(hover:none)]:translate-x-0 [@media(hover:none)]:opacity-100"
                     >
                       &#8594;
                     </span>
