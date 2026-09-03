@@ -18,7 +18,7 @@ const page: ServicePage = {
       "We modernize core systems and data foundations in deliverable slices, so tech debt shrinks without halting the business.",
     primaryCta: "Talk to a data engineer",
     photoAlt:
-      "Two engineers working through a system together at a desk at night, city lights beyond the window",
+      "Seen from above, hands working across a table spread with printed reports and an open bound ledger",
     photoPosition: "center 45%",
   },
 
