@@ -643,9 +643,15 @@ video::-webkit-media-controls {
   letter-spacing: 0.14em;
   fill: rgb(var(--sc-ink) / 0.5);
 }
+/* 9px, not 10. At 10 the longest of these lines filled the node to within
+   16 units of its border, which is exactly the left inset and still reads as
+   bursting out of the box, because the title and the kind label above it both
+   stop well short. Dropping one pixel buys 8 units of air on each side and
+   costs nothing anyone can see. One size for all eight, so the row of nodes
+   stays a set. */
 .sc-nsubs {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 9px;
   letter-spacing: 0.04em;
   fill: rgb(var(--sc-ink) / 0);
   transition: fill 0.22s ease;

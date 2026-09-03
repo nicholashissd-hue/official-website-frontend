@@ -112,7 +112,10 @@ const node = (
  * Runs again after the webfont lands, because the measurement taken against
  * the fallback face is not the measurement that ships.
  */
-const FIT = NW - 32;
+/* 24 units of air each side, not the 16 the node uses elsewhere. A line of
+   type that runs to the same inset as the box edge reads as overflowing even
+   when it is inside, and this one was reported as overflowing twice. */
+const FIT = NW - 48;
 
 const useFitSubs = (ref: React.RefObject<SVGSVGElement | null>) => {
   useEffect(() => {

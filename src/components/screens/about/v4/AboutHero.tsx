@@ -19,7 +19,7 @@ const AboutHero = () => (
       src={heroImage}
       srcSet={`${heroImage828} 828w, ${heroImage1600} 1600w, ${heroImage} 2880w`}
       sizes="100vw"
-      alt="The ElderOps team working around a conference table at dusk"
+      alt="An ElderOps engineering team at work on a daylit floor"
       className="absolute inset-0 size-full object-cover"
       style={{ objectPosition: "center 42%" }}
     />
