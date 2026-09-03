@@ -94,15 +94,6 @@ const page: ServicePage = {
     ],
   },
 
-  outcomes: {
-    title: "What changes",
-    items: [
-      "Reporting is trusted and current.",
-      "Modernization lands in increments, not one risky event.",
-      "Legacy systems retire on a path, not on a deadline.",
-    ],
-  },
-
   caseStudy: {
     title: "Reporting took a week and nobody trusted the number",
     client:

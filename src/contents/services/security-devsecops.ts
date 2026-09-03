@@ -92,15 +92,6 @@ const page: ServicePage = {
     ],
   },
 
-  outcomes: {
-    title: "What changes",
-    items: [
-      "Security findings surface in minutes, not at the release gate.",
-      "Audit evidence is a query, not a project.",
-      "Engineers can act on what they are told to fix.",
-    ],
-  },
-
   caseStudy: {
     title: "Security was the last gate, so security was always the delay",
     client:

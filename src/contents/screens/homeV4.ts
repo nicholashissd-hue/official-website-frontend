@@ -72,42 +72,31 @@ export const method = {
 };
 
 /**
- * Outcomes are stated qualitatively and completely. They previously shipped
- * bracketed placeholders ([X], [Y], [Z]) visible to the reader; a real
- * figure belongs here only once it is confirmed and attributable.
+ * Client work on Home: three of the eight capability case studies, selected by
+ * taxonomy id rather than written again here.
+ *
+ * These used to be three separate stories in an older shape (situation, what we
+ * did, outcome) with no client, no handoff line, and vaguer outcomes than the
+ * capability pages carry. Once the eight pages adopted the rebuild spec's format
+ * (Sept 2026) the site was telling client stories two different ways, and Home's
+ * were the weaker half. Referencing the real ones fixes that permanently: there
+ * is one place a case study is written, so Home and the capability page can never
+ * drift apart, and a reader who follows the link finds the same engagement rather
+ * than a near-duplicate of it.
+ *
+ * They are illustrative composites, so this section carries the same tag and the
+ * same note the capability pages do, from `caseStudyLabel`.
  */
 export const caseFiles = {
   eyebrow: "Client work",
   title: "Real business challenges. Real engineering outcomes.",
-  cases: [
-    {
-      title: "Cloud Modernization",
-      situation:
-        "A growing platform was running on aging infrastructure that broke under load and slowed every release.",
-      whatWeDid:
-        "We re-architected the environment, set up landing zones, and moved delivery to automated pipelines.",
-      outcome:
-        "Releases went from a hand-run checklist to a pipeline the team runs itself, and the load failures stopped.",
-    },
-    {
-      title: "Data Platform Transformation",
-      situation:
-        "Reporting was manual, slow, and untrusted, so decisions waited on numbers no one was sure of.",
-      whatWeDid:
-        "We modernized the data foundation and pipelines and put governance around the data.",
-      outcome:
-        "Reporting runs on its own, and the numbers it produces are the ones the business now decides on.",
-    },
-    {
-      title: "Engineering Process Improvement",
-      situation:
-        "The team spent more time firefighting than building, with no clear picture of what was failing.",
-      whatWeDid:
-        "We introduced observability, an on-call structure, and DevOps practices that replaced ticket-driven ops.",
-      outcome:
-        "The team can see what is failing before customers do, and the engineers are back on the roadmap.",
-    },
+  /** Taxonomy ids. Order is the order they appear. */
+  featured: [
+    "cloud-infrastructure",
+    "data-modernization",
+    "reliability-operations",
   ],
+  cta: "Read the full case",
 };
 
 export const interlude = {

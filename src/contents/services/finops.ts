@@ -88,15 +88,6 @@ const page: ServicePage = {
     ],
   },
 
-  outcomes: {
-    title: "What changes",
-    items: [
-      "Every team can see the spend it controls.",
-      "Waste is caught in the pipeline, not the invoice.",
-      "You can forecast cloud cost as confidently as headcount.",
-    ],
-  },
-
   caseStudy: {
     title: "The bill kept growing while usage stayed flat",
     client:

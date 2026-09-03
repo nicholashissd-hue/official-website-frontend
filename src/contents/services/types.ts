@@ -6,6 +6,11 @@
  * on still come from contents/taxonomy.ts, which stays the single source for
  * the capability list itself.
  *
+ * "What changes" is gone (Nicholas, Sept 2026). The rebuild spec trimmed it from
+ * six items to three; on the page it still restated the signal list in the
+ * future tense and earned nothing, so the section went entirely rather than
+ * being shortened again.
+ *
  * Concise rewrite (Sept 2026, from the partner's rebuild spec). The pages ran
  * 1,200 to 1,900 words each and the substance was buried by the length. Three
  * things went: the opening argument (the signal list qualifies a reader faster
@@ -71,12 +76,6 @@ export type ServicePage = {
     paragraphs: string[];
     modelsIntro: string;
     models: string[];
-  };
-
-  /** "What changes" — three outcomes, one line each. */
-  outcomes: {
-    title: string;
-    items: string[];
   };
 
   /**

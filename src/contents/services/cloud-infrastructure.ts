@@ -87,15 +87,6 @@ const page: ServicePage = {
     ],
   },
 
-  outcomes: {
-    title: "What changes",
-    items: [
-      "Environments provision in minutes instead of tickets.",
-      "Recovery is tested, not assumed.",
-      "Your team can explain and change the environment without us.",
-    ],
-  },
-
   caseStudy: {
     title: "The migration that had been almost done for nine months",
     client:

@@ -92,15 +92,6 @@ const page: ServicePage = {
     ],
   },
 
-  outcomes: {
-    title: "What changes",
-    items: [
-      "Problems are found before customers report them.",
-      "On-call becomes sustainable.",
-      "Recovery is a practiced procedure.",
-    ],
-  },
-
   caseStudy: {
     title: "The dashboards were green while customers were down",
     client:

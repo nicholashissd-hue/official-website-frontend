@@ -88,15 +88,6 @@ const page: ServicePage = {
     ],
   },
 
-  outcomes: {
-    title: "What changes",
-    items: [
-      "Releases become routine rather than an event.",
-      "Rollback stops being a crisis.",
-      "You can see and defend your delivery performance.",
-    ],
-  },
-
   caseStudy: {
     title: "Releases were a Thursday night event",
     client:

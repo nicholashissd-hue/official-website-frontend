@@ -87,15 +87,6 @@ const page: ServicePage = {
     ],
   },
 
-  outcomes: {
-    title: "What changes",
-    items: [
-      "A new service reaches production the same day.",
-      "Infrastructure stops being a ticket queue.",
-      "Standards get adopted because they are the easiest option.",
-    ],
-  },
-
   caseStudy: {
     title: "Eight teams, eight pipelines, and one very tired platform lead",
     client:

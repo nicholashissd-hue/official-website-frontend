@@ -96,15 +96,6 @@ const page: ServicePage = {
     ],
   },
 
-  outcomes: {
-    title: "What changes",
-    items: [
-      "Decisions get made and owned.",
-      "Leadership has an independent technical read.",
-      "You build internal capability rather than a dependency on us.",
-    ],
-  },
-
   caseStudy: {
     title: "The CTO left three weeks before diligence started",
     client:
