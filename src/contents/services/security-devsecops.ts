@@ -16,7 +16,7 @@ const page: ServicePage = {
       "We embed controls, scanning, and policy into the pipeline so security stops being the last gate before release.",
     primaryCta: "Talk to a security engineer",
     photoAlt:
-      "A controlled-access door and card reader in a daylit office corridor, someone walking away toward the window at the far end",
+      "Two ElderOps engineers working at a bench beside a controlled-access door in a daylit office",
     photoPosition: "center 42%",
   },
 

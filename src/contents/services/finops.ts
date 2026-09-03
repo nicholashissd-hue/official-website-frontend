@@ -16,7 +16,7 @@ const page: ServicePage = {
       "We instrument spend, remove waste, and put guardrails in the pipeline so the bill becomes a managed number instead of a monthly surprise.",
     primaryCta: "Talk to a FinOps engineer",
     photoAlt:
-      "A team working through papers together around a long table in a daylit meeting room",
+      "Two ElderOps engineers working through something together at a desk in a daylit office",
     photoPosition: "center 42%",
   },
 
