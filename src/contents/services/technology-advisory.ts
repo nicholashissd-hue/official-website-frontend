@@ -16,7 +16,7 @@ const page: ServicePage = {
       "Fractional architecture and technology leadership. We advise, build alongside your team, and hand off, at any stage.",
     primaryCta: "Talk to a technology advisor",
     photoAlt:
-      "A senior ElderOps advisor talking a client team through a decision at night",
+      "Seen from an upper floor, a small group working over drawings at a table on the workspace below",
     photoPosition: "center 48%",
   },
 

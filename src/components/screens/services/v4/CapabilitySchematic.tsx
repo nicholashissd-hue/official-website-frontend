@@ -116,16 +116,25 @@ const FIT = NW - 32;
 
 const useFitSubs = (ref: React.RefObject<SVGSVGElement | null>) => {
   useEffect(() => {
+    // Wrapped, because this is a cosmetic nicety and the schematic is not.
+    // getComputedTextLength throws on a text node the engine considers
+    // unrendered, and an uncaught throw in an effect takes the whole section
+    // down with it: a label one line too wide is a blemish, a missing plate is
+    // a missing argument.
     const fit = () => {
-      const svg = ref.current;
-      if (!svg) return;
-      for (const t of svg.querySelectorAll<SVGTextElement>(".sc-nsubs")) {
-        t.removeAttribute("textLength");
-        t.removeAttribute("lengthAdjust");
-        if (t.getComputedTextLength() > FIT) {
-          t.setAttribute("textLength", String(FIT));
-          t.setAttribute("lengthAdjust", "spacing");
+      try {
+        const svg = ref.current;
+        if (!svg) return;
+        for (const t of svg.querySelectorAll<SVGTextElement>(".sc-nsubs")) {
+          t.removeAttribute("textLength");
+          t.removeAttribute("lengthAdjust");
+          if (t.getComputedTextLength() > FIT) {
+            t.setAttribute("textLength", String(FIT));
+            t.setAttribute("lengthAdjust", "spacing");
+          }
         }
+      } catch {
+        /* leave the labels at their natural width */
       }
     };
     fit();
