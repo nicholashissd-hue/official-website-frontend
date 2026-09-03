@@ -16,10 +16,13 @@ import { SERVICES } from "@/contents/taxonomy";
  *
  * Two deliberate departures from the plate as it was drafted:
  *
- *  - It is laid on paper, contained, rather than run full bleed. A dark plate
- *    at full width would land directly against the interlude photograph below
- *    it, and two dark bands in a row is the one rhythm rule this page has.
- *    A drawing sheet laid on a page is also simply what a schematic is.
+ *  - It is drawn on paper rather than on a dark field, and contained rather
+ *    than run full bleed. A schematic is ink on a sheet; a dark plate was a
+ *    lightbox. The consequence is that the sheet no longer separates itself
+ *    from the page by changing surface, so the ruled border and the corner
+ *    ticks are the sheet, and every line is drawn heavier than the dark plate
+ *    needed. A hairline blooms on black and reads as a line; on paper the
+ *    same hairline is a scratch, and the connections are the argument.
  *  - The schedule under the plate is not decoration. Hover reveals each
  *    node's sub-offerings, and hover does not exist on a phone; the schedule
  *    is where a touch reader gets the same content, and it is what carries
@@ -128,7 +131,7 @@ const CapabilitySchematic = () => (
                 <path
                   d="M32 0 L0 0 0 32"
                   fill="none"
-                  stroke="rgb(241 238 231 / 0.045)"
+                  stroke="rgb(var(--sc-ink) / 0.055)"
                   strokeWidth="1"
                 />
               </pattern>
@@ -141,8 +144,8 @@ const CapabilitySchematic = () => (
               >
                 <path
                   d="M0 0 V4"
-                  stroke="rgb(241 238 231 / 0.30)"
-                  strokeWidth="0.7"
+                  stroke="rgb(var(--sc-ink) / 0.34)"
+                  strokeWidth="0.75"
                 />
               </pattern>
               <pattern
@@ -154,8 +157,8 @@ const CapabilitySchematic = () => (
               >
                 <path
                   d="M0 0 V4"
-                  stroke="rgb(241 238 231 / 0.22)"
-                  strokeWidth="0.7"
+                  stroke="rgb(var(--sc-ink) / 0.26)"
+                  strokeWidth="0.75"
                 />
               </pattern>
               <marker
@@ -163,15 +166,15 @@ const CapabilitySchematic = () => (
                 viewBox="0 0 10 10"
                 refX="8.5"
                 refY="5"
-                markerWidth="8"
-                markerHeight="8"
+                markerWidth="9"
+                markerHeight="9"
                 orient="auto-start-reverse"
               >
                 <path
                   d="M2 1.5 L8 5 L2 8.5"
                   fill="none"
-                  stroke="rgb(241 238 231 / 0.34)"
-                  strokeWidth="1.2"
+                  stroke="rgb(var(--sc-ink) / 0.5)"
+                  strokeWidth="1.6"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
@@ -181,15 +184,15 @@ const CapabilitySchematic = () => (
                 viewBox="0 0 10 10"
                 refX="8.5"
                 refY="5"
-                markerWidth="8"
-                markerHeight="8"
+                markerWidth="9"
+                markerHeight="9"
                 orient="auto-start-reverse"
               >
                 <path
                   d="M2 1.5 L8 5 L2 8.5"
                   fill="none"
                   stroke="var(--color-signal)"
-                  strokeWidth="1.4"
+                  strokeWidth="1.8"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
@@ -203,7 +206,11 @@ const CapabilitySchematic = () => (
               fill="var(--color-plate)"
             />
             <rect x="0" y="0" width="1312" height="980" fill="url(#sc-grid)" />
-            <g stroke="rgb(241 238 231 / 0.14)" strokeWidth="1" fill="none">
+            <g
+              stroke="rgb(var(--sc-ink) / 0.28)"
+              strokeWidth="1.25"
+              fill="none"
+            >
               <path d="M22.5 0.5 H1289" />
               <path d="M22.5 979 H1289" />
               <path d="M0.5 22.5 V957" />
@@ -211,32 +218,32 @@ const CapabilitySchematic = () => (
             </g>
             <path
               d="M0.5 12.5 V0.5 H12.5"
-              stroke="rgb(241 238 231 / 0.30)"
-              strokeWidth="1"
+              stroke="rgb(var(--sc-ink) / 0.5)"
+              strokeWidth="1.5"
               fill="none"
             />
             <path
               d="M1311 12.5 V0.5 H1299"
-              stroke="rgb(241 238 231 / 0.30)"
-              strokeWidth="1"
+              stroke="rgb(var(--sc-ink) / 0.5)"
+              strokeWidth="1.5"
               fill="none"
             />
             <path
               d="M0.5 967 V979 H12.5"
-              stroke="rgb(241 238 231 / 0.30)"
-              strokeWidth="1"
+              stroke="rgb(var(--sc-ink) / 0.5)"
+              strokeWidth="1.5"
               fill="none"
             />
             <path
               d="M1311 967 V979 H1299"
-              stroke="rgb(241 238 231 / 0.30)"
-              strokeWidth="1"
+              stroke="rgb(var(--sc-ink) / 0.5)"
+              strokeWidth="1.5"
               fill="none"
             />
             <g
-              stroke="rgb(241 238 231 / 0.13)"
-              strokeWidth="1"
-              strokeDasharray="2 3"
+              stroke="rgb(var(--sc-ink) / 0.22)"
+              strokeWidth="1.25"
+              strokeDasharray="3 3.5"
               fill="none"
             >
               <path d="M158.0 250 H404" />
@@ -249,9 +256,9 @@ const CapabilitySchematic = () => (
               FOUNDATION
             </text>
             <g
-              stroke="rgb(241 238 231 / 0.13)"
-              strokeWidth="1"
-              strokeDasharray="2 3"
+              stroke="rgb(var(--sc-ink) / 0.22)"
+              strokeWidth="1.25"
+              strokeDasharray="3 3.5"
               fill="none"
             >
               <path d="M556.8 250 H820" />
@@ -264,9 +271,9 @@ const CapabilitySchematic = () => (
               DELIVERY
             </text>
             <g
-              stroke="rgb(241 238 231 / 0.13)"
-              strokeWidth="1"
-              strokeDasharray="2 3"
+              stroke="rgb(var(--sc-ink) / 0.22)"
+              strokeWidth="1.25"
+              strokeDasharray="3 3.5"
               fill="none"
             >
               <path d="M964.2 250 H1236" />
