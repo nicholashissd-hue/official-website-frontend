@@ -4,52 +4,88 @@ import { methodChapters } from "@/contents/screens/howWeWorkV4";
 import { METHOD } from "@/contents/taxonomy";
 import assessPhoto from "@/assets/webp/v4/method-assess.webp";
 import assessPhoto828 from "@/assets/webp/v4/method-assess-828.webp";
+import buildPhoto from "@/assets/webp/v4/method-build.webp";
+import buildPhoto828 from "@/assets/webp/v4/method-build-828.webp";
+import ownPhoto from "@/assets/webp/v4/method-own.webp";
+import ownPhoto828 from "@/assets/webp/v4/method-own-828.webp";
 
 /**
- * The method expanded: three text chapters under one establishing frame.
+ * The method expanded: the three states of the engagement, then three text
+ * chapters underneath.
  *
- * This section used to alternate a 4:3 photograph against four lines of
- * copy, three times over. The photographs were consistently taller than the
+ * This section used to alternate a 4:3 photograph against four lines of copy,
+ * three times over. The photographs were consistently taller than the
  * paragraphs beside them, so the page read as an image gallery with captions
  * and the method, which is the actual argument this page exists to make,
- * carried almost no detail. The images also sat between a full-viewport
- * photo hero and a full-bleed photo interlude, which made four photographic
- * moments in a row.
+ * carried almost no detail.
  *
- * So the arc keeps one frame here, at the top, doing the job an establishing
- * shot does, and the chapters below it are typography: what happens in the
- * step, three concrete parts of it, and what the client keeps. The full
- * three-frame arc still runs on the homepage, where the triptych is the
- * point.
+ * The header no longer shares its row with a single frame. All three
+ * illustrations run full width beneath it instead, because the argument of
+ * this page is a sequence and one frame could only ever show a third of it.
+ * They carry the step numeral and name and nothing else: the chapters
+ * immediately below say what happens, so a caption here would be the same
+ * sentence twice.
  */
 const ids = ["assess", "build", "own"];
+
+const FRAMES = [
+  {
+    src: assessPhoto,
+    src828: assessPhoto828,
+    alt: "An illustration of a layered system lifted apart to show the connections running through it",
+  },
+  {
+    src: buildPhoto,
+    src828: buildPhoto828,
+    alt: "An illustration of a layered system being assembled, one layer settling into place",
+  },
+  {
+    src: ownPhoto,
+    src828: ownPhoto828,
+    alt: "An illustration of a completed system, sealed and running on its own",
+  },
+];
 
 const MethodChapters = () => (
   <section className="bg-paper">
     <div className="container section-space-block">
-      <div className="grid items-end gap-x-16 gap-y-10 lg:grid-cols-[6fr_6fr]">
+      <div className="grid items-end gap-x-16 gap-y-8 lg:grid-cols-[5fr_7fr]">
         <Reveal>
           <Kicker>{methodChapters.kicker}</Kicker>
           <h2 className="mt-3 font-display text-title font-bold tracking-[-0.03em] text-ink">
             {methodChapters.title}
           </h2>
-          <p className="mt-7 max-w-xl text-lede text-sub">
-            {methodChapters.intro}
-          </p>
         </Reveal>
 
         <Reveal delay={0.08}>
-          {/* 3:2 rather than 4:3: the frame sits at parity with the header
-              block instead of towering over it. */}
-          <img
-            src={assessPhoto}
-            srcSet={`${assessPhoto828} 828w, ${assessPhoto} 1600w`}
-            sizes="(min-width: 1024px) 46vw, 100vw"
-            alt="An illustration of a layered system lifted apart to show the connections running through it"
-            loading="lazy"
-            className="aspect-[3/2] w-full object-contain"
-          />
+          <p className="max-w-xl text-lede text-sub">{methodChapters.intro}</p>
         </Reveal>
+      </div>
+
+      {/* The three states, left to right. Full width so each one has room:
+          in the half column this used to occupy they would have been
+          thumbnails. */}
+      <div className="mt-12 grid gap-x-12 gap-y-10 sm:grid-cols-3 lg:mt-16">
+        {FRAMES.map((frame, index) => (
+          <Reveal key={frame.alt} delay={index * 0.08}>
+            <img
+              src={frame.src}
+              srcSet={`${frame.src828} 828w, ${frame.src} 1600w`}
+              sizes="(min-width: 640px) 30vw, 100vw"
+              alt={frame.alt}
+              loading="lazy"
+              className="aspect-[4/3] w-full object-contain"
+            />
+            <p className="mt-2 flex items-baseline justify-center gap-3">
+              <span className="font-mono text-xs tracking-[0.1em] text-primary">
+                {METHOD[index].num}
+              </span>
+              <span className="font-display text-base font-bold tracking-[-0.01em] text-ink">
+                {METHOD[index].title}
+              </span>
+            </p>
+          </Reveal>
+        ))}
       </div>
 
       <div className="mt-16 lg:mt-20">
