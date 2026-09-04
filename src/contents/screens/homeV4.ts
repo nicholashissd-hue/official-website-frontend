@@ -33,7 +33,10 @@ export const proof = {
     "Every engagement is led by a senior engineer who has run production systems for years.",
 };
 
-export const logosLabel = "Teams we've delivered for";
+/* Not "teams we've delivered for". These marks are where the engineers
+   worked before ElderOps, which is a claim about their track record rather
+   than a client list, and the label now says exactly that. */
+export const logosLabel = "Companies our engineers have worked at";
 
 export const thirdPath = {
   eyebrow: "Why ElderOps",
