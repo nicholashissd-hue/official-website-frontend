@@ -19,17 +19,17 @@ const STEP_SKETCHES = [
   {
     src: assessPhoto,
     srcSet: `${assessPhoto828} 828w, ${assessPhoto} 1600w`,
-    alt: "Two engineers reading a system together at a desk, one leaning in over the other's shoulder",
+    alt: "An illustration of a layered system lifted apart to show the connections running through it",
   },
   {
     src: buildPhoto,
     srcSet: `${buildPhoto828} 828w, ${buildPhoto} 1600w`,
-    alt: "An engineer crouched at an open equipment rack, patching cables with a laptop to hand",
+    alt: "An illustration of a layered system being assembled, one layer settling into place",
   },
   {
     src: ownPhoto,
     srcSet: `${ownPhoto828} 828w, ${ownPhoto} 1600w`,
-    alt: "An open ring-bound runbook on a desk, one hand steadying the page while another writes notes alongside",
+    alt: "An illustration of a completed system, sealed and running on its own",
   },
 ];
 
@@ -52,7 +52,7 @@ const MethodSection = () => (
               sizes="(min-width: 768px) 33vw, 100vw"
               alt={STEP_SKETCHES[index].alt}
               loading="lazy"
-              className="aspect-[4/3] w-full border border-hairline object-cover"
+              className="aspect-[4/3] w-full object-contain"
             />
             <p className="mt-6 flex items-center gap-3">
               <span className="font-mono text-xs tracking-[0.1em] text-primary">
